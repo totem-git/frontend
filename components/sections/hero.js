@@ -11,7 +11,7 @@ const Hero = ({ data }) => {
         {/* Hero section label */}
         <p className="uppercase tracking-wide font-semibold">{data.label}</p>
         {/* Big title */}
-        <h1 className="title mt-2 sm:mt-0 mb-4 sm:mb-2">{data.title}</h1>
+        <h1 className="title font-russo mt-2 sm:mt-0 mb-4 sm:mb-2">{data.title}</h1>
         {/* Description paragraph */}
         <p className="text-xl mb-6">{data.description}</p>
         {/* Buttons row */}
