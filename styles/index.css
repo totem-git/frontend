@@ -25,9 +25,6 @@ html {
 
 .rich-text-banner {
   @apply whitespace-pre-line;
-  a {
-    @apply underline;
-  }
 }
 
 .title {
