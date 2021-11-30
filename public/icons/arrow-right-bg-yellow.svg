@@ -1,0 +1,18 @@
+<svg id="Componente_18_1" data-name="Componente 18 – 1" xmlns="http://www.w3.org/2000/svg" width="64.672" height="64.673" viewBox="0 0 64.672 64.673">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #feb127;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #000;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <path id="Trazado_274" data-name="Trazado 274" class="cls-1" d="M2061.229,3077.638a32.336,32.336,0,1,1-32.336-32.336,32.336,32.336,0,0,1,32.336,32.336" transform="translate(-1996.557 -3045.302)"/>
+  <path id="Trazado_275" data-name="Trazado 275" class="cls-2" d="M2021.216,3065.256l7.677,6.191,7.677,6.191-7.677,6.192-7.677,6.191" transform="translate(-1996.557 -3045.302)"/>
+</svg>
