@@ -3,12 +3,13 @@ import PropTypes from "prop-types"
 import { buttonLinkPropTypes } from "utils/types"
 import CustomLink from "./custom-link"
 
-const ButtonContent = ({ button, appearance, compact }) => {
+const ButtonContent = ({ button, appearance, compact, size }) => {
+  size = size ? size : 'text-base md:text-sm'
   return (
     <div
       className={classNames(
         // Common classes
-        "block w-full lg:w-auto text-center uppercase tracking-wide font-semibold text-base md:text-sm border-2 rounded-md",
+        `inline-block w-auto text-center uppercase tracking-wide font-extrabold ${size} border-2 hover:border-primary-600 hover:text-primary-600`,
         // Full-size button
         {
           "px-8 py-4": compact === false,
@@ -19,15 +20,15 @@ const ButtonContent = ({ button, appearance, compact }) => {
         },
         // Specific to when the button is fully dark
         {
-          "bg-primary-600 text-white border-primary-600": appearance === "dark",
+          "text-black border-black": appearance === "dark",
         },
         // Specific to when the button is dark outlines
         {
-          "text-primary-600 border-primary-600": appearance === "dark-outline",
+          "text-black border-black": appearance === "dark-outline",
         },
         // Specific to when the button is fully white
         {
-          "bg-white text-primary-600 border-white": appearance === "white",
+          "text-white border-white": appearance === "white",
         },
         // Specific to when the button is white outlines
         {
@@ -40,13 +41,14 @@ const ButtonContent = ({ button, appearance, compact }) => {
   )
 }
 
-const ButtonLink = ({ button, appearance, compact = false }) => {
+const ButtonLink = ({ button, appearance, compact = false, size }) => {
   return (
     <CustomLink link={button}>
       <ButtonContent
         button={button}
         appearance={appearance}
         compact={compact}
+        size={size}
       />
     </CustomLink>
   )
@@ -61,6 +63,7 @@ ButtonLink.propTypes = {
     "dark-outline",
   ]),
   compact: PropTypes.bool,
+  size: PropTypes.string,
 }
 
 export default ButtonLink
