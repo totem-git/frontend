@@ -45,3 +45,14 @@ html {
   display: inline-block;
   margin-left: 0.5em;
 }
+
+.separator-fish {
+  background-image: url(/icons/fish-yellow.svg);
+  background-repeat: space no-repeat;
+  background-position: center;
+  background-size: auto 100%;
+}
+
+.separator-fish-rtl {
+  transform: scaleX(-1);
+}
