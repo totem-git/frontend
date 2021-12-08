@@ -9,6 +9,7 @@ import { MdMenu } from "react-icons/md"
 import MobileNavMenu from "./mobile-nav-menu"
 import ButtonLink from "./button-link"
 import NextImage from "./image"
+import Image from "next/image"
 import CustomLink from "./custom-link"
 import LocaleSwitch from "../locale-switch"
 
@@ -19,13 +20,13 @@ const Navbar = ({ navbar, pageContext }) => {
   return (
     <>
       {/* The actual navbar */}
-      <nav className="border-gray-200 border-b-2 py-6 sm:py-2">
+      <nav className="flex items-center bg-black h-20 sm:py-2 fixed top-0 inset-x-0 z-50">
         <div className="container flex flex-row items-center justify-between">
           {/* Content aligned to the left */}
           <div className="flex flex-row items-center">
             <Link href="/">
-              <a className="h-8 w-32">
-                <NextImage width="120" height="33" media={navbar.logo} />
+              <a className="text-primary-600 font-javanese text-2xl h-4">
+                TOTEM RESORT
               </a>
             </Link>
             {/* List of links on desktop */}
@@ -33,7 +34,7 @@ const Navbar = ({ navbar, pageContext }) => {
               {navbar.links.map((navLink) => (
                 <li key={navLink.id}>
                   <CustomLink link={navLink} locale={router.locale}>
-                    <div className="hover:text-gray-900 px-2 py-1">
+                    <div className="text-gray-100 hover:text-gray-200 px-2 py-1">
                       {navLink.text}
                     </div>
                   </CustomLink>
@@ -51,16 +52,16 @@ const Navbar = ({ navbar, pageContext }) => {
             {/* Hamburger menu on mobile */}
             <button
               onClick={() => setMobileMenuIsShown(true)}
-              className="p-1 block md:hidden"
+              className="flex md:hidden"
             >
-              <MdMenu className="h-8 w-auto" />
+              <Image width="64" height="40" src="/icons/menu-icon.svg" />
             </button>
             {/* CTA button on desktop */}
             {navbar.button && (
               <div className="hidden md:block">
                 <ButtonLink
                   button={navbar.button}
-                  appearance={getButtonAppearance(navbar.button.type, "light")}
+                  appearance={getButtonAppearance(navbar.button.type, "dark")}
                   compact
                 />
               </div>
