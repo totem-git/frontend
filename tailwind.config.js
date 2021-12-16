@@ -2,9 +2,7 @@ const { colors: defColors } = require(`tailwindcss/defaultTheme`)
 const colors = require("tailwindcss/colors")
 
 module.exports = {
-  mode: "jit", // see https://tailwindcss.com/docs/just-in-time-mode
-  purge: ["./components/**/*.js", "./pages/**/*.js"],
-  darkMode: false, // or "media" or "class"
+  content: ["./components/**/*.js", "./pages/**/*.js"],
   theme: {
     fontFamily: {
       'roboto': ['Roboto', 'sans-serif'],
@@ -40,9 +38,6 @@ module.exports = {
       lg: "1024px",
       xl: "1280px",
     },
-  },
-  variants: {
-    extend: {},
   },
   plugins: [require("@tailwindcss/typography")],
 }
