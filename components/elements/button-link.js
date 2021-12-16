@@ -4,7 +4,6 @@ import { buttonLinkPropTypes } from "utils/types"
 import CustomLink from "./custom-link"
 
 const ButtonContent = ({ button, appearance, compact, size }) => {
-  size = size ? size : 'text-base md:text-sm'
   return (
     <div
       className={classNames(
@@ -41,7 +40,7 @@ const ButtonContent = ({ button, appearance, compact, size }) => {
   )
 }
 
-const ButtonLink = ({ button, appearance, compact = false, size }) => {
+const ButtonLink = ({ button, appearance, compact = false, size = 'text-base md:text-sm' }) => {
   return (
     <CustomLink link={button}>
       <ButtonContent
