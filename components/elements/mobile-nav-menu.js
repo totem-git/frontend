@@ -7,6 +7,7 @@ import Image from "next/image"
 import CustomLink from "./custom-link"
 import Link from "next/link"
 
+// TODO[epic=To dos] make mobile navbar menu go away when clicking a link
 const MobileNavMenu = ({ navbar, closeSelf }) => {
   // Prevent window scroll while mobile nav menu is open
   useLockBodyScroll()
