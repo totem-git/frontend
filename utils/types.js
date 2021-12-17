@@ -18,4 +18,6 @@ export const buttonLinkPropTypes = PropTypes.shape({
   theme: PropTypes.string,
   text: PropTypes.string.isRequired,
   newTab: PropTypes.bool,
+  url: PropTypes.string,
+  icon: PropTypes.any,
 })
