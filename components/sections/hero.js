@@ -32,19 +32,19 @@ const Hero = ({ data }) => {
         </div>
       </div>
       <div className="flex justify-center divide-x-2 border-white px-4 mt-6">
-        <div className="grow py-2">
+        <div className="grow py-2 hover:text-primary-600">
           <a href="#" className="flex flex-col space-y-2">
             <Image src="/icons/icon-1.svg" width="16" height="16" />
             <span>The facilities</span>
           </a>
         </div>
-        <div className="grow py-2">
+        <div className="grow py-2 hover:text-primary-600">
           <a href="#" className="flex flex-col space-y-2">
             <Image src="/icons/icon-2.svg" width="16" height="16" />
             <span>The facilities</span>
           </a>
         </div>
-        <div className="grow py-2">
+        <div className="grow py-2 hover:text-primary-600">
           <a href="#" className="flex flex-col space-y-2">
             <Image src="/icons/icon-3.svg" width="16" height="16" />
             <span>The facilities</span>
