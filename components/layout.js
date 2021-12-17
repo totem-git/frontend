@@ -8,7 +8,7 @@ const Layout = ({ children, global, pageContext }) => {
 
   const [bannerIsShown, setBannerIsShown] = useState(true)
   return (
-    <div className="flex flex-col justify-between min-h-screen pt-20 font-roboto">
+    <div className="flex flex-col justify-between min-h-screen pt-20 font-roboto bg-light-grey-blue">
       {/* Aligned to the top */}
       <div className="flex-1">
         {notificationBanner && bannerIsShown && (
