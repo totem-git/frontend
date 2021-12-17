@@ -19,7 +19,7 @@ const MobileNavMenu = ({ navbar, closeSelf }) => {
         <div className="flex flex-row justify-between h-20 items-center">
           {/* Company logo */}
           <a className="text-primary-600 font-javanese text-2xl h-4">
-            TOTEM RESORT
+            TOTEM RESORTS
           </a>
           {/* Close button */}
           <button onClick={closeSelf} className="py-1 px-1">

@@ -26,7 +26,7 @@ const Navbar = ({ navbar, pageContext }) => {
           <div className="flex flex-row items-center">
             <Link href="/">
               <a className="text-primary-600 font-javanese text-2xl h-4">
-                TOTEM RESORT
+                TOTEM RESORTS
               </a>
             </Link>
             {/* List of links on desktop */}
