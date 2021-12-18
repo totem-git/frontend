@@ -6,7 +6,7 @@ import Image from "next/image"
 const Hero = ({ data }) => {
   return (
     <main className="text-white text-center bg-black">
-      <div className="relative py-12 px-16">
+      <div className="relative flex items-center py-12 px-16 h-[85vh]">
         <div className="absolute inset-0">
           {/* TODO add poster attribute */}
           <video playsInline autoPlay muted loop id="bgvid" className="w-full h-full object-cover">
