@@ -9,7 +9,7 @@ const CardsList = ({ data }) => {
         <div className="container flex flex-col items-center space-y-8 py-20">
             <div className="bg-white max-w-md">
                 <div className="h-64 overflow-hidden relative">
-                    <Image src="/imgs/iPhone 6-7-8 Plus - 1-image2.jpg" className="" objectFit="cover" layout="fill" width="761" height="494" />
+                    <Image src="/imgs/iPhone 6-7-8 Plus - 1-image2.jpg" objectFit="cover" layout="fill" />
                 </div>
                 <div className="h-6 bg-black"></div>
                 <div className="px-8 py-10 flex flex-col space-y-5">
@@ -27,7 +27,7 @@ const CardsList = ({ data }) => {
             </div>
             <div className="bg-white max-w-md">
                 <div className="h-64 overflow-hidden relative">
-                    <Image src="/imgs/iPhone 6-7-8 Plus - 1-image3.jpg" className="" objectFit="cover" layout="fill" width="761" height="494" />
+                    <Image src="/imgs/iPhone 6-7-8 Plus - 1-image3.jpg" objectFit="cover" layout="fill" />
                 </div>
                 <div className="h-6 bg-black"></div>
                 <div className="px-8 py-10 flex flex-col space-y-5">
@@ -45,7 +45,7 @@ const CardsList = ({ data }) => {
             </div>
             <div className="bg-white max-w-md">
                 <div className="h-64 overflow-hidden relative">
-                    <Image src="/imgs/iPhone 6-7-8 Plus - 1-image5.jpg" className="" objectFit="cover" layout="fill" width="761" height="494" />
+                    <Image src="/imgs/iPhone 6-7-8 Plus - 1-image5.jpg" objectFit="cover" layout="fill" />
                 </div>
                 <div className="h-6 bg-black"></div>
                 <div className="px-8 py-10 flex flex-col space-y-5">
