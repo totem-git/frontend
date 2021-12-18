@@ -30,7 +30,7 @@ const MobileNavMenu = ({ navbar, closeSelf }) => {
         <div className="flex flex-col items-center w-9/12 mx-auto mt-auto mb-auto pb-24">
           <ul className="flex flex-col list-none items-baseline text-2xl mb-10">
             {navbar.links.map((navLink) => (
-              <li key={navLink.id} className="block w-full">
+              <li onClick={closeSelf} key={navLink.id} className="block w-full">
                 <CustomLink link={navLink}>
                   <div className="text-primary-600 hover:text-primary-300 uppercase py-6 text-center">
                     <span>{navLink.text}</span>
@@ -40,20 +40,22 @@ const MobileNavMenu = ({ navbar, closeSelf }) => {
             ))}
           </ul>
 
-          {navbar.button && (<ButtonLink
-            button={navbar.button}
-            appearance={getButtonAppearance(navbar.button.type, "dark")}
-            size="text-2xl"
-          />)}
+          <span onClick={closeSelf}>
+            {navbar.button && (<ButtonLink
+              button={navbar.button}
+              appearance={getButtonAppearance(navbar.button.type, "dark")}
+              size="text-2xl"
+            />)}
+          </span>
 
           <div className="flex gap-12 mt-32">
-            <a href="#">
+            <a onClick={closeSelf} href="#">
               <Image src="/icons/ig-icon.svg" width="40" height="40" />
             </a>
-            <a href="#">
+            <a onClick={closeSelf} href="#">
               <Image src="/icons/fb-icon.svg" width="40" height="40" />
             </a>
-            <a href="#">
+            <a onClick={closeSelf} href="#">
               <Image src="/icons/yt-icon.svg" width="40" height="40" />
             </a>
           </div>
