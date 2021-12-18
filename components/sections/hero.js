@@ -8,7 +8,7 @@ const Hero = ({ data }) => {
     <main className="text-white text-center bg-black">
       <div className="relative flex items-center py-12 px-16 h-[85vh]">
         <div className="absolute inset-0">
-          {/* TODO add poster attribute */}
+          {/* TODO[epic=To do] add poster attribute */}
           <video playsInline autoPlay muted loop id="bgvid" className="w-full h-full object-cover">
             <source src="/vid/totem1_trimmed_720_optimized.webm" type="video/webm" />
             <source src="/vid/totem1_trimmed_720_optimized.mp4" type="video/mp4" />
