@@ -13,7 +13,7 @@ const LeadForm = ({ data }) => {
 
   return (
     <div className="py-10 text-center">
-      <h1 className="text-3xl mb-10 font-bold mb-2">{data.title}</h1>
+      <h1 className="text-3xl mb-10 font-bold">{data.title}</h1>
       <div className="flex flex-col items-center">
         <Formik
           initialValues={{ email: "" }}
