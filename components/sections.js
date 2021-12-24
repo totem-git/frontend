@@ -9,6 +9,7 @@ import RichText from "./sections/rich-text"
 import Pricing from "./sections/pricing"
 import LeadForm from "./sections/lead-form"
 import CardsList from "./customSections/CardsList"
+import GeneralPorpuseSection from "./customSections/GeneralPorpuseSection"
 
 // Map Strapi sections to section components
 const sectionComponents = {
@@ -22,6 +23,7 @@ const sectionComponents = {
   "sections.pricing": Pricing,
   "sections.lead-form": LeadForm,
   "sections.cards-list": CardsList,
+  "sections.general-porpuse-section": GeneralPorpuseSection,
 }
 
 // Display a section individually
