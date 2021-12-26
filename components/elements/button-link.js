@@ -1,5 +1,4 @@
 import classNames from "classnames"
-import Image from "next/image"
 import PropTypes from "prop-types"
 import { buttonLinkPropTypes } from "utils/types"
 import CustomLink from "./custom-link"
@@ -12,11 +11,11 @@ const ButtonContent = ({ button, appearance, compact, size }) => {
         `inline-block w-auto text-center uppercase tracking-wide font-extrabold ${size} border-2 hover:border-primary-600 hover:text-primary-600 hover:stroke-primary-600`,
         // Full-size button
         {
-          "px-8 py-4": compact === false,
+          "px-16 py-4": compact === false,
         },
         // Compact button
         {
-          "px-6 py-2": compact === true,
+          "px-8 py-2": compact === true,
         },
         // Specific to when the button is fully dark
         {
