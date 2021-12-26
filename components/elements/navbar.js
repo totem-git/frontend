@@ -2,13 +2,10 @@ import { useState } from "react"
 import PropTypes from "prop-types"
 import Link from "next/link"
 import { useRouter } from "next/router"
-
 import { getButtonAppearance } from "utils/button"
 import { mediaPropTypes, linkPropTypes, buttonLinkPropTypes } from "utils/types"
-import { MdMenu } from "react-icons/md"
 import MobileNavMenu from "./mobile-nav-menu"
 import ButtonLink from "./button-link"
-import NextImage from "./image"
 import Image from "next/image"
 import CustomLink from "./custom-link"
 import LocaleSwitch from "../locale-switch"
@@ -16,25 +13,26 @@ import LocaleSwitch from "../locale-switch"
 const Navbar = ({ navbar, pageContext }) => {
   const router = useRouter()
   const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false)
+  const currentPage = `/${pageContext.slug}`
 
   return (
     <>
       {/* The actual navbar */}
-      <nav className="flex items-center bg-black h-20 sm:py-2 fixed top-0 inset-x-0 z-50">
-        <div className="container flex flex-row items-center justify-between">
+      <nav className="flex bg-black h-20 fixed top-0 inset-x-0 z-50">
+        <div className="grow mx-6 lg:mx-12 xl:container flex flex-row justify-between">
           {/* Content aligned to the left */}
-          <div className="flex flex-row items-center">
+          <div className="flex flex-row justify-between grow">
             <Link href="/">
-              <a className="text-primary-600 font-javanese text-2xl h-4">
+              <a className="inline-flex items-center text-primary-600 font-javanese text-xl lg:text-2xl h-20 pt-[6px]">
                 TOTEM RESORTS
               </a>
             </Link>
             {/* List of links on desktop */}
-            <ul className="hidden list-none md:flex flex-row gap-4 items-baseline ml-10">
+            <ul className="hidden list-none md:flex flex-row gap-4 ml-10 mr-6 lg:mr-12 xl:mr-24">
               {navbar.links.map((navLink) => (
-                <li key={navLink.id}>
+                <li key={navLink.id} className={`flex items-center ${navLink.url == currentPage && 'border-b-2 border-white'}`}>
                   <CustomLink link={navLink} locale={router.locale}>
-                    <div className="text-gray-100 hover:text-gray-200 px-2 py-1">
+                    <div className="text-primary-600 hover:text-primary-300 text-xs lg:text-base px-2 py-1">
                       {navLink.text}
                     </div>
                   </CustomLink>
@@ -42,7 +40,7 @@ const Navbar = ({ navbar, pageContext }) => {
               ))}
             </ul>
           </div>
-          <div className="flex">
+          <div className="flex items-center">
             {/* Locale Switch Mobile */}
             {pageContext.localizedPaths.length > 0 && (
               <div className="md:hidden">
@@ -63,6 +61,7 @@ const Navbar = ({ navbar, pageContext }) => {
                   button={navbar.button}
                   appearance={getButtonAppearance(navbar.button.type, "dark")}
                   compact
+                  size="text-xs lg:text-base"
                 />
               </div>
             )}

@@ -24,58 +24,72 @@ const Footer = ({ footer }) => {
         style={{ border: "0" }}
         allowFullScreen={true}
         loading="lazy"
-        className="w-full h-96"
+        className="w-full h-96 lg:container"
       >
       </iframe>
-      <div className="container">
-        <div
-          className="mt-10"
-        >
-          <p className="text-primary-600 uppercase tracking-wide font-semibold">
-            Contact
-          </p>
-          <ul className="mt-2">
-            <li
-              className="text-gray-100 py-1 px-1 -mx-1 hover:text-gray-400"
-            >
-              <CustomLink link={{
-                url: "#"
-              }}
+      <div className="container flex flex-col mt-16">
+        <nav className="flex flex-wrap flex-row items-start lg:justify-between mb-10">
+          <div
+            className="mt-10 pr-6 lg:pr-0 lg:mt-0 w-full sm:w-6/12 sm:pl-[10%] lg:pl-0 lg:w-auto"
+          >
+            <p className="text-primary-600 font-russo text-xl tracking-wide font-semibold">
+              Contact
+            </p>
+            <ul className="mt-2">
+              <li
+                className="text-gray-100 py-1 px-1 -mx-1 hover:text-gray-400"
               >
-                Tel: Tel: +00 23 2 343 32
-              </CustomLink>
-            </li>
-            <li
-              className="text-gray-100 py-1 px-1 -mx-1 hover:text-gray-400"
-            >
-              <CustomLink link={{
-                url: "#"
-              }}
+                <CustomLink link={{
+                  url: "#"
+                }}
+                >
+                  Tel: Tel: +00 23 2 343 32
+                </CustomLink>
+              </li>
+              <li
+                className="text-gray-100 py-1 px-1 -mx-1 hover:text-gray-400"
               >
-                Email: e-comerce@totemresort.com
-              </CustomLink>
-            </li>
-            <li
-              className="text-gray-100 py-1 px-1 -mx-1 hover:text-gray-400"
-            >
-              <CustomLink link={{
-                url: "#"
-              }}
+                <CustomLink link={{
+                  url: "#"
+                }}
+                >
+                  Email: e-comerce@totemresort.com
+                </CustomLink>
+              </li>
+              <li
+                className="text-gray-100 py-1 px-1 -mx-1 hover:text-gray-400"
               >
-                Email: info@totemresort.com
-              </CustomLink>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div className="container flex flex-col lg:flex-row lg:justify-between">
-        <nav className="flex flex-wrap flex-row lg:gap-20 items-start lg:justify-end mb-10">
+                <CustomLink link={{
+                  url: "#"
+                }}
+                >
+                  Email: info@totemresort.com
+                </CustomLink>
+              </li>
+            </ul>
+            <div className="hidden lg:flex flex-col mt-8">
+              <p className="text-primary-600 font-russo text-xl tracking-wide font-semibold">
+                Follow Us
+              </p>
+              <div className="flex gap-2">
+                <a href="#" className="p-4 pl-0">
+                  <Image src="/icons/ig-icon.svg" width="40" height="40" />
+                </a>
+                <a href="#" className="p-4">
+                  <Image src="/icons/fb-icon.svg" width="40" height="40" />
+                </a>
+                <a href="#" className="p-4">
+                  <Image src="/icons/yt-icon.svg" width="40" height="40" />
+                </a>
+              </div>
+            </div>
+          </div>
           {footer.columns.map((footerColumn) => (
             <div
               key={footerColumn.id}
-              className="mt-10 lg:mt-0 w-6/12 lg:w-auto"
+              className="mt-10 pr-6 odd:pr-0 sm:even:pr-0 sm:odd:pr-6 lg:!pr-0 lg:mt-0 w-6/12 sm:pl-[10%] lg:pl-0 lg:w-auto"
             >
-              <p className="text-primary-600 uppercase tracking-wide font-semibold">
+              <p className="text-primary-600 font-russo text-xl tracking-wide font-semibold">
                 {footerColumn.title}
               </p>
               <ul className="mt-2">
@@ -92,8 +106,8 @@ const Footer = ({ footer }) => {
           ))}
         </nav>
       </div>
-      <div className="container flex flex-col items-center">
-        <p className="text-primary-600 uppercase tracking-wide font-semibold">
+      <div className="container flex lg:hidden flex-col items-center">
+        <p className="text-primary-600 uppercase font-russo tracking-wide font-semibold">
           Follow Us
         </p>
         <div className="flex gap-9 mt-4">
@@ -108,8 +122,8 @@ const Footer = ({ footer }) => {
           </a>
         </div>
       </div>
-      <div className="lg:hidden separator-fish h-8 mx-3 my-8"></div>
-      <div className="border-t-2 border-gray-400 mt-24 py-12 text-sm text-center text-gray-700">
+      <div className="separator-fish h-8 mx-3 my-8 lg:mb-4"></div>
+      <div className="border-t-2 border-gray-400 mt-24 lg:mt-10 py-12 text-sm text-center text-gray-700">
         <div className="container">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic eum in aliquid ullam vitae assumenda mollitia repudiandae eos! Est veritatis unde in temporibus? Dolores minus quos, impedit ab reprehenderit velit recusandae quam cupiditate odit est aspernatur eaque quas debitis? Numquam itaque reiciendis unde perferendis commodi voluptates officia porro nesciunt quidem.</div>
         <div className="container mt-4">{footer.smallText}</div>
       </div>
