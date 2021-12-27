@@ -3,7 +3,7 @@ import { getButtonAppearance } from "utils/button"
 
 const Variant1 = ({ data }) => {
     return (
-        <section className="lg:px-24 py-12">
+        <section className="lg:px-24">
             <div className="py-16 bg-black text-light-grey-blue">
                 <div className="px-8 lg:px-24 sm:max-w-xl lg:max-w-4xl mx-auto flex flex-col lg:items-center lg:text-center space-y-4">
                     <h2 className="text-primary-600 text-3xl font-russo font-thin">{data.title}</h2>
