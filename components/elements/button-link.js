@@ -3,12 +3,12 @@ import PropTypes from "prop-types"
 import { buttonLinkPropTypes } from "utils/types"
 import CustomLink from "./custom-link"
 
-const ButtonContent = ({ button, appearance, compact, size }) => {
+const ButtonContent = ({ button, appearance, compact, size, wFull }) => {
   return (
     <div
       className={classNames(
         // Common classes
-        `inline-block w-auto text-center uppercase tracking-wide font-extrabold ${size} border-2 hover:border-primary-600 hover:text-primary-600 hover:stroke-primary-600`,
+        `inline-block ${wFull ? 'w-full' : 'w-auto'} text-center uppercase tracking-wide font-extrabold ${size} border-2 hover:border-primary-600 hover:text-primary-600 hover:stroke-primary-600`,
         // Full-size button
         {
           "px-16 py-4": compact === false,
@@ -48,14 +48,15 @@ const ButtonContent = ({ button, appearance, compact, size }) => {
   )
 }
 
-const ButtonLink = ({ button, appearance, compact = false, size = 'text-base md:text-sm' }) => {
+const ButtonLink = ({ button, appearance, compact = false, size = 'text-base md:text-sm', wFull = false }) => {
   return (
-    <CustomLink link={button}>
+    <CustomLink link={button} wFull={wFull}>
       <ButtonContent
         button={button}
         appearance={appearance}
         compact={compact}
         size={size}
+        wFull={wFull}
       />
     </CustomLink>
   )
@@ -71,6 +72,7 @@ ButtonLink.propTypes = {
   ]),
   compact: PropTypes.bool,
   size: PropTypes.string,
+  wFull: PropTypes.bool,
 }
 
 export default ButtonLink
