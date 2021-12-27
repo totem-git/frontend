@@ -7,7 +7,7 @@ const Separator = ({ data }) => {
         } : {}
 
     return (
-        <div style={styles} className="dinamic-separator h-16 my-4"></div>
+        <div style={styles} className="dinamic-separator h-16 my-8"></div>
     )
 }
 
