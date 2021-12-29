@@ -36,7 +36,7 @@ CustomLink.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]).isRequired,
-  wFull: false,
+  wFull: PropTypes.bool,
 }
 
 export default CustomLink
