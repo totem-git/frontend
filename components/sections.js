@@ -11,6 +11,7 @@ import LeadForm from "./sections/lead-form"
 import CardsList from "./customSections/CardsList"
 import GeneralPorpuseSection from "./customSections/GeneralPorpuseSection"
 import Separator from "./customSections/Separator"
+import Slider from "./customSections/Slider"
 
 // Map Strapi sections to section components
 const sectionComponents = {
@@ -26,6 +27,7 @@ const sectionComponents = {
   "sections.cards-list": CardsList,
   "sections.general-porpuse-section": GeneralPorpuseSection,
   "sections.dinamic-separator": Separator,
+  "sections.slider": Slider,
 }
 
 // Display a section individually
