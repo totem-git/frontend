@@ -92,8 +92,8 @@ const Slider = ({ data }) => {
                             <div className="absolute inset-0" style={{ backgroundImage: `linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,0) 5%, rgba(0,0,0,.7), rgba(0,0,0,.9))` }}></div>
                         </div>
                         <div className="h-96 sm:h-64 lg:h-72 sm:w-1/2 lg:w-auto relative pl-8 sm:pl-20 pr-16 sm:pr-20 flex flex-col justify-between lg:justify-end">
-                            <div className="space-y-8 lg:space-y-4">
-                                <h4 style={{ textShadow: '1px 1px 2px rgba(0,0,0,.7)' }} className="text-primary-600 text-4xl font-russo">{slide.title}</h4>
+                            <div className="space-y-4 md:space-y-8 lg:space-y-4">
+                                <h4 style={{ textShadow: '1px 1px 2px rgba(0,0,0,.7)' }} className="text-primary-600 text-2xl md:text-4xl font-russo">{slide.title}</h4>
                                 <p>{slide.text}</p>
                                 <div>
                                     {slide.CTAs && slide.CTAs.map(CTA => (
@@ -101,6 +101,7 @@ const Slider = ({ data }) => {
                                             key={CTA.id}
                                             button={CTA}
                                             appearance={getButtonAppearance(CTA.type, 'dark')}
+                                            compact
                                         />
                                     ))}
                                 </div>
