@@ -8,7 +8,7 @@ const SliderIndicators = ({ activeSlides }) => {
     return (
         <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center space-x-2">
             {activeSlides.map((isActive, i) => (
-                <div className={`${isActive ? 'p-1 bg-white' : 'p-0.5 bg-gray-500'} rounded-full transition-all`}></div>
+                <div key={i} className={`${isActive ? 'p-1 bg-white' : 'p-0.5 bg-gray-500'} rounded-full transition-all`}></div>
             ))}
         </div>
     )
@@ -51,14 +51,15 @@ const Slider = ({ data }) => {
     }, [])
 
     const handleSlide = (e) => {
+        let skipAmount = innerWidth >= 1024 ? 2 : 1
         let slidesCount = Number.parseInt(sliderRef.current.dataset.slidesCount)
-        let scrollAmount = Math.floor(sliderRef.current.getBoundingClientRect().width / 2)
+        let scrollAmount = Math.floor(sliderRef.current.getBoundingClientRect().width / skipAmount)
         let currentScrollPosition = sliderRef.current.scrollLeft
         let currentPosition = Math.floor(currentScrollPosition / scrollAmount)
 
         let direction = Number.parseInt(e.target.dataset.slideDirection)
         let slideSteps = []
-        for (let i = 0; i < slidesCount - 1; i++) {
+        for (let i = 0; i < slidesCount - (skipAmount - 1); i++) {
             slideSteps.push(Math.floor(scrollAmount * i))
         }
 
@@ -66,7 +67,7 @@ const Slider = ({ data }) => {
             return
         }
 
-        let nextPosition = currentPosition + (direction * 2)
+        let nextPosition = currentPosition + (direction * skipAmount)
         nextPosition = nextPosition > slideSteps.length - 1 ? slideSteps.length - 1 : nextPosition
         nextPosition = nextPosition < 0 ? 0 : nextPosition
 
@@ -106,7 +107,7 @@ const Slider = ({ data }) => {
                     </div>
                 ))}
             </div>
-            <div className="flex absolute bottom-20 left-8 sm:bottom-1/2 sm:left-1/2 sm:-translate-x-1/2 sm:translate-y-1/2 pointer-events-none lg:pointer-events-auto">
+            <div className="flex absolute bottom-20 left-8 sm:bottom-1/2 sm:left-1/2 sm:-translate-x-1/2 sm:translate-y-1/2 pointer-events-auto">
                 <button data-slide-direction="-1" onClick={handleSlide} style={{ backgroundImage: 'linear-gradient(to left, #000, transparent)', boxShadow: '3px 3px 4px rgba(0,0,0,.5)' }} className="absolute w-1/2 rounded-l-full top-0 bottom-0 left-0 opacity-0 hover:opacity-100"></button>
                 <button data-slide-direction="1" onClick={handleSlide} style={{ backgroundImage: 'linear-gradient(to right, #000, transparent)', boxShadow: '3px 3px 4px rgba(0,0,0,.5)' }} className="absolute w-1/2 rounded-r-full top-0 bottom-0 right-0 opacity-0 hover:opacity-100"></button>
                 <div className="flex pointer-events-none">
