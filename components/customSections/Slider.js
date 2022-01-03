@@ -35,15 +35,17 @@ const Slider = ({ data }) => {
             rootMargin: '-100px',
             threshold: 0
         })
-        if (sliderRef.current.children) {
+        if (sliderRef.current) {
             Array.from(sliderRef.current.children).forEach((slide) => {
                 io.observe(slide)
             })
         }
 
+        let ref = Object.assign({}, sliderRef)
+
         return () => {
-            if (sliderRef.current.children) {
-                Array.from(sliderRef.current.children).forEach((slide) => {
+            if (ref.current) {
+                Array.from(ref.current.children).forEach((slide) => {
                     io.unobserve(slide)
                 })
             }
