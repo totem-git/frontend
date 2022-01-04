@@ -3,16 +3,7 @@ import ButtonLink from "@/components/elements/button-link"
 import { getButtonAppearance } from "utils/button"
 import Image from "next/image"
 import { useRef, useEffect, useState } from "react"
-
-const SliderIndicators = ({ activeSlides }) => {
-    return (
-        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center space-x-2">
-            {activeSlides.map((isActive, i) => (
-                <div key={i} className={`${isActive ? 'p-1 bg-white' : 'p-0.5 bg-gray-500'} rounded-full transition-all`}></div>
-            ))}
-        </div>
-    )
-}
+import SliderIndicators from "../elements/SliderIndicators"
 
 const Slider = ({ data }) => {
     const sliderRef = useRef()
