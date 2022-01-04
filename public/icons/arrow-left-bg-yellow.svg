@@ -1,4 +1,5 @@
-<svg id="Componente_17" data-name="Componente 17" xmlns="http://www.w3.org/2000/svg" width="64.672" height="64.672" viewBox="0 0 64.672 64.672">
+<svg id="Componente_17" data-name="Componente 17" xmlns="http://www.w3.org/2000/svg" width="64.672" height="64.672"
+  viewBox="0 0 64.672 64.672">
   <defs>
     <style>
       .cls-1 {
@@ -9,10 +10,14 @@
         fill: none;
         stroke: #000;
         stroke-miterlimit: 10;
-        stroke-width: 2px;
+        stroke-width: 4px;
       }
     </style>
   </defs>
-  <path id="Trazado_273" data-name="Trazado 273" class="cls-1" d="M1332.154,3082.045a32.336,32.336,0,1,1-32.336-32.336,32.336,32.336,0,0,1,32.336,32.336" transform="translate(-1267.482 -3049.709)"/>
-  <path id="Trazado_276" data-name="Trazado 276" class="cls-2" d="M1307.495,3094.427l-7.677-6.191-7.677-6.191,7.677-6.192,7.677-6.191" transform="translate(-1267.482 -3049.709)"/>
+  <path id="Trazado_273" data-name="Trazado 273" class="cls-1"
+    d="M1332.154,3082.045a32.336,32.336,0,1,1-32.336-32.336,32.336,32.336,0,0,1,32.336,32.336"
+    transform="translate(-1267.482 -3049.709)" />
+  <path id="Trazado_276" data-name="Trazado 276" class="cls-2"
+    d="M1307.495,3094.427l-7.677-6.191-7.677-6.191,7.677-6.192,7.677-6.191"
+    transform="translate(-1267.482 -3049.709)" />
 </svg>
