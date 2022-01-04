@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Markdown from "react-markdown"
 
 const Variant3 = ({ data }) => {
     return (
@@ -12,7 +13,9 @@ const Variant3 = ({ data }) => {
                 </div>
                 <div className="space-y-4">
                     <h4 className="text-primary-600 text-4xl font-russo font-thin">{data.title}</h4>
-                    <p>{data.text}</p>
+                    <div className="prose prose-invert">
+                        <Markdown>{data.text}</Markdown>
+                    </div>
                 </div>
                 <div className="flex w-full flex-col items-center gap-8 lg:flex-row pt-8">
                     <div className="separator-fish w-3/6 h-8 grow shrink-0"></div>

@@ -1,5 +1,6 @@
 import ThumbnailGallery from "@/components/elements/ThumbnailGallery"
 import Image from "next/image"
+import Markdown from "react-markdown"
 
 const Variant4 = ({ data }) => {
     return (
@@ -22,7 +23,9 @@ const Variant4 = ({ data }) => {
                         </div>
                         <h5 className="text-xl font-extrabold text-gray-600">{data.subTitle}</h5>
                     </div>
-                    <p className="text-gray-700">{data.text}</p>
+                    <div className="prose text-gray-700">
+                        <Markdown>{data.text}</Markdown>
+                    </div>
                 </div>
             </div>
         </section>
