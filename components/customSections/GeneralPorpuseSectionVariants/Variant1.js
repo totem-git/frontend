@@ -11,15 +11,17 @@ const Variant1 = ({ data }) => {
                     <div className="prose prose-invert">
                         <Markdown>{data.text}</Markdown>
                     </div>
-                    <div className="flex space-x-2 pt-8">
-                        {data.CTAs && data.CTAs.map(cta => (
-                            <ButtonLink
-                                button={cta}
-                                appearance={getButtonAppearance(cta.type, 'dark')}
-                                key={cta.id}
-                            />
-                        ))}
-                    </div>
+                    {!!data.CTAs.length && (
+                        <div className="flex space-x-2 pt-8">
+                            {data.CTAs.map(cta => (
+                                <ButtonLink
+                                    button={cta}
+                                    appearance={getButtonAppearance(cta.type, 'dark')}
+                                    key={cta.id}
+                                />
+                            ))}
+                        </div>
+                    )}
                 </div>
                 <div className="separator-fish separator-fish h-6 !mt-16"></div>
             </div>
