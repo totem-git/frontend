@@ -6,7 +6,7 @@ const Variant4 = ({ data }) => {
     return (
         <section className="py-16 overflow-x-hidden bg-white">
             <h4 className="hidden mb-6 text-3xl font-thin text-center sm:block lg:hidden text-primary-600 font-russo">{data.title}</h4>
-            <div className="container flex flex-col items-center max-w-md space-y-4 sm:max-w-3xl lg:max-w-6xl sm:flex-row-reverse">
+            <div className="container flex flex-col items-center max-w-md space-y-4 sm:max-w-3xl lg:max-w-6xl xl:max-w-none xl:px-16 sm:flex-row-reverse">
                 <div className="relative flex-1 w-full p-4 lg:max-w-xl">
                     <span className="absolute bottom-0 w-screen -translate-x-1/2 sm:w-auto left-1/2 sm:-left-8 sm:-right-24 -top-3 sm:-translate-x-0" style={{
                         backgroundImage: "radial-gradient(var(--light-grey-blue) 1px, transparent 2px)",
