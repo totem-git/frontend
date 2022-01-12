@@ -1,82 +1,47 @@
-import classNames from "classnames"
-import { useState } from "react"
-import NextImage from "../elements/image"
+import Image from "next/image"
+import { getStrapiMedia } from "utils/media"
 import CustomLink from "../elements/custom-link"
 
-const TestimonialsGroup = ({ data }) => {
-  // Only show one testimonial at a time
-  const [selectedTestimonialIndex, setSelectedTestimonialIndex] = useState(0)
-  const selectedTestimonial = data.testimonials[selectedTestimonialIndex]
+const TestimonialRating = ({ rating }) => {
+  let output = []
 
+  for (let i = 0; i < rating; i++) {
+    output.push((
+      <svg key={i} xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    ))
+  }
+
+  return output
+}
+
+const TestimonialsGroup = ({ data }) => {
   return (
-    <section className="text-center text-lg bg-gray-200 pt-12 pb-16">
-      <h2 className="title mb-4">{data.title}</h2>
-      <p className="text-gray-700 mb-4">{data.description}</p>
-      <CustomLink link={data.link}>
-        <span className="with-arrow text-blue-700 hover:underline">
-          {data.link.text}
-        </span>
-      </CustomLink>
-      {/* Current testimonial card */}
-      <div className="max-w-5xl w-8/12 sm:w-8/12 bg-white shadow-md sm:shadow-xl mx-auto flex flex-col sm:flex-row mt-10 text-left">
-        <div className="w-full md:w-4/12 flex-shrink-0">
-          <NextImage media={selectedTestimonial.picture} />
-        </div>
-        <div className="px-4 py-4 sm:px-12 sm:pt-12 sm:pb-4 flex flex-col justify-between">
-          <div>
-            <NextImage
-              width="120"
-              height="33"
-              media={selectedTestimonial.logo}
-            />
-            <p className="italic mb-6">
-              &quot;{selectedTestimonial.text}&quot;
-            </p>
-            <p className="font-bold text-base sm:text-sm">
-              {selectedTestimonial.authorName}
-            </p>
-            <p className="text-base sm:text-sm">
-              {selectedTestimonial.authorTitle}
-            </p>
+    <section className="text-center text-lg bg-white pt-12 pb-16">
+      <h4 className="text-4xl text-primary-600 font-russo">{data.title}</h4>
+      <p className="text-gray-600 font-normal mx-auto mt-8 px-6 max-w-3xl">{data.description}</p>
+      <div className="flex flex-wrap justify-center px-8 mt-12">
+        {data.testimonials.map((testimonial, i) => (
+          <div key={i} className="flex flex-col bg-light-grey-blue w-72 min-w-[288px] mx-3 mb-4 pt-4 pb-6 px-6">
+            <p className="text-sm text-gray-500 font-medium">{testimonial.text}</p>
+            <div className="px-10 mt-auto pt-4">
+              <div className="overflow-hidden rounded-full aspect-square flex">
+                <Image src={getStrapiMedia(testimonial.picture.url)} objectFit="cover" width={testimonial.picture.width} height={testimonial.picture.height} />
+              </div>
+            </div>
+            <p className="text-primary-600 text-xl font-russo uppercase mt-6">{testimonial.authorName}</p>
+            <p className="text-sm font-bold">{testimonial.authorName}</p>
+            <div className="flex justify-center w-full text-primary-600 mt-4">
+              <TestimonialRating rating={testimonial.rating} />
+            </div>
           </div>
-          <CustomLink
-            link={{
-              url: selectedTestimonial.link,
-              text: "",
-              newTab: false,
-              id: 0,
-            }}
-          >
-            <span className="uppercase tracking-wide text-blue-700 hover:underline  with-arrow sm:self-end mt-6 sm:mt-0">
-              Read story
-            </span>
-          </CustomLink>
-        </div>
-      </div>
-      {/* Change selected testimonial (only if there is more than one) */}
-      {data.testimonials.length > 1 && (
-        <div className="flex flex-row gap-4 mt-10 justify-center">
-          {data.testimonials.map((testimonial, index) => (
-            <button
-              onClick={() => setSelectedTestimonialIndex(index)}
-              className={classNames(
-                // Common classes
-                "rounded-full h-3 w-3",
-                {
-                  "bg-gray-500": index !== selectedTestimonialIndex,
-                  "bg-primary-600": index === selectedTestimonialIndex,
-                }
-              )}
-              key={testimonial.id}
-            />
-          ))}
-        </div>
-      )}
-      {/* Logos list */}
-      <div className="flex flex-row flex-wrap items-center gap-6 sm:gap-20 justify-center mt-10 px-6 sm:px-0 ">
-        {data.logos.map((logo) => (
-          <NextImage key={logo.id} width="120" height="33" media={logo.logo} />
         ))}
+      </div>
+      <div className="flex justify-center mt-10">
+        <CustomLink link={data.link}>
+          <span className="underline font-medium text-gray-700 hover:text-primary-600">{data.link.text}</span>
+        </CustomLink>
       </div>
     </section>
   )
