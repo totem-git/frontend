@@ -10,38 +10,41 @@ const Button = ({
   handleClick,
   loading = false,
   type,
+  wFull,
+  size,
 }) => {
   return (
     <button link={button} onClick={handleClick} type={type}>
       <div
         className={classNames(
           // Common classes
-          "flex w-full justify-center lg:w-auto text-center uppercase tracking-wide font-semibold text-base md:text-sm border-2 rounded-md",
+          `inline-block ${wFull ? 'w-full' : 'w-auto'} text-center uppercase tracking-wide font-extrabold ${size} border-2 hover:border-primary-600 hover:text-primary-600 hover:stroke-primary-600`,
           // Full-size button
           {
-            "px-8 py-4": compact === false,
+            "px-16 py-4": compact === false,
           },
           // Compact button
           {
-            "px-6 py-2": compact === true,
+            "px-8 py-2": compact === true,
           },
           // Specific to when the button is fully dark
           {
-            "bg-primary-600 text-white border-primary-600":
-              appearance === "dark",
+            "text-black stroke-black border-black": appearance === "dark",
           },
           // Specific to when the button is dark outlines
           {
-            "text-primary-600 border-primary-600":
-              appearance === "dark-outline",
+            "text-black stroke-black border-black": appearance === "dark-outline",
           },
           // Specific to when the button is fully white
           {
-            "bg-white text-primary-600 border-white": appearance === "white",
+            "text-white stroke-white border-white": appearance === "white",
           },
           // Specific to when the button is white outlines
           {
-            "text-white border-white": appearance === "white-outline",
+            "text-white stroke-white border-white": appearance === "white-outline",
+          },
+          {
+            "inline-flex items-center": button.icon,
           }
         )}
       >
