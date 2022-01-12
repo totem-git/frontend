@@ -3,6 +3,7 @@ import Variant2 from "./GeneralPorpuseSectionVariants/Variant2"
 import Variant3 from "./GeneralPorpuseSectionVariants/Variant3"
 import Variant4 from "./GeneralPorpuseSectionVariants/Variant4"
 import Variant4_Reverse from "./GeneralPorpuseSectionVariants/Variant4_Reverse"
+import Variant5 from "./GeneralPorpuseSectionVariants/Variant5"
 
 const variants = {
     variant_1: Variant1,
@@ -10,6 +11,7 @@ const variants = {
     variant_3: Variant3,
     variant_4: Variant4,
     variant_4_reverse: Variant4_Reverse,
+    variant_5: Variant5,
 }
 
 const GeneralPorpuseSection = ({ data }) => {
