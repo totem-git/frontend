@@ -3,64 +3,44 @@ import PropTypes from "prop-types"
 import { getButtonAppearance } from "utils/button"
 import ButtonLink from "../elements/button-link"
 import LinkArrowIcon from "../SVGicons/link-arrow"
+import { getStrapiMedia } from "utils/media"
+import Icon1Icon from "../SVGicons/icon-1"
 
 const CardsList = ({ data }) => {
     return (
-        <div className="container flex flex-col items-center space-y-8 py-20">
-            <div className="bg-white max-w-md">
-                <div className="h-64 overflow-hidden relative">
-                    <Image src="/imgs/iPhone 6-7-8 Plus - 1-image2.jpg" objectFit="cover" layout="fill" />
+        <div className="py-16">
+            <div className="flex flex-col items-center text-center text-gray-600">
+                <div className="w-4 stroke-gray-600">
+                    <Icon1Icon />
                 </div>
-                <div className="h-6 bg-black"></div>
-                <div className="px-8 py-10 flex flex-col space-y-5">
-                    <h4 className="text-primary-600 text-3xl font-bold font-russo">Lorem ipsum</h4>
-                    <p className="text-gray-700 text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum saepe rem esse beatae temporibus, praesentium facere vel aliquid cupiditate, autem eos molestiae architecto nemo. Aperiam, possimus ipsa. At.</p>
-                    <ButtonLink
-                        button={{
-                            url: '#',
-                            text: 'Catch a fish',
-                            icon: LinkArrowIcon
-                        }}
-                        appearance={getButtonAppearance('primary', 'light')}
-                    />
-                </div>
+                <h4 className="text-3xl mt-6 font-russo tracking-wider">{data.title}</h4>
+                <h5 className="font-normal mt-2">{data.subTitle}</h5>
             </div>
-            <div className="bg-white max-w-md">
-                <div className="h-64 overflow-hidden relative">
-                    <Image src="/imgs/iPhone 6-7-8 Plus - 1-image3.jpg" objectFit="cover" layout="fill" />
+            {data.cards && (
+                <div className="flex flex-col md:flex-row items-center justify-center flex-wrap md:items-stretch gap-8 md:gap-4 mt-8">
+                    {data.cards.map((card, i) => (
+                        <div key={i} className={`w-full flex flex-col bg-white max-w-md md:max-w-xs border-b-4 md:basis-1/2 border-black`} style={{ borderColor: card.bottomBorderColor }}>
+                            <div className="h-64 md:h-44 overflow-hidden relative">
+                                <Image src={getStrapiMedia(card.image.url)} objectFit="cover" layout="fill" />
+                            </div>
+                            <div className="px-8 pb-12 pt-4 flex flex-col grow">
+                                <h4 className="text-gray-600 text-3xl md:text-2xl uppercase tracking-wider font-russo">{card.title}</h4>
+                                <p className="pb-8 text-gray-700 text-lg md:text-base mt-2 mb-auto">{card.text}</p>
+                                {card.CTA && (
+                                    <ButtonLink
+                                        button={{
+                                            ...card.CTA,
+                                            icon: LinkArrowIcon
+                                        }}
+                                        compact
+                                        appearance={getButtonAppearance(card.CTA.type, 'light')}
+                                    />
+                                )}
+                            </div>
+                        </div>
+                    ))}
                 </div>
-                <div className="h-6 bg-black"></div>
-                <div className="px-8 py-10 flex flex-col space-y-5">
-                    <h4 className="text-primary-600 text-3xl font-bold font-russo">Lorem ipsum</h4>
-                    <p className="text-gray-700 text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum saepe rem esse beatae temporibus, praesentium facere vel aliquid cupiditate, autem eos molestiae architecto nemo. Aperiam, possimus ipsa. At.</p>
-                    <ButtonLink
-                        button={{
-                            url: '#',
-                            text: 'Catch a fish',
-                            icon: LinkArrowIcon
-                        }}
-                        appearance={getButtonAppearance('primary', 'light')}
-                    />
-                </div>
-            </div>
-            <div className="bg-white max-w-md">
-                <div className="h-64 overflow-hidden relative">
-                    <Image src="/imgs/iPhone 6-7-8 Plus - 1-image5.jpg" objectFit="cover" layout="fill" />
-                </div>
-                <div className="h-6 bg-black"></div>
-                <div className="px-8 py-10 flex flex-col space-y-5">
-                    <h4 className="text-primary-600 text-3xl font-bold font-russo">Lorem ipsum</h4>
-                    <p className="text-gray-700 text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum saepe rem esse beatae temporibus, praesentium facere vel aliquid cupiditate, autem eos molestiae architecto nemo. Aperiam, possimus ipsa. At.</p>
-                    <ButtonLink
-                        button={{
-                            url: '#',
-                            text: 'Catch a fish',
-                            icon: LinkArrowIcon
-                        }}
-                        appearance={getButtonAppearance('primary', 'light')}
-                    />
-                </div>
-            </div>
+            )}
         </div>
     )
 }
