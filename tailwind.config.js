@@ -21,7 +21,7 @@ module.exports = {
           900: "#191204",
         },
         "light-grey-blue": "#e7eff7",
-        "dark-grey": "#515552",
+        "dark-grey": "#0d080d",
         orange: colors.orange,
       },
       container: {
@@ -31,6 +31,9 @@ module.exports = {
           md: "2rem",
         },
       },
+      backgroundImage: {
+        'gradient-black-to-b': 'linear-gradient(black, rgba(0,0,0,.7), transparent)'
+      }
     },
     screens: {
       sm: "640px",
