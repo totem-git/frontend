@@ -5,6 +5,8 @@ import Seo from "@/components/elements/seo"
 import { useRouter } from "next/router"
 import Layout from "@/components/layout"
 import { getLocalizedPaths } from "utils/localize"
+import ReservationPopup from "@/components/elements/ReservationPopup"
+import { useAppContext } from "context/state"
 
 // The file is called [[...slug]].js because we're using Next's
 // optional catch all routes feature. See the related docs:
@@ -12,6 +14,7 @@ import { getLocalizedPaths } from "utils/localize"
 
 const DynamicPage = ({ sections, metadata, preview, global, pageContext }) => {
   const router = useRouter()
+  const appContext = useAppContext()
 
   // Check if the required data was provided
   if (!router.isFallback && !sections?.length) {
@@ -29,6 +32,9 @@ const DynamicPage = ({ sections, metadata, preview, global, pageContext }) => {
       <Seo metadata={metadata} />
       {/* Display content sections */}
       <Sections sections={sections} preview={preview} />
+      {appContext.reservationPopupVisible && (
+        <ReservationPopup closeSelf={() => { appContext.setReservationPopupVisible(false) }} />
+      )}
     </Layout>
   )
 }

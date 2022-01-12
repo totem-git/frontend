@@ -5,6 +5,7 @@ import { DefaultSeo } from "next-seo"
 import { getStrapiMedia } from "utils/media"
 import { getGlobalData } from "utils/api"
 import "../styles/index.css"
+import { AppWrapper } from "context/state"
 
 const MyApp = ({ Component, pageProps }) => {
   // Extract the data we need
@@ -46,7 +47,9 @@ const MyApp = ({ Component, pageProps }) => {
         }}
       />
       {/* Display the content */}
-      <Component {...pageProps} />
+      <AppWrapper>
+        <Component {...pageProps} />
+      </AppWrapper>
     </>
   )
 }
