@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import PropTypes from "prop-types"
 import Link from "next/link"
 import { useRouter } from "next/router"
@@ -9,16 +9,35 @@ import ButtonLink from "./button-link"
 import Image from "next/image"
 import CustomLink from "./custom-link"
 import LocaleSwitch from "../locale-switch"
+import { throttle } from "utils/performance"
 
 const Navbar = ({ navbar, pageContext }) => {
   const router = useRouter()
+
   const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false)
+
   const currentPage = `/${pageContext.slug}`
+
+  const scrolledDownRef = useRef(false)
+  const [scrolledDown, setScrolledDown] = useState(scrolledDownRef.current)
+  const scrollDistance = 200
+
+  useEffect(() => {
+    scrolledDownRef.current = scrollY > scrollDistance
+    setScrolledDown(scrolledDownRef.current)
+
+    window.addEventListener('scroll', throttle(() => {
+      if ((scrollY > scrollDistance) != scrolledDownRef.current) {
+        scrolledDownRef.current = !scrolledDownRef.current
+        setScrolledDown(scrolledDownRef.current)
+      }
+    }, 250))
+  }, [])
 
   return (
     <>
       {/* The actual navbar */}
-      <nav className="flex bg-black h-20 fixed top-0 inset-x-0 z-50">
+      <nav className={`flex bg-gradient-black-to-b ${scrolledDown ? 'bg-black' : 'bg-black/0'} transition duration-1000 trans h-20 fixed top-0 inset-x-0 z-50`}>
         <div className="grow mx-6 lg:mx-12 xl:container flex flex-row justify-between">
           {/* Content aligned to the left */}
           <div className="flex flex-row justify-between grow">
