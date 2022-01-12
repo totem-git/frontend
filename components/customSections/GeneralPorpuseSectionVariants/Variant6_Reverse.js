@@ -7,7 +7,7 @@ const Variant6_Reverse = ({ data }) => {
 
     return (
         <section className="py-8 overflow-x-hidden bg-light-grey-blue">
-            <div className="container flex flex-col items-center max-w-md space-y-4 max-w-none xl:px-16 md:flex-row-reverse">
+            <div className="container flex flex-col items-center space-y-4 max-w-none xl:px-16 md:flex-row-reverse">
                 <div className="relative flex-1 w-full p-4 max-w-xl">
                     <Image src={getStrapiMedia(picture.url)} layout="responsive" width={picture.width} height={picture.height} />
                     <div className="mt-8">
