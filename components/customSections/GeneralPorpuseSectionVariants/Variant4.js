@@ -1,6 +1,7 @@
 import ThumbnailGallery from "@/components/elements/ThumbnailGallery"
 import Image from "next/image"
 import Markdown from "react-markdown"
+import { getStrapiMedia } from "utils/media"
 
 const Variant4 = ({ data }) => {
     return (
@@ -21,6 +22,11 @@ const Variant4 = ({ data }) => {
                         <div className="flex sm:max-w-[80px]">
                             <Image src="/icons/subtitle-figure.svg" width={100} height={15} />
                         </div>
+                        {data.extraIcon && (
+                            <div className="flex sm:max-w-[80px]">
+                                <Image src={getStrapiMedia(data.extraIcon.url)} width={100} height={15} />
+                            </div>
+                        )}
                         <h5 className="text-xl font-extrabold text-gray-600">{data.subTitle}</h5>
                     </div>
                     <div className="prose text-gray-700">
