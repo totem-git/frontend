@@ -5,7 +5,6 @@ import { getButtonAppearance } from "utils/button"
 import ButtonLink from "./button-link"
 import Image from "next/image"
 import CustomLink from "./custom-link"
-import Link from "next/link"
 
 const MobileNavMenu = ({ navbar, closeSelf }) => {
   // Prevent window scroll while mobile nav menu is open
