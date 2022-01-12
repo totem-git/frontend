@@ -2,6 +2,8 @@ import classNames from "classnames"
 import PropTypes from "prop-types"
 import { buttonLinkPropTypes } from "utils/types"
 import CustomLink from "./custom-link"
+import { useAppContext } from "context/state"
+import Button from "./button"
 
 const ButtonContent = ({ button, appearance, compact, size, wFull }) => {
   return (
@@ -49,6 +51,22 @@ const ButtonContent = ({ button, appearance, compact, size, wFull }) => {
 }
 
 const ButtonLink = ({ button, appearance, compact = false, size = 'text-base md:text-sm', wFull = false }) => {
+  if (button.url == '#reservationForm') {
+    const { setReservationPopupVisible } = useAppContext()
+
+    return (
+      <Button
+        handleClick={() => { setReservationPopupVisible(true) }}
+        button={button}
+        size={size}
+        wFull={wFull}
+        appearance={appearance}
+        compact={compact}
+        type='button'
+      />
+    )
+  }
+
   return (
     <CustomLink link={button} wFull={wFull}>
       <ButtonContent
