@@ -1,5 +1,6 @@
 import { getPageData } from "utils/api"
 import { parseCookies } from "utils/parse-cookies"
+import config from "../../next.config.js"
 
 const preview = async (req, res) => {
   // Check the secret and next parameters
@@ -13,7 +14,7 @@ const preview = async (req, res) => {
   // Fetch the headless CMS to check if the provided `slug` exists
   const pageData = await getPageData(
     { slug: slugArray },
-    cookies.NEXT_LOCALE,
+    cookies.NEXT_LOCALE || config.i18n.defaultLocale,
     true
   )
 
