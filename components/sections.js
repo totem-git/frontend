@@ -55,12 +55,12 @@ const PreviewModeBanner = () => {
     <div className="py-4 bg-red-600 text-red-100 font-semibold uppercase tracking-wide">
       <div className="container">
         Preview mode is on.{" "}
-        <a
+        {/* <a
           className="underline"
           href={`/api/exit-preview?redirect=${router.asPath}`}
         >
           Turn off
-        </a>
+        </a> */}
       </div>
     </div>
   )
