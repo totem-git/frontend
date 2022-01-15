@@ -6,7 +6,7 @@ const preview = async (req, res) => {
   // Check the secret and next parameters
   // This secret should only be known to this API route and the CMS
   if (req.query.secret !== (process.env.PREVIEW_SECRET || "secret-token")) {
-    return res.status(401).json({ message: "Invalid token" })
+    return res.status(401).json({ message: `${req.query.secret} is not the right token` })
   }
 
   const cookies = parseCookies(req)
@@ -20,7 +20,7 @@ const preview = async (req, res) => {
 
   // If the slug doesn't exist prevent preview mode from being enabled
   if (!pageData) {
-    return res.status(401).json({ message: "Invalid slug" })
+    return res.status(401).json({ message: `${req.query.slug} is not a valid slug` })
   }
 
   // Enable Preview Mode by setting the cookies
