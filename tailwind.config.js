@@ -7,7 +7,7 @@ module.exports = {
     fontFamily: {
       'roboto': ['Roboto', 'sans-serif'],
       'russo': ['"Russo One"', 'sans-serif'],
-      'javanese': ['Javanese', 'serif']
+      'basker': ['"Libre Baskerville"', 'serif']
     },
     extend: {
       colors: {
