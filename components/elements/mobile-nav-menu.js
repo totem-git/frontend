@@ -12,11 +12,11 @@ const MobileNavMenu = ({ navbar, closeSelf }) => {
 
   return (
     <div className="fixed inset-0 overflow-y-scroll bg-black text-white pb-6 md:hidden z-50">
-      <div className="container h-full flex flex-col">
+      <div className="px-6 h-full flex flex-col">
         {/* Top section */}
-        <div className="flex flex-row justify-between h-20 items-center">
+        <div className="flex flex-row justify-between h-20 shrink-0 items-center">
           {/* Company logo */}
-          <a className="text-primary-600 font-javanese text-2xl h-4">
+          <a className="text-primary-600 font-basker text-xl">
             TOTEM RESORTS
           </a>
           {/* Close button */}

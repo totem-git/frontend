@@ -42,7 +42,7 @@ const Navbar = ({ navbar, pageContext }) => {
           {/* Content aligned to the left */}
           <div className="flex flex-row justify-between grow">
             <Link href="/">
-              <a className="inline-flex items-center text-primary-600 font-javanese text-xl lg:text-2xl h-20 pt-[6px]">
+              <a className="inline-flex items-center text-primary-600 font-basker text-xl lg:text-2xl">
                 TOTEM RESORTS
               </a>
             </Link>
