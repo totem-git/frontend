@@ -17,7 +17,7 @@ const ButtonContent = ({ button, appearance, compact, size, wFull }) => {
         },
         // Compact button
         {
-          "px-8 py-2": compact === true,
+          "px-8 py-4": compact === true,
         },
         // Specific to when the button is fully dark
         {
@@ -42,7 +42,7 @@ const ButtonContent = ({ button, appearance, compact, size, wFull }) => {
     >
       {button.text}
       {button.icon &&
-        <span className="ml-4 flex button-link-icon-container ml-auto">
+        <span className="pl-4 flex button-link-icon-container ml-auto">
           <button.icon />
         </span>
       }
