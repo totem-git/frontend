@@ -45,19 +45,19 @@ const Hero = ({ data }) => {
       </div>
       {isLanding &&
         <div className="flex justify-center divide-x-2 border-white">
-          <div className="grow py-2 pt-6 ">
+          <div className="grow pb-4 pt-6">
             <a href="#" className="flex flex-col space-y-2 group">
               <Image src="/icons/icon-1.svg" width="16" height="16" />
               <span className="w-max inline-block mx-auto border-b-4 border-transparent group-hover:border-white transition">Lodging</span>
             </a>
           </div>
-          <div className="grow py-2 w-[36%] pt-6 ">
+          <div className="grow pb-4 w-[36%] pt-6">
             <a href="#" className="flex flex-col space-y-2 group">
               <Image src="/icons/icon-2.svg" width="16" height="16" />
               <span className="w-max inline-block mx-auto border-b-4 border-transparent group-hover:border-white transition">Fishing experience</span>
             </a>
           </div>
-          <div className="grow py-2 pt-6 ">
+          <div className="grow pb-4 pt-6">
             <a href="#" className="flex flex-col space-y-2 group">
               <Image src="/icons/icon-3.svg" width="16" height="16" />
               <span className="w-max inline-block mx-auto border-b-4 border-transparent group-hover:border-white transition">Events</span>
