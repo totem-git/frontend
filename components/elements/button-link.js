@@ -10,7 +10,7 @@ const ButtonContent = ({ button, appearance, compact, size, wFull }) => {
     <div
       className={classNames(
         // Common classes
-        `inline-block ${wFull ? 'w-full' : 'w-auto'} text-center uppercase tracking-wide font-medium ${size} border-2 hover:bg-white hover:text-black hover:stroke-black transition`,
+        `inline-block ${wFull ? 'w-full' : 'w-auto'} text-center uppercase tracking-wide font-medium ${size} border-2`,
         // Full-size button
         {
           "px-16 py-4": compact === false,
@@ -21,7 +21,7 @@ const ButtonContent = ({ button, appearance, compact, size, wFull }) => {
         },
         // Specific to when the button is fully dark
         {
-          "text-black stroke-black border-black": appearance === "dark",
+          "text-black stroke-black border-black hover:bg-black hover:text-white hover:stroke-white transition": appearance === "dark",
         },
         // Specific to when the button is dark outlines
         {
@@ -29,7 +29,7 @@ const ButtonContent = ({ button, appearance, compact, size, wFull }) => {
         },
         // Specific to when the button is fully white
         {
-          "text-white stroke-white border-white": appearance === "white",
+          "text-white stroke-white border-white hover:bg-white hover:text-black hover:stroke-black transition": appearance === "white",
         },
         // Specific to when the button is white outlines
         {
