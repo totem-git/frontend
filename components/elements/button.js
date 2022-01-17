@@ -18,7 +18,7 @@ const Button = ({
       <div
         className={classNames(
           // Common classes
-          `inline-block ${wFull ? 'w-full' : 'w-auto'} text-center uppercase tracking-wide font-extrabold ${size} border-2 hover:border-primary-600 hover:text-primary-600 hover:stroke-primary-600`,
+          `inline-block ${wFull ? 'w-full' : 'w-auto'} text-center uppercase tracking-wide font-medium ${size} border-2 hover:border-primary-600 hover:text-primary-600 hover:stroke-primary-600`,
           // Full-size button
           {
             "px-16 py-4": compact === false,
