@@ -42,7 +42,7 @@ const ButtonContent = ({ button, appearance, compact, size, wFull }) => {
     >
       {button.text}
       {button.icon &&
-        <span className="ml-4 flex button-link-icon-container">
+        <span className="ml-4 flex button-link-icon-container ml-auto">
           <button.icon />
         </span>
       }
