@@ -2,18 +2,21 @@ import PropTypes from "prop-types"
 import { linkPropTypes, mediaPropTypes } from "utils/types"
 import Image from "next/image"
 import CustomLink from "./custom-link"
+import RatingStars from "./RatingStars"
+import FooterReviews from "./FooterReviews"
+import ButtonLink from "./button-link"
 
-const Footer = ({ footer }) => {
+const Footer = ({ footer, googleReviews }) => {
   return (
     <footer className="bg-black text-white">
-      <div className="lg:hidden separator-fish h-8 mx-3 my-8"></div>
       <div className="flex items-center my-14">
         <div className="flex-grow">
           <div className="hidden lg:block separator-fish h-4 mx-3"></div>
         </div>
-        <div className="w-auto px-16 flex flex-col items-center">
-          <h3 className="text-primary-600 font-roboto text-4xl font-thin mb-4">TOTEM RESORT</h3>
+        <div className="w-auto px-8 flex flex-col items-center">
+          <h3 className="text-primary-600 font-basker text-4xl font-thin mb-8 text-center">TOTEM RESORTS</h3>
           <Image src="/icons/icon-1.svg" width="20" height="20" />
+          <p className="text-center mt-4">{footer.text}</p>
         </div>
         <div className="flex-grow">
           <div className="hidden lg:block separator-fish separator-fish-rtl h-4 mx-3"></div>
@@ -27,6 +30,17 @@ const Footer = ({ footer }) => {
         className="w-full h-96 lg:container"
       >
       </iframe>
+      <div className="container mt-12 overflow-x-hidden">
+        <div className="flex flex-col text-primary-600 items-center">
+          <h4 className="text-2xl font-russo text-center">TOTEM RESORTS ON GOOGLE</h4>
+          <div className="flex items-start mt-4">
+            <span className="text-3xl leading-none tracking-widest font-russo mr-4">{googleReviews.totalRating}</span>
+            <RatingStars rating={googleReviews.totalRating} starSize="w-7 h-7" starSpacing="space-x-2" />
+          </div>
+        </div>
+        <h4 className="text-2xl text-center text-primary-600 font-russo mt-8 mb-12">LAST 5 REVIEWS:</h4>
+        <FooterReviews reviews={googleReviews.reviews} />
+      </div>
       <div className="container flex flex-col mt-16">
         <nav className="flex flex-wrap flex-row items-start lg:justify-between mb-10">
           <div
@@ -122,10 +136,22 @@ const Footer = ({ footer }) => {
           </a>
         </div>
       </div>
-      <div className="separator-fish h-8 mx-3 my-8 lg:mb-4"></div>
-      <div className="border-t-2 border-gray-400 mt-24 lg:mt-10 py-12 text-sm text-center text-gray-700">
-        <div className="container">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic eum in aliquid ullam vitae assumenda mollitia repudiandae eos! Est veritatis unde in temporibus? Dolores minus quos, impedit ab reprehenderit velit recusandae quam cupiditate odit est aspernatur eaque quas debitis? Numquam itaque reiciendis unde perferendis commodi voluptates officia porro nesciunt quidem.</div>
-        <div className="container mt-4">{footer.smallText}</div>
+      <div className="px-4">
+        <ButtonLink
+          button={{
+            url: '#reservationForm',
+            text: 'RESERVATIONS',
+          }}
+          appearance="white"
+          wFull
+        />
+      </div>
+      <div className="flex justify-center mt-12">
+        <RatingStars rating={5} starSize="w-8" starSpacing="space-x-4" />
+      </div>
+      <div className="border-t-[1px] border-gray-600 mt-16 mx-4 lg:mt-10 py-12 text-sm text-center text-gray-500">
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic eum in aliquid ullam vitae assumenda mollitia repudiandae eos! Est veritatis unde in temporibus? Dolores minus quos, impedit ab reprehenderit velit recusandae quam cupiditate odit est aspernatur eaque quas debitis? Numquam itaque reiciendis unde perferendis commodi voluptates officia porro nesciunt quidem.</div>
+        <div className="mt-4">{footer.smallText}</div>
       </div>
     </footer>
   )
