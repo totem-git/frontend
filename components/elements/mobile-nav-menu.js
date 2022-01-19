@@ -21,16 +21,16 @@ const MobileNavMenu = ({ navbar, closeSelf }) => {
           </a>
           {/* Close button */}
           <button onClick={closeSelf} className="py-1 px-1">
-            <Image src="/icons/close-menu-icon.svg" width="36" height="36" />
+            <Image src="/icons/close-menu-icon.svg" width="20" height="20" />
           </button>
         </div>
         {/* Bottom section */}
-        <div className="flex flex-col items-center w-9/12 mx-auto mt-auto mb-auto pb-24">
-          <ul className="flex flex-col list-none items-baseline text-2xl mb-10">
+        <div className="flex flex-col items-center w-full mx-auto mt-8 mb-auto pb-24">
+          <ul className="flex flex-col list-none items-baseline text-lg tracking-wider font-extrabold mb-10">
             {navbar.links.map((navLink) => (
               <li onClick={closeSelf} key={navLink.id} className="block w-full">
                 <CustomLink link={navLink}>
-                  <div className="text-primary-600 hover:text-primary-300 uppercase py-6 text-center">
+                  <div className="text-primary-600 hover:text-primary-300 uppercase py-3 text-center">
                     <span>{navLink.text}</span>
                   </div>
                 </CustomLink>
@@ -38,15 +38,31 @@ const MobileNavMenu = ({ navbar, closeSelf }) => {
             ))}
           </ul>
 
-          <span onClick={closeSelf}>
+          <span className="block w-full" onClick={closeSelf}>
             {navbar.button && (<ButtonLink
               button={navbar.button}
               appearance={getButtonAppearance(navbar.button.type, "dark")}
-              size="text-2xl"
+              size="text-lg"
+              wFull
             />)}
           </span>
 
-          <div className="flex gap-12 mt-32">
+          <p className="text-primary-600 text-lg font-russo mt-20">GET IN TOUCH</p>
+          <div className="flex flex-col items-center mt-8 space-y-4">
+            <a href="#" className="flex items-center">
+              <Image src="/icons/whatsapp-icon.svg" width="18" height="18" />
+              <span className="ml-2">WhatsAap: +00 23 2 343 32</span>
+            </a>
+            <a href="#" className="flex items-center">
+              <Image src="/icons/phone-icon.svg" width="18" height="18" />
+              <span className="ml-2">Tel: +00 23 2 343 32</span>
+            </a>
+            <a href="#" className="flex items-center">
+              <Image src="/icons/mail-icon.svg" width="18" height="18" />
+              <span className="ml-2">Email: e-comerce@totemresort.com</span>
+            </a>
+          </div>
+          {/* <div className="flex gap-12 mt-32">
             <a onClick={closeSelf} href="#">
               <Image src="/icons/ig-icon.svg" width="40" height="40" />
             </a>
@@ -56,7 +72,7 @@ const MobileNavMenu = ({ navbar, closeSelf }) => {
             <a onClick={closeSelf} href="#">
               <Image src="/icons/yt-icon.svg" width="40" height="40" />
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
