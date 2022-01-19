@@ -108,7 +108,9 @@ const Slider = ({ data }) => {
                     <Image src="/icons/slide-icon.svg" width="131" height="35" />
                 </div>
             </div>
-            <SliderIndicators activeSlides={activeSlides} />
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2">
+                <SliderIndicators activeSlides={activeSlides} />
+            </div>
         </div>
     )
 }

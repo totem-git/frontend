@@ -94,7 +94,9 @@ const ThumbnailGallery = ({ mediaList }) => {
             <button data-slide-direction="1" onClick={handleSlide} className="flex absolute w-8 lg:w-12 top-1/2 -translate-y-1/2 rotate-180 -right-6 lg:-right-8">
                 <Image src="/icons/arrow-left-bg-yellow.svg" layout="fixed" width={50} height={50} />
             </button>
-            <SliderIndicators activeSlides={activeSlides} />
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2">
+                <SliderIndicators activeSlides={activeSlides} />
+            </div>
         </div>
     )
 }
