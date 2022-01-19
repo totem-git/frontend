@@ -14,7 +14,7 @@ const Button = ({
   size,
 }) => {
   return (
-    <button link={button} onClick={handleClick} type={type}>
+    <button link={button} onClick={handleClick} type={type} className={`${wFull ? 'w-full' : 'w-auto'}`}>
       <div
         className={classNames(
           // Common classes
