@@ -23,7 +23,7 @@ const Variant6 = ({ data }) => {
                     </div>
                     <div className="pt-4 space-y-6">
                         <Image src={data.extraIcon ? getStrapiMedia(data.extraIcon.url) : '/icons/variant6_icon_1.svg'} width={148} height={26} />
-                        {data.CTAs.length && (
+                        {data.CTAs.length > 0 && (
                             <div className="w-full">
                                 <ButtonLink
                                     button={data.CTAs[0]}
