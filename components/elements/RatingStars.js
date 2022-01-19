@@ -1,4 +1,4 @@
-const RatingStars = ({ rating, starSize = 'w-5 h-5' }) => {
+const RatingStars = ({ rating, starSize = 'w-5 h-5', starSpacing = 'space-x-1' }) => {
     let output = []
     let starColor = ''
     let ratingFloor = Math.floor(rating)
@@ -19,7 +19,9 @@ const RatingStars = ({ rating, starSize = 'w-5 h-5' }) => {
         ))
     }
 
-    return output
+    return (
+        <div className={`flex ${starSpacing}`}>{output}</div>
+    )
 }
 
 export default RatingStars
