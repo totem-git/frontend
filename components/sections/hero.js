@@ -6,8 +6,7 @@ import HighlightedText from "../elements/HighlightedText"
 
 const Hero = ({ data }) => {
   const isLanding = data.type === 'landing'
-  const titlePart1 = data.title.slice(0, data.title.lastIndexOf(' ') + 1)
-  const titlePart2 = data.title.slice(data.title.lastIndexOf(' ') + 1)
+
   return (
     <main className="text-white text-center bg-black">
       <div className={`relative flex justify-center items-center py-12 lg:pb-4 sm:py-32 ${isLanding && 'h-[85vh]'}`}>
