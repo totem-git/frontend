@@ -4,7 +4,7 @@ import Footer from "./elements/footer"
 import NotificationBanner from "./elements/notification-banner"
 
 const Layout = ({ children, global, pageContext }) => {
-  const { navbar, footer, notificationBanner } = global
+  const { navbar, footer, notificationBanner, googleReviews } = global
 
   const [bannerIsShown, setBannerIsShown] = useState(true)
   return (
@@ -21,7 +21,7 @@ const Layout = ({ children, global, pageContext }) => {
         <div>{children}</div>
       </div>
       {/* Aligned to the bottom */}
-      <Footer footer={footer} />
+      <Footer footer={footer} googleReviews={googleReviews} />
     </div>
   )
 }
