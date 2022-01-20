@@ -18,9 +18,9 @@ const Variant4 = ({ data }) => {
                 </div>
                 <div className="relative flex-1 max-w-sm space-y-4 sm:pr-2 lg:max-w-none">
                     <h4 className="text-3xl font-thin sm:hidden lg:block text-primary-600 font-russo">{data.title}</h4>
-                    <div className="flex space-x-4">
-                        <div className="flex sm:max-w-[80px]">
-                            <Image src="/icons/subtitle-figure.svg" width={100} height={15} />
+                    <div className="flex space-x-2">
+                        <div className="flex w-1/3 sm:max-w-[150px]">
+                            <Image src="/icons/subtitle-figure.svg" width={300} height={15} />
                         </div>
                         {data.extraIcon && (
                             <div className="flex sm:max-w-[80px]">
