@@ -17,11 +17,13 @@ const CardsList = ({ data }) => {
                         <Image src={getStrapiMedia(data.extraIcon.url)} width={64} height={64} />
                     </div>
                 )}
-                <h4 className="text-3xl mt-6 font-russo tracking-wider">{data.title}</h4>
+                {data.title && (<h4 className="text-3xl mt-6 font-russo tracking-wider">{data.title}</h4>)}
                 {data.subtitle && (<h5 className="font-normal mt-2">{data.subTitle}</h5>)}
-                <div className="prose text-gray-700 text-center leading-tight px-2">
-                    <ReactMarkdown>{data.text}</ReactMarkdown>
-                </div>
+                {data.text && (
+                    <div className="prose text-gray-700 text-center leading-tight px-2">
+                        <ReactMarkdown>{data.text}</ReactMarkdown>
+                    </div>
+                )}
             </div>
             {data.cards && (
                 <div className="flex flex-col md:flex-row items-center justify-center flex-wrap md:items-stretch gap-8 md:gap-4 mt-8 px-4">
