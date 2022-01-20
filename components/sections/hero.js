@@ -67,14 +67,14 @@ const Hero = ({ data }) => {
             </a>
           </div>
           <div className="grow pb-4 w-[36%] pt-6">
-            <a href="#" className="flex flex-col space-y-2 group">
-              {(currentUrl == '#') ? <Image src="/icons/icon-2-white.svg" width="16" height="16" /> : <Image src="/icons/icon-2.svg" width="16" height="16" />}
+            <a href="/the-fishing-experience" className="flex flex-col space-y-2 group">
+              {(currentUrl == '/the-fishing-experience') ? <Image src="/icons/icon-2-white.svg" width="16" height="16" /> : <Image src="/icons/icon-2.svg" width="16" height="16" />}
               <span className={`w-max inline-block mx-auto border-b-4 ${(currentUrl == '#') ? 'border-white' : 'border-transparent'} group-hover:border-white transition`}>Fishing experience</span>
             </a>
           </div>
           <div className="grow pb-4 pt-6">
-            <a href="#" className="flex flex-col space-y-2 group">
-              {(currentUrl == '#') ? <Image src="/icons/icon-3-white.svg" width="16" height="16" /> : <Image src="/icons/icon-3.svg" width="16" height="16" />}
+            <a href="/events" className="flex flex-col space-y-2 group">
+              {(currentUrl == '/events') ? <Image src="/icons/icon-3-white.svg" width="16" height="16" /> : <Image src="/icons/icon-3.svg" width="16" height="16" />}
               <span className={`w-max inline-block mx-auto border-b-4 ${(currentUrl == '#') ? 'border-white' : 'border-transparent'} group-hover:border-white transition`}>Events</span>
             </a>
           </div>
