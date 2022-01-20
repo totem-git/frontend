@@ -24,7 +24,7 @@ const Variant4 = ({ data }) => {
                         </div>
                         {data.extraIcon && (
                             <div className="flex sm:max-w-[80px]">
-                                <Image src={getStrapiMedia(data.extraIcon.url)} width={100} height={15} />
+                                <Image src={getStrapiMedia(data.extraIcon.url)} width={data.extraIcon.width} height={data.extraIcon.height} />
                             </div>
                         )}
                         <h5 className="text-xl font-extrabold text-gray-600">{data.subTitle}</h5>
