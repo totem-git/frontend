@@ -18,7 +18,7 @@ const Variant2 = ({ data }) => {
                 <HighlightedText
                     tag="h4"
                     text={data.title}
-                    className="text-4xl font-russo w-full text-center pt-4"
+                    className="text-4xl font-russo w-full text-center pt-4 text-gray-600"
                     highlightClasses={[
                         'text-highlight before:bg-black text-primary-600 w-ful block pt-2'
                     ]}
