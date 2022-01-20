@@ -13,6 +13,7 @@ import GeneralPorpuseSection from "./customSections/GeneralPorpuseSection"
 import Separator from "./customSections/Separator"
 import Slider from "./customSections/Slider"
 import SpecialHero from "./customSections/SpecialHero"
+import ResortMap from "./customSections/ResortMap"
 
 // Map Strapi sections to section components
 const sectionComponents = {
@@ -30,6 +31,7 @@ const sectionComponents = {
   "sections.dinamic-separator": Separator,
   "sections.slider": Slider,
   "sections.special-hero": SpecialHero,
+  "sections.resort-map": ResortMap,
 }
 
 // Display a section individually
