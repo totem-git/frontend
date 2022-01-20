@@ -8,9 +8,11 @@ const Variant5 = ({ data }) => {
     return (
         <section className="py-16 overflow-x-hidden bg-black">
             <div className="flex flex-col items-center text-center text-gray-600">
-                <div className="w-16 stroke-gray-600">
-                    <Image src={getStrapiMedia(data.extraIcon.url)} width={100} height={60} />
-                </div>
+                {data.extraIcon && (
+                    <div className="w-16 stroke-gray-600">
+                        <Image src={getStrapiMedia(data.extraIcon.url)} width={100} height={60} />
+                    </div>
+                )}
                 <h4 className="text-3xl text-primary-600 mt-6 font-russo tracking-wider">{data.title}</h4>
                 <div className="flex w-full px-16 space-x-8 items-end">
                     <div className="grow shrink-0">
