@@ -7,8 +7,8 @@ const Separator = ({ data }) => {
         } : {}
 
     return (
-        <div className="py-6">
-            <div style={styles} className="dinamic-separator h-16 bg-white"></div>
+        <div className="py-6 bg-white">
+            <div style={styles} className="dinamic-separator h-16"></div>
         </div>
     )
 }
