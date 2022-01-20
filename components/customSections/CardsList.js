@@ -6,6 +6,7 @@ import LinkArrowIcon from "../SVGicons/link-arrow"
 import { getStrapiMedia } from "utils/media"
 import ReactMarkdown from "react-markdown"
 import CustomLink from "../elements/custom-link"
+import NextImage from "../elements/image"
 
 const CardsList = ({ data }) => {
     return (
@@ -30,10 +31,15 @@ const CardsList = ({ data }) => {
                                 <Image src={getStrapiMedia(card.image.url)} objectFit="cover" layout="fill" />
                             </div>
                             <div className="px-8 pb-12 pt-4 flex flex-col grow">
+                                {card.extraIcon && (
+                                    <div className="w-1/3 py-8">
+                                        <NextImage media={card.extraIcon} />
+                                    </div>
+                                )}
                                 <h4 className="text-gray-600 text-3xl md:text-2xl uppercase tracking-wider font-russo">{card.title}</h4>
-                                <p className="pb-8 text-gray-700 text-lg md:text-base mt-2 mb-auto leading-tight">{card.text}</p>
+                                <p className="pb-8 text-gray-700 text-lg md:text-base mt-4 mb-auto leading-tight">{card.text}</p>
                                 {card.CTA && (
-                                    <div>
+                                    <div className="pt-8">
                                         <ButtonLink
                                             button={{
                                                 ...card.CTA,
@@ -50,11 +56,13 @@ const CardsList = ({ data }) => {
                     ))}
                 </div>
             )}
-            <div className="flex justify-center mt-8">
-                <CustomLink link={data.link}>
-                    <span className="underline text-xl font-extrabold">{data.link.text}</span>
-                </CustomLink>
-            </div>
+            {data.link && (
+                <div className="flex justify-center mt-8">
+                    <CustomLink link={data.link}>
+                        <span className="underline text-xl font-extrabold">{data.link.text}</span>
+                    </CustomLink>
+                </div>
+            )}
         </div>
     )
 }
