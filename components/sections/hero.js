@@ -11,6 +11,24 @@ const Hero = ({ data }) => {
   const navRef = useRef()
   const [currentUrl, setCurrentUrl] = useState('')
 
+  const navLinks = [
+    {
+      url: '/the-facilities',
+      text: 'Lodging',
+      icon: 'icon-1',
+    },
+    {
+      url: '/the-fishing-experience',
+      text: 'Fishing experience',
+      icon: 'icon-2',
+    },
+    {
+      url: '/events',
+      text: 'Events',
+      icon: 'icon-3',
+    },
+  ]
+
   useEffect(() => {
     let url = window.location.pathname
     if (url.indexOf('?') != -1) url = url.slice(0, url.indexOf('?'))
@@ -60,24 +78,14 @@ const Hero = ({ data }) => {
       </div>
       {isLanding &&
         <div ref={navRef} className="flex justify-center divide-x-2 border-white">
-          <div className="grow pb-4 pt-6">
-            <a href="/the-facilities" className="flex flex-col space-y-2 group">
-              {(currentUrl == '/the-facilities') ? <Image src="/icons/icon-1-white.svg" width="16" height="16" /> : <Image src="/icons/icon-1.svg" width="16" height="16" />}
-              <span className={`w-max inline-block mx-auto border-b-4 ${(currentUrl == '/the-facilities') ? 'border-white' : 'border-transparent'} group-hover:border-white transition`}>Lodging</span>
-            </a>
-          </div>
-          <div className="grow pb-4 w-[36%] pt-6">
-            <a href="/the-fishing-experience" className="flex flex-col space-y-2 group">
-              {(currentUrl == '/the-fishing-experience') ? <Image src="/icons/icon-2-white.svg" width="16" height="16" /> : <Image src="/icons/icon-2.svg" width="16" height="16" />}
-              <span className={`w-max inline-block mx-auto border-b-4 ${(currentUrl == '#') ? 'border-white' : 'border-transparent'} group-hover:border-white transition`}>Fishing experience</span>
-            </a>
-          </div>
-          <div className="grow pb-4 pt-6">
-            <a href="/events" className="flex flex-col space-y-2 group">
-              {(currentUrl == '/events') ? <Image src="/icons/icon-3-white.svg" width="16" height="16" /> : <Image src="/icons/icon-3.svg" width="16" height="16" />}
-              <span className={`w-max inline-block mx-auto border-b-4 ${(currentUrl == '#') ? 'border-white' : 'border-transparent'} group-hover:border-white transition`}>Events</span>
-            </a>
-          </div>
+          {navLinks.map((link, i) => (
+            <div className={`grow pb-4 ${i == 1 && 'w-[36%]'} pt-6`}>
+              <a href={link.url} className="flex flex-col space-y-2 group">
+                {(currentUrl == link.url) ? <Image src={`/icons/${link.icon}-white.svg`} width="16" height="16" /> : <Image src={`/icons/${link.icon}.svg`} width="16" height="16" />}
+                <span className={`w-max inline-block mx-auto border-b-4 ${(currentUrl == link.url) ? 'border-white' : 'border-transparent'} group-hover:border-white transition`}>{link.text}</span>
+              </a>
+            </div>
+          ))}
         </div>
       }
     </main>
