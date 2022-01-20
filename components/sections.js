@@ -14,6 +14,7 @@ import Separator from "./customSections/Separator"
 import Slider from "./customSections/Slider"
 import SpecialHero from "./customSections/SpecialHero"
 import ResortMap from "./customSections/ResortMap"
+import GeoInfo from "./customSections/GeoInfo"
 
 // Map Strapi sections to section components
 const sectionComponents = {
@@ -32,6 +33,7 @@ const sectionComponents = {
   "sections.slider": Slider,
   "sections.special-hero": SpecialHero,
   "sections.resort-map": ResortMap,
+  "sections.geo-info": GeoInfo,
 }
 
 // Display a section individually
