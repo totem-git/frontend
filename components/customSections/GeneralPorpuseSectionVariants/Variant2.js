@@ -3,12 +3,26 @@ import Image from "next/image"
 import { getButtonAppearance } from "utils/button"
 import { getStrapiMedia } from "utils/media"
 import Markdown from "react-markdown"
+import NextImage from "@/components/elements/image"
+import HighlightedText from "@/components/elements/HighlightedText"
 
 const Variant2 = ({ data }) => {
     return (
-        <section className="pt-20 text-center">
+        <section className="pt-12 text-center">
             <div className="container max-w-4xl space-y-6 px-4">
-                <h4 className="text-4xl font-russo">{data.title}</h4>
+                {data.extraIcon && (
+                    <div className="w-20 mx-auto">
+                        <NextImage media={data.extraIcon} />
+                    </div>
+                )}
+                <HighlightedText
+                    tag="h4"
+                    text={data.title}
+                    className="text-4xl font-russo w-full text-center pt-4"
+                    highlightClasses={[
+                        'text-highlight before:bg-black text-primary-600 w-ful block pt-2'
+                    ]}
+                />
                 <div className="prose mx-auto leading-snug">
                     <Markdown>{data.text}</Markdown>
                 </div>
