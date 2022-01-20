@@ -18,7 +18,7 @@ const Variant4 = ({ data }) => {
                 </div>
                 <div className="relative flex-1 max-w-sm space-y-4 sm:pr-2 lg:max-w-none">
                     <h4 className="text-3xl font-thin sm:hidden lg:block text-primary-600 font-russo">{data.title}</h4>
-                    <div className="flex space-x-2">
+                    <div className="flex space-x-2 flex-wrap">
                         <div className="flex w-1/3 sm:max-w-[150px]">
                             <Image src="/icons/subtitle-figure.svg" width={300} height={15} />
                         </div>
@@ -27,7 +27,7 @@ const Variant4 = ({ data }) => {
                                 <Image src={getStrapiMedia(data.extraIcon.url)} width={data.extraIcon.width} height={data.extraIcon.height} />
                             </div>
                         )}
-                        <h5 className="text-xl font-extrabold text-gray-600">{data.subTitle}</h5>
+                        <h5 className={`${data.extraIcon ? 'text-primary-600 font-bold !ml-0 mt-4 w-full' : 'text-gray-600 text-xl font-extrabold'}`}>{data.subTitle}</h5>
                     </div>
                     <div className="prose text-gray-700">
                         <Markdown>{data.text}</Markdown>

@@ -24,7 +24,7 @@ const Variant4_Reverse = ({ data }) => {
                         </div>
                         {data.extraIcon && (
                             <div className="flex sm:max-w-[80px]">
-                                <Image src={getStrapiMedia(data.extraIcon.url)} width={100} height={15} />
+                                <Image src={getStrapiMedia(data.extraIcon.url)} width={data.extraIcon.width} height={data.extraIcon.height} />
                             </div>
                         )}
                         <h5 className={`${data.extraIcon ? 'text-primary-600 font-bold !ml-0 mt-4 w-full' : 'text-gray-600 text-xl font-extrabold'}`}>{data.subTitle}</h5>
