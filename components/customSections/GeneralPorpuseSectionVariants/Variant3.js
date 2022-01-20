@@ -19,7 +19,7 @@ const Variant3 = ({ data }) => {
                 </div>
                 <div className="flex w-full flex-col items-center gap-8 lg:flex-row pt-8">
                     <div className="separator-fish w-3/6 h-8 grow shrink-0"></div>
-                    <div className="grow shrink-0 w-3/6">
+                    <div className="grow shrink-0 md:w-3/6">
                         <Image src="/icons/figure1.svg" width="491" height="128" />
                     </div>
                 </div>
