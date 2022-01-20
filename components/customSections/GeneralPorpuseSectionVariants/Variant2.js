@@ -7,18 +7,20 @@ import Markdown from "react-markdown"
 const Variant2 = ({ data }) => {
     return (
         <section className="pt-20 text-center">
-            <div className="container max-w-4xl space-y-6 px-20">
+            <div className="container max-w-4xl space-y-6 px-4">
                 <h4 className="text-4xl font-russo">{data.title}</h4>
-                <div className="prose mx-auto">
+                <div className="prose mx-auto leading-snug">
                     <Markdown>{data.text}</Markdown>
                 </div>
-                <div className="sm:w-full lg:w-auto inline-block">
-                    <ButtonLink
-                        button={data.CTAs[0]}
-                        appearance={getButtonAppearance(data.CTAs[0].type, 'light')}
-                        wFull
-                    />
-                </div>
+                {data.CTAs[0] && (
+                    <div className="sm:w-full lg:w-auto inline-block">
+                        <ButtonLink
+                            button={data.CTAs[0]}
+                            appearance={getButtonAppearance(data.CTAs[0].type, 'light')}
+                            wFull
+                        />
+                    </div>
+                )}
             </div>
             <div className="lg:mx-24 relative h-[400px] !mt-16">
                 <Image src={getStrapiMedia(data.media[0].url)} objectFit="cover" layout="fill" />
