@@ -3,7 +3,7 @@ import Image from "next/image"
 const ResortMap = ({ data }) => {
     return (
         <section className="bg-white">
-            <div className="px-4 pb-8">
+            <div className="px-4 pb-8 py-8">
                 <div className="flex justify-center">
                     <Image src="/icons/map-icon.svg" width={64} height={64} />
                 </div>
