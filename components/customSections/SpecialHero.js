@@ -4,7 +4,7 @@ import { getStrapiMedia } from "utils/media"
 const SpecialHero = ({ data }) => {
     return (
         <main className="text-white text-center bg-black">
-            <div className={`relative flex justify-center items-center py-24`}>
+            <div className={`relative flex justify-center items-center h-screen`}>
                 <div className="absolute inset-0">
                     <Image src={getStrapiMedia(data.backgroundImage.url)} objectFit="cover" layout="fill" />
                 </div>
