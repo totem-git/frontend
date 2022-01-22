@@ -60,7 +60,12 @@ const Hero = ({ data }) => {
                 <NextImage media={data.extraIcon} />
               </div>
             )}
-            <HighlightedText tag="h2" className={`text-4xl text-primary-600 ${isHome ? 'font-basker' : 'font-russo'}`} highlightClasses={['text-bg-effect']} text={data.title} />
+            <HighlightedText
+              tag="h2"
+              className={`text-4xl text-primary-600 ${isHome ? 'font-basker' : 'font-russo'}`}
+              highlightClasses={['text-bg-effect before:right-2']}
+              text={data.title}
+            />
             <h3 className={`${isHome ? 'text-3xl' : 'text-xl'} font-russo`}>{data.label}</h3>
             {isHome && (
               <div className="max-w-xs px-16">
