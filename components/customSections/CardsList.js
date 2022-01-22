@@ -31,17 +31,17 @@ const CardsList = ({ data }) => {
     })
 
     return (
-        <div className="py-8">
-            <div className="flex flex-col items-center text-center text-gray-600 space-y-8">
+        <div className="py-8 space-y-8">
+            <div className="flex flex-col items-center text-center text-gray-600 space-y-4">
                 {data.extraIcon && (
-                    <div className="w-4 stroke-gray-600 mb-8">
-                        <Image src={getStrapiMedia(data.extraIcon.url)} width={64} height={64} />
+                    <div className="w-8 stroke-gray-600">
+                        <NextImage media={data.extraIcon} />
                     </div>
                 )}
-                {data.title && (<h4 className="text-3xl mt-6 font-russo tracking-wider mb-8">{data.title}</h4>)}
-                {data.subtitle && (<h5 className="font-normal mt-2 mb-8">{data.subTitle}</h5>)}
+                {data.title && (<h4 className="text-3xl font-russo tracking-wider">{data.title}</h4>)}
+                {data.subtitle && (<h5 className="font-normal mt-2">{data.subTitle}</h5>)}
                 {data.text && (
-                    <div className="prose text-gray-700 text-center leading-tight px-2 mb-8">
+                    <div className="prose text-gray-700 text-center leading-tight px-2">
                         <ReactMarkdown>{data.text}</ReactMarkdown>
                     </div>
                 )}
