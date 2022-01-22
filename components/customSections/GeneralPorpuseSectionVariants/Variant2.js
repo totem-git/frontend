@@ -52,7 +52,6 @@ const Variant2 = ({ data }) => {
                 <>
                     <br />
                     <br />
-                    <br />
                 </>
             )}
         </section>
