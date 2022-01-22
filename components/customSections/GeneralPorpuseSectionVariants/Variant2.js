@@ -27,23 +27,17 @@ const Variant2 = ({ data }) => {
                 <div className="prose mx-auto leading-snug">
                     <Markdown>{data.text}</Markdown>
                 </div>
-                {data.CTAs[0] ? (
-                    <div className="sm:w-full lg:w-auto inline-block">
+                {data.CTAs[0] && (
+                    <div className="sm:w-full lg:w-auto inline-block mb-4">
                         <ButtonLink
                             button={data.CTAs[0]}
                             appearance={getButtonAppearance(data.CTAs[0].type, 'light')}
                             wFull
                         />
                     </div>
-                ) : (
-                    <>
-                        <br />
-                        <br />
-                        <br />
-                    </>
                 )}
             </div>
-            {!!data.media.length && (
+            {!!data.media.length ? (
                 <div className="lg:mx-24 relative h-[400px] !mt-16">
                     <Image src={getStrapiMedia(data.media[0].url)} objectFit="cover" layout="fill" />
                     <span
@@ -54,6 +48,12 @@ const Variant2 = ({ data }) => {
                         className="absolute top-1/3 left-1/4 right-0 bottom-10"
                     ></span>
                 </div>
+            ) : (
+                <>
+                    <br />
+                    <br />
+                    <br />
+                </>
             )}
         </section>
     )
