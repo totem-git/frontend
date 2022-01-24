@@ -46,7 +46,7 @@ const MyApp = ({ Component, pageProps }) => {
         }}
       />
       {/* Display the content */}
-      <AppWrapper>
+      <AppWrapper googleReviews={global.googleReviews}>
         <Component {...pageProps} />
       </AppWrapper>
     </>

@@ -33,7 +33,7 @@ const DynamicPage = ({ sections, metadata, preview, global, pageContext }) => {
       {/* Display content sections */}
       <Sections sections={sections} preview={preview} />
       {appContext.reservationPopupVisible && (
-        <ReservationPopup closeSelf={() => { appContext.setReservationPopupVisible(false) }} />
+        <ReservationPopup closeSelf={() => { appContext.setReservationPopupVisible(false) }} googleReviews={global.googleReviews} />
       )}
     </Layout>
   )
