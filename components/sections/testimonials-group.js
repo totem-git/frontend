@@ -1,7 +1,6 @@
 import { useAppContext } from "context/state"
 import Image from "next/image"
-import { useRef, useState } from "react"
-import { useEffect } from "react/cjs/react.development"
+import { useRef, useState, useEffect } from "react"
 import { getStrapiMedia } from "utils/media"
 import CustomLink from "../elements/custom-link"
 import RatingStars from "../elements/RatingStars"
