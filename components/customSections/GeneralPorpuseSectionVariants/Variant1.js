@@ -3,6 +3,7 @@ import { getButtonAppearance } from "utils/button"
 import Markdown from "react-markdown"
 import { getStrapiMedia } from "utils/media"
 import NextImage from "@/components/elements/image"
+import Image from "next/image"
 
 const Variant1 = ({ data }) => {
     return (
@@ -31,8 +32,8 @@ const Variant1 = ({ data }) => {
                 )}
             </div>
             {data.media.length > 0 && (
-                <div className="px-16 mt-16">
-                    <NextImage media={data.media[0]} />
+                <div className="px-16 mt-12 h-28 flex justify-center">
+                    <Image src={getStrapiMedia(data.media[0].url)} width={data.media[0].width} height={data.media[0].height} />
                 </div>
             )}
         </section>
