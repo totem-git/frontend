@@ -1,3 +1,4 @@
+import { useAppContext } from "context/state"
 import Image from "next/image"
 import { useRef, useState } from "react"
 import { useEffect } from "react/cjs/react.development"
@@ -7,10 +8,13 @@ import RatingStars from "../elements/RatingStars"
 import SliderIndicators from "../elements/SliderIndicators"
 
 const TestimonialsGroup = ({ data }) => {
-  const reviews = data.testimonials
+  let reviews = data.testimonials
   const sliderRef = useRef()
   const activeSlidesRef = useRef(Array(reviews.length).fill(0))
   const [activeSlides, setActiveSlides] = useState(activeSlidesRef.current)
+  const { googleReviews } = useAppContext()
+
+  if (reviews.length == 0) reviews = googleReviews.reviews
 
   const ioCallback = (entries) => {
     let intersections = [...activeSlidesRef.current]
@@ -80,7 +84,7 @@ const TestimonialsGroup = ({ data }) => {
             <div data-index={i} key={i} className="relative w-full max-h-full shrink-0 bg-light-grey-blue snap-start snap-always text-dark-grey p-4 text-left">
               <div className="flex items-stretch">
                 <div className="w-10 h-10 self-center overflow-hidden rounded-full shrink-0">
-                  <Image src={getStrapiMedia(review.picture.url)} width={100} height={100} />
+                  <Image src={getStrapiMedia(review.authorPicture.url)} width={100} height={100} />
                 </div>
                 <div className="leading-none pl-2 grow">
                   <div className="flex items-center grow flex-wrap">
@@ -89,7 +93,7 @@ const TestimonialsGroup = ({ data }) => {
                       <RatingStars rating={review.rating} starSize="w-3 h-3" />
                     </div>
                   </div>
-                  {review.authorTitle && (<span className="font-medium text-gray-600">{review.authorTitle}</span>)}
+                  {review.label && (<span className="font-medium text-gray-600">{review.label}</span>)}
                 </div>
               </div>
               <p className="text-sm pt-4">{review.text}</p>
@@ -103,7 +107,7 @@ const TestimonialsGroup = ({ data }) => {
           <Image src="/icons/arrow-left-bg-yellow.svg" layout="fixed" width={50} height={50} />
         </button>
         <div className="flex justify-center mt-4">
-          <SliderIndicators activeSlides={activeSlides} inactiveClassName="p-1" activeClassName="p-1.5" className="bg-white rounded-full transition-all" />
+          <SliderIndicators activeSlides={activeSlides} inactiveClassName="p-1" activeClassName="p-1.5" className="bg-white rounded-full shadow-md transition-all" />
         </div>
       </div>
       {data.link && (
