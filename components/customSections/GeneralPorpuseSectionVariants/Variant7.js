@@ -1,14 +1,21 @@
 import HighlightedText from "@/components/elements/HighlightedText"
 import Image from "next/image"
+import { backgroundImage } from "tailwindcss/defaultTheme"
 import { getStrapiMedia } from "utils/media"
+import Separator from "../Separator"
 
 const Variant7 = ({ data }) => {
     return (
-        <section className="py-8 overflow-x-hidden bg-black p-4 md:p-8 lg:p-16">
-            <div className="flex justify-center items-start">
-                <div className="flex justify-center md:w-1/3">
-                    <Image src="/icons/image 1.png" width="1173" height="117" />
-                </div>
+        <section className="overflow-x-hidden bg-black md:p-8 lg:p-16">
+            <div style={{
+                backgroundImage: 'url("/icons/variant7-icon-1.svg")',
+                backgroundRepeat: 'repeat-x',
+                backgroundSize: 'auto 100%',
+                backgroundPosition: 'center'
+            }}
+                className="h-12"
+            ></div>
+            <div className="flex justify-center items-start px-4">
                 <div className="justify-center hidden md:flex w-1/3">
                     <Image src="/icons/subtitle-figure.svg" width="100" height="20" />
                 </div>
@@ -22,12 +29,12 @@ const Variant7 = ({ data }) => {
             <HighlightedText
                 text={data.title}
                 tag="h4"
-                className="text-4xl font-russo text-center text-white leading-tight mt-8 max-w-3xl mx-auto"
+                className="text-3xl font-russo text-center text-white leading-tight mt-16 max-w-3xl mx-auto"
                 highlightClasses={[
-                    'text-highlight before:bg-primary-600 before:-right-6 before:-bottom-2',
+                    'text-highlight before:bg-primary-600 before:-right-6 before:-bottom-2 before:top-0',
                 ]}
             />
-            <div className="mt-16 lg:mt-24 flex justify-between max-w-md mx-auto">
+            <div className="mt-16 lg:mt-24 flex justify-between max-w-md mx-auto px-4">
                 <div>
                     <Image src={getStrapiMedia(data.extraIcon.url)} width={data.extraIcon.width} height={data.extraIcon.height} />
                 </div>
@@ -37,10 +44,18 @@ const Variant7 = ({ data }) => {
                 <div className="">
                     <Image src={getStrapiMedia(data.extraIcon.url)} width={data.extraIcon.width} height={data.extraIcon.height} />
                 </div>
-                <div className="">
+                <div className="hidden lg:block">
                     <Image src={getStrapiMedia(data.extraIcon.url)} width={data.extraIcon.width} height={data.extraIcon.height} />
                 </div>
             </div>
+            <div style={{
+                backgroundImage: 'url("/icons/variant7-icon-1.svg")',
+                backgroundRepeat: 'repeat-x',
+                backgroundSize: 'auto 100%',
+                backgroundPosition: 'center'
+            }}
+                className="h-12 mt-16"
+            ></div>
         </section>
     )
 }
