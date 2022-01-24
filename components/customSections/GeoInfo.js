@@ -3,7 +3,7 @@ import { backgroundColor, borderColor } from "tailwindcss/defaultTheme"
 
 const GeoInfo = ({ data }) => {
     return (
-        <section className="bg-white">
+        <section className="bg-white py-8">
             <div className="px-4 pb-8">
                 <div className="flex justify-center w-12 mx-auto">
                     <Image src="/icons/compass-icon.svg" width={64} height={64} />
@@ -74,26 +74,6 @@ const GeoInfo = ({ data }) => {
                 <div className="flex justify-between"><span>Indianapolis,</span><span>900 mi.</span></div>
                 <div className="flex justify-between"><span>Calgary, AB</span><span>1020 mi.</span></div>
                 <div className="flex justify-between"><span>Vancouver, BC</span><span>1615 mi.</span></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             </div>
         </section >
     )
