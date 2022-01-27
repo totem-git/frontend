@@ -32,7 +32,7 @@ const Footer = ({ footer, googleReviews }) => {
       </iframe>
       <div className="container mt-12 overflow-x-hidden">
         <div className="flex flex-col text-primary-600 items-center">
-          <h4 className="text-2xl font-russo text-center">TOTEM RESORTS ON GOOGLE</h4>
+          <h4 className="text-2xl font-russo text-center"><a href="https://www.google.com/search?q=totem+resorts&oq=totem&aqs=chrome.1.69i57j35i19i39l2j0i512j46i512j69i61l3.1990j0j7&sourceid=chrome&ie=UTF-8">TOTEM RESORTS ON GOOGLE</a></h4>
           <div className="flex items-start mt-4">
             <span className="text-3xl leading-none tracking-widest font-russo mr-4">{googleReviews.totalRating}</span>
             <RatingStars rating={googleReviews.totalRating} starSize="w-7 h-7" starSpacing="space-x-2" />
