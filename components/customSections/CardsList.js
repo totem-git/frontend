@@ -7,6 +7,7 @@ import { getStrapiMedia } from "utils/media"
 import ReactMarkdown from "react-markdown"
 import CustomLink from "../elements/custom-link"
 import NextImage from "../elements/image"
+import Link from "next/link"
 
 const CardsList = ({ data }) => {
     data.cards = data.cards.map((card) => {
@@ -51,17 +52,46 @@ const CardsList = ({ data }) => {
                     {data.cards.map((card, i) => (
                         <div key={i} className={`w-full flex flex-col bg-white max-w-md md:max-w-xs border-b-4 md:basis-1/2 border-white`} style={{ borderColor: card.bottomBorderColor }}>
                             {(card.type == 1) && (
-                                <div className="h-64 md:h-44 overflow-hidden relative">
-                                    <Image src={getStrapiMedia(card.image.url)} objectFit="cover" layout="fill" />
-                                </div>
+                                card.CTA
+                                    ? (
+                                        <Link href={card.CTA.url}>
+                                            <a tabIndex={-1} className="block h-64 md:h-44 overflow-hidden relative">
+                                                <Image src={getStrapiMedia(card.image.url)} objectFit="cover" layout="fill" />
+                                            </a>
+                                        </Link>
+                                    )
+                                    : (
+                                        <a className="block h-64 md:h-44 overflow-hidden relative">
+                                            <Image src={getStrapiMedia(card.image.url)} objectFit="cover" layout="fill" />
+                                        </a>
+                                    )
                             )}
                             <div className="px-8 pb-12 pt-4 flex flex-col grow">
                                 {card.extraIcon && (
-                                    <div className="w-1/3 py-8">
-                                        <NextImage media={card.extraIcon} />
-                                    </div>
+                                    card.CTA
+                                        ? (
+                                            <Link href={card.CTA.url}>
+                                                <a tabIndex={-1} className="block w-1/3 py-8">
+                                                    <NextImage media={card.extraIcon} />
+                                                </a>
+                                            </Link>
+                                        )
+                                        : (
+                                            <div className="w-1/3 py-8">
+                                                <NextImage media={card.extraIcon} />
+                                            </div>
+                                        )
                                 )}
-                                <h4 style={card.titleStyle || {}} className={`text-gray-600 text-3xl md:text-2xl uppercase tracking-wider font-russo ${card.textAlignment}`}>{card.title}</h4>
+                                <h4 style={card.titleStyle || {}} className={`text-gray-600 text-3xl md:text-2xl uppercase tracking-wider font-russo ${card.textAlignment}`}>
+                                    {card.CTA
+                                        ? (
+                                            <Link href={card.CTA.url}>
+                                                <a tabIndex={-1}>{card.title}</a>
+                                            </Link>
+                                        )
+                                        : card.title
+                                    }
+                                </h4>
                                 <div className={`prose pb-8 text-gray-700 text-lg md:text-base mt-4 mb-auto leading-tight ${card.textAlignment}`}>
                                     <ReactMarkdown>{card.text}</ReactMarkdown>
                                 </div>
