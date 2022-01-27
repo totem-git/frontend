@@ -96,7 +96,7 @@ const Hero = ({ data }) => {
         <div ref={navRef} className="flex justify-center divide-x-2 border-white">
           {navLinks.map((link, i) => (
             <div key={i} className={`grow pb-4 ${i == 1 && 'w-[36%]'} pt-6`}>
-              <a href={link.url} className="flex flex-col space-y-2 group">
+              <a href={link.url} className="flex flex-col space-y-2 group font-russo font-thin">
                 {(currentUrl == link.url) ? <Image src={`/icons/${link.icon}-white.svg`} width="16" height="16" /> : <Image src={`/icons/${link.icon}.svg`} width="16" height="16" />}
                 <span className={`w-max inline-block mx-auto border-b-4 ${(currentUrl == link.url) ? 'border-white' : 'border-transparent'} group-hover:border-white transition`}>{link.text}</span>
               </a>
