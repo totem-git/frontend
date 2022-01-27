@@ -86,14 +86,17 @@ const Footer = ({ footer, googleReviews }) => {
                 Follow Us
               </p>
               <div className="flex gap-2">
-                <a href="#" className="p-4 pl-0">
+                <a href="https://www.instagram.com/totemresorts/" className="p-4 pl-0">
                   <Image src="/icons/ig-icon.svg" width="40" height="40" />
                 </a>
-                <a href="#" className="p-4">
+                <a href="https://www.facebook.com/TotemLodge/" className="p-4">
                   <Image src="/icons/fb-icon.svg" width="40" height="40" />
                 </a>
-                <a href="#" className="p-4">
+                <a href="https://www.youtube.com/channel/UCpqUq6jJy2rd2GQdOPyDQ9Q" className="p-4">
                   <Image src="/icons/yt-icon.svg" width="40" height="40" />
+                </a>
+                <a href="https://twitter.com/TotemResorts" className="p-4">
+                  <Image src="/icons/twitter-icon.png" width="40" height="40" />
                 </a>
               </div>
             </div>
