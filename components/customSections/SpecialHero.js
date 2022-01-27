@@ -1,10 +1,16 @@
 import Image from "next/image"
+import { useEffect, useRef } from "react"
 import { getStrapiMedia } from "utils/media"
 
 const SpecialHero = ({ data }) => {
+    const mainRef = useRef()
+
+    useEffect(() => {
+        mainRef.current.style.height = `${window.innerHeight}px`
+    }, [])
     return (
-        <main className="text-white text-center bg-black">
-            <div className={`relative flex justify-center items-center h-screen`}>
+        <main ref={mainRef} className="text-white text-center bg-black h-screen">
+            <div className={`relative flex justify-center items-center h-full`}>
                 <div className="absolute inset-0">
                     <Image src={getStrapiMedia(data.backgroundImage.url)} objectFit="cover" layout="fill" />
                 </div>
