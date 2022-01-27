@@ -11,6 +11,7 @@ const Hero = ({ data }) => {
   const isHome = data.type === 'home'
   const navRef = useRef()
   const [currentUrl, setCurrentUrl] = useState('')
+  const mainRef = useRef()
 
   const navLinks = [
     {
@@ -38,8 +39,12 @@ const Hero = ({ data }) => {
     setCurrentUrl(url)
   }, [])
 
+  useEffect(() => {
+    mainRef.current.style.height = `${window.innerHeight}px`
+  }, [])
+
   return (
-    <main className="text-white text-center bg-black h-screen flex flex-col">
+    <main ref={mainRef} className="text-white text-center bg-black h-screen flex flex-col">
       <div className={`relative flex justify-center items-center py-12 lg:pb-4 sm:py-32 grow`}>
         <div className="absolute inset-0">
           {data.picture.mime.startsWith('image') &&
