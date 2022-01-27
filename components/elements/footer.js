@@ -51,7 +51,7 @@ const Footer = ({ footer, googleReviews }) => {
             </p>
             <ul className="mt-2">
               <li
-                className="text-gray-100 py-1 px-1 -mx-1 hover:text-gray-400"
+                className="text-gray-100 py-2 px-1 -mx-1 hover:text-gray-400"
               >
                 <CustomLink link={{
                   url: "#"
@@ -61,7 +61,7 @@ const Footer = ({ footer, googleReviews }) => {
                 </CustomLink>
               </li>
               <li
-                className="text-gray-100 py-1 px-1 -mx-1 hover:text-gray-400"
+                className="text-gray-100 py-2 px-1 -mx-1 hover:text-gray-400"
               >
                 <CustomLink link={{
                   url: "#"
@@ -71,7 +71,7 @@ const Footer = ({ footer, googleReviews }) => {
                 </CustomLink>
               </li>
               <li
-                className="text-gray-100 py-1 px-1 -mx-1 hover:text-gray-400"
+                className="text-gray-100 py-2 px-1 -mx-1 hover:text-gray-400"
               >
                 <CustomLink link={{
                   url: "#"
@@ -110,7 +110,7 @@ const Footer = ({ footer, googleReviews }) => {
                 {footerColumn.links.map((link) => (
                   <li
                     key={link.id}
-                    className="text-gray-100 py-1 px-1 -mx-1 hover:text-gray-400"
+                    className="text-gray-100 py-2 px-1 -mx-1 hover:text-gray-400"
                   >
                     <CustomLink link={link}>{link.text}</CustomLink>
                   </li>
