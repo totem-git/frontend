@@ -71,7 +71,13 @@ const Hero = ({ data }) => {
               highlightClasses={['text-bg-effect before:right-2']}
               text={data.title}
             />
-            <h3 className={`${isHome ? 'text-3xl' : 'text-xl'} font-russo`}>{data.label}</h3>
+            <h3 className={`${isHome ? 'text-3xl' : 'text-xl'} font-russo`}>
+              {data.label &&
+                data.label.split('<br>').map((labelPart, i) => (
+                  <span key={i}>{labelPart} <br className="lg:hidden" /></span>
+                ))
+              }
+            </h3>
             {isHome && (
               <div className="max-w-xs px-16">
                 <Image src="/icons/stars.svg" width={500} height={100} />
