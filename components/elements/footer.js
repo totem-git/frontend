@@ -145,7 +145,7 @@ const Footer = ({ footer, googleReviews }) => {
       <div className="px-4">
         <ButtonLink
           button={{
-            url: '#reservationForm',
+            url: ':reservationForm',
             text: 'RESERVATIONS',
           }}
           appearance="white"
