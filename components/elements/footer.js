@@ -107,7 +107,10 @@ const Footer = ({ footer, googleReviews }) => {
               className="mt-10 pr-6 odd:pr-0 sm:even:pr-0 sm:odd:pr-6 lg:!pr-0 lg:mt-0 w-6/12 sm:pl-[10%] lg:pl-0 lg:w-auto"
             >
               <p className="text-primary-600 font-russo text-xl tracking-wide font-semibold">
-                {footerColumn.title}
+                {footerColumn.titleUrl
+                  ? <CustomLink link={{ url: footerColumn.titleUrl }}>{footerColumn.title}</CustomLink>
+                  : footerColumn.title
+                }
               </p>
               <ul className="mt-2">
                 {footerColumn.links.map((link) => (
