@@ -50,19 +50,39 @@ const ButtonContent = ({ button, appearance, compact, size, wFull }) => {
   )
 }
 
-const ButtonLink = ({ button, appearance, compact = false, size = 'text-base md:text-sm', wFull = false }) => {
-  if (button.url == '#reservationForm') {
+const allowedActions = ['reservationForm', 'scrollToContent']
+
+const ActionButton = ({ action, ...props }) => {
+  let handler
+  if (action == 'reservationForm') {
     const { setReservationPopupVisible } = useAppContext()
+    handler = () => { setReservationPopupVisible(true) }
+  } else if (action == 'scrollToContent') {
+    handler = () => {
+      document.documentElement.scrollTo({ behavior: 'smooth', top: window.innerHeight - 65 })
+    }
+  }
+  return (
+    <Button
+      handleClick={handler}
+      {...props}
+      type='button'
+    />
+  )
+}
+
+const ButtonLink = ({ button, appearance, compact = false, size = 'text-base md:text-sm', wFull = false }) => {
+  if (button.url.startsWith(':') && allowedActions.includes(button.url.slice(1))) {
+    let action = button.url.slice(1)
 
     return (
-      <Button
-        handleClick={() => { setReservationPopupVisible(true) }}
+      <ActionButton
+        action={action}
         button={button}
         size={size}
         wFull={wFull}
         appearance={appearance}
         compact={compact}
-        type='button'
       />
     )
   }
