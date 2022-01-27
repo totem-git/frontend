@@ -38,16 +38,16 @@ const Navbar = ({ navbar, pageContext }) => {
     <>
       {/* The actual navbar */}
       <nav className={`flex bg-gradient-black-to-b ${scrolledDown ? 'bg-black' : 'bg-black/0'} transition duration-1000 trans h-20 fixed top-0 inset-x-0 z-50`}>
-        <div className="grow mx-6 lg:mx-12 xl:container flex flex-row justify-between">
+        <div className="grow mx-4 lg:mx-8 xl:container flex flex-row justify-between">
           {/* Content aligned to the left */}
           <div className="flex flex-row justify-between grow">
             <Link href="/">
-              <a className="inline-flex items-center text-primary-600 font-basker text-xl lg:text-2xl">
+              <a className="inline-flex items-center text-primary-600 font-basker text-xl md:text-base lg:text-2xl">
                 TOTEM RESORTS
               </a>
             </Link>
             {/* List of links on desktop */}
-            <ul className="hidden list-none md:flex flex-row gap-4 ml-10 mr-6 lg:mr-12 xl:mr-24">
+            <ul className="hidden list-none md:flex flex-row gap-3 ml-6 mr-4 lg:mr-8 xl:mr-16">
               {navbar.links.map((navLink) => (
                 <li key={navLink.id} className={`flex items-center ${navLink.url == currentPage && 'border-b-2 border-white'}`}>
                   <CustomLink link={navLink} locale={router.locale}>
