@@ -8,7 +8,7 @@ import ButtonLink from "./button-link"
 
 const Footer = ({ footer, googleReviews }) => {
   return (
-    <footer className="bg-black text-white">
+    <footer className="bg-black text-white md:px-4">
       <div className="flex items-center my-14">
         <div className="flex-grow">
           <div className="hidden lg:block separator-fish h-4 mx-3"></div>
@@ -30,7 +30,7 @@ const Footer = ({ footer, googleReviews }) => {
         className="w-full h-96 lg:container"
       >
       </iframe>
-      <div className="container mt-12 overflow-x-hidden">
+      <div className="px-2 lg:container mt-12 overflow-x-hidden">
         <div className="flex flex-col text-primary-600 items-center">
           <h4 className="text-2xl font-russo text-center"><a href="https://www.google.com/search?q=totem+resorts&oq=totem&aqs=chrome.1.69i57j35i19i39l2j0i512j46i512j69i61l3.1990j0j7&sourceid=chrome&ie=UTF-8">TOTEM RESORTS ON GOOGLE</a></h4>
           <div className="flex items-start mt-4">
@@ -41,17 +41,17 @@ const Footer = ({ footer, googleReviews }) => {
         <h4 className="text-2xl text-center text-primary-600 font-russo mt-8 mb-12">LAST 5 REVIEWS:</h4>
         <FooterReviews reviews={googleReviews.reviews} />
       </div>
-      <div className="container flex flex-col mt-16">
-        <nav className="flex flex-wrap flex-row items-start lg:justify-between mb-10">
+      <div className="container flex flex-col mt-10">
+        <nav className="flex flex-wrap flex-row items-start lg:justify-between mb-10 md:grid grid-cols-[auto_auto_auto] md:justify-between">
           <div
-            className="mt-10 pr-6 lg:pr-0 lg:mt-0 w-full sm:w-6/12 sm:pl-[10%] lg:pl-0 lg:w-auto"
+            className="mt-10 pr-6 md:pr-0 lg:mt-0 w-full sm:w-6/12 md:w-auto sm:pl-[10%] md:pl-0 lg:pl-0 lg:w-auto"
           >
-            <p className="text-primary-600 font-russo text-xl tracking-wide font-semibold">
+            <p className="text-primary-600 font-russo text-xl tracking-wide font-semibold md:w-min">
               Contact
             </p>
             <ul className="mt-2">
               <li
-                className="text-gray-100 py-2 px-1 -mx-1 hover:text-gray-400"
+                className="text-gray-100 py-2 px-1 -mx-1 hover:text-gray-400 text-sm"
               >
                 <CustomLink link={{
                   url: "#"
@@ -61,7 +61,7 @@ const Footer = ({ footer, googleReviews }) => {
                 </CustomLink>
               </li>
               <li
-                className="text-gray-100 py-2 px-1 -mx-1 hover:text-gray-400"
+                className="text-gray-100 py-2 px-1 -mx-1 hover:text-gray-400 text-sm"
               >
                 <CustomLink link={{
                   url: "#"
@@ -71,7 +71,7 @@ const Footer = ({ footer, googleReviews }) => {
                 </CustomLink>
               </li>
               <li
-                className="text-gray-100 py-2 px-1 -mx-1 hover:text-gray-400"
+                className="text-gray-100 py-2 px-1 -mx-1 hover:text-gray-400 text-sm"
               >
                 <CustomLink link={{
                   url: "#"
@@ -81,22 +81,22 @@ const Footer = ({ footer, googleReviews }) => {
                 </CustomLink>
               </li>
             </ul>
-            <div className="hidden lg:flex flex-col mt-8">
+            <div className="hidden md:flex flex-col mt-4">
               <p className="text-primary-600 font-russo text-xl tracking-wide font-semibold">
                 Follow Us
               </p>
-              <div className="flex gap-2">
-                <a href="https://www.instagram.com/totemresorts/" className="p-4 pl-0">
-                  <Image src="/icons/ig-icon.svg" width="40" height="40" />
+              <div className="flex gap-1">
+                <a href="https://www.instagram.com/totemresorts/" className="pt-4 p-2 pl-0">
+                  <Image src="/icons/ig-icon.svg" width="25" height="28" />
                 </a>
-                <a href="https://www.facebook.com/TotemLodge/" className="p-4">
-                  <Image src="/icons/fb-icon.svg" width="40" height="40" />
+                <a href="https://www.facebook.com/TotemLodge/" className="pt-4 p-2">
+                  <Image src="/icons/fb-icon.svg" width="25" height="28" />
                 </a>
-                <a href="https://www.youtube.com/channel/UCpqUq6jJy2rd2GQdOPyDQ9Q" className="p-4">
-                  <Image src="/icons/yt-icon.svg" width="40" height="40" />
+                <a href="https://www.youtube.com/channel/UCpqUq6jJy2rd2GQdOPyDQ9Q" className="pt-4 p-2">
+                  <Image src="/icons/yt-icon.svg" width="25" height="28" />
                 </a>
-                <a href="https://twitter.com/TotemResorts" className="p-4">
-                  <Image src="/icons/twitter-icon.png" width="40" height="40" />
+                <a href="https://twitter.com/TotemResorts" className="pt-4 p-2">
+                  <Image src="/icons/twitter-icon.png" width="25" height="28" />
                 </a>
               </div>
             </div>
@@ -104,9 +104,9 @@ const Footer = ({ footer, googleReviews }) => {
           {footer.columns.map((footerColumn) => (
             <div
               key={footerColumn.id}
-              className="mt-10 pr-6 odd:pr-0 sm:even:pr-0 sm:odd:pr-6 lg:!pr-0 lg:mt-0 w-6/12 sm:pl-[10%] lg:pl-0 lg:w-auto"
+              className="mt-10 pr-6 odd:pr-0 sm:even:pr-0 sm:odd:pr-6 md:odd:pr-0 lg:!pr-0 lg:mt-0 w-6/12 md:w-auto sm:pl-[10%] md:pl-0 lg:w-auto"
             >
-              <p className="text-primary-600 font-russo text-xl tracking-wide font-semibold">
+              <p className="text-primary-600 font-russo text-xl tracking-wide font-semibold md:w-min">
                 {footerColumn.titleUrl
                   ? <CustomLink link={{ url: footerColumn.titleUrl }}>{footerColumn.title}</CustomLink>
                   : footerColumn.title
@@ -116,7 +116,7 @@ const Footer = ({ footer, googleReviews }) => {
                 {footerColumn.links.map((link) => (
                   <li
                     key={link.id}
-                    className="text-gray-100 py-2 px-1 -mx-1 hover:text-gray-400"
+                    className="text-gray-100 py-2 px-1 -mx-1 hover:text-gray-400 md:text-sm"
                   >
                     <CustomLink link={link}>{link.text}</CustomLink>
                   </li>
@@ -126,7 +126,7 @@ const Footer = ({ footer, googleReviews }) => {
           ))}
         </nav>
       </div>
-      <div className="container flex lg:hidden flex-col items-center">
+      <div className="container flex md:hidden flex-col items-center">
         <p className="text-primary-600 uppercase font-russo tracking-wide font-semibold">
           Follow Us
         </p>
@@ -142,7 +142,7 @@ const Footer = ({ footer, googleReviews }) => {
           </a>
         </div>
       </div>
-      <div className="px-4">
+      <div className="px-4 md:w-96 mx-auto">
         <ButtonLink
           button={{
             url: ':reservationForm',
