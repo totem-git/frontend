@@ -46,7 +46,7 @@ const Hero = ({ data }) => {
 
   return (
     <main ref={mainRef} className="text-white text-center bg-black h-screen flex flex-col">
-      <div className={`relative flex justify-center items-center py-12 lg:pb-4 sm:py-32 grow`}>
+      <div className={`relative flex justify-center items-center grow pt-10`}>
         <div className="absolute inset-0">
           {data.picture.mime.startsWith('image') &&
             <Image src={getStrapiMedia(data.picture.url)} objectFit="cover" layout="fill" />
@@ -60,7 +60,7 @@ const Hero = ({ data }) => {
         </div>
         <div className="absolute inset-0 bg-black opacity-60 m-0"></div>
         <div className="relative flex flex-col items-center justify-between space-y-16 z-10 w-full">
-          <div className="space-y-5 w-full flex flex-col items-center px-4">
+          <div className="space-y-5 sm:space-y-4 w-full flex flex-col items-center px-4">
             {data.extraIcon && (
               <div className="w-40">
                 <NextImage media={data.extraIcon} />
@@ -75,17 +75,25 @@ const Hero = ({ data }) => {
             <h3 className={`${isHome ? 'text-3xl' : 'text-xl'} font-russo`}>
               {data.label &&
                 data.label.split('<br>').map((labelPart, i) => (
-                  <span key={i}>{labelPart} <br className="lg:hidden" /></span>
+                  <span key={i}>{labelPart} <br className="sm:hidden" /></span>
                 ))
               }
             </h3>
             {isHome && (
-              <div className="max-w-xs px-16">
-                <Image src="/icons/stars.svg" width={500} height={100} />
+              <div className="flex items-center">
+                <div className="hidden sm:block w-48">
+                  <Image src="/icons/rectangle-with-squiggly.svg" width={500} height={100} />
+                </div>
+                <div className="w-52 sm:w-80 px-4">
+                  <Image src="/icons/stars.svg" width={500} height={100} />
+                </div>
+                <div className="hidden sm:block w-48">
+                  <Image src="/icons/rectangle-with-squiggly.svg" className=" rotate-180" width={500} height={100} />
+                </div>
               </div>
             )}
             {!!data.buttons.length && (
-              <div className="w-full px-6">
+              <div className="w-full px-6 sm:w-auto sm:pt-6">
                 <ButtonLink
                   wFull
                   button={data.buttons[0]}
