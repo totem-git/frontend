@@ -5,6 +5,7 @@ import { getStrapiMedia } from "utils/media"
 import HighlightedText from "../elements/HighlightedText"
 import { useEffect, useRef, useState } from "react"
 import NextImage from "../elements/image"
+import Link from "next/link"
 
 const Hero = ({ data }) => {
   const isLanding = data.type === 'landing' || data.type === 'home'
@@ -102,10 +103,12 @@ const Hero = ({ data }) => {
         <div ref={navRef} className="flex justify-center divide-x-2 border-white">
           {navLinks.map((link, i) => (
             <div key={i} className={`grow pb-4 ${i == 1 && 'w-[36%]'} pt-6`}>
-              <a href={link.url} className="flex flex-col space-y-2 group font-russo font-thin">
-                {(currentUrl == link.url) ? <Image src={`/icons/${link.icon}-white.svg`} width="16" height="16" /> : <Image src={`/icons/${link.icon}.svg`} width="16" height="16" />}
-                <span className={`w-max inline-block mx-auto border-b-4 ${(currentUrl == link.url) ? 'border-white' : 'border-transparent'} group-hover:border-white transition`}>{link.text}</span>
-              </a>
+              <Link href={link.url}>
+                <a className="flex flex-col space-y-2 group font-russo font-thin">
+                  {(currentUrl == link.url) ? <Image src={`/icons/${link.icon}-white.svg`} width="16" height="16" /> : <Image src={`/icons/${link.icon}.svg`} width="16" height="16" />}
+                  <span className={`w-max inline-block mx-auto border-b-4 ${(currentUrl == link.url) ? 'border-white' : 'border-transparent'} group-hover:border-white transition`}>{link.text}</span>
+                </a>
+              </Link>
             </div>
           ))}
         </div>
