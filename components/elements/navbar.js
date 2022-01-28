@@ -47,7 +47,7 @@ const Navbar = ({ navbar, pageContext }) => {
               </a>
             </Link>
             {/* List of links on desktop */}
-            <ul className="hidden list-none md:flex flex-row gap-3 ml-6 mr-4 lg:mr-8 xl:mr-16">
+            <ul className="hidden list-none lg:flex flex-row gap-3 ml-6 mr-4 lg:mr-8 xl:mr-16">
               {navbar.links.map((navLink) => (
                 <li key={navLink.id} className={`flex items-center ${navLink.url == currentPage && 'border-b-2 border-white'}`}>
                   <CustomLink link={navLink} locale={router.locale}>
@@ -62,20 +62,20 @@ const Navbar = ({ navbar, pageContext }) => {
           <div className="flex items-center">
             {/* Locale Switch Mobile */}
             {pageContext.localizedPaths.length > 0 && (
-              <div className="md:hidden">
+              <div className="lg:hidden">
                 <LocaleSwitch pageContext={pageContext} />
               </div>
             )}
             {/* Hamburger menu on mobile */}
             <button
               onClick={() => setMobileMenuIsShown(true)}
-              className="flex md:hidden"
+              className="flex lg:hidden"
             >
               <Image width="64" height="40" src="/icons/menu-icon.svg" />
             </button>
             {/* CTA button on desktop */}
             {navbar.button && (
-              <div className="hidden md:block">
+              <div className="hidden lg:block">
                 <ButtonLink
                   button={navbar.button}
                   appearance={getButtonAppearance(navbar.button.type, "dark")}
@@ -86,7 +86,7 @@ const Navbar = ({ navbar, pageContext }) => {
             )}
             {/* Locale Switch Desktop */}
             {pageContext.localizedPaths.length > 0 && (
-              <div className="hidden md:block">
+              <div className="hidden lg:block">
                 <LocaleSwitch pageContext={pageContext} />
               </div>
             )}
