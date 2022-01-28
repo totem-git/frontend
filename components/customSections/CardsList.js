@@ -50,7 +50,7 @@ const CardsList = ({ data }) => {
             {!!data.cards.length && (
                 <div className="flex flex-col md:flex-row items-center justify-center flex-wrap md:items-stretch gap-8 md:gap-4 px-4">
                     {data.cards.map((card, i) => (
-                        <div key={i} className={`w-full flex flex-col bg-white max-w-md md:max-w-xs border-b-4 md:basis-1/2 border-white`} style={{ borderColor: card.bottomBorderColor }}>
+                        <div key={i} className={`w-full flex flex-col bg-white max-w-md border-b-4 md:w-[calc(50%-1rem)] border-white`} style={{ borderColor: card.bottomBorderColor }}>
                             {(card.type == 1) && (
                                 card.CTA
                                     ? (
@@ -66,18 +66,18 @@ const CardsList = ({ data }) => {
                                         </a>
                                     )
                             )}
-                            <div className="px-8 pb-12 pt-4 flex flex-col grow">
+                            <div className="px-8 pb-12 md:pb-8 pt-4 flex flex-col grow">
                                 {card.extraIcon && (
                                     card.CTA
                                         ? (
                                             <Link href={card.CTA.url}>
-                                                <a tabIndex={-1} className="block w-1/3 py-8">
-                                                    <NextImage media={card.extraIcon} />
+                                                <a tabIndex={-1} className="h-20 w-24 flex my-3">
+                                                    <Image src={getStrapiMedia(card.extraIcon.url)} objectFit="contain" width={card.extraIcon.width} height={card.extraIcon.height} />
                                                 </a>
                                             </Link>
                                         )
                                         : (
-                                            <div className="w-1/3 py-8">
+                                            <div className="h-14 py-8">
                                                 <NextImage media={card.extraIcon} />
                                             </div>
                                         )
@@ -92,7 +92,7 @@ const CardsList = ({ data }) => {
                                         : card.title
                                     }
                                 </h4>
-                                <div className={`prose pb-8 text-gray-700 text-lg md:text-base mt-4 mb-auto leading-tight ${card.textAlignment}`}>
+                                <div className={`prose pb-8 md:pb-4 text-gray-700 text-lg md:text-base mt-4 mb-auto leading-tight ${card.textAlignment}`}>
                                     <ReactMarkdown>{card.text}</ReactMarkdown>
                                 </div>
                                 {card.CTA && (

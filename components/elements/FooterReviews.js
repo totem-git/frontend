@@ -43,11 +43,11 @@ const FooterReviews = ({ reviews }) => {
     }, [])
 
     const handleSlide = (e) => {
-        let skipAmount = innerWidth >= 1024 ? 2 : 1
+        let skipAmount = innerWidth >= 768 ? 2 : 1
         let slidesCount = Number.parseInt(sliderRef.current.dataset.slidesCount)
         let scrollAmount = Math.floor(sliderRef.current.getBoundingClientRect().width / skipAmount)
         let currentScrollPosition = sliderRef.current.scrollLeft
-        let currentPosition = Math.floor(currentScrollPosition / scrollAmount)
+        let currentPosition = Math.round(currentScrollPosition / scrollAmount)
 
         let direction = Number.parseInt(e.currentTarget.dataset.slideDirection)
         let slideSteps = []
@@ -55,7 +55,11 @@ const FooterReviews = ({ reviews }) => {
             slideSteps.push(Math.floor(scrollAmount * i))
         }
 
-        if (!slideSteps.includes(currentScrollPosition) && Math.abs(currentScrollPosition - slideSteps[currentPosition]) > 50) {
+        if (!slideSteps.includes(currentScrollPosition) && Math.abs(currentScrollPosition - slideSteps[currentPosition]) > 100) {
+            // console.log({ currentScrollPosition });
+            // console.log({ scrollAmount });
+            // console.log({ currentPosition });
+            // console.log({ slideSteps });
             return
         }
 
@@ -63,15 +67,32 @@ const FooterReviews = ({ reviews }) => {
         nextPosition = nextPosition > slideSteps.length - 1 ? slideSteps.length - 1 : nextPosition
         nextPosition = nextPosition < 0 ? 0 : nextPosition
 
+        if (nextPosition == currentPosition) {
+            nextPosition = nextPosition == 0
+                ? slideSteps.length - 1
+                : 0
+        }
+
         let targetScrollPosition = slideSteps[nextPosition]
         sliderRef.current.scrollTo({ left: targetScrollPosition })
+        // console.log({
+        //     skipAmount,
+        //     slidesCount,
+        //     scrollAmount,
+        //     currentScrollPosition,
+        //     currentPosition,
+        //     direction,
+        //     slideSteps,
+        //     nextPosition,
+        //     targetScrollPosition,
+        // })
     }
 
     return (
         <div className="relative px-8 overflow">
-            <div ref={sliderRef} data-slides-count={reviews.length} className="flex w-full lg:h-80 items-stretch overflow-y-hidden overflow-x-scroll snap-x snap-mandatory no-scrollbar scroll-smooth">
+            <div ref={sliderRef} data-slides-count={reviews.length} className="flex w-full lg:h-80 items-stretch overflow-y-hidden overflow-x-scroll snap-x snap-mandatory no-scrollbar scroll-smooth space-x-4">
                 {reviews.map((review, i) => (
-                    <div data-index={i} key={i} className="relative w-full max-h-full shrink-0 bg-white snap-start snap-always text-dark-grey p-4">
+                    <div data-index={i} key={i} className="relative w-full md:w-[calc(50%-0.5rem)] max-h-full shrink-0 bg-white snap-start snap-always text-dark-grey p-4">
                         <div className="flex items-stretch">
                             <div className="w-10 h-10 self-center overflow-hidden rounded-full shrink-0">
                                 <Image src={getStrapiMedia(review.authorPicture.url)} width={100} height={100} />
@@ -86,7 +107,7 @@ const FooterReviews = ({ reviews }) => {
                                 {review.label && (<span className="font-medium text-gray-600">{review.label}</span>)}
                             </div>
                         </div>
-                        <p className="text-sm pt-4">{review.text}</p>
+                        <p className="text-sm md:text-xs pt-4">{review.text}</p>
                     </div>
                 ))}
             </div>
