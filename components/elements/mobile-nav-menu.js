@@ -11,7 +11,7 @@ const MobileNavMenu = ({ navbar, closeSelf }) => {
   useLockBodyScroll()
 
   return (
-    <div className="fixed inset-0 overflow-y-scroll bg-black text-white pb-6 md:hidden z-50">
+    <div className="fixed inset-0 overflow-y-scroll bg-black text-white pb-6 lg:hidden z-50">
       <div className="px-6 h-full flex flex-col">
         {/* Top section */}
         <div className="flex flex-row justify-between h-20 shrink-0 items-center">
@@ -38,7 +38,7 @@ const MobileNavMenu = ({ navbar, closeSelf }) => {
             ))}
           </ul>
 
-          <span className="block w-full" onClick={closeSelf}>
+          <span className="block w-full sm:w-80" onClick={closeSelf}>
             {navbar.button && (<ButtonLink
               button={navbar.button}
               appearance={getButtonAppearance(navbar.button.type, "dark")}
