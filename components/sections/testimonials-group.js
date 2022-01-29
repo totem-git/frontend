@@ -49,11 +49,11 @@ const TestimonialsGroup = ({ data }) => {
   }, [])
 
   const handleSlide = (e) => {
-    let skipAmount = innerWidth >= 1024 ? 2 : 1
+    let skipAmount = innerWidth >= 768 ? 2 : 1
     let slidesCount = Number.parseInt(sliderRef.current.dataset.slidesCount)
     let scrollAmount = Math.floor(sliderRef.current.getBoundingClientRect().width / skipAmount)
     let currentScrollPosition = sliderRef.current.scrollLeft
-    let currentPosition = Math.floor(currentScrollPosition / scrollAmount)
+    let currentPosition = Math.round(currentScrollPosition / scrollAmount)
 
     let direction = Number.parseInt(e.currentTarget.dataset.slideDirection)
     let slideSteps = []
@@ -61,13 +61,19 @@ const TestimonialsGroup = ({ data }) => {
       slideSteps.push(Math.floor(scrollAmount * i))
     }
 
-    if (!slideSteps.includes(currentScrollPosition) && Math.abs(currentScrollPosition - slideSteps[currentPosition]) > 50) {
+    if (!slideSteps.includes(currentScrollPosition) && Math.abs(currentScrollPosition - slideSteps[currentPosition]) > 100) {
       return
     }
 
     let nextPosition = currentPosition + (direction * skipAmount)
     nextPosition = nextPosition > slideSteps.length - 1 ? slideSteps.length - 1 : nextPosition
     nextPosition = nextPosition < 0 ? 0 : nextPosition
+
+    if (nextPosition == currentPosition) {
+      nextPosition = nextPosition == 0
+        ? slideSteps.length - 1
+        : 0
+    }
 
     let targetScrollPosition = slideSteps[nextPosition]
     sliderRef.current.scrollTo({ left: targetScrollPosition })
@@ -78,9 +84,9 @@ const TestimonialsGroup = ({ data }) => {
       <h4 className="text-4xl text-primary-600 font-russo">{data.title}</h4>
       <p className="text-gray-600 font-normal mx-auto mt-2 px-6 max-w-3xl">{data.description}</p>
       <div className="relative px-8 overflow mt-16">
-        <div ref={sliderRef} data-slides-count={reviews.length} className="flex w-full lg:h-80 items-stretch overflow-y-hidden overflow-x-scroll snap-x snap-mandatory no-scrollbar scroll-smooth">
+        <div ref={sliderRef} data-slides-count={reviews.length} className="flex w-full lg:h-80 items-stretch overflow-y-hidden overflow-x-scroll snap-x snap-mandatory no-scrollbar scroll-smooth space-x-4">
           {reviews.map((review, i) => (
-            <div data-index={i} key={i} className="relative w-full max-h-full shrink-0 bg-light-grey-blue snap-start snap-always text-dark-grey p-4 text-left">
+            <div data-index={i} key={i} className="relative w-full md:w-[calc(50%-0.5rem)] max-h-full shrink-0 bg-light-grey-blue snap-start snap-always text-dark-grey p-4 text-left">
               <div className="flex items-stretch">
                 <div className="w-10 h-10 self-center overflow-hidden rounded-full shrink-0">
                   <Image src={getStrapiMedia(review.authorPicture.url)} width={100} height={100} />
@@ -95,7 +101,7 @@ const TestimonialsGroup = ({ data }) => {
                   {review.label && (<span className="font-medium text-gray-600">{review.label}</span>)}
                 </div>
               </div>
-              <p className="text-sm pt-4">{review.text}</p>
+              <p className="text-sm md:text-xs pt-4">{review.text}</p>
             </div>
           ))}
         </div>
@@ -106,7 +112,7 @@ const TestimonialsGroup = ({ data }) => {
           <Image src="/icons/arrow-left-bg-yellow.svg" layout="fixed" width={50} height={50} />
         </button>
         <div className="flex justify-center mt-4">
-          <SliderIndicators activeSlides={activeSlides} inactiveClassName="p-1" activeClassName="p-1.5" className="bg-white rounded-full shadow-md transition-all" />
+          <SliderIndicators activeSlides={activeSlides} inactiveClassName="p-1" activeClassName="p-1.5" className="bg-gray-800 rounded-full shadow-md transition-all" />
         </div>
       </div>
       {data.link && (
