@@ -56,10 +56,6 @@ const FooterReviews = ({ reviews }) => {
         }
 
         if (!slideSteps.includes(currentScrollPosition) && Math.abs(currentScrollPosition - slideSteps[currentPosition]) > 100) {
-            // console.log({ currentScrollPosition });
-            // console.log({ scrollAmount });
-            // console.log({ currentPosition });
-            // console.log({ slideSteps });
             return
         }
 
@@ -75,17 +71,6 @@ const FooterReviews = ({ reviews }) => {
 
         let targetScrollPosition = slideSteps[nextPosition]
         sliderRef.current.scrollTo({ left: targetScrollPosition })
-        // console.log({
-        //     skipAmount,
-        //     slidesCount,
-        //     scrollAmount,
-        //     currentScrollPosition,
-        //     currentPosition,
-        //     direction,
-        //     slideSteps,
-        //     nextPosition,
-        //     targetScrollPosition,
-        // })
     }
 
     return (
