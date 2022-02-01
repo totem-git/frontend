@@ -20,7 +20,7 @@ const Variant2 = ({ data }) => {
                     text={data.title}
                     className="text-4xl font-russo w-full text-center pt-4 text-gray-600"
                     highlightClasses={[
-                        'text-highlight before:bg-black text-primary-600 w-ful block pt-2',
+                        'text-highlight before:bg-black text-primary-600 block md:inline-block px-16 pt-2',
                         'text-highlight before:bg-primary-600 before:-left-3 before:-right-3 before:-inset-0 text-black',
                     ]}
                 />
@@ -28,7 +28,7 @@ const Variant2 = ({ data }) => {
                     <Markdown>{data.text}</Markdown>
                 </div>
                 {data.CTAs[0] && (
-                    <div className="sm:w-full lg:w-auto inline-block mb-4">
+                    <div className=":w-full sm:w-96 inline-block mb-4">
                         <ButtonLink
                             button={data.CTAs[0]}
                             appearance={getButtonAppearance(data.CTAs[0].type, 'light')}

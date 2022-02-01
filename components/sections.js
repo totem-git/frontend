@@ -9,6 +9,7 @@ import RichText from "./sections/rich-text"
 import Pricing from "./sections/pricing"
 import LeadForm from "./sections/lead-form"
 import CardsList from "./customSections/CardsList"
+import CardsList2 from "./customSections/CardsList2"
 import GeneralPorpuseSection from "./customSections/GeneralPorpuseSection"
 import Separator from "./customSections/Separator"
 import Slider from "./customSections/Slider"
@@ -34,6 +35,7 @@ const sectionComponents = {
   "sections.special-hero": SpecialHero,
   "sections.resort-map": ResortMap,
   "sections.geo-info": GeoInfo,
+  "sections.cards-list2": CardsList2,
 }
 
 // Display a section individually

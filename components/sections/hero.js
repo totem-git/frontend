@@ -68,11 +68,11 @@ const Hero = ({ data }) => {
             )}
             <HighlightedText
               tag="h2"
-              className={`text-4xl text-primary-600 ${isHome ? 'font-basker' : 'font-russo'}`}
+              className={`text-4xl md:text-6xl text-primary-600 ${isHome ? 'font-basker' : 'font-russo'}`}
               highlightClasses={['text-bg-effect before:right-2']}
               text={data.title}
             />
-            <h3 className={`${isHome ? 'text-3xl' : 'text-xl'} font-russo`}>
+            <h3 className={`${isHome ? 'text-3xl' : 'text-xl md:text-3xl'} font-russo`}>
               {data.label &&
                 data.label.split('<br>').map((labelPart, i) => (
                   <span key={i}>{labelPart} <br className="sm:hidden" /></span>
@@ -93,11 +93,12 @@ const Hero = ({ data }) => {
               </div>
             )}
             {!!data.buttons.length && (
-              <div className="w-full px-6 sm:w-auto sm:pt-6">
+              <div className="w-full px-6 sm:px-0 sm:w-96 sm:pt-6">
                 <ButtonLink
                   wFull
                   button={data.buttons[0]}
                   appearance={getButtonAppearance(data.buttons[0].type, 'dark')}
+                  size="text-base md:text-2xl"
                 />
               </div>
             )}

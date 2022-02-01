@@ -13,7 +13,7 @@ const Variant8 = ({ data }) => {
                     className="text-3xl font-russo"
                     highlightClasses={['text-highlight before:bg-primary-600 before:-right-6 text-black']}
                 />
-                <div className="prose max-w-3xl mt-6">
+                <div className="prose max-w-sm mt-6">
                     <ReactMarkdown>{data.text}</ReactMarkdown>
                 </div>
                 {!!data.CTAs.length && (
