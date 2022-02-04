@@ -64,6 +64,12 @@ const Slider = ({ data }) => {
         nextPosition = nextPosition > slideSteps.length - 1 ? slideSteps.length - 1 : nextPosition
         nextPosition = nextPosition < 0 ? 0 : nextPosition
 
+        if (nextPosition == currentPosition) {
+            nextPosition = nextPosition == 0
+                ? slideSteps.length - 1
+                : 0
+        }
+
         let targetScrollPosition = slideSteps[nextPosition]
         sliderRef.current.scrollTo({ left: targetScrollPosition })
     }
@@ -72,7 +78,7 @@ const Slider = ({ data }) => {
         <div className="relative overflow-hidden">
             <div ref={sliderRef} data-slides-count={data.slides.length} className="flex h-screen overflow-x-scroll scroll-smooth snap-x snap-mandatory no-scrollbar">
                 {data.slides.map((slide, index) => (
-                    <div key={slide.id} data-index={index} className="text-white flex flex-col justify-end sm:pt-24 pb-20 sm:pb-12 lg:pb-10 relative w-full lg:w-1/2 h-full shrink-0 bg-black snap-start snap-always bg-cover bg-center">
+                    <div key={index} data-index={index} className="text-white flex flex-col justify-end sm:pt-24 pb-20 sm:pb-12 lg:pb-10 relative w-full lg:w-1/2 h-full shrink-0 bg-black snap-start snap-always bg-cover bg-center">
                         <div className="absolute inset-0 overflow-hidden">
                             <div className="absolute inset-0 sm:w-1/2 lg:w-auto">
                                 <Image unoptimized src={getStrapiMedia(slide.backgroundImage.url)} className="blur-[2px] contrast-150" layout="fill" objectFit="cover" />
@@ -82,7 +88,7 @@ const Slider = ({ data }) => {
                             </div>
                             <div className="absolute inset-0" style={{ backgroundImage: `linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,0) 5%, rgba(0,0,0,.7), rgba(0,0,0,.9))` }}></div>
                         </div>
-                        <div className="sm:w-1/2 lg:w-auto relative pb-12 pl-8 sm:pl-20 pr-16 sm:pr-20 flex flex-col justify-between lg:justify-end">
+                        <div className="sm:w-1/2 lg:h-56 lg:w-auto relative pb-12 pl-8 sm:pl-20 pr-16 sm:pr-20 flex flex-col justify-between lg:justify-start">
                             <div className="space-y-4 md:space-y-8 lg:space-y-4">
                                 <h4 style={{ textShadow: '1px 1px 2px rgba(0,0,0,.7)' }} className="text-primary-600 text-2xl md:text-4xl font-russo">{slide.title}</h4>
                                 <p>{slide.text}</p>

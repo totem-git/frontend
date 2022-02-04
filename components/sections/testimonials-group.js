@@ -28,7 +28,7 @@ const TestimonialsGroup = ({ data }) => {
   useEffect(() => {
     const io = new IntersectionObserver(ioCallback, {
       root: sliderRef.current,
-      rootMargin: '-47%',
+      rootMargin: '-10%',
       threshold: 0
     })
     if (sliderRef.current) {
@@ -49,7 +49,14 @@ const TestimonialsGroup = ({ data }) => {
   }, [])
 
   const handleSlide = (e) => {
-    let skipAmount = innerWidth >= 768 ? 2 : 1
+    let skipAmount =
+      innerWidth >= 1280
+        ? 4
+        : innerWidth >= 1024
+          ? 3
+          : innerWidth >= 768
+            ? 2
+            : 1
     let slidesCount = Number.parseInt(sliderRef.current.dataset.slidesCount)
     let scrollAmount = Math.floor(sliderRef.current.getBoundingClientRect().width / skipAmount)
     let currentScrollPosition = sliderRef.current.scrollLeft
@@ -80,13 +87,13 @@ const TestimonialsGroup = ({ data }) => {
   }
 
   return (
-    <section className="text-center text-lg bg-white pt-12 pb-16 px-4">
+    <section className="text-center text-lg bg-white pt-12 pb-16 px-4 lg:px-8 overflow-hidden">
       <h4 className="text-4xl text-primary-600 font-russo">{data.title}</h4>
       <p className="text-gray-600 font-normal mx-auto mt-2 px-6 max-w-3xl">{data.description}</p>
       <div className="relative px-8 overflow mt-16">
-        <div ref={sliderRef} data-slides-count={reviews.length} className="flex w-full lg:h-80 items-stretch overflow-y-hidden overflow-x-scroll snap-x snap-mandatory no-scrollbar scroll-smooth space-x-4">
+        <div ref={sliderRef} data-slides-count={reviews.length} className="flex w-full lg:h-52 items-stretch overflow-y-hidden overflow-x-scroll snap-x snap-mandatory no-scrollbar scroll-smooth space-x-4">
           {reviews.map((review, i) => (
-            <div data-index={i} key={i} className="relative w-full md:w-[calc(50%-0.5rem)] max-h-full shrink-0 bg-light-grey-blue snap-start snap-always text-dark-grey p-4 text-left">
+            <div data-index={i} key={i} className="relative w-full md:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.666rem)] xl:w-[calc(25%-0.75rem)] max-h-full shrink-0 bg-light-grey-blue snap-start snap-always text-dark-grey p-4 text-left">
               <div className="flex items-stretch">
                 <div className="w-10 h-10 self-center overflow-hidden rounded-full shrink-0">
                   <Image src={getStrapiMedia(review.authorPicture.url)} width={100} height={100} />

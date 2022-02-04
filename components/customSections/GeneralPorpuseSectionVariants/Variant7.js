@@ -39,7 +39,7 @@ const Variant7 = ({ data }) => {
                     <ReactMarkdown>{data.text}</ReactMarkdown>
                 </div>
             </div>
-            <div className="mt-16 lg:mt-24 flex justify-between max-w-md mx-auto px-4">
+            <div className="mt-16 lg:mt-24 flex justify-between max-w-md lg:max-w-2xl mx-auto px-4">
                 <div>
                     <Image src={getStrapiMedia(data.extraIcon.url)} width={data.extraIcon.width} height={data.extraIcon.height} />
                 </div>

@@ -22,7 +22,7 @@ const Hero = ({ data }) => {
     },
     {
       url: '/the-fishing-experience',
-      text: 'Fishing experience',
+      text: 'The fishing experience',
       icon: 'icon-2',
     },
     {
@@ -59,6 +59,12 @@ const Hero = ({ data }) => {
           }
         </div>
         <div className="absolute inset-0 bg-black opacity-60 m-0"></div>
+        {isHome && (
+          <div className="absolute hidden left-12 bottom-28 m-0 w-1.5 h-1/2 z-10 lg:flex flex-col">
+            <div className="h-32 w-full bg-white"></div>
+            <div className="h-full w-full bg-primary-600"></div>
+          </div>
+        )}
         <div className="relative flex flex-col items-center justify-between space-y-16 z-10 w-full">
           <div className="space-y-5 sm:space-y-4 w-full flex flex-col items-center px-4">
             {data.extraIcon && (
@@ -68,7 +74,7 @@ const Hero = ({ data }) => {
             )}
             <HighlightedText
               tag="h2"
-              className={`text-4xl md:text-6xl text-primary-600 ${isHome ? 'font-basker' : 'font-russo'}`}
+              className={`${isLanding ? 'text-4xl md:text-6xl' : 'text-3xl md:text-5xl'} text-primary-600 ${isHome ? 'font-basker' : 'font-russo'}`}
               highlightClasses={['text-bg-effect before:right-2']}
               text={data.title}
             />
@@ -80,38 +86,38 @@ const Hero = ({ data }) => {
               }
             </h3>
             {isHome && (
-              <div className="flex items-center">
-                <div className="hidden sm:block w-48">
+              <div className="flex items-center lg:!mt-12">
+                <div className="hidden sm:block w-48 lg:w-32">
                   <Image src="/icons/rectangle-with-squiggly.svg" width={500} height={100} />
                 </div>
-                <div className="w-52 sm:w-80 px-4">
+                <div className="w-52 sm:w-80 lg:w-52 px-4 lg:mx-20">
                   <Image src="/icons/stars.svg" width={500} height={100} />
                 </div>
-                <div className="hidden sm:block w-48">
+                <div className="hidden sm:block w-48 lg:w-32">
                   <Image src="/icons/rectangle-with-squiggly.svg" className=" rotate-180" width={500} height={100} />
                 </div>
               </div>
             )}
             {!!data.buttons.length && (
-              <div className="w-full px-6 sm:px-0 sm:w-96 sm:pt-6">
+              <div className={`w-full ${isHome && 'lg:hidden'} px-6 sm:px-0 sm:w-96 sm:pt-6`}>
                 <ButtonLink
                   wFull
                   button={data.buttons[0]}
                   appearance={getButtonAppearance(data.buttons[0].type, 'dark')}
-                  size="text-base md:text-2xl"
+                  size="text-base md:text-2xl lg:text-xl"
                 />
               </div>
             )}
           </div>
-          <div className="hidden lg:block">
+          {/* <div className="hidden lg:block">
             <Image src="/icons/arrow-down.svg" width={32} height={32} />
-          </div>
+          </div> */}
         </div>
       </div>
       {isLanding &&
-        <div ref={navRef} className="flex justify-center divide-x-2 border-white">
+        <div ref={navRef} className="flex justify-center divide-x-2 border-white lg:max-w-lg lg:py-8 lg:mx-auto">
           {navLinks.map((link, i) => (
-            <div key={i} className={`grow pb-4 ${i == 1 && 'w-[36%]'} pt-6`}>
+            <div key={i} className={`grow pb-4 ${i == 1 && 'w-[36%]'} pt-6 lg:pt-0 lg:pb-0 min-w-max lg:px-12`}>
               <Link href={link.url}>
                 <a className="flex flex-col space-y-2 group font-russo font-thin">
                   {(currentUrl == link.url) ? <Image src={`/icons/${link.icon}-white.svg`} width="16" height="16" /> : <Image src={`/icons/${link.icon}.svg`} width="16" height="16" />}

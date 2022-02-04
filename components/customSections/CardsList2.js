@@ -50,7 +50,7 @@ const CardsList = ({ data }) => {
             {!!data.cards.length && (
                 <div className="flex flex-col md:flex-row items-center justify-center flex-wrap md:items-stretch gap-8 md:gap-4 px-4">
                     {data.cards.map((card, i) => (
-                        <div key={i} className={`w-full flex flex-col bg-white max-w-md border-b-4 md:max-w-xl border-white`} style={{ borderColor: card.bottomBorderColor }}>
+                        <div key={i} className={`w-full flex flex-col bg-white max-w-md lg:max-w-sm border-b-4 md:max-w-xl border-white`} style={{ borderColor: card.bottomBorderColor }}>
                             {(card.type == 1) && (
                                 card.CTA
                                     ? (

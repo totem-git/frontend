@@ -12,10 +12,10 @@ const Variant4_Reverse = ({ data }) => {
             <div className="lg:container px-4 mx-auto flex flex-col justify-center items-center max-w-md space-y-4 md:space-y-0 md:space-x-4 md:space-x-reverse sm:max-w-4xl lg:max-w-6xl xl:max-w-none xl:px-16 sm:flex-row-reverse">
                 <div className="relative flex-1 w-full p-4 max-w-[350px] lg:max-w-xl">
                     <span className="absolute bottom-0 w-screen -translate-x-1/2 sm:w-auto left-1/2 sm:-left-8 sm:-right-24 -top-3 sm:-translate-x-0" style={{
-                        backgroundImage: "radial-gradient(var(--light-grey-blue) 1px, transparent 2px)",
+                        backgroundImage: "radial-gradient(white 1px, transparent 2px)",
                         backgroundSize: "10px 10px",
                     }}></span>
-                    <span className="absolute inset-1 right-[15%] bg-light-grey-blue"></span>
+                    <span className="absolute inset-1 right-[15%] bg-white"></span>
                     <ThumbnailGallery mediaList={data.media} />
                 </div>
                 <div className="relative flex-1 max-w-sm space-y-4 sm:pr-2 lg:max-w-none">

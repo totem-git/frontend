@@ -13,7 +13,7 @@ const Variant6 = ({ data }) => {
                     {data.title}
                 </h4>
             )}
-            <div className="flex flex-col items-center space-y-4 max-w-none xl:px-16 md:flex-col-reverse">
+            <div className="flex flex-col lg:flex-row-reverse items-center lg:items-start space-y-4 max-w-none xl:px-16 md:flex-col-reverse">
                 <div className="relative flex-1 md:flex items-center w-full max-w-xl md:max-w-none md:mt-4">
                     <div className="w-full">
                         <Image src={getStrapiMedia(picture.url)} layout="responsive" objectPosition="center" objectFit="cover" width={picture.width} height={picture.height} />
@@ -21,7 +21,7 @@ const Variant6 = ({ data }) => {
                             <Image src="/icons/variant6_icon2.svg" layout="responsive" width={142} height={17} />
                         </div>
                     </div>
-                    <div className="mt-8 md:w-2/3">
+                    <div className="mt-8 md:w-2/3 lg:hidden">
                         <div className="md:hidden">
                             <Image src="/icons/variant6_icon2.svg" objectPosition="center" objectFit="cover" width={142} height={17} />
                         </div>
@@ -30,11 +30,11 @@ const Variant6 = ({ data }) => {
                         </div>
                     </div>
                 </div>
-                <div className="container relative flex-1 lg:min-w-[65ch] space-y-4 sm:pl-2 lg:pl-16">
+                <div className="container relative flex-1 lg:min-w-[65ch] space-y-4 sm:pl-2 lg:pl-0">
                     <div className="prose md:mx-auto md:max-w-none text-gray-700">
                         <Markdown>{data.text}</Markdown>
                     </div>
-                    <div className="mt-8 md:hidden">
+                    <div className="mt-8 md:hidden lg:block">
                         <Image src={data.extraIcon ? getStrapiMedia(data.extraIcon.url) : '/icons/variant6_icon_1.svg'} width={148} height={26} />
                     </div>
                 </div>

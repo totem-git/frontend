@@ -3,13 +3,13 @@ import { backgroundColor, borderColor } from "tailwindcss/defaultTheme"
 
 const GeoInfo = ({ data }) => {
     return (
-        <section className="bg-white py-8">
-            <div className="px-4 pb-8">
-                <div className="flex justify-center w-12 mx-auto">
-                    <Image src="/icons/compass-icon.svg" width={64} height={64} />
-                </div>
-                <h5 className="text-3xl text-primary-600 text-center font-russo mt-4">Geographic information</h5>
-                <p className="text-center text-gray-700 leading-snug mt-4">Lake of the Woods, Ontario is located right in the middle of Canada limiting with the north border of Minnesota, its location make it easy to get there from any place. It is less than a day driving from Midwestern states of USA.</p>
+        <section className="bg-white py-8 px-4">
+            <div className="flex justify-center w-12 mx-auto">
+                <Image src="/icons/compass-icon.svg" width={64} height={64} />
+            </div>
+            <h5 className="text-3xl text-primary-600 text-center font-russo mt-4">Geographic information</h5>
+            <p className="text-center text-gray-700 leading-snug mt-4">Lake of the Woods, Ontario is located right in the middle of Canada limiting with the north border of Minnesota, its location make it easy to get there from any place. It is less than a day driving from Midwestern states of USA.</p>
+            <div className="pb-8 lg:hidden">
                 <div className="mt-8">
                     <Image src="/imgs/geo-info.png" layout="responsive" width={428} height={441} />
                 </div>
@@ -52,29 +52,34 @@ const GeoInfo = ({ data }) => {
                     </div>
                 </div>
             </div>
-            <div className="bg-gray-300 mx-4 px-4 py-8 text-gray-600 text-xl">
-                <div className="sm:max-w-md mx-auto">
-                    <p className="text-2xl font-bold mb-4">DISTANCE TO TOTEM RESORTS FROM:</p>
-                    <div className="flex justify-between border-b-2 border-light-grey-blue"><span>Winnipeg, MB</span> <span>180 mi.</span></div>
-                    <div className="flex justify-between border-b-2 border-light-grey-blue"><span>Thunder Bay, ON</span><span>300 mi.</span></div>
-                    <div className="flex justify-between border-b-2 border-light-grey-blue"><span>Duluth, MN</span><span>250 mi.</span></div>
-                    <div className="flex justify-between border-b-2 border-light-grey-blue"><span>Fargo, ND</span><span>350 mi.</span></div>
-                    <div className="flex justify-between border-b-2 border-light-grey-blue"><span>Minneapolis, MN</span><span>400 mi.</span></div>
-                    <div className="flex justify-between border-b-2 border-light-grey-blue"><span>Des Moines, IA</span><span>725 mi.</span></div>
-                    <div className="flex justify-between border-b-2 border-light-grey-blue"><span>Chicago, IL</span><span>650 mi.</span></div>
-                    <div className="flex justify-between border-b-2 border-light-grey-blue"><span>Omaha, NE</span><span>775 mi.</span></div>
-                    <div className="flex justify-between border-b-2 border-light-grey-blue"><span>Edmonton, AB</span><span>1000 mi.</span></div>
-                    <div className="flex justify-between border-b-2 border-light-grey-blue"><span>Toronto, ON</span><span>1230 mi.</span></div>
-                    <div className="flex justify-between border-b-2 border-light-grey-blue"><span>Kansas City, MO</span><span>850 mi.</span></div>
-                    <div className="flex justify-between border-b-2 border-light-grey-blue"><span>Detroit, MI</span><span>1000 mi.</span></div>
-                    <div className="flex justify-between border-b-2 border-light-grey-blue"><span>St. Louis, MO</span><span>950 mi.</span></div>
-                    <div className="flex justify-between border-b-2 border-light-grey-blue"><span>Milwaukee, WI</span><span>650 mi.</span></div>
-                    <div className="flex justify-between border-b-2 border-light-grey-blue"><span>Green Bay, WI</span><span>550 mi.</span></div>
-                    <div className="flex justify-between border-b-2 border-light-grey-blue"><span>Sioux Falls, SD</span><span>600 mi.</span></div>
-                    <div className="flex justify-between border-b-2 border-light-grey-blue"><span>Madison, WI</span><span>575 mi.</span></div>
-                    <div className="flex justify-between border-b-2 border-light-grey-blue"><span>Indianapolis,</span><span>900 mi.</span></div>
-                    <div className="flex justify-between border-b-2 border-light-grey-blue"><span>Calgary, AB</span><span>1020 mi.</span></div>
-                    <div className="flex justify-between border-b-2 border-light-grey-blue"><span>Vancouver, BC</span><span>1615 mi.</span></div>
+            <div className="relative pr-14">
+                <div>
+                    <Image src="/imgs/geo-info-2.png" width={1659} height={1211} />
+                </div>
+                <div className="bg-gray-300 mx-4 px-4 py-8 lg:py-4 text-gray-600 text-xl lg:absolute top-0 right-0">
+                    <div className="sm:max-w-md mx-auto lg:w-64">
+                        <p className="text-2xl font-bold mb-4 lg:text-base">DISTANCE TO TOTEM RESORTS FROM:</p>
+                        <div className="flex justify-between border-b-2 border-light-grey-blue lg:text-sm"><span>Winnipeg, MB</span> <span>180 mi.</span></div>
+                        <div className="flex justify-between border-b-2 border-light-grey-blue lg:text-sm"><span>Thunder Bay, ON</span><span>300 mi.</span></div>
+                        <div className="flex justify-between border-b-2 border-light-grey-blue lg:text-sm"><span>Duluth, MN</span><span>250 mi.</span></div>
+                        <div className="flex justify-between border-b-2 border-light-grey-blue lg:text-sm"><span>Fargo, ND</span><span>350 mi.</span></div>
+                        <div className="flex justify-between border-b-2 border-light-grey-blue lg:text-sm"><span>Minneapolis, MN</span><span>400 mi.</span></div>
+                        <div className="flex justify-between border-b-2 border-light-grey-blue lg:text-sm"><span>Des Moines, IA</span><span>725 mi.</span></div>
+                        <div className="flex justify-between border-b-2 border-light-grey-blue lg:text-sm"><span>Chicago, IL</span><span>650 mi.</span></div>
+                        <div className="flex justify-between border-b-2 border-light-grey-blue lg:text-sm"><span>Omaha, NE</span><span>775 mi.</span></div>
+                        <div className="flex justify-between border-b-2 border-light-grey-blue lg:text-sm"><span>Edmonton, AB</span><span>1000 mi.</span></div>
+                        <div className="flex justify-between border-b-2 border-light-grey-blue lg:text-sm"><span>Toronto, ON</span><span>1230 mi.</span></div>
+                        <div className="flex justify-between border-b-2 border-light-grey-blue lg:text-sm"><span>Kansas City, MO</span><span>850 mi.</span></div>
+                        <div className="flex justify-between border-b-2 border-light-grey-blue lg:text-sm"><span>Detroit, MI</span><span>1000 mi.</span></div>
+                        <div className="flex justify-between border-b-2 border-light-grey-blue lg:text-sm"><span>St. Louis, MO</span><span>950 mi.</span></div>
+                        <div className="flex justify-between border-b-2 border-light-grey-blue lg:text-sm"><span>Milwaukee, WI</span><span>650 mi.</span></div>
+                        <div className="flex justify-between border-b-2 border-light-grey-blue lg:text-sm"><span>Green Bay, WI</span><span>550 mi.</span></div>
+                        <div className="flex justify-between border-b-2 border-light-grey-blue lg:text-sm"><span>Sioux Falls, SD</span><span>600 mi.</span></div>
+                        <div className="flex justify-between border-b-2 border-light-grey-blue lg:text-sm"><span>Madison, WI</span><span>575 mi.</span></div>
+                        <div className="flex justify-between border-b-2 border-light-grey-blue lg:text-sm"><span>Indianapolis,</span><span>900 mi.</span></div>
+                        <div className="flex justify-between border-b-2 border-light-grey-blue lg:text-sm"><span>Calgary, AB</span><span>1020 mi.</span></div>
+                        <div className="flex justify-between border-b-2 border-light-grey-blue lg:text-sm"><span>Vancouver, BC</span><span>1615 mi.</span></div>
+                    </div>
                 </div>
             </div>
         </section >

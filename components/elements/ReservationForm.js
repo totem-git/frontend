@@ -16,7 +16,7 @@ const ReservationForm = (props) => {
 
     return (
         <form className="bg-inherit">
-            <div className="flex flex-col space-y-4 bg-inherit">
+            <div className="flex flex-col space-y-4 lg:space-y-2 bg-inherit">
                 <div className="relative bg-inherit">
                     <input onChange={formik.handleChange} value={formik.values['name']} className={`w-full pt-2 ${formik.values['name'] == '' ? 'bg-transparent' : 'bg-gray-300'} focus:bg-gray-300 peer text-gray-700`} type="text" name="name" id="reservation-form-name" />
                     {formik.values['name'] == '' && (

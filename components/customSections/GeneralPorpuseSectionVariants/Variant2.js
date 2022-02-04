@@ -24,7 +24,7 @@ const Variant2 = ({ data }) => {
                         'text-highlight before:bg-primary-600 before:-left-3 before:-right-3 before:-inset-0 text-black',
                     ]}
                 />
-                <div className="prose mx-auto leading-snug">
+                <div className="prose mx-auto leading-snug lg:max-w-none">
                     <Markdown>{data.text}</Markdown>
                 </div>
                 {data.CTAs[0] && (

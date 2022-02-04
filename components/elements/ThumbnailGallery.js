@@ -76,7 +76,7 @@ const ThumbnailGallery = ({ mediaList }) => {
                 {mediaList.map((mediaObject, i) => (
                     <div key={i} data-index={i} data-is-video={mediaObject.mime.startsWith('video')} className="relative w-full h-full max-h-full shrink-0 snap-start snap-always">
                         {mediaObject.mime.startsWith('image') &&
-                            <Image src={getStrapiMedia(mediaObject.url)} layout="responsive" width="100%" height="100%" objectFit="cover" />
+                            <Image src={getStrapiMedia(mediaObject.url)} layout="fill" objectFit="cover" />
                         }
                         {mediaObject.mime.startsWith('video') &&
                             /* TODO[epic=To do] add poster attribute */
