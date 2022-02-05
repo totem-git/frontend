@@ -1,14 +1,13 @@
 import Image from "next/image"
-import { backgroundColor, borderColor } from "tailwindcss/defaultTheme"
 
 const GeoInfo = ({ data }) => {
     return (
-        <section className="bg-white py-8 px-4">
+        <section className="lg:container bg-white py-8 px-4">
             <div className="flex justify-center w-12 mx-auto">
                 <Image src="/icons/compass-icon.svg" width={64} height={64} />
             </div>
             <h5 className="text-3xl text-primary-600 text-center font-russo mt-4">Geographic information</h5>
-            <p className="text-center text-gray-700 leading-snug mt-4">Lake of the Woods, Ontario is located right in the middle of Canada limiting with the north border of Minnesota, its location make it easy to get there from any place. It is less than a day driving from Midwestern states of USA.</p>
+            <p className="text-center text-gray-700 leading-snug mt-4 max-w-3xl mx-auto">Lake of the Woods, Ontario is located right in the middle of Canada limiting with the north border of Minnesota, its location make it easy to get there from any place. It is less than a day driving from Midwestern states of USA.</p>
             <div className="pb-8 lg:hidden">
                 <div className="mt-8">
                     <Image src="/imgs/geo-info.png" layout="responsive" width={428} height={441} />
