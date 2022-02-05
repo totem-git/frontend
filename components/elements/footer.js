@@ -5,8 +5,39 @@ import CustomLink from "./custom-link";
 import RatingStars from "./RatingStars";
 import FooterReviews from "./FooterReviews";
 import ButtonLink from "./button-link";
+import { useRef, useEffect } from "react";
 
 const Footer = ({ footer, googleReviews }) => {
+  const gmapEmbedRef = useRef();
+
+  const ioCallback = (entries, io) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      entry.target.src = entry.target.dataset.src;
+      io.unobserve(entry.target);
+    });
+  };
+
+  useEffect(() => {
+    const io = new IntersectionObserver(ioCallback, {
+      rootMargin: "600px",
+      threshold: 0,
+    });
+
+    if (gmapEmbedRef.current) {
+      io.observe(gmapEmbedRef.current);
+    }
+
+    let ref = Object.assign({}, gmapEmbedRef);
+
+    return () => {
+      if (ref.current) {
+        io.unobserve(ref.current);
+      }
+    };
+  }, []);
+
   return (
     <footer className="bg-black text-white md:px-4">
       <div className="my-14 flex flex-col items-center">
@@ -26,10 +57,11 @@ const Footer = ({ footer, googleReviews }) => {
       </div>
       <div className="lg:px-8">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20757.144018051353!2d-94.07117138538783!3d49.43456295538341!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52bdc8c17cf2d2d1%3A0xe2a8eda273c4c7f3!2sTotem%20Resorts!5e0!3m2!1sen!2sfr!4v1638831008782!5m2!1sen!2sfr"
+          data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20757.144018051353!2d-94.07117138538783!3d49.43456295538341!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52bdc8c17cf2d2d1%3A0xe2a8eda273c4c7f3!2sTotem%20Resorts!5e0!3m2!1sen!2sfr!4v1638831008782!5m2!1sen!2sfr"
           style={{ border: "0" }}
           allowFullScreen={true}
           loading="lazy"
+          ref={gmapEmbedRef}
           className="h-96 w-full lg:container"
         ></iframe>
       </div>
