@@ -1,14 +1,14 @@
-import { useState } from "react"
-import Navbar from "./elements/navbar"
-import Footer from "./elements/footer"
-import NotificationBanner from "./elements/notification-banner"
+import { useState } from "react";
+import Navbar from "./elements/navbar";
+import Footer from "./elements/footer";
+import NotificationBanner from "./elements/notification-banner";
 
 const Layout = ({ children, global, pageContext }) => {
-  const { navbar, footer, notificationBanner, googleReviews } = global
+  const { navbar, footer, notificationBanner, googleReviews } = global;
 
-  const [bannerIsShown, setBannerIsShown] = useState(true)
+  const [bannerIsShown, setBannerIsShown] = useState(true);
   return (
-    <div className="flex flex-col justify-between min-h-screen pt-0 font-roboto bg-light-grey-blue">
+    <div className="flex min-h-screen flex-col justify-between bg-light-grey-blue pt-0 font-roboto">
       {/* Aligned to the top */}
       <div className="flex-1">
         {notificationBanner && bannerIsShown && (
@@ -23,7 +23,7 @@ const Layout = ({ children, global, pageContext }) => {
       {/* Aligned to the bottom */}
       <Footer footer={footer} googleReviews={googleReviews} />
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

@@ -1,16 +1,18 @@
-import classNames from "classnames"
-import PropTypes from "prop-types"
-import { buttonLinkPropTypes } from "utils/types"
-import CustomLink from "./custom-link"
-import { useAppContext } from "context/state"
-import Button from "./button"
+import classNames from "classnames";
+import PropTypes from "prop-types";
+import { buttonLinkPropTypes } from "utils/types";
+import CustomLink from "./custom-link";
+import { useAppContext } from "context/state";
+import Button from "./button";
 
 const ButtonContent = ({ button, appearance, compact, size, wFull }) => {
   return (
     <div
       className={classNames(
         // Common classes
-        `inline-block ${wFull ? 'w-full' : 'w-auto'} text-center uppercase tracking-wide font-medium ${size} border-2`,
+        `inline-block ${
+          wFull ? "w-full" : "w-auto"
+        } text-center font-medium uppercase tracking-wide ${size} border-2`,
         // Full-size button
         {
           "px-16 py-4": compact === false,
@@ -21,19 +23,22 @@ const ButtonContent = ({ button, appearance, compact, size, wFull }) => {
         },
         // Specific to when the button is fully dark
         {
-          "text-black stroke-black border-black hover:bg-black hover:text-white hover:stroke-white transition": appearance === "dark",
+          "border-black stroke-black text-black transition hover:bg-black hover:stroke-white hover:text-white":
+            appearance === "dark",
         },
         // Specific to when the button is dark outlines
         {
-          "text-black stroke-black border-black": appearance === "dark-outline",
+          "border-black stroke-black text-black": appearance === "dark-outline",
         },
         // Specific to when the button is fully white
         {
-          "text-white stroke-white border-white hover:bg-white hover:text-black hover:stroke-black transition": appearance === "white",
+          "border-white stroke-white text-white transition hover:bg-white hover:stroke-black hover:text-black":
+            appearance === "white",
         },
         // Specific to when the button is white outlines
         {
-          "text-white stroke-white border-white": appearance === "white-outline",
+          "border-white stroke-white text-white":
+            appearance === "white-outline",
         },
         {
           "inline-flex items-center": button.icon,
@@ -41,39 +46,47 @@ const ButtonContent = ({ button, appearance, compact, size, wFull }) => {
       )}
     >
       {button.text}
-      {button.icon &&
-        <span className="pl-4 flex button-link-icon-container ml-auto">
+      {button.icon && (
+        <span className="button-link-icon-container ml-auto flex pl-4">
           <button.icon />
         </span>
-      }
+      )}
     </div>
-  )
-}
+  );
+};
 
-const allowedActions = ['reservationForm', 'scrollToContent']
+const allowedActions = ["reservationForm", "scrollToContent"];
 
 const ActionButton = ({ action, ...props }) => {
-  let handler
-  if (action == 'reservationForm') {
-    const { setReservationPopupVisible } = useAppContext()
-    handler = () => { setReservationPopupVisible(true) }
-  } else if (action == 'scrollToContent') {
+  let handler;
+  if (action == "reservationForm") {
+    const { setReservationPopupVisible } = useAppContext();
     handler = () => {
-      document.documentElement.scrollTo({ behavior: 'smooth', top: window.innerHeight - 65 })
-    }
+      setReservationPopupVisible(true);
+    };
+  } else if (action == "scrollToContent") {
+    handler = () => {
+      document.documentElement.scrollTo({
+        behavior: "smooth",
+        top: window.innerHeight - 65,
+      });
+    };
   }
-  return (
-    <Button
-      handleClick={handler}
-      {...props}
-      type='button'
-    />
-  )
-}
+  return <Button handleClick={handler} {...props} type="button" />;
+};
 
-const ButtonLink = ({ button, appearance, compact = false, size = 'text-base md:text-sm', wFull = false }) => {
-  if (button.url.startsWith(':') && allowedActions.includes(button.url.slice(1))) {
-    let action = button.url.slice(1)
+const ButtonLink = ({
+  button,
+  appearance,
+  compact = false,
+  size = "text-base md:text-sm",
+  wFull = false,
+}) => {
+  if (
+    button.url.startsWith(":") &&
+    allowedActions.includes(button.url.slice(1))
+  ) {
+    let action = button.url.slice(1);
 
     return (
       <ActionButton
@@ -84,7 +97,7 @@ const ButtonLink = ({ button, appearance, compact = false, size = 'text-base md:
         appearance={appearance}
         compact={compact}
       />
-    )
+    );
   }
 
   return (
@@ -97,8 +110,8 @@ const ButtonLink = ({ button, appearance, compact = false, size = 'text-base md:
         wFull={wFull}
       />
     </CustomLink>
-  )
-}
+  );
+};
 
 ButtonLink.propTypes = {
   button: buttonLinkPropTypes,
@@ -111,6 +124,6 @@ ButtonLink.propTypes = {
   compact: PropTypes.bool,
   size: PropTypes.string,
   wFull: PropTypes.bool,
-}
+};
 
-export default ButtonLink
+export default ButtonLink;

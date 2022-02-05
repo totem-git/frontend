@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --light-grey-blue: theme('colors.light-grey-blue')
+  --light-grey-blue: theme("colors.light-grey-blue");
 }
 
 html {
@@ -32,7 +32,7 @@ html {
 }
 
 .title {
-  @apply text-4xl leading-snug font-semibold;
+  @apply text-4xl font-semibold leading-snug;
 }
 
 @media (min-width: 768px) {
@@ -73,13 +73,13 @@ html {
 }
 
 .text-bg-effect::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 10px;
   bottom: -10px;
   left: 5px;
   right: -5px;
-  background: radial-gradient(rgba(255, 255, 255, .6), transparent 2px);
+  background: radial-gradient(rgba(255, 255, 255, 0.6), transparent 2px);
   background-size: 7px 4px;
   z-index: -10;
 }
@@ -109,7 +109,7 @@ html {
 }
 
 .text-highlight::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -4px;
   bottom: -4px;

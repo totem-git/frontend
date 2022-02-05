@@ -1,57 +1,73 @@
-import { useEffect, useRef, useState } from "react"
-import PropTypes from "prop-types"
-import Link from "next/link"
-import { useRouter } from "next/router"
-import { getButtonAppearance } from "utils/button"
-import { mediaPropTypes, linkPropTypes, buttonLinkPropTypes } from "utils/types"
-import MobileNavMenu from "./mobile-nav-menu"
-import ButtonLink from "./button-link"
-import Image from "next/image"
-import CustomLink from "./custom-link"
-import LocaleSwitch from "../locale-switch"
-import { throttle } from "utils/performance"
+import { useEffect, useRef, useState } from "react";
+import PropTypes from "prop-types";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { getButtonAppearance } from "utils/button";
+import {
+  mediaPropTypes,
+  linkPropTypes,
+  buttonLinkPropTypes,
+} from "utils/types";
+import MobileNavMenu from "./mobile-nav-menu";
+import ButtonLink from "./button-link";
+import Image from "next/image";
+import CustomLink from "./custom-link";
+import LocaleSwitch from "../locale-switch";
+import { throttle } from "utils/performance";
 
 const Navbar = ({ navbar, pageContext }) => {
-  const router = useRouter()
+  const router = useRouter();
 
-  const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false)
+  const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false);
 
-  const currentPage = `/${pageContext.slug}`
+  const currentPage = `/${pageContext.slug}`;
 
-  const scrolledDownRef = useRef(false)
-  const [scrolledDown, setScrolledDown] = useState(scrolledDownRef.current)
-  const scrollDistance = 200
+  const scrolledDownRef = useRef(false);
+  const [scrolledDown, setScrolledDown] = useState(scrolledDownRef.current);
+  const scrollDistance = 200;
 
   useEffect(() => {
-    scrolledDownRef.current = scrollY > scrollDistance
-    setScrolledDown(scrolledDownRef.current)
+    scrolledDownRef.current = scrollY > scrollDistance;
+    setScrolledDown(scrolledDownRef.current);
 
-    window.addEventListener('scroll', throttle(() => {
-      if ((scrollY > scrollDistance) != scrolledDownRef.current) {
-        scrolledDownRef.current = !scrolledDownRef.current
-        setScrolledDown(scrolledDownRef.current)
-      }
-    }, 250))
-  }, [])
+    window.addEventListener(
+      "scroll",
+      throttle(() => {
+        if (scrollY > scrollDistance != scrolledDownRef.current) {
+          scrolledDownRef.current = !scrolledDownRef.current;
+          setScrolledDown(scrolledDownRef.current);
+        }
+      }, 250)
+    );
+  }, []);
 
   return (
     <>
       {/* The actual navbar */}
-      <nav className={`flex bg-gradient-black-to-b ${scrolledDown ? 'bg-black' : 'bg-black/0'} transition duration-1000 trans h-20 fixed top-0 inset-x-0 z-50`}>
-        <div className="grow mx-4 lg:mx-8 xl:container flex flex-row justify-between">
+      <nav
+        className={`flex bg-gradient-black-to-b ${
+          scrolledDown ? "bg-black" : "bg-black/0"
+        } trans fixed inset-x-0 top-0 z-50 h-20 transition duration-1000`}
+      >
+        <div className="mx-4 flex grow flex-row justify-between lg:mx-8 xl:container">
           {/* Content aligned to the left */}
-          <div className="flex flex-row justify-between grow">
+          <div className="flex grow flex-row justify-between">
             <Link href="/">
-              <a className="inline-flex items-center text-primary-600 font-basker text-xl md:text-base lg:text-2xl">
+              <a className="inline-flex items-center font-basker text-xl text-primary-600 md:text-base lg:text-2xl">
                 TOTEM RESORTS
               </a>
             </Link>
             {/* List of links on desktop */}
-            <ul className="hidden list-none lg:flex flex-row gap-3 ml-6 mr-4 lg:mr-8 xl:mr-16">
+            <ul className="ml-6 mr-4 hidden list-none flex-row gap-3 lg:mr-8 lg:flex xl:mr-16">
               {navbar.links.map((navLink) => (
-                <li key={navLink.id} className={`flex items-center ${navLink.url == currentPage && 'border-b-2 border-white'}`}>
+                <li
+                  key={navLink.id}
+                  className={`flex items-center ${
+                    navLink.url == currentPage && "border-b-2 border-white"
+                  }`}
+                >
                   <CustomLink link={navLink} locale={router.locale}>
-                    <div className="text-primary-600 hover:text-primary-300 text-xs lg:text-base px-2 py-1">
+                    <div className="px-2 py-1 text-xs text-primary-600 hover:text-primary-300 lg:text-base">
                       {navLink.text}
                     </div>
                   </CustomLink>
@@ -102,8 +118,8 @@ const Navbar = ({ navbar, pageContext }) => {
         />
       )}
     </>
-  )
-}
+  );
+};
 
 Navbar.propTypes = {
   navbar: PropTypes.shape({
@@ -115,6 +131,6 @@ Navbar.propTypes = {
     button: buttonLinkPropTypes,
   }),
   initialLocale: PropTypes.string,
-}
+};
 
-export default Navbar
+export default Navbar;

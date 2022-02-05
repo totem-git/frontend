@@ -1,7 +1,7 @@
-import classNames from "classnames"
-import PropTypes from "prop-types"
-import { buttonLinkPropTypes } from "utils/types"
-import Loader from "./loader"
+import classNames from "classnames";
+import PropTypes from "prop-types";
+import { buttonLinkPropTypes } from "utils/types";
+import Loader from "./loader";
 
 const Button = ({
   button,
@@ -14,11 +14,18 @@ const Button = ({
   size,
 }) => {
   return (
-    <button link={button} onClick={handleClick} type={type} className={`${wFull ? 'w-full' : 'w-auto'}`}>
+    <button
+      link={button}
+      onClick={handleClick}
+      type={type}
+      className={`${wFull ? "w-full" : "w-auto"}`}
+    >
       <div
         className={classNames(
           // Common classes
-          `inline-block ${wFull ? 'w-full' : 'w-auto'} text-center uppercase tracking-wide font-medium ${size} border-2 hover:bg-white hover:text-black hover:stroke-black transition`,
+          `inline-block ${
+            wFull ? "w-full" : "w-auto"
+          } text-center font-medium uppercase tracking-wide ${size} border-2 transition hover:bg-white hover:stroke-black hover:text-black`,
           // Full-size button
           {
             "px-16 py-4": compact === false,
@@ -29,19 +36,21 @@ const Button = ({
           },
           // Specific to when the button is fully dark
           {
-            "text-black stroke-black border-black": appearance === "dark",
+            "border-black stroke-black text-black": appearance === "dark",
           },
           // Specific to when the button is dark outlines
           {
-            "text-black stroke-black border-black": appearance === "dark-outline",
+            "border-black stroke-black text-black":
+              appearance === "dark-outline",
           },
           // Specific to when the button is fully white
           {
-            "text-white stroke-white border-white": appearance === "white",
+            "border-white stroke-white text-white": appearance === "white",
           },
           // Specific to when the button is white outlines
           {
-            "text-white stroke-white border-white": appearance === "white-outline",
+            "border-white stroke-white text-white":
+              appearance === "white-outline",
           },
           {
             "inline-flex items-center": button.icon,
@@ -52,8 +61,8 @@ const Button = ({
         {button.text}
       </div>
     </button>
-  )
-}
+  );
+};
 
 Button.propTypes = {
   button: buttonLinkPropTypes,
@@ -64,6 +73,6 @@ Button.propTypes = {
     "dark-outline",
   ]),
   compact: PropTypes.bool,
-}
+};
 
-export default Button
+export default Button;

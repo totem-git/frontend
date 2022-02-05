@@ -1,12 +1,12 @@
-import { getStrapiMedia } from "utils/media"
-import Image from "next/image"
-import PropTypes from "prop-types"
-import { mediaPropTypes } from "utils/types"
+import { getStrapiMedia } from "utils/media";
+import Image from "next/image";
+import PropTypes from "prop-types";
+import { mediaPropTypes } from "utils/types";
 
 const NextImage = ({ media, ...props }) => {
-  const { url, alternativeText } = media
+  const { url, alternativeText } = media;
 
-  const imageUrl = getStrapiMedia(url)
+  const imageUrl = getStrapiMedia(url);
 
   // const loader = ({ src }) => {
   //   return getStrapiMedia(src)
@@ -15,8 +15,13 @@ const NextImage = ({ media, ...props }) => {
   // The image has a fixed width and height
   if (props.width && props.height) {
     return (
-      <Image src={imageUrl} loading="lazy" alt={alternativeText || ""} {...props} />
-    )
+      <Image
+        src={imageUrl}
+        loading="lazy"
+        alt={alternativeText || ""}
+        {...props}
+      />
+    );
   }
 
   // The image is responsive
@@ -30,12 +35,12 @@ const NextImage = ({ media, ...props }) => {
       loading="lazy"
       alt={alternativeText || ""}
     />
-  )
-}
+  );
+};
 
 Image.propTypes = {
   media: mediaPropTypes,
   className: PropTypes.string,
-}
+};
 
-export default NextImage
+export default NextImage;

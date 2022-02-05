@@ -1,24 +1,24 @@
-import { MdCheckBox } from "react-icons/md"
-import classNames from "classnames"
+import { MdCheckBox } from "react-icons/md";
+import classNames from "classnames";
 
 const Pricing = ({ data }) => {
   return (
     <div className="container py-12">
-      <h1 className="text-4xl text-center">{data.title}</h1>
-      <div className="flex flex-col lg:flex-row gap-4 lg:justify-center mt-6">
+      <h1 className="text-center text-4xl">{data.title}</h1>
+      <div className="mt-6 flex flex-col gap-4 lg:flex-row lg:justify-center">
         {data.plans.map((plan) => (
           <div
             className={classNames(
               // Common classes
-              "rounded-md border-2 py-4 px-4 flex-1 md:w-lg",
+              "md:w-lg flex-1 rounded-md border-2 py-4 px-4",
               // Normal plan
               {
-                "bg-gray-100 text-gray-900 border-gray-300":
+                "border-gray-300 bg-gray-100 text-gray-900":
                   !plan.isRecommended,
               },
               // Recommended plan
               {
-                "bg-primary-100 text-primary-900 border-primary-300":
+                "border-primary-300 bg-primary-100 text-primary-900":
                   plan.isRecommended,
               }
             )}
@@ -33,14 +33,14 @@ const Pricing = ({ data }) => {
             >
               {plan.description}
             </p>
-            <p className="text-3xl mt-4">
+            <p className="mt-4 text-3xl">
               {plan.price === 0 ? "Free " : `$${plan.price} `}
               <span className="text-base font-medium">{plan.pricePeriod}</span>
             </p>
             <ul className="mt-4 flex flex-col gap-3">
               {plan.features.map((feature) => (
                 <li
-                  className="flex flex-row justify-between items-center"
+                  className="flex flex-row items-center justify-between"
                   key={feature.id}
                 >
                   <span>{feature.name}</span>
@@ -52,7 +52,7 @@ const Pricing = ({ data }) => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Pricing
+export default Pricing;
