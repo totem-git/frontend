@@ -39,7 +39,7 @@ const Variant2 = ({ data }) => {
             </div>
             {!!data.media.length ? (
                 <div className="lg:mx-24 relative h-[400px] !mt-16">
-                    <Image src={getStrapiMedia(data.media[0].url)} objectFit="cover" layout="fill" />
+                    <Image src={getStrapiMedia(data.media[0].url)} objectPosition="bottom" objectFit="cover" layout="fill" />
                     <span
                         style={{
                             backgroundImage: "radial-gradient(rgba(255, 255, 255, .4), transparent 25%)",
