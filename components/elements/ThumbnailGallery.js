@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { getStrapiMedia } from "utils/media";
 import SliderIndicators from "./SliderIndicators";
+import css from "classnames";
 
 const ThumbnailGallery = ({ mediaList }) => {
   const sliderRef = useRef();
@@ -124,7 +125,10 @@ const ThumbnailGallery = ({ mediaList }) => {
       <button
         data-slide-direction="-1"
         onClick={handleSlide}
-        className="absolute top-1/2 -left-6 flex w-8 -translate-y-1/2 lg:-left-8 lg:w-12"
+        className={css(
+          "absolute top-1/2 -left-6 flex w-8 -translate-y-1/2 lg:-left-8 lg:w-12",
+          { hidden: mediaList.length <= 1 }
+        )}
       >
         <Image
           src="/icons/arrow-left-bg-yellow.svg"
@@ -136,7 +140,10 @@ const ThumbnailGallery = ({ mediaList }) => {
       <button
         data-slide-direction="1"
         onClick={handleSlide}
-        className="absolute top-1/2 -right-6 flex w-8 -translate-y-1/2 rotate-180 lg:-right-8 lg:w-12"
+        className={css(
+          "absolute top-1/2 -right-6 flex w-8 -translate-y-1/2 rotate-180 lg:-right-8 lg:w-12",
+          { hidden: mediaList.length <= 1 }
+        )}
       >
         <Image
           src="/icons/arrow-left-bg-yellow.svg"
@@ -145,7 +152,11 @@ const ThumbnailGallery = ({ mediaList }) => {
           height={50}
         />
       </button>
-      <div className="absolute bottom-2 left-1/2 -translate-x-1/2">
+      <div
+        className={css("absolute bottom-2 left-1/2 -translate-x-1/2", {
+          hidden: mediaList.length <= 1,
+        })}
+      >
         <SliderIndicators activeSlides={activeSlides} />
       </div>
     </div>

@@ -38,10 +38,10 @@ const Variant2 = ({ data }) => {
         )}
       </div>
       {!!data.media.length ? (
-        <div className="relative !mt-16 h-[400px] lg:mx-24">
+        <div className="relative !mt-16 h-[500px] lg:mx-24">
           <Image
             src={getStrapiMedia(data.media[0].url)}
-            objectPosition="bottom"
+            objectPosition="center"
             objectFit="cover"
             layout="fill"
           />

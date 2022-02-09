@@ -72,7 +72,7 @@ const Hero = ({ data }) => {
             </video>
           )}
         </div>
-        <div className="absolute inset-0 m-0 bg-black opacity-60"></div>
+        <div className="absolute inset-0 m-0 bg-black opacity-0"></div>
         {isHome && (
           <div className="absolute left-12 bottom-28 z-10 m-0 hidden h-1/2 w-1.5 flex-col lg:flex">
             <div className="h-32 w-full bg-white"></div>

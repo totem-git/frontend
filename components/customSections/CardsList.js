@@ -50,11 +50,11 @@ const CardsList = ({ data }) => {
         )}
       </div>
       {!!data.cards.length && (
-        <div className="flex flex-col flex-wrap items-center justify-center gap-8 px-4 md:flex-row md:items-stretch md:gap-4">
+        <div className="flex items-stretch gap-8 overflow-scroll px-4 md:gap-4 lg:flex-wrap lg:justify-center">
           {data.cards.map((card, i) => (
             <div
               key={i}
-              className={`flex w-full max-w-md flex-col border-b-4 border-white bg-white md:w-[calc(50%-1rem)] lg:max-w-xs`}
+              className={`flex w-[90%] max-w-md shrink-0 flex-col border-b-4 border-white bg-white md:w-[calc(50%-1rem)] lg:max-w-xs`}
               style={{ borderColor: card.bottomBorderColor }}
             >
               {card.type == 1 &&

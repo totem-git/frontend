@@ -101,7 +101,7 @@ const Footer = ({ footer, googleReviews }) => {
                     url: "#",
                   }}
                 >
-                  Tel: Tel: +00 23 2 343 32
+                  Phone: +00 23 2 343 32
                 </CustomLink>
               </li>
               <li className="-mx-1 py-2 px-1 text-sm text-gray-100 hover:text-gray-400">
