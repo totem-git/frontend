@@ -1,13 +1,13 @@
-const { colors: defColors } = require(`tailwindcss/defaultTheme`)
-const colors = require("tailwindcss/colors")
+const { colors: defColors } = require(`tailwindcss/defaultTheme`);
+const colors = require("tailwindcss/colors");
 
 module.exports = {
   content: ["./components/**/*.js", "./pages/**/*.js"],
   theme: {
     fontFamily: {
-      'roboto': ['Roboto', 'sans-serif'],
-      'russo': ['"Russo One"', 'sans-serif'],
-      'basker': ['"Libre Baskerville"', 'serif']
+      roboto: ["Roboto", "sans-serif"],
+      russo: ['"Russo One"', "sans-serif"],
+      basker: ['"Libre Baskerville"', "serif"],
     },
     extend: {
       colors: {
@@ -32,18 +32,17 @@ module.exports = {
         },
       },
       backgroundImage: {
-        'gradient-black-to-b': 'linear-gradient(black, rgba(0,0,0,.7), transparent)'
-      }
+        "gradient-black-to-b":
+          "linear-gradient(black, rgba(0,0,0,.7), transparent)",
+      },
     },
     screens: {
       sm: "640px",
       md: "768px",
       lg: "1024px",
       xl: "1280px",
+      "2xl": "1500px",
     },
   },
-  plugins: [
-    require("@tailwindcss/typography"),
-    require("@tailwindcss/forms"),
-  ],
-}
+  plugins: [require("@tailwindcss/typography"), require("@tailwindcss/forms")],
+};
