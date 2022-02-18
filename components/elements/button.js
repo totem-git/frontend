@@ -25,7 +25,7 @@ const Button = ({
           // Common classes
           `inline-block ${
             wFull ? "w-full" : "w-auto"
-          } text-center font-medium uppercase tracking-wide ${size} border-2 transition hover:bg-white hover:stroke-black hover:text-black`,
+          } text-center font-medium uppercase tracking-wide ${size} border-2`,
           // Full-size button
           {
             "px-16 py-4": compact === false,
@@ -36,7 +36,8 @@ const Button = ({
           },
           // Specific to when the button is fully dark
           {
-            "border-black stroke-black text-black": appearance === "dark",
+            "border-black stroke-black text-black transition hover:bg-black hover:stroke-white hover:text-white":
+              appearance === "dark",
           },
           // Specific to when the button is dark outlines
           {
@@ -45,7 +46,8 @@ const Button = ({
           },
           // Specific to when the button is fully white
           {
-            "border-white stroke-white text-white": appearance === "white",
+            "border-white stroke-white text-white transition hover:bg-white hover:stroke-black hover:text-black":
+              appearance === "white",
           },
           // Specific to when the button is white outlines
           {
@@ -59,6 +61,11 @@ const Button = ({
       >
         {loading && <Loader />}
         {button.text}
+        {button.icon && (
+          <span className="button-link-icon-container ml-auto flex pl-4">
+            <button.icon />
+          </span>
+        )}
       </div>
     </button>
   );

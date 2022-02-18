@@ -91,8 +91,8 @@ const Footer = ({ footer, googleReviews }) => {
       <div className="container mt-10 flex flex-col">
         <nav className="mb-10 flex grid-cols-[auto_auto_auto] flex-row flex-wrap items-start md:grid md:justify-between lg:grid-cols-[auto_auto_auto_auto_auto] lg:justify-between">
           <div className="mt-10 w-full pr-6 sm:w-6/12 sm:pl-[10%] md:w-auto md:pr-0 md:pl-0 lg:mt-0 lg:w-auto lg:pl-0">
-            <p className="font-russo text-xl font-semibold tracking-wide text-primary-600 md:w-min">
-              Contact
+            <p className="font-russo text-xl font-semibold uppercase tracking-wide text-primary-600">
+              Contact us
             </p>
             <ul className="mt-2">
               <li className="-mx-1 py-2 px-1 text-sm text-gray-100 hover:text-gray-400">
@@ -101,7 +101,7 @@ const Footer = ({ footer, googleReviews }) => {
                     url: "#",
                   }}
                 >
-                  Phone: +00 23 2 343 32
+                  Phone: 1-800-66-TOTEM (8683)
                 </CustomLink>
               </li>
               <li className="-mx-1 py-2 px-1 text-sm text-gray-100 hover:text-gray-400">
@@ -110,7 +110,7 @@ const Footer = ({ footer, googleReviews }) => {
                     url: "#",
                   }}
                 >
-                  Email: e-comerce@totemresort.com
+                  Email: reservations@totemresorts.com
                 </CustomLink>
               </li>
               <li className="-mx-1 py-2 px-1 text-sm text-gray-100 hover:text-gray-400">
@@ -119,13 +119,15 @@ const Footer = ({ footer, googleReviews }) => {
                     url: "#",
                   }}
                 >
-                  Email: info@totemresort.com
+                  Email: info@totemresorts.com
                 </CustomLink>
               </li>
             </ul>
             <div className="mt-4 hidden flex-col md:flex">
-              <p className="font-russo text-xl font-semibold tracking-wide text-primary-600">
-                Follow Us
+              <p className="font-russo text-xl font-semibold uppercase tracking-wide text-primary-600">
+                FOLLOW US ON
+                <br />
+                SOCIAL MEDIA!
               </p>
               <div className="flex gap-1">
                 <a
@@ -167,7 +169,7 @@ const Footer = ({ footer, googleReviews }) => {
               key={footerColumn.id}
               className="mt-10 w-6/12 pr-6 odd:pr-0 sm:pl-[10%] sm:odd:pr-6 sm:even:pr-0 md:w-auto md:pl-0 md:odd:pr-0 lg:mt-0 lg:w-auto lg:!pr-0"
             >
-              <p className="font-russo text-xl font-semibold tracking-wide text-primary-600 md:w-min">
+              <p className="font-russo text-xl font-semibold uppercase tracking-wide text-primary-600 md:w-min">
                 {footerColumn.titleUrl ? (
                   <CustomLink link={{ url: footerColumn.titleUrl }}>
                     {footerColumn.title}
@@ -195,14 +197,20 @@ const Footer = ({ footer, googleReviews }) => {
           Follow Us
         </p>
         <div className="mt-4 flex gap-9">
-          <a href="#" className="p-4">
+          <a href="https://www.instagram.com/totemresorts/" className="p-4">
             <Image src="/icons/ig-icon.svg" width="40" height="40" />
           </a>
-          <a href="#" className="p-4">
+          <a href="https://www.facebook.com/TotemLodge/" className="p-4">
             <Image src="/icons/fb-icon.svg" width="40" height="40" />
           </a>
-          <a href="#" className="p-4">
+          <a
+            href="https://www.youtube.com/channel/UCpqUq6jJy2rd2GQdOPyDQ9Q"
+            className="p-4"
+          >
             <Image src="/icons/yt-icon.svg" width="40" height="40" />
+          </a>
+          <a href="https://twitter.com/TotemResorts" className="p-4">
+            <Image src="/icons/twitter-icon.png" width="40" height="40" />
           </a>
         </div>
       </div>

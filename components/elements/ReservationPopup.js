@@ -39,7 +39,7 @@ const ReservationPopup = ({ closeSelf, googleReviews }) => {
                 </a>
                 <a href="#" className="flex items-center">
                   <Image src="/icons/phone-icon.svg" width="18" height="18" />
-                  <span className="ml-2">Tel: +00 23 2 343 32</span>
+                  <span className="ml-2">Phone: +00 23 2 343 32</span>
                 </a>
                 <a href="#" className="flex items-center">
                   <Image src="/icons/mail-icon.svg" width="18" height="18" />

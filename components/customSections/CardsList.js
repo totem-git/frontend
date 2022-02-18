@@ -40,7 +40,9 @@ const CardsList = ({ data }) => {
           </div>
         )}
         {data.title && (
-          <h4 className="font-russo text-3xl tracking-wider">{data.title}</h4>
+          <h4 className="font-russo text-3xl tracking-wider 2xl:text-[1.8vw]">
+            {data.title}
+          </h4>
         )}
         {data.subtitle && <h5 className="mt-2 font-normal">{data.subTitle}</h5>}
         {data.text && (
@@ -54,7 +56,7 @@ const CardsList = ({ data }) => {
           {data.cards.map((card, i) => (
             <div
               key={i}
-              className={`flex w-[90%] max-w-md shrink-0 flex-col border-b-4 border-white bg-white md:w-[calc(50%-1rem)] lg:max-w-xs`}
+              className={`flex w-[90%] max-w-md shrink-0 flex-col border-b-4 border-white bg-white md:w-[calc(50%-1rem)] lg:max-w-xs 2xl:max-w-sm`}
               style={{ borderColor: card.bottomBorderColor }}
             >
               {card.type == 1 &&
@@ -62,10 +64,14 @@ const CardsList = ({ data }) => {
                   <Link href={card.CTA.url}>
                     <a
                       tabIndex={-1}
-                      className="relative block h-64 overflow-hidden md:h-44"
+                      className="relative block h-64 overflow-hidden md:h-44 2xl:h-56"
                     >
                       <Image
-                        src={getStrapiMedia(card.image.url)}
+                        src={getStrapiMedia(
+                          card.image.formats.medium
+                            ? card.image.formats.medium.url
+                            : card.image.url
+                        )}
                         objectFit="cover"
                         layout="fill"
                       />
@@ -74,7 +80,11 @@ const CardsList = ({ data }) => {
                 ) : (
                   <a className="relative block h-64 overflow-hidden md:h-44">
                     <Image
-                      src={getStrapiMedia(card.image.url)}
+                      src={getStrapiMedia(
+                        card.image.formats.medium
+                          ? card.image.formats.medium.url
+                          : card.image.url
+                      )}
                       objectFit="cover"
                       layout="fill"
                     />

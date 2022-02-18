@@ -116,7 +116,7 @@ const CardsList = ({ data }) => {
                   <ReactMarkdown>{card.text}</ReactMarkdown>
                 </div>
                 {card.CTA && (
-                  <div className="pt-8">
+                  <div className="pt-8 lg:pt-4">
                     <ButtonLink
                       button={{
                         ...card.CTA,

@@ -1,24 +1,125 @@
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { getStrapiMedia } from "utils/media";
+import Viewer from "viewerjs";
 import SliderIndicators from "./SliderIndicators";
 import css from "classnames";
+import { fetchAPI } from "utils/api";
 
 const ThumbnailGallery = ({ mediaList }) => {
   const sliderRef = useRef();
   const activeSlidesRef = useRef(Array(mediaList.length).fill(0));
   const [activeSlides, setActiveSlides] = useState(activeSlidesRef.current);
+  const viewerRef = useRef();
+
+  const bigImagesArray = [];
+  let bigImageIndex = 0;
+
+  mediaList = mediaList.map((m) => {
+    let isVideo = false;
+    let videoUrl = null;
+    let videoThumbnailName = null;
+    if (m.mime.startsWith("video")) {
+      isVideo = true;
+      videoUrl = getStrapiMedia(m.url);
+      videoThumbnailName = `${m.name.split(".")[0]}_thumbnail`;
+      m = {
+        url: "/imgs/play-icon.png",
+        isVideoThumbnail: true,
+        width: null,
+        videoThumbnailName,
+      };
+    }
+
+    if (m.width > 960 || isVideo) {
+      bigImagesArray.push({
+        isVideo,
+        url: isVideo ? m.url : getStrapiMedia(m.url),
+        videoUrl,
+        videoThumbnailName,
+      });
+      m.isBigImage = true;
+      m.bigImageIndex = bigImageIndex;
+      bigImageIndex++;
+    } else {
+      m.isBigImage = false;
+    }
+    return m;
+  });
+
+  const openViewer = (index) => {
+    viewerRef.current.show();
+    viewerRef.current.view(index);
+  };
+
+  useEffect(() => {
+    let videoThumbnailsList = Array.from(
+      sliderRef.current.querySelectorAll("[data-is-video=true]")
+    );
+
+    videoThumbnailsList.forEach(async (thumbnail) => {
+      let name = thumbnail.dataset.videoThumbnailName;
+
+      let realThumbail = (await fetchAPI(`/upload/search/${name}`))[0];
+
+      if (realThumbail) {
+        thumbnail.querySelector("img").src = getStrapiMedia(realThumbail.url);
+        thumbnail.querySelector("img").srcset = "";
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    let imagesList = document.createElement("div");
+
+    bigImagesArray.forEach((bigImage) => {
+      let image = document.createElement("img");
+      image.src = bigImage.url;
+      image.dataset.isVideo = bigImage.isVideo;
+      image.dataset.videoUrl = bigImage.videoUrl;
+      imagesList.appendChild(image);
+    });
+    viewerRef.current = new Viewer(imagesList, {
+      view(e) {
+        if (this.viewer.viewer.querySelector(".custom-video-player")) {
+          this.viewer.viewer.querySelector(".custom-video-player").remove();
+        }
+      },
+      viewed(e) {
+        if (e.detail.originalImage.dataset.isVideo == "true") {
+          let videoPlayerContainer = document.createElement("div");
+          videoPlayerContainer.classList.add(
+            "absolute",
+            "text-white",
+            "custom-video-player",
+            "top-1/2",
+            "left-1/2",
+            "-translate-x-1/2",
+            "-translate-y-1/2",
+            "w-full",
+            "lg:w-3/5"
+          );
+          videoPlayerContainer.innerHTML = `
+            <video class="w-full" controls>
+              <source src="${e.detail.originalImage.dataset.videoUrl}" type="video/mp4" />
+            </video>
+          `;
+          this.viewer.viewer.appendChild(videoPlayerContainer);
+        }
+      },
+      hide(e) {
+        if (this.viewer.viewer.querySelector(".custom-video-player")) {
+          this.viewer.viewer.querySelector(".custom-video-player").remove();
+        }
+      },
+    });
+  }, []);
 
   const ioCallback = (entries) => {
     let intersections = [...activeSlidesRef.current];
     entries.forEach((entry) => {
       if (entry.isIntersecting) intersections[entry.target.dataset.index] = 1;
       else intersections[entry.target.dataset.index] = 0;
-
-      if (entry.target.dataset.isVideo == "true") {
-        if (entry.isIntersecting) entry.target.querySelector("video").play();
-        else entry.target.querySelector("video").pause();
-      }
     });
     activeSlidesRef.current = intersections;
     setActiveSlides(intersections);
@@ -83,36 +184,34 @@ const ThumbnailGallery = ({ mediaList }) => {
     <div className="relative w-full px-4">
       <div
         ref={sliderRef}
-        className="no-scrollbar flex h-60 w-full snap-x snap-mandatory items-end overflow-y-hidden overflow-x-scroll scroll-smooth bg-black lg:h-80"
+        className="no-scrollbar flex h-60 w-full snap-x snap-mandatory items-end overflow-y-hidden overflow-x-scroll scroll-smooth bg-black lg:h-80 2xl:h-[30vw]"
       >
         {mediaList.map((mediaObject, i) => (
           <div
             key={i}
             data-index={i}
-            data-is-video={mediaObject.mime.startsWith("video")}
-            className="relative h-full max-h-full w-full shrink-0 snap-start snap-always"
+            data-is-video={!!mediaObject.isVideoThumbnail}
+            data-video-thumbnail-name={
+              mediaObject.isVideoThumbnail ? mediaObject.videoThumbnailName : ""
+            }
+            className={`relative h-full max-h-full w-full shrink-0 snap-start snap-always ${
+              mediaObject.isBigImage ? "cursor-pointer" : ""
+            }`}
+            onClick={
+              mediaObject.isBigImage
+                ? () => openViewer(mediaObject.bigImageIndex)
+                : () => {}
+            }
           >
-            {mediaObject.mime.startsWith("image") && (
-              <Image
-                src={getStrapiMedia(mediaObject.url)}
-                layout="fill"
-                objectFit="cover"
-              />
-            )}
-            {mediaObject.mime.startsWith("video") && (
-              /* TODO[epic=To do] add poster attribute */
-              <video
-                playsInline
-                muted
-                loop
-                className="h-full w-full object-cover"
-              >
-                <source
-                  src={getStrapiMedia(mediaObject.url)}
-                  type="video/mp4"
-                />
-              </video>
-            )}
+            <Image
+              src={
+                mediaObject.isVideoThumbnail
+                  ? mediaObject.url
+                  : getStrapiMedia(mediaObject.url)
+              }
+              layout="fill"
+              objectFit="cover"
+            />
             <div
               className="absolute inset-0"
               style={{
@@ -126,30 +225,28 @@ const ThumbnailGallery = ({ mediaList }) => {
         data-slide-direction="-1"
         onClick={handleSlide}
         className={css(
-          "absolute top-1/2 -left-6 flex w-8 -translate-y-1/2 lg:-left-8 lg:w-12",
+          "absolute top-1/2 -left-6 flex h-12 w-8 -translate-y-1/2 lg:-left-8 lg:w-8 2xl:-left-[3vw] 2xl:h-[3.2vw] 2xl:w-[3.2vw]",
           { hidden: mediaList.length <= 1 }
         )}
       >
         <Image
           src="/icons/arrow-left-bg-yellow.svg"
-          layout="fixed"
-          width={50}
-          height={50}
+          layout="fill"
+          objectFit="contain"
         />
       </button>
       <button
         data-slide-direction="1"
         onClick={handleSlide}
         className={css(
-          "absolute top-1/2 -right-6 flex w-8 -translate-y-1/2 rotate-180 lg:-right-8 lg:w-12",
+          "absolute top-1/2 -right-6 flex h-12 w-8 -translate-y-1/2 rotate-180 lg:-right-8 lg:w-8 2xl:-right-[3vw] 2xl:h-[3.2vw] 2xl:w-[3.2vw]",
           { hidden: mediaList.length <= 1 }
         )}
       >
         <Image
           src="/icons/arrow-left-bg-yellow.svg"
-          layout="fixed"
-          width={50}
-          height={50}
+          layout="fill"
+          objectFit="contain"
         />
       </button>
       <div

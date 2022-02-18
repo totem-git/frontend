@@ -47,18 +47,18 @@ const Navbar = ({ navbar, pageContext }) => {
       <nav
         className={`flex bg-gradient-black-to-b ${
           scrolledDown ? "bg-black" : "bg-black/0"
-        } trans fixed inset-x-0 top-0 z-50 h-20 transition duration-1000`}
+        } trans fixed inset-x-0 top-0 z-50 h-20 transition duration-1000 2xl:h-32`}
       >
-        <div className="mx-4 flex grow flex-row justify-between lg:mx-8 xl:container">
+        <div className="mx-4 flex grow flex-row justify-between lg:mx-8 2xl:mx-16">
           {/* Content aligned to the left */}
           <div className="flex grow flex-row justify-between">
             <Link href="/">
-              <a className="inline-flex items-center font-basker text-xl text-primary-600 md:text-base lg:text-2xl">
+              <a className="inline-flex items-center font-basker text-xl text-primary-600 md:text-base lg:text-2xl 2xl:text-[1.4vw] 2xl:tracking-wider">
                 TOTEM RESORTS
               </a>
             </Link>
             {/* List of links on desktop */}
-            <ul className="ml-6 mr-4 hidden list-none flex-row gap-3 lg:mr-8 lg:flex xl:mr-16">
+            <ul className="ml-6 mr-4 hidden list-none flex-row gap-3 lg:mr-8 lg:flex xl:mr-16 2xl:mr-[5vw] 2xl:gap-[1.8vw]">
               {navbar.links.map((navLink) => (
                 <li
                   key={navLink.id}
@@ -67,7 +67,7 @@ const Navbar = ({ navbar, pageContext }) => {
                   }`}
                 >
                   <CustomLink link={navLink} locale={router.locale}>
-                    <div className="px-2 py-1 text-xs text-primary-600 hover:text-primary-300 lg:text-base">
+                    <div className="px-2 py-1 text-xs uppercase text-primary-600 hover:text-primary-300 lg:text-base lg:font-medium 2xl:text-[1.1vw]">
                       {navLink.text}
                     </div>
                   </CustomLink>
@@ -91,14 +91,23 @@ const Navbar = ({ navbar, pageContext }) => {
             </button>
             {/* CTA button on desktop */}
             {navbar.button && (
-              <div className="hidden lg:block">
-                <ButtonLink
-                  button={navbar.button}
-                  appearance={getButtonAppearance(navbar.button.type, "dark")}
-                  compact
-                  size="text-xs lg:text-base"
-                />
-              </div>
+              <>
+                <div className="hidden lg:block 2xl:hidden">
+                  <ButtonLink
+                    button={navbar.button}
+                    appearance={getButtonAppearance(navbar.button.type, "dark")}
+                    compact
+                    size="text-xs lg:text-base"
+                  />
+                </div>
+                <div className="hidden 2xl:block">
+                  <ButtonLink
+                    button={navbar.button}
+                    appearance={getButtonAppearance(navbar.button.type, "dark")}
+                    size="text-xs lg:text-base 2xl:text-[1vw]"
+                  />
+                </div>
+              </>
             )}
             {/* Locale Switch Desktop */}
             {pageContext.localizedPaths.length > 0 && (

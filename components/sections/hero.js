@@ -16,19 +16,19 @@ const Hero = ({ data }) => {
 
   const navLinks = [
     {
-      url: "/the-facilities",
+      url: "/lodging",
       text: "Lodging",
-      icon: "icon-1",
+      icon: "lodging-icon-solid",
     },
     {
       url: "/the-fishing-experience",
       text: "The fishing experience",
-      icon: "icon-2",
+      icon: "fishing-exp-icon-solid",
     },
     {
       url: "/events",
       text: "Events",
-      icon: "icon-3",
+      icon: "events-icon-solid",
     },
   ];
 
@@ -72,7 +72,11 @@ const Hero = ({ data }) => {
             </video>
           )}
         </div>
-        <div className="absolute inset-0 m-0 bg-black opacity-0"></div>
+        <div
+          className={`absolute inset-0 m-0 bg-black ${
+            isLanding ? "opacity-0" : "opacity-30"
+          }`}
+        ></div>
         {isHome && (
           <div className="absolute left-12 bottom-28 z-10 m-0 hidden h-1/2 w-1.5 flex-col lg:flex">
             <div className="h-32 w-full bg-white"></div>
@@ -90,14 +94,16 @@ const Hero = ({ data }) => {
               tag="h2"
               className={`${
                 isLanding ? "text-4xl md:text-6xl" : "text-3xl md:text-5xl"
-              } text-primary-600 ${isHome ? "font-basker" : "font-russo"}`}
+              } text-primary-600 ${
+                isHome ? "font-basker" : "font-russo"
+              } 2xl:text-[3.5vw]`}
               highlightClasses={["text-bg-effect before:right-2"]}
               text={data.title}
             />
             <h3
               className={`${
                 isHome ? "text-3xl" : "text-xl md:text-3xl"
-              } font-russo`}
+              } font-russo 2xl:text-[2vw]`}
             >
               {data.label &&
                 data.label.split("<br>").map((labelPart, i) => (
@@ -108,17 +114,17 @@ const Hero = ({ data }) => {
             </h3>
             {isHome && (
               <div className="flex items-center lg:!mt-12">
-                <div className="hidden w-48 sm:block lg:w-32">
+                <div className="hidden w-48 sm:block lg:w-32 2xl:w-[12vw]">
                   <Image
                     src="/icons/rectangle-with-squiggly.svg"
                     width={500}
                     height={100}
                   />
                 </div>
-                <div className="w-52 px-4 sm:w-80 lg:mx-20 lg:w-52">
+                <div className="w-52 px-4 sm:w-80 lg:mx-20 lg:w-52 2xl:w-[16vw]">
                   <Image src="/icons/stars.svg" width={500} height={100} />
                 </div>
-                <div className="hidden w-48 sm:block lg:w-32">
+                <div className="hidden w-48 sm:block lg:w-32 2xl:w-[12vw]">
                   <Image
                     src="/icons/rectangle-with-squiggly.svg"
                     className=" rotate-180"
@@ -162,25 +168,22 @@ const Hero = ({ data }) => {
             >
               <Link href={link.url}>
                 <a className="group flex flex-col space-y-2 font-russo font-thin">
-                  {currentUrl == link.url ? (
-                    <Image
-                      src={`/icons/${link.icon}-white.svg`}
-                      width="16"
-                      height="16"
-                    />
-                  ) : (
-                    <Image
-                      src={`/icons/${link.icon}.svg`}
-                      width="16"
-                      height="16"
-                    />
-                  )}
+                  <div className="relative h-6 2xl:h-[2.4vw]">
+                    {currentUrl == link.url ? (
+                      <Image
+                        src={`/icons/${link.icon}-white.svg`}
+                        layout="fill"
+                      />
+                    ) : (
+                      <Image src={`/icons/${link.icon}.svg`} layout="fill" />
+                    )}
+                  </div>
                   <span
                     className={`mx-auto inline-block w-max border-b-4 ${
                       currentUrl == link.url
                         ? "border-white"
                         : "border-transparent"
-                    } transition group-hover:border-white`}
+                    } uppercase transition group-hover:border-white 2xl:text-[1.5vw]`}
                   >
                     {link.text}
                   </span>

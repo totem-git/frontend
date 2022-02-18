@@ -2,14 +2,23 @@ import Image from "next/image";
 
 const ResortMap = ({ data }) => {
   return (
-    <section className="bg-white">
+    <section data-section-name="resortMap" className="bg-white">
       <div className="px-4 py-8 pb-8">
         <div className="flex justify-center">
-          <Image src="/icons/map-icon.svg" width={64} height={64} />
+          <Image
+            src="/icons/resort-map-icon-solid.svg"
+            width={64}
+            height={64}
+          />
         </div>
         <h5 className="mb-8 text-center font-russo text-3xl text-primary-600">
           Entire resort map
         </h5>
+        <p className="text-center">
+          The resort map is divided into four properties (Totem Lodge, Wiley
+          Point Lodge, Yellowbird Lodge, and French Portage Outpost) and also
+          includes private islands, all located on Lake of the Woods.
+        </p>
         <div className="mx-auto max-w-6xl justify-center lg:flex">
           <div className="shrink items-start gap-4 sm:flex sm:bg-light-grey-blue sm:p-8 lg:w-full lg:flex-col lg:bg-transparent">
             <div className="mt-8 h-52 overflow-hidden sm:mt-0 sm:w-1/2 lg:w-full">
@@ -102,7 +111,7 @@ const ResortMap = ({ data }) => {
                 6. Angler Cabin: 3 bedrooms/2 baths
               </p>
               <h6 className="mt-6 font-russo text-lg text-primary-600">
-                EXECUTIVE ISLANDS
+                PRIVATE ISLANDS OF LOTW
               </h6>
               <p className="mt-4 text-gray-700">
                 25. Island 1: 2 bedrooms/1 bath

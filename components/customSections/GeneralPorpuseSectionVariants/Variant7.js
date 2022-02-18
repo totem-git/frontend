@@ -1,13 +1,14 @@
 import HighlightedText from "@/components/elements/HighlightedText";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
-import { backgroundImage } from "tailwindcss/defaultTheme";
 import { getStrapiMedia } from "utils/media";
-import Separator from "../Separator";
 
 const Variant7 = ({ data }) => {
   return (
-    <section className="overflow-x-hidden bg-black md:p-8 lg:p-16">
+    <section
+      data-section-name="GeneralPurposeSection:Variant7"
+      className="overflow-x-hidden bg-black md:p-8 lg:p-16"
+    >
       <div
         style={{
           backgroundImage: 'url("/icons/variant7-icon-1.svg")',
@@ -40,36 +41,47 @@ const Variant7 = ({ data }) => {
           <ReactMarkdown>{data.text}</ReactMarkdown>
         </div>
       </div>
-      <div className="mx-auto mt-16 flex max-w-md justify-between px-4 lg:mt-24 lg:max-w-2xl">
-        <div>
+      {!!data.media.length && (
+        <div className="mt-8 flex justify-center">
           <Image
-            src={getStrapiMedia(data.extraIcon.url)}
-            width={data.extraIcon.width}
-            height={data.extraIcon.height}
+            src={getStrapiMedia(data.media[0].url)}
+            width={data.media[0].width}
+            height={data.media[0].height}
           />
         </div>
-        <div className="">
-          <Image
-            src={getStrapiMedia(data.extraIcon.url)}
-            width={data.extraIcon.width}
-            height={data.extraIcon.height}
-          />
+      )}
+      {!!data.extraIcon && (
+        <div className="mx-auto mt-16 flex max-w-md justify-between px-4 lg:mt-24 lg:max-w-2xl">
+          <div>
+            <Image
+              src={getStrapiMedia(data.extraIcon.url)}
+              width={data.extraIcon.width}
+              height={data.extraIcon.height}
+            />
+          </div>
+          <div className="">
+            <Image
+              src={getStrapiMedia(data.extraIcon.url)}
+              width={data.extraIcon.width}
+              height={data.extraIcon.height}
+            />
+          </div>
+          <div className="">
+            <Image
+              src={getStrapiMedia(data.extraIcon.url)}
+              width={data.extraIcon.width}
+              height={data.extraIcon.height}
+            />
+          </div>
+          <div className="hidden lg:block">
+            <Image
+              src={getStrapiMedia(data.extraIcon.url)}
+              width={data.extraIcon.width}
+              height={data.extraIcon.height}
+            />
+          </div>
         </div>
-        <div className="">
-          <Image
-            src={getStrapiMedia(data.extraIcon.url)}
-            width={data.extraIcon.width}
-            height={data.extraIcon.height}
-          />
-        </div>
-        <div className="hidden lg:block">
-          <Image
-            src={getStrapiMedia(data.extraIcon.url)}
-            width={data.extraIcon.width}
-            height={data.extraIcon.height}
-          />
-        </div>
-      </div>
+      )}
       <div
         style={{
           backgroundImage: 'url("/icons/variant7-icon-1.svg")',
@@ -77,7 +89,7 @@ const Variant7 = ({ data }) => {
           backgroundSize: "auto 100%",
           backgroundPosition: "center",
         }}
-        className="mt-16 h-12"
+        className="mt-16 h-12 lg:hidden"
       ></div>
     </section>
   );

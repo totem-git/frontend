@@ -5,7 +5,10 @@ import { getButtonAppearance } from "utils/button";
 
 const Variant8 = ({ data }) => {
   return (
-    <section className="bg-white p-4 py-16 px-8 sm:px-16 md:p-8 lg:p-16">
+    <section
+      data-section-name="GeneralPurposeSection:Variant8"
+      className="bg-white p-4 py-16 px-8 sm:px-16 md:p-8 lg:p-16"
+    >
       <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
         <HighlightedText
           tag="h4"
