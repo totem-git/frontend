@@ -29,21 +29,26 @@ const ReservationPopup = ({ closeSelf, googleReviews }) => {
                 GET IN TOUCH
               </p>
               <div className="mt-8 flex flex-col items-start space-y-4 text-white">
-                <a href="#" className="flex items-center">
+                {/* <a href="#" className="flex items-center">
                   <Image
                     src="/icons/whatsapp-icon.svg"
                     width="18"
                     height="18"
                   />
-                  <span className="ml-2">WhatsAap: +00 23 2 343 32</span>
-                </a>
-                <a href="#" className="flex items-center">
+                  <span className="ml-2">Phone: ---</span>
+                </a> */}
+                <a href="tel:1-800-66-8683" className="flex items-center">
                   <Image src="/icons/phone-icon.svg" width="18" height="18" />
-                  <span className="ml-2">Phone: +00 23 2 343 32</span>
+                  <span className="ml-2">Phone: 1-800-66-TOTEM (8683)</span>
                 </a>
-                <a href="#" className="flex items-center">
+                <a
+                  href="mail:reservations@totemresorts.com"
+                  className="flex items-center"
+                >
                   <Image src="/icons/mail-icon.svg" width="18" height="18" />
-                  <span className="ml-2">Email: e-comerce@totemresort.com</span>
+                  <span className="ml-2">
+                    Email: reservations@totemresorts.com
+                  </span>
                 </a>
               </div>
             </div>
@@ -58,17 +63,20 @@ const ReservationPopup = ({ closeSelf, googleReviews }) => {
           GET IN TOUCH
         </p>
         <div className="mt-8 flex flex-col items-center space-y-4 text-white">
-          <a href="#" className="flex items-center">
+          {/* <a href="#" className="flex items-center">
             <Image src="/icons/whatsapp-icon.svg" width="18" height="18" />
             <span className="ml-2">WhatsAap: +00 23 2 343 32</span>
-          </a>
-          <a href="#" className="flex items-center">
+          </a> */}
+          <a href="tel:1-800-66-8683" className="flex items-center">
             <Image src="/icons/phone-icon.svg" width="18" height="18" />
-            <span className="ml-2">Phone: +00 23 2 343 32</span>
+            <span className="ml-2">Phone: 1-800-66-TOTEM (8683)</span>
           </a>
-          <a href="#" className="flex items-center">
+          <a
+            href="mail:reservations@totemresorts.com"
+            className="flex items-center"
+          >
             <Image src="/icons/mail-icon.svg" width="18" height="18" />
-            <span className="ml-2">Email: e-comerce@totemresort.com</span>
+            <span className="ml-2">Email: reservations@totemresorts.com</span>
           </a>
         </div>
       </div>

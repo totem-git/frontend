@@ -123,6 +123,7 @@ const Footer = ({ footer, googleReviews }) => {
                 </CustomLink>
               </li>
             </ul>
+            {/* -ANCHOR- SOCIAL ICONS FOR DESKTOP */}
             <div className="mt-4 hidden flex-col md:flex">
               <p className="font-russo text-xl font-semibold uppercase tracking-wide text-primary-600">
                 FOLLOW US ON
@@ -192,6 +193,7 @@ const Footer = ({ footer, googleReviews }) => {
           ))}
         </nav>
       </div>
+      {/* -ANCHOR- SOCIAL ICONS FOR MOBILE */}
       <div className="container flex flex-col items-center md:hidden">
         <p className="font-russo font-semibold uppercase tracking-wide text-primary-600">
           Follow Us
