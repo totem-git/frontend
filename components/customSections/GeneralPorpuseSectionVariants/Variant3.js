@@ -3,7 +3,7 @@ import Markdown from "react-markdown";
 
 const Variant3 = ({ data }) => {
   return (
-    <section className="bg-black lg:px-24">
+    <section id={data.identifier} className="bg-black lg:px-24">
       <div className="container flex max-w-4xl flex-col items-center space-y-4 py-16 text-center text-light-grey-blue lg:space-y-12">
         <div className="hidden w-full flex-col items-center gap-8 pt-8 lg:flex lg:flex-row">
           <div className="w-3/6 shrink-0 grow -translate-x-2/4 -scale-y-100">
