@@ -6,7 +6,7 @@ import { getStrapiMedia } from "utils/media";
 
 const Variant5 = ({ data }) => {
   return (
-    <section className="overflow-x-hidden bg-black py-16">
+    <section id={data.identifier} className="overflow-x-hidden bg-black py-16">
       <div className="flex flex-col items-center text-center text-gray-600">
         {data.extraIcon && (
           <div className="w-16 stroke-gray-600">

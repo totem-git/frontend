@@ -7,7 +7,10 @@ import { getStrapiMedia } from "utils/media";
 
 const Variant4 = ({ data }) => {
   return (
-    <section className="overflow-x-hidden bg-white py-8 md:py-12">
+    <section
+      id={data.identifier}
+      className="overflow-x-hidden bg-white py-8 md:py-12"
+    >
       {/* <h4 className="hidden mb-6 text-3xl font-thin text-center sm:block lg:hidden text-primary-600 font-russo">{data.title}</h4> */}
       <div className="mx-auto flex max-w-md flex-col items-center justify-center space-y-4 px-4 sm:max-w-4xl sm:flex-row md:space-y-0 md:space-x-4 lg:container lg:max-w-6xl xl:max-w-[1400px] xl:px-16 2xl:max-w-none">
         <div className="relative w-full max-w-[350px] flex-1 p-4 lg:max-w-xl 2xl:max-w-none">
@@ -41,8 +44,8 @@ const Variant4 = ({ data }) => {
             <h5
               className={`${
                 data.extraIcon
-                  ? "!ml-0 mt-4 w-full font-bold text-primary-600"
-                  : "text-xl font-extrabold text-gray-600"
+                  ? "!ml-0 mt-4 w-full font-bold text-primary-600 2xl:text-[1.2vw]"
+                  : "text-xl font-extrabold text-gray-600 2xl:text-[1.1vw]"
               }`}
             >
               {data.subTitle}

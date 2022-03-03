@@ -6,6 +6,7 @@ import { getButtonAppearance } from "utils/button";
 const Variant8 = ({ data }) => {
   return (
     <section
+      id={data.identifier}
       data-section-name="GeneralPurposeSection:Variant8"
       className="bg-white p-4 py-16 px-8 sm:px-16 md:p-8 lg:p-16"
     >

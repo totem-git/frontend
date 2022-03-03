@@ -8,7 +8,10 @@ const Variant9 = ({ data }) => {
   let picture = data.media[0];
 
   return (
-    <section className="overflow-x-hidden bg-light-grey-blue pt-10 pb-8">
+    <section
+      id={data.identifier}
+      className="overflow-x-hidden bg-light-grey-blue pt-10 pb-8"
+    >
       <div className="container flex max-w-none flex-col items-center space-y-4 lg:flex-row-reverse xl:px-16">
         <div className="relative hidden w-full max-w-xl flex-1 p-4 lg:block 2xl:max-w-none">
           <Image

@@ -6,7 +6,10 @@ const Variant6_Reverse = ({ data }) => {
   let picture = data.media[0];
 
   return (
-    <section className="overflow-x-hidden bg-light-grey-blue py-8 md:px-4">
+    <section
+      id={data.identifier}
+      className="overflow-x-hidden bg-light-grey-blue py-8 md:px-4"
+    >
       <div className="flex max-w-none flex-col items-center space-y-4 md:flex-col-reverse lg:flex-row lg:items-start xl:px-16">
         <div className="relative w-full max-w-xl flex-1 flex-row-reverse items-center md:mt-4 md:flex md:max-w-none">
           <div className="w-full">

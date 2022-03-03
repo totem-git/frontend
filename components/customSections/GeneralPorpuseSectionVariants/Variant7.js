@@ -6,6 +6,7 @@ import { getStrapiMedia } from "utils/media";
 const Variant7 = ({ data }) => {
   return (
     <section
+      id={data.identifier}
       data-section-name="GeneralPurposeSection:Variant7"
       className="overflow-x-hidden bg-black md:p-8 lg:p-16"
     >

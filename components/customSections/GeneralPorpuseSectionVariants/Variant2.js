@@ -8,7 +8,7 @@ import HighlightedText from "@/components/elements/HighlightedText";
 
 const Variant2 = ({ data }) => {
   return (
-    <section className="pt-12 text-center">
+    <section id={data.identifier} className="pt-12 text-center">
       <div className="container max-w-4xl space-y-6 px-4">
         {data.extraIcon && (
           <div className="mx-auto w-20">

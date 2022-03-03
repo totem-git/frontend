@@ -6,7 +6,10 @@ const Variant6 = ({ data }) => {
   let picture = data.media[0];
 
   return (
-    <section className="overflow-x-hidden bg-light-grey-blue py-8 md:px-4">
+    <section
+      id={data.identifier}
+      className="overflow-x-hidden bg-light-grey-blue py-8 md:px-4"
+    >
       {data.title && (
         <h4 className="mb-6 text-center font-russo text-2xl text-gray-600 md:mb-0 md:text-left">
           <span className="mr-3 hidden md:inline">

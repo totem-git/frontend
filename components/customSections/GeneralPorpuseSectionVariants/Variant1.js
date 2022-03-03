@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const Variant1 = ({ data }) => {
   return (
-    <section className="bg-black text-light-grey-blue">
+    <section id={data.identifier} className="bg-black text-light-grey-blue">
       <div className="relative mx-auto max-w-6xl py-16 lg:py-28">
         {data.media.length > 0 && (
           <div className="mb-16 hidden px-16">
