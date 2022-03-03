@@ -91,7 +91,7 @@ const Hero = ({ data }) => {
               </div>
             )}
             <HighlightedText
-              tag="h2"
+              tag="h1"
               className={`${
                 isLanding ? "text-4xl md:text-6xl" : "text-3xl md:text-5xl"
               } text-primary-600 ${
