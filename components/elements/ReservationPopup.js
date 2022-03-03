@@ -80,7 +80,8 @@ const ReservationPopup = ({ closeSelf, googleReviews }) => {
           </a>
         </div>
       </div>
-      <div>
+      {/* GOOGLE REVIEWS */}
+      <div className="global:google-reviews">
         <div className="container mt-12 overflow-x-hidden lg:mt-0">
           <div className="flex flex-col items-center text-primary-600 lg:flex-row lg:items-end lg:pl-8">
             <h4 className="text-center font-russo text-xl">

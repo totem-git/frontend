@@ -65,7 +65,8 @@ const Footer = ({ footer, googleReviews }) => {
           className="h-96 w-full lg:container"
         ></iframe>
       </div>
-      <div className="mt-12 overflow-x-hidden px-2 lg:container">
+      {/* GOOGLE REVIEWS */}
+      <div className="global:google-reviews mt-12 overflow-x-hidden px-2 lg:container">
         <div className="flex flex-col items-center text-primary-600 lg:flex-row lg:items-center lg:px-8">
           <h4 className="text-center font-russo text-2xl">
             <a href="https://www.google.com/search?q=totem+resorts&oq=totem&aqs=chrome.1.69i57j35i19i39l2j0i512j46i512j69i61l3.1990j0j7&sourceid=chrome&ie=UTF-8">
@@ -226,18 +227,7 @@ const Footer = ({ footer, googleReviews }) => {
           wFull
         />
       </div>
-      <div className="mt-12 flex justify-center">
-        <RatingStars rating={5} starSize="w-8" starSpacing="space-x-4" />
-      </div>
       <div className="mx-4 mt-16 border-t-[1px] border-gray-600 py-12 text-center text-sm text-gray-500 lg:mt-10">
-        <div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic eum in
-          aliquid ullam vitae assumenda mollitia repudiandae eos! Est veritatis
-          unde in temporibus? Dolores minus quos, impedit ab reprehenderit velit
-          recusandae quam cupiditate odit est aspernatur eaque quas debitis?
-          Numquam itaque reiciendis unde perferendis commodi voluptates officia
-          porro nesciunt quidem.
-        </div>
         <div className="mt-4">{footer.smallText}</div>
       </div>
     </footer>

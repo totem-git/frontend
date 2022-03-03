@@ -117,3 +117,27 @@ html {
   right: -4px;
   z-index: -10;
 }
+
+/* cambios provicionales vacaciones tomi */
+
+/* tarjetas google */
+.global\:google-reviews {
+  display: none;
+}
+
+/* FOOTER */
+#sauna {
+  display: none;
+}
+
+#iceSkating {
+  display: none;
+}
+
+#natureTrails {
+  display: none;
+}
+
+#hiking {
+  display: none;
+}
