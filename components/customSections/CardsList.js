@@ -52,7 +52,7 @@ const CardsList = ({ data }) => {
         )}
       </div>
       {!!data.cards.length && (
-        <div className="flex items-stretch gap-8 overflow-scroll px-4 md:gap-4 lg:flex-wrap lg:justify-center">
+        <div className="flex items-stretch gap-8 overflow-scroll px-4 md:gap-4 lg:flex-wrap lg:justify-center lg:overflow-auto">
           {data.cards.map((card, i) => (
             <div
               key={i}
