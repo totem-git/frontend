@@ -211,6 +211,7 @@ const ThumbnailGallery = ({ mediaList }) => {
               }
               layout="fill"
               objectFit="cover"
+              loading={mediaObject.isVideoThumbnail ? "eager" : "lazy"}
             />
             <div
               className="absolute inset-0"
