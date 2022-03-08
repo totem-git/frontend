@@ -38,21 +38,21 @@ const Variant2 = ({ data }) => {
         )}
       </div>
       {!!data.media.length ? (
-        <div className="relative !mt-16 h-[500px] lg:mx-24">
+        <div className="relative !mt-16 h-[500px] lg:mx-24 2xl:h-[40vw]">
           <Image
             src={getStrapiMedia(data.media[0].url)}
             objectPosition="center"
             objectFit="cover"
             layout="fill"
           />
-          <span
+          {/* <span
             style={{
               backgroundImage:
                 "radial-gradient(rgba(255, 255, 255, .4), transparent 25%)",
               backgroundSize: "14px 10px",
             }}
             className="absolute top-1/3 left-1/4 right-0 bottom-10"
-          ></span>
+          ></span> */}
         </div>
       ) : (
         <>
