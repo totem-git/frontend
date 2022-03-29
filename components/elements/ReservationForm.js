@@ -1,6 +1,8 @@
 import { useFormik } from "formik";
+import { useState } from "react";
 
-const ReservationForm = (props) => {
+const ReservationForm = () => {
+  const [showNotice, setShowNotice] = useState(false);
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -9,11 +11,23 @@ const ReservationForm = (props) => {
       "date-checkout": "",
       message: "",
     },
-    onSubmit: (values) => {},
+    onSubmit: async (values) => {
+      let response = await fetch("/api/send-contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+
+      if (response.ok) {
+        setShowNotice(true);
+      }
+    },
   });
 
   return (
-    <form className="bg-inherit">
+    <form className="bg-inherit" onSubmit={formik.handleSubmit}>
       <div className="flex flex-col space-y-4 bg-inherit lg:space-y-2">
         <div className="relative bg-inherit">
           <input
@@ -105,7 +119,15 @@ const ReservationForm = (props) => {
             </div>
           )}
         </div>
-        <div>
+        <div className="relative">
+          <div
+            className={`${
+              showNotice ? "" : " pointer-events-none opacity-0"
+            } absolute border-2 border-primary-600 bg-white p-4 text-xl text-black`}
+          >
+            Your message has been sent! <br />
+            We will get back to you as soon as possible.
+          </div>
           <button
             type="submit"
             className="bg-primary-600 py-2 px-8 font-bold uppercase"
