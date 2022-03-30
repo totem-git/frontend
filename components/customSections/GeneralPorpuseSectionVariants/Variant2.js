@@ -16,7 +16,7 @@ const Variant2 = ({ data }) => {
           </div>
         )}
         <HighlightedText
-          tag="h4"
+          tag="h2"
           text={data.title}
           className="w-full pt-4 text-center font-russo text-4xl text-gray-600"
           highlightClasses={[
@@ -28,7 +28,7 @@ const Variant2 = ({ data }) => {
           <Markdown>{data.text}</Markdown>
         </div>
         {data.CTAs[0] && (
-          <div className=":w-full mb-4 inline-block sm:w-96">
+          <div className="mb-4 inline-block w-full sm:w-96">
             <ButtonLink
               button={data.CTAs[0]}
               appearance={getButtonAppearance(data.CTAs[0].type, "light")}

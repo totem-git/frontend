@@ -12,7 +12,7 @@ const Variant8 = ({ data }) => {
     >
       <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
         <HighlightedText
-          tag="h4"
+          tag="h2"
           text={data.title}
           className="font-russo text-3xl"
           highlightClasses={[

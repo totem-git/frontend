@@ -24,9 +24,9 @@ const Variant4_Reverse = ({ data }) => {
           <ThumbnailGallery mediaList={data.media} />
         </div>
         <div className="relative max-w-sm flex-1 space-y-4 sm:pr-2 lg:max-w-none">
-          <h4 className="font-russo text-3xl font-thin text-primary-600 lg:block 2xl:text-[2vw]">
+          <h2 className="font-russo text-3xl font-thin text-primary-600 lg:block 2xl:text-[2vw]">
             {data.title}
-          </h4>
+          </h2>
           <div className="flex flex-wrap space-x-2">
             <div className="flex w-1/3 sm:max-w-[150px]">
               <Image src="/icons/subtitle-figure.svg" width={300} height={15} />

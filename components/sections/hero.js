@@ -100,7 +100,7 @@ const Hero = ({ data }) => {
               highlightClasses={["text-bg-effect before:right-2"]}
               text={data.title}
             />
-            <h3
+            <h6
               className={`${
                 isHome ? "text-3xl" : "text-xl md:text-3xl"
               } font-russo 2xl:text-[2vw]`}
@@ -111,7 +111,7 @@ const Hero = ({ data }) => {
                     {labelPart} <br className="sm:hidden" />
                   </span>
                 ))}
-            </h3>
+            </h6>
             {isHome && (
               <div className="flex items-center lg:!mt-12">
                 <div className="hidden w-48 sm:block lg:w-32 2xl:w-[12vw]">

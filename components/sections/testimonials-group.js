@@ -94,7 +94,7 @@ const TestimonialsGroup = ({ data }) => {
 
   return (
     <section className="overflow-hidden bg-white px-4 pt-12 pb-16 text-center text-lg lg:px-8">
-      <h4 className="font-russo text-4xl text-primary-600">{data.title}</h4>
+      <h2 className="font-russo text-4xl text-primary-600">{data.title}</h2>
       <p className="mx-auto mt-2 max-w-3xl px-6 font-normal text-gray-600">
         {data.description}
       </p>

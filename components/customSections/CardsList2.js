@@ -40,7 +40,7 @@ const CardsList = ({ data }) => {
           </div>
         )}
         {data.title && (
-          <h4 className="font-russo text-3xl tracking-wider">{data.title}</h4>
+          <h2 className="font-russo text-3xl tracking-wider">{data.title}</h2>
         )}
         {data.subtitle && <h5 className="mt-2 font-normal">{data.subTitle}</h5>}
         {data.text && (
@@ -98,7 +98,7 @@ const CardsList = ({ data }) => {
                       <NextImage media={card.extraIcon} />
                     </div>
                   ))}
-                <h4
+                <h3
                   style={card.titleStyle || {}}
                   className={`font-russo text-3xl uppercase tracking-wider text-gray-600 md:text-2xl ${card.textAlignment}`}
                 >
@@ -109,7 +109,7 @@ const CardsList = ({ data }) => {
                   ) : (
                     card.title
                   )}
-                </h4>
+                </h3>
                 <div
                   className={`prose mt-4 mb-auto pb-8 text-lg leading-tight text-gray-700 md:pb-4 md:text-base ${card.textAlignment}`}
                 >

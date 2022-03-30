@@ -42,9 +42,9 @@ const GeoInfo = ({ data }) => {
         <div className="mx-auto flex w-12 justify-center">
           <Image src="/icons/compass-icon.svg" width={64} height={64} />
         </div>
-        <h5 className="mt-4 text-center font-russo text-3xl text-primary-600">
+        <h2 className="mt-4 text-center font-russo text-3xl text-primary-600">
           Geographic information
-        </h5>
+        </h2>
         <p className="mx-auto mt-4 max-w-3xl text-center leading-snug text-gray-700">
           Lake of the Woods, Ontario is located right in the middle of Canada
           limiting with the north border of Minnesota, its location make it easy

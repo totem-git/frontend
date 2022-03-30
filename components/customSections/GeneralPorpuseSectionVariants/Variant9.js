@@ -27,12 +27,12 @@ const Variant9 = ({ data }) => {
           </div>
         </div>
         <div className="relative flex-1 space-y-4 lg:w-1/2 lg:min-w-0 lg:pr-16">
-          <h4 className="text-center font-russo text-3xl font-medium text-gray-600 lg:text-left 2xl:text-[2.2vw]">
+          <h2 className="text-center font-russo text-3xl font-medium text-gray-600 lg:text-left 2xl:text-[2.2vw]">
             <span className="mr-4 hidden w-36 lg:inline-block">
               <Image src="/icons/variant6_icon2.svg" width={227} height={27} />
             </span>
             {data.title}
-          </h4>
+          </h2>
           <div className="prose px-2 text-center leading-tight text-gray-700 lg:px-0 lg:text-left 2xl:max-w-none 2xl:text-[1.2vw]">
             <Markdown>{data.text}</Markdown>
           </div>

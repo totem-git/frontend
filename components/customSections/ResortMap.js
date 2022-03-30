@@ -11,9 +11,9 @@ const ResortMap = ({ data }) => {
             height={64}
           />
         </div>
-        <h5 className="mb-8 text-center font-russo text-3xl text-primary-600">
+        <h2 className="mb-8 text-center font-russo text-3xl text-primary-600">
           Entire resort map
-        </h5>
+        </h2>
         <p className="text-center">
           The resort map is divided into four properties (Totem Lodge, Wiley
           Point Lodge, Yellowbird Lodge, and French Portage Outpost) and also

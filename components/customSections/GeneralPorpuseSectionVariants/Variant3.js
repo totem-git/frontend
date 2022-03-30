@@ -12,9 +12,9 @@ const Variant3 = ({ data }) => {
           <div className="separator-fish h-8 w-3/6 shrink-0 grow md:h-12"></div>
         </div>
         <div className="space-y-4">
-          <h4 className="font-russo text-4xl font-thin text-primary-600">
+          <h2 className="font-russo text-4xl font-thin text-primary-600">
             {data.title}
-          </h4>
+          </h2>
           <div className="prose prose-invert">
             <Markdown>{data.text}</Markdown>
           </div>

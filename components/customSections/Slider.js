@@ -120,12 +120,12 @@ const Slider = ({ data }) => {
             </div>
             <div className="relative flex flex-col justify-between pb-12 pl-8 pr-16 sm:w-1/2 sm:pl-20 sm:pr-20 lg:h-56 lg:w-auto lg:justify-start">
               <div className="space-y-4 md:space-y-8 lg:space-y-4">
-                <h4
+                <h2
                   style={{ textShadow: "1px 1px 2px rgba(0,0,0,.7)" }}
                   className="font-russo text-2xl text-primary-600 md:text-4xl"
                 >
                   {slide.title}
-                </h4>
+                </h2>
                 <p>{slide.text}</p>
                 <div>
                   {slide.CTAs &&

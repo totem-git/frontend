@@ -32,7 +32,7 @@ const Variant7 = ({ data }) => {
       <div className="px-4 text-white">
         <HighlightedText
           text={data.title}
-          tag="h4"
+          tag="h2"
           className="mx-auto mt-16 max-w-3xl text-center font-russo text-3xl leading-tight"
           highlightClasses={[
             "text-highlight before:bg-primary-600 before:-right-6 before:-bottom-2 before:top-0",

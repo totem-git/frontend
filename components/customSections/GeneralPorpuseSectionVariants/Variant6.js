@@ -11,7 +11,7 @@ const Variant6 = ({ data }) => {
       className="overflow-x-hidden bg-light-grey-blue py-8 md:px-4"
     >
       {data.title && (
-        <h4 className="mb-6 text-center font-russo text-2xl text-gray-600 md:mb-0 md:text-left">
+        <h2 className="mb-6 text-center font-russo text-2xl text-gray-600 md:mb-0 md:text-left">
           <span className="mr-3 hidden md:inline">
             <Image
               src="/icons/variant6_icon2.svg"
@@ -22,7 +22,7 @@ const Variant6 = ({ data }) => {
             />
           </span>
           {data.title}
-        </h4>
+        </h2>
       )}
       <div className="flex max-w-none flex-col items-center space-y-4 md:flex-col-reverse lg:flex-row-reverse lg:items-start xl:px-16">
         <div className="relative w-full max-w-xl flex-1 items-center md:mt-4 md:flex md:max-w-none">

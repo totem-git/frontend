@@ -17,9 +17,9 @@ const Variant5 = ({ data }) => {
             />
           </div>
         )}
-        <h4 className="mt-6 font-russo text-3xl tracking-wider text-primary-600">
+        <h2 className="mt-6 font-russo text-3xl tracking-wider text-primary-600">
           {data.title}
-        </h4>
+        </h2>
         <div className="flex w-full items-end space-x-8 px-16">
           <div className="shrink-0 grow">
             <Image
