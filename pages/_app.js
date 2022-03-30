@@ -42,7 +42,9 @@ const MyApp = ({ Component, pageProps }) => {
       </Head>
       {/* Global site metadata */}
       <DefaultSeo
-        titleTemplate={`%s | ${global.metaTitleSuffix}`}
+        titleTemplate={`%s${
+          global.metaTitleSuffix && ` | ${global.metaTitleSuffix}`
+        }`}
         title="Page"
         description={metadata.metaDescription}
         openGraph={{
