@@ -12,7 +12,7 @@ const ResortMap = ({ data }) => {
           />
         </div>
         <h2 className="mb-8 text-center font-russo text-3xl text-primary-600">
-          Entire resort map
+          Lodge Maps
         </h2>
         <p className="text-center">
           The resort map is divided into four properties (Totem Lodge, Wiley
