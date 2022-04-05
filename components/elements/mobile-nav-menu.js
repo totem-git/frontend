@@ -61,6 +61,7 @@ const MobileNavMenu = ({ navbar, closeSelf }) => {
             </a>
             <a
               href="mailto:reservations@totemresorts.com"
+              target={"_blank"}
               className="flex items-center"
             >
               <Image src="/icons/mail-icon.svg" width="18" height="18" />
@@ -68,6 +69,7 @@ const MobileNavMenu = ({ navbar, closeSelf }) => {
             </a>
             <a
               href="mailto:info@totemresorts.com"
+              target={"_blank"}
               className="flex items-center"
             >
               <Image src="/icons/mail-icon.svg" width="18" height="18" />

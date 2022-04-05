@@ -31,7 +31,9 @@ const ReservationPopup = ({ closeSelf, googleReviews }) => {
             {/* -ANCHOR- CONTACT INFO DESKTOP */}
             <div className="hidden lg:block">
               <p className="mt-14 font-russo text-lg text-primary-600">
-                <a href="mailto:info@totemresorts.com">CONTACT US</a>
+                <a href="mailto:info@totemresorts.com" target={"_blank"}>
+                  CONTACT US
+                </a>
               </p>
               <div className="mt-8 flex flex-col items-start space-y-4 text-white">
                 <a href="tel:1800668683" className="flex items-center">
@@ -40,6 +42,7 @@ const ReservationPopup = ({ closeSelf, googleReviews }) => {
                 </a>
                 <a
                   href="mailto:reservations@totemresorts.com"
+                  target={"_blank"}
                   className="flex items-center"
                 >
                   <Image src="/icons/mail-icon.svg" width="18" height="18" />
@@ -58,7 +61,9 @@ const ReservationPopup = ({ closeSelf, googleReviews }) => {
       {/* -ANCHOR- CONTACT INFO MOBILE */}
       <div className="flex flex-col items-center lg:hidden">
         <p className="mt-14 font-russo text-lg text-primary-600">
-          <a href="mailto:info@totemresorts.com">CONTACT US</a>
+          <a href="mailto:info@totemresorts.com" target={"_blank"}>
+            CONTACT US
+          </a>
         </p>
         <div className="mt-8 flex flex-col items-center space-y-4 text-white">
           <a href="tel:1800668683" className="flex items-center">
@@ -67,6 +72,7 @@ const ReservationPopup = ({ closeSelf, googleReviews }) => {
           </a>
           <a
             href="mailto:reservations@totemresorts.com"
+            target={"_blank"}
             className="flex items-center"
           >
             <Image src="/icons/mail-icon.svg" width="18" height="18" />

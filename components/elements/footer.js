@@ -93,7 +93,9 @@ const Footer = ({ footer, googleReviews }) => {
         <nav className="mb-10 flex grid-cols-[auto_auto_auto] flex-row flex-wrap items-start md:grid md:justify-between lg:grid-cols-[auto_auto_auto_auto_auto] lg:justify-between">
           <div className="mt-10 w-full pr-6 sm:w-6/12 sm:pl-[10%] md:w-auto md:pr-0 md:pl-0 lg:mt-0 lg:w-auto lg:pl-0">
             <p className="font-russo text-xl font-semibold uppercase tracking-wide text-primary-600">
-              <a href="mailto:info@totemresorts.com">Contact us</a>
+              <a href="mailto:info@totemresorts.com" target={"_blank"}>
+                Contact us
+              </a>
             </p>
             <ul className="mt-2">
               <li className="-mx-1 py-2 px-1 text-sm text-gray-100 hover:text-gray-400">
@@ -109,6 +111,7 @@ const Footer = ({ footer, googleReviews }) => {
                 <CustomLink
                   link={{
                     url: "mailto:reservations@totemresorts.com",
+                    newTab: true,
                   }}
                 >
                   Email: reservations@totemresorts.com
@@ -118,6 +121,7 @@ const Footer = ({ footer, googleReviews }) => {
                 <CustomLink
                   link={{
                     url: "mailto:info@totemresorts.com",
+                    newTab: true,
                   }}
                 >
                   Email: info@totemresorts.com
