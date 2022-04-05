@@ -100,7 +100,7 @@ export async function getStaticProps(context) {
     props: {
       preview,
       sections: contentSections,
-      metadata,
+      metadata: { ...metadata, updatedAt: pageData.updated_at },
       global: globalLocale,
       pageContext: {
         ...pageContext,

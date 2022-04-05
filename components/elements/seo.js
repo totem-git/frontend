@@ -2,10 +2,12 @@ import { NextSeo } from "next-seo";
 import PropTypes from "prop-types";
 import { getStrapiMedia } from "utils/media";
 import { mediaPropTypes } from "utils/types";
+import { useRouter } from "next/router";
 
 const Seo = ({ metadata }) => {
   // Prevent errors if no metadata was set
   if (!metadata) return null;
+  const router = useRouter();
 
   return (
     <NextSeo
@@ -26,6 +28,13 @@ const Seo = ({ metadata }) => {
             };
           }),
         }),
+        locale: "en_EN",
+        site_name: "Totem Resorts",
+        type: router.asPath.split("?")[0] == "/" ? "website" : "article",
+        url: `https://totemresorts.com${router.asPath}`,
+        article: {
+          modifiedTime: metadata.updatedAt,
+        },
       }}
       // Only included Twitter data if we have it
       twitter={{
