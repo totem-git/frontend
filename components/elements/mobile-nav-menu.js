@@ -52,20 +52,26 @@ const MobileNavMenu = ({ navbar, closeSelf }) => {
           </span>
 
           <p className="mt-20 font-russo text-lg text-primary-600">
-            GET IN TOUCH
+            CONTACT US
           </p>
           <div className="mt-8 flex flex-col items-center space-y-4">
-            <a href="#" className="flex items-center">
-              <Image src="/icons/whatsapp-icon.svg" width="18" height="18" />
-              <span className="ml-2">WhatsAap: +00 23 2 343 32</span>
-            </a>
-            <a href="#" className="flex items-center">
+            <a href="tel:1800668683" className="flex items-center">
               <Image src="/icons/phone-icon.svg" width="18" height="18" />
-              <span className="ml-2">Tel: +00 23 2 343 32</span>
+              <span className="ml-2">Phone: 1-800-66-TOTEM</span>
             </a>
-            <a href="#" className="flex items-center">
+            <a
+              href="mailto:reservations@totemresorts.com"
+              className="flex items-center"
+            >
               <Image src="/icons/mail-icon.svg" width="18" height="18" />
-              <span className="ml-2">Email: e-comerce@totemresort.com</span>
+              <span className="ml-2">Email: reservations@totemresorts.com</span>
+            </a>
+            <a
+              href="mailto:info@totemresorts.com"
+              className="flex items-center"
+            >
+              <Image src="/icons/mail-icon.svg" width="18" height="18" />
+              <span className="ml-2">Email: info@totemresorts.com</span>
             </a>
           </div>
           {/* <div className="flex gap-12 mt-32">

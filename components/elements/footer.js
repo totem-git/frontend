@@ -99,10 +99,10 @@ const Footer = ({ footer, googleReviews }) => {
               <li className="-mx-1 py-2 px-1 text-sm text-gray-100 hover:text-gray-400">
                 <CustomLink
                   link={{
-                    url: "tel:1-800-66-8683",
+                    url: "tel:1800668683",
                   }}
                 >
-                  Phone: 1-800-66-TOTEM (8683)
+                  Phone: 1-800-66-TOTEM
                 </CustomLink>
               </li>
               <li className="-mx-1 py-2 px-1 text-sm text-gray-100 hover:text-gray-400">

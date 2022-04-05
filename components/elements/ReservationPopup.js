@@ -24,22 +24,15 @@ const ReservationPopup = ({ closeSelf, googleReviews }) => {
               Please tell us your dates and number of guests, and we will reach
               you to confirm the reservation.
             </p>
+            {/* -ANCHOR- CONTACT INFO DESKTOP */}
             <div className="hidden lg:block">
               <p className="mt-14 font-russo text-lg text-primary-600">
-                <a href="mailto:info@totemresorts.com">GET IN TOUCH</a>
+                <a href="mailto:info@totemresorts.com">CONTACT US</a>
               </p>
               <div className="mt-8 flex flex-col items-start space-y-4 text-white">
-                {/* <a href="#" className="flex items-center">
-                  <Image
-                    src="/icons/whatsapp-icon.svg"
-                    width="18"
-                    height="18"
-                  />
-                  <span className="ml-2">Phone: ---</span>
-                </a> */}
                 <a href="tel:1800668683" className="flex items-center">
                   <Image src="/icons/phone-icon.svg" width="18" height="18" />
-                  <span className="ml-2">Phone: 1-800-66-TOTEM (8683)</span>
+                  <span className="ml-2">Phone: 1-800-66-TOTEM</span>
                 </a>
                 <a
                   href="mailto:reservations@totemresorts.com"
@@ -58,18 +51,15 @@ const ReservationPopup = ({ closeSelf, googleReviews }) => {
           </div>
         </div>
       </div>
+      {/* -ANCHOR- CONTACT INFO MOBILE */}
       <div className="flex flex-col items-center lg:hidden">
         <p className="mt-14 font-russo text-lg text-primary-600">
-          <a href="mailto:info@totemresorts.com">GET IN TOUCH</a>
+          <a href="mailto:info@totemresorts.com">CONTACT US</a>
         </p>
         <div className="mt-8 flex flex-col items-center space-y-4 text-white">
-          {/* <a href="#" className="flex items-center">
-            <Image src="/icons/whatsapp-icon.svg" width="18" height="18" />
-            <span className="ml-2">WhatsAap: +00 23 2 343 32</span>
-          </a> */}
           <a href="tel:1800668683" className="flex items-center">
             <Image src="/icons/phone-icon.svg" width="18" height="18" />
-            <span className="ml-2">Phone: 1-800-66-TOTEM (8683)</span>
+            <span className="ml-2">Phone: 1-800-66-TOTEM</span>
           </a>
           <a
             href="mailto:reservations@totemresorts.com"
