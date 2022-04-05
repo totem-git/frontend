@@ -1,16 +1,36 @@
 import Link from "next/link";
 import PropTypes from "prop-types";
+import { ActionLink, allowedActions } from "utils/actions";
 import { linkPropTypes } from "utils/types";
 
-const CustomLink = ({ link, children, wFull = false }) => {
+const CustomLink = ({ link, children, wFull = false, className, ...props }) => {
   const isInternalLink = link.url.startsWith("/");
+  const isActionLink = link.url.startsWith(":");
 
   // For internal links, use the Next.js Link component
   if (isInternalLink) {
     return (
       <Link href="/[[...slug]]" as={link.url}>
-        <a className={`${wFull && "w-full"}`}>{children}</a>
+        <a
+          className={`${wFull != "undefined" && "w-full"} ${className}`}
+          {...props}
+        >
+          {children}
+        </a>
       </Link>
+    );
+  }
+
+  if (isActionLink && allowedActions.includes(link.url.slice(1))) {
+    let action = link.url.slice(1);
+
+    return (
+      <ActionLink
+        action={action}
+        className={`${wFull && "w-full"} ${className} cursor-pointer`}
+      >
+        {children}
+      </ActionLink>
     );
   }
 
@@ -18,7 +38,8 @@ const CustomLink = ({ link, children, wFull = false }) => {
   if (link.newTab) {
     return (
       <a
-        className={`${wFull && "w-full"}`}
+        className={`${wFull && "w-full"} ${className}`}
+        {...props}
         href={link.url}
         target="_blank"
         rel="noopener noreferrer"
@@ -29,7 +50,12 @@ const CustomLink = ({ link, children, wFull = false }) => {
   }
 
   return (
-    <a className={`${wFull && "w-full"}`} href={link.url} target="_self">
+    <a
+      className={`${wFull && "w-full"}  ${className}`}
+      {...props}
+      href={link.url}
+      target="_self"
+    >
       {children}
     </a>
   );

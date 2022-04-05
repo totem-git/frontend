@@ -2,8 +2,7 @@ import classNames from "classnames";
 import PropTypes from "prop-types";
 import { buttonLinkPropTypes } from "utils/types";
 import CustomLink from "./custom-link";
-import { useAppContext } from "context/state";
-import Button from "./button";
+import { allowedActions, ActionButton } from "utils/actions";
 
 const ButtonContent = ({ button, appearance, compact, size, wFull }) => {
   return (
@@ -53,26 +52,6 @@ const ButtonContent = ({ button, appearance, compact, size, wFull }) => {
       )}
     </div>
   );
-};
-
-const allowedActions = ["reservationForm", "scrollToContent"];
-
-const ActionButton = ({ action, ...props }) => {
-  let handler;
-  if (action == "reservationForm") {
-    const { setReservationPopupVisible } = useAppContext();
-    handler = () => {
-      setReservationPopupVisible(true);
-    };
-  } else if (action == "scrollToContent") {
-    handler = () => {
-      document.documentElement.scrollTo({
-        behavior: "smooth",
-        top: window.innerHeight - 65,
-      });
-    };
-  }
-  return <Button handleClick={handler} {...props} type="button" />;
 };
 
 const ButtonLink = ({

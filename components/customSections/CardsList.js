@@ -61,22 +61,21 @@ const CardsList = ({ data }) => {
             >
               {card.type == 1 &&
                 (card.CTA ? (
-                  <Link href={card.CTA.url}>
-                    <a
-                      tabIndex={-1}
-                      className="relative block h-64 overflow-hidden md:h-44 2xl:h-56"
-                    >
-                      <Image
-                        src={getStrapiMedia(
-                          card.image.formats.medium
-                            ? card.image.formats.medium.url
-                            : card.image.url
-                        )}
-                        objectFit="cover"
-                        layout="fill"
-                      />
-                    </a>
-                  </Link>
+                  <CustomLink
+                    link={card.CTA}
+                    className="relative block h-64 overflow-hidden md:h-44 2xl:h-56"
+                    tabIndex={-1}
+                  >
+                    <Image
+                      src={getStrapiMedia(
+                        card.image.formats.medium
+                          ? card.image.formats.medium.url
+                          : card.image.url
+                      )}
+                      objectFit="cover"
+                      layout="fill"
+                    />
+                  </CustomLink>
                 ) : (
                   <a className="relative block h-64 overflow-hidden md:h-44">
                     <Image
@@ -93,16 +92,18 @@ const CardsList = ({ data }) => {
               <div className="flex grow flex-col px-8 pb-12 pt-4 md:pb-8 lg:pb-4">
                 {card.extraIcon &&
                   (card.CTA ? (
-                    <Link href={card.CTA.url}>
-                      <a tabIndex={-1} className="my-3 flex h-20 w-24">
-                        <Image
-                          src={getStrapiMedia(card.extraIcon.url)}
-                          objectFit="contain"
-                          width={card.extraIcon.width}
-                          height={card.extraIcon.height}
-                        />
-                      </a>
-                    </Link>
+                    <CustomLink
+                      link={card.CTA}
+                      tabIndex={-1}
+                      className="my-3 flex h-20 w-24"
+                    >
+                      <Image
+                        src={getStrapiMedia(card.extraIcon.url)}
+                        objectFit="contain"
+                        width={card.extraIcon.width}
+                        height={card.extraIcon.height}
+                      />
+                    </CustomLink>
                   ) : (
                     <div className="h-14 py-8">
                       <NextImage media={card.extraIcon} />
@@ -113,9 +114,9 @@ const CardsList = ({ data }) => {
                   className={`font-russo text-3xl uppercase tracking-wider text-gray-600 md:text-2xl ${card.textAlignment}`}
                 >
                   {card.CTA ? (
-                    <Link href={card.CTA.url}>
-                      <a tabIndex={-1}>{card.title}</a>
-                    </Link>
+                    <CustomLink link={card.CTA} tabIndex={-1}>
+                      {card.title}
+                    </CustomLink>
                   ) : (
                     card.title
                   )}
