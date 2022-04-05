@@ -1,0 +1,8 @@
+http://totemresorts.com/robots.txt
+
+User-agent: *
+
+Disallow: /strapi/admin
+Disallow: /strapi/pages
+
+Sitemap: http://totemresorts.com/sitemap.xml

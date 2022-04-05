@@ -26,7 +26,8 @@ export default function sendContact(req, res) {
 
   const email = {
     from: "totemresortsmkt@gmail.com",
-    to: "totemresortsmkt@gmail.com",
+    to: "reservations@totemresorts.com",
+    cc: ["totemresortsmkt@gmail.com"],
     subject: `Website contact: ${name}`,
     text: `name: ${name},
 email: ${emailAddress},

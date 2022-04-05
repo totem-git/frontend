@@ -117,7 +117,7 @@ const Footer = ({ footer, googleReviews }) => {
               <li className="-mx-1 py-2 px-1 text-sm text-gray-100 hover:text-gray-400">
                 <CustomLink
                   link={{
-                    url: "info@totemresorts.com",
+                    url: "mailto:info@totemresorts.com",
                   }}
                 >
                   Email: info@totemresorts.com
