@@ -7,6 +7,8 @@ export default function sendContact(req, res) {
     message,
     "date-checkin": dateCheckin,
     "date-checkout": dateCheckout,
+    phone,
+    "package-type": packageType,
   } = req.body;
 
   if (message.includes("http")) {
@@ -29,11 +31,13 @@ export default function sendContact(req, res) {
     to: "reservations@totemresorts.com",
     cc: ["totemresortsmkt@gmail.com"],
     subject: `Website contact: ${name}`,
-    text: `name: ${name},
-email: ${emailAddress},
-date of check-in: ${dateCheckin},
-date of check-out: ${dateCheckout},
-message: 
+    text: `Name: ${name},
+Phone: ${phone},
+Mail: ${emailAddress},
+Date of check-in: ${dateCheckin},
+Date of check-out: ${dateCheckout},
+Pakcage type of interest: ${packageType},
+Message: 
 
   ${message}`,
   };

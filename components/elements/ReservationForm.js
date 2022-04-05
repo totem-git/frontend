@@ -1,7 +1,8 @@
 import { useFormik } from "formik";
 import { useState } from "react";
+import Link from "next/link";
 
-const ReservationForm = () => {
+const ReservationForm = ({ closePopup = () => {} }) => {
   const [showNotice, setShowNotice] = useState(false);
   const formik = useFormik({
     initialValues: {
@@ -10,6 +11,8 @@ const ReservationForm = () => {
       "date-checkin": "",
       "date-checkout": "",
       message: "",
+      "package-type": "",
+      phone: "",
     },
     onSubmit: async (values) => {
       let response = await fetch("/api/send-contact", {
@@ -66,6 +69,23 @@ const ReservationForm = () => {
         <div className="relative bg-inherit">
           <input
             onChange={formik.handleChange}
+            value={formik.values["phone"]}
+            className={`w-full pt-2 ${
+              formik.values["phone"] == "" ? "bg-transparent" : "bg-gray-300"
+            } peer text-gray-700 focus:bg-gray-300`}
+            type="tel"
+            name="phone"
+            id="reservation-form-phone"
+          />
+          {formik.values["phone"] == "" && (
+            <div className="pointer-events-none absolute inset-2 bg-inherit p-px font-medium text-gray-400 peer-focus:hidden">
+              Phone
+            </div>
+          )}
+        </div>
+        <div className="relative bg-inherit">
+          <input
+            onChange={formik.handleChange}
             value={formik.values["date-checkin"]}
             className={`w-full pt-2 ${
               formik.values["date-checkin"] == ""
@@ -100,6 +120,42 @@ const ReservationForm = () => {
               Check-out date
             </div>
           )}
+        </div>
+        <div className="flex">
+          <div className="relative w-full bg-inherit">
+            <select
+              onChange={formik.handleChange}
+              value={formik.values["package-type"]}
+              className={`w-full pt-2 ${
+                formik.values["package-type"] == ""
+                  ? "bg-transparent"
+                  : "bg-gray-300"
+              } peer text-gray-700 focus:bg-gray-300`}
+              type="date"
+              name="package-type"
+              id="reservation-form-package-type"
+            >
+              <option value="">Choose your package</option>
+              <option value="AP">American Plan package (AP)</option>
+              <option value="CAP">Complete American Plan package (CAP)</option>
+              <option value="HSK">Housekeeping package (HSK)</option>
+            </select>
+            {formik.values["package-type"] == "" && (
+              <div className="pointer-events-none absolute inset-2 bg-inherit p-px font-medium text-gray-400 peer-focus:hidden">
+                Choose your package
+              </div>
+            )}
+          </div>
+          <div
+            className="ml-2 flex w-min items-stretch border-[1px] border-gray-400 hover:border-gray-100"
+            onClick={closePopup}
+          >
+            <Link href="/the-fishing-experience/fishing-packages">
+              <a className="flex w-max items-center px-4 text-white">
+                View details
+              </a>
+            </Link>
+          </div>
         </div>
         <div className="relative bg-inherit">
           <textarea

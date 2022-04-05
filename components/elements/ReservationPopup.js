@@ -17,12 +17,16 @@ const ReservationPopup = ({ closeSelf, googleReviews }) => {
       <div className="mx-auto max-w-md lg:flex lg:w-full lg:max-w-7xl lg:grow lg:flex-col lg:justify-center lg:px-8">
         <div className="mx-auto flex flex-col space-y-12 px-4 lg:mt-4 lg:flex-row lg:items-stretch lg:space-y-0 lg:px-0">
           <div className="shrink-0 space-y-4 text-center text-gray-300 lg:w-1/2 lg:pr-16 lg:text-left">
-            <h4 className="font-russo text-4xl text-primary-600">
-              Reservation
+            <h4 className="font-russo text-4xl uppercase text-primary-600">
+              Reservations
             </h4>
             <p>
-              Please tell us your dates and number of guests, and we will reach
-              you to confirm the reservation.
+              For your custom quote today, please provide us with the following
+              information: <br />
+              <br />- Number of adults/ teens/ or children under 12 <br />- Any
+              other information you may have and one of our Reservation
+              Specialists will help you create the perfect package to suit your
+              needs.
             </p>
             {/* -ANCHOR- CONTACT INFO DESKTOP */}
             <div className="hidden lg:block">
@@ -47,7 +51,7 @@ const ReservationPopup = ({ closeSelf, googleReviews }) => {
             </div>
           </div>
           <div className="shrink-0 bg-black pb-8 lg:w-1/2">
-            <ReservationForm />
+            <ReservationForm closePopup={closeSelf} />
           </div>
         </div>
       </div>
