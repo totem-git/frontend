@@ -100,7 +100,7 @@ const ThumbnailGallery = ({ mediaList }) => {
             "lg:w-3/5"
           );
           videoPlayerContainer.innerHTML = `
-            <video class="w-full" controls>
+            <video class="w-full" autoplay controls>
               <source src="${e.detail.originalImage.dataset.videoUrl}" type="video/mp4" />
             </video>
           `;
