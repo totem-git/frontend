@@ -15,7 +15,7 @@ const SpecialHero = ({ data }) => {
           />
         </div>
         <div className="absolute inset-0 m-0 bg-black opacity-60"></div>
-        <div className="relative z-10 flex w-auto flex-col items-center justify-between bg-dark-grey p-4 sm:w-full sm:py-16 lg:w-auto lg:px-16">
+        <div className="relative z-10 flex w-auto flex-col items-center justify-between bg-dark-grey p-4 sm:w-full sm:py-16 lg:w-auto lg:px-16 bg-opacity-40">
           <div className="">
             <h6 className="text-base">{data.subTitle}</h6>
             <h1 className="font-russo text-4xl md:text-6xl">{data.title}</h1>
