@@ -105,6 +105,7 @@ const Variant2 = ({ data }) => {
             this.viewer.viewer.querySelector(".custom-video-player").remove();
           }
         },
+        toolbar: false,
       });
     }
   }, []);
