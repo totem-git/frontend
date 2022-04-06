@@ -9,6 +9,11 @@ const Seo = ({ metadata }) => {
   if (!metadata) return null;
   const router = useRouter();
 
+  let shareImageHasFormats = true;
+  if (!metadata.shareImage?.formats) {
+    shareImageHasFormats = false;
+  }
+
   return (
     <NextSeo
       title={metadata.metaTitle}
@@ -20,13 +25,15 @@ const Seo = ({ metadata }) => {
         // Only include OG image if we have it
         // Careful: if you disable image optimization in Strapi, this will break
         ...(metadata.shareImage && {
-          images: Object.values(metadata.shareImage.formats).map((image) => {
-            return {
-              url: getStrapiMedia(image.url),
-              width: image.width,
-              height: image.height,
-            };
-          }),
+          images: shareImageHasFormats
+            ? Object.values(metadata.shareImage.formats).map((image) => {
+                return {
+                  url: getStrapiMedia(image.url),
+                  width: image.width,
+                  height: image.height,
+                };
+              })
+            : [metadata.shareImage],
         }),
         locale: "en_EN",
         site_name: "Totem Resorts",

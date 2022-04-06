@@ -16,17 +16,19 @@ const MyApp = ({ Component, pageProps }) => {
 
   const { metadata } = global;
 
+  let shareImageHasFormats = true;
+  if (!metadata.shareImage.formats) {
+    shareImageHasFormats = false;
+  }
+
   return (
     <>
       {/* Favicon */}
       <Head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-MKSQ7M5');`,
+            __html:
+              "(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MKSQ7M5');",
           }}
         ></script>
         <link rel="shortcut icon" href={getStrapiMedia(global.favicon.url)} />
@@ -51,19 +53,21 @@ const MyApp = ({ Component, pageProps }) => {
       </Head>
       {/* Global site metadata */}
       <DefaultSeo
-        titleTemplate={`%s${
-          global.metaTitleSuffix && ` | ${global.metaTitleSuffix}`
+        titleTemplate={`%s${!!global.metaTitleSuffix && " | "}${
+          global.metaTitleSuffix
         }`}
         title="Page"
         description={metadata.metaDescription}
         openGraph={{
-          images: Object.values(metadata.shareImage.formats).map((image) => {
-            return {
-              url: getStrapiMedia(image.url),
-              width: image.width,
-              height: image.height,
-            };
-          }),
+          images: shareImageHasFormats
+            ? Object.values(metadata.shareImage.formats).map((image) => {
+                return {
+                  url: getStrapiMedia(image.url),
+                  width: image.width,
+                  height: image.height,
+                };
+              })
+            : [metadata.shareImage],
         }}
         twitter={{
           cardType: metadata.twitterCardType,
@@ -85,6 +89,11 @@ const MyApp = ({ Component, pageProps }) => {
 MyApp.getInitialProps = async (appContext) => {
   // Calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(appContext);
+
+  //check if locale is undefined
+  if (appContext.router.locale == null) {
+    appContext.router.locale = "en";
+  }
   const globalLocale = await getGlobalData(appContext.router.locale);
 
   return {
