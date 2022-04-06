@@ -5,8 +5,110 @@ import { getStrapiMedia } from "utils/media";
 import Markdown from "react-markdown";
 import NextImage from "@/components/elements/image";
 import HighlightedText from "@/components/elements/HighlightedText";
+import { fetchAPI } from "utils/api";
+import Viewer from "viewerjs";
+import { useRef, useEffect } from "react";
 
 const Variant2 = ({ data }) => {
+  const isVideoRef = useRef(false);
+  const viewerRef = useRef();
+  const imageContainerRef = useRef();
+  const mediaRef = useRef();
+
+  mediaRef.current = data.media.map((m) => {
+    let isVideo = false;
+    let videoUrl = null;
+    let videoThumbnailName = null;
+    if (m.mime.startsWith("video")) {
+      isVideo = true;
+      videoUrl = getStrapiMedia(m.url);
+      videoThumbnailName = `${m.name.split(".")[0]}_thumbnail`;
+      m = {
+        url: "/imgs/play-icon-video-format.png",
+        isVideoThumbnail: true,
+        width: null,
+        videoThumbnailName,
+      };
+
+      isVideoRef.current = true;
+    }
+
+    m.isVideo = isVideo;
+    m.videoUrl = videoUrl;
+
+    return m;
+  });
+
+  const openViewer = (index) => {
+    viewerRef.current.show();
+    viewerRef.current.view(index);
+  };
+
+  useEffect(async () => {
+    let imageContainer = imageContainerRef.current;
+
+    if (isVideoRef.current) {
+      let name = imageContainer.dataset.videoThumbnailName;
+
+      let realThumbail = (await fetchAPI(`/upload/search/${name}`))[0];
+
+      if (realThumbail) {
+        imageContainer.querySelector("img").src = getStrapiMedia(
+          realThumbail.url
+        );
+        imageContainer.querySelector("img").srcset = "";
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isVideoRef.current) {
+      let imagesList = document.createElement("div");
+
+      mediaRef.current.forEach((m) => {
+        let image = document.createElement("img");
+        image.src = m.url;
+        image.dataset.isVideo = m.isVideo;
+        image.dataset.videoUrl = m.videoUrl;
+        imagesList.appendChild(image);
+      });
+      viewerRef.current = new Viewer(imagesList, {
+        view(e) {
+          if (this.viewer.viewer.querySelector(".custom-video-player")) {
+            this.viewer.viewer.querySelector(".custom-video-player").remove();
+          }
+        },
+        viewed(e) {
+          if (e.detail.originalImage.dataset.isVideo == "true") {
+            let videoPlayerContainer = document.createElement("div");
+            videoPlayerContainer.classList.add(
+              "absolute",
+              "text-white",
+              "custom-video-player",
+              "top-1/2",
+              "left-1/2",
+              "-translate-x-1/2",
+              "-translate-y-1/2",
+              "w-full",
+              "lg:w-3/5"
+            );
+            videoPlayerContainer.innerHTML = `
+            <video class="w-full" autoplay controls>
+              <source src="${e.detail.originalImage.dataset.videoUrl}" type="video/mp4" />
+            </video>
+          `;
+            this.viewer.viewer.appendChild(videoPlayerContainer);
+          }
+        },
+        hide(e) {
+          if (this.viewer.viewer.querySelector(".custom-video-player")) {
+            this.viewer.viewer.querySelector(".custom-video-player").remove();
+          }
+        },
+      });
+    }
+  }, []);
+
   return (
     <section id={data.identifier} className="pt-12 text-center">
       <div className="container max-w-4xl space-y-6 px-4">
@@ -37,22 +139,31 @@ const Variant2 = ({ data }) => {
           </div>
         )}
       </div>
-      {!!data.media.length ? (
-        <div className="relative !mt-16 h-[500px] lg:mx-24 2xl:h-[40vw]">
+      {!!mediaRef.current.length ? (
+        <div
+          ref={imageContainerRef}
+          className={`relative !mt-16 h-[500px] lg:mx-24 2xl:h-[40vw] ${
+            isVideoRef.current ? "cursor-pointer" : ""
+          }`}
+          data-is-video={isVideoRef.current}
+          data-video-thumbnail-name={
+            mediaRef.current[0].isVideoThumbnail
+              ? mediaRef.current[0].videoThumbnailName
+              : ""
+          }
+          onClick={isVideoRef.current ? () => openViewer(0) : () => {}}
+        >
           <Image
-            src={getStrapiMedia(data.media[0].url)}
+            src={
+              isVideoRef.current
+                ? mediaRef.current[0].url
+                : getStrapiMedia(mediaRef.current[0].url)
+            }
             objectPosition="center"
             objectFit="cover"
             layout="fill"
+            loading={isVideoRef.current ? "eager" : "lazy"}
           />
-          {/* <span
-            style={{
-              backgroundImage:
-                "radial-gradient(rgba(255, 255, 255, .4), transparent 25%)",
-              backgroundSize: "14px 10px",
-            }}
-            className="absolute top-1/3 left-1/4 right-0 bottom-10"
-          ></span> */}
         </div>
       ) : (
         <>
