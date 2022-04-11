@@ -33,7 +33,13 @@ const Seo = ({ metadata }) => {
                   height: image.height,
                 };
               })
-            : [metadata.shareImage],
+            : [
+                {
+                  url: getStrapiMedia(metadata.shareImage.url),
+                  width: metadata.shareImage.width,
+                  height: metadata.shareImage.height,
+                },
+              ],
         }),
         locale: "en_EN",
         site_name: "Totem Resorts",

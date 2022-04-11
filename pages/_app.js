@@ -67,7 +67,13 @@ const MyApp = ({ Component, pageProps }) => {
                   height: image.height,
                 };
               })
-            : [metadata.shareImage],
+            : [
+                {
+                  url: getStrapiMedia(metadata.shareImage.url),
+                  width: metadata.shareImage.width,
+                  height: metadata.shareImage.height,
+                },
+              ],
         }}
         twitter={{
           cardType: metadata.twitterCardType,
