@@ -21,7 +21,15 @@ const CustomLink = ({ link, children, wFull = false, className, ...props }) => {
     );
   }
 
-  if (isActionLink && allowedActions.includes(link.url.slice(1))) {
+  if (
+    link.url.startsWith(":") &&
+    allowedActions.includes(
+      link.url.slice(
+        1,
+        link.url.indexOf(" ") > 0 ? link.url.indexOf(" ") : link.url.length
+      )
+    )
+  ) {
     let action = link.url.slice(1);
 
     return (

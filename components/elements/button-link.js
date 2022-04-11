@@ -63,7 +63,14 @@ const ButtonLink = ({
 }) => {
   if (
     button.url.startsWith(":") &&
-    allowedActions.includes(button.url.slice(1))
+    allowedActions.includes(
+      button.url.slice(
+        1,
+        button.url.indexOf(" ") > 0
+          ? button.url.indexOf(" ")
+          : button.url.length
+      )
+    )
   ) {
     let action = button.url.slice(1);
 

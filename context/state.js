@@ -4,10 +4,14 @@ const AppContext = createContext();
 
 export function AppWrapper({ children, googleReviews }) {
   const [reservationPopupVisible, setReservationPopupVisible] = useState(false);
+  const [reservationSelectedPackage, setReservationSelectedPackage] =
+    useState("");
 
   let sharedState = {
     reservationPopupVisible,
     setReservationPopupVisible,
+    reservationSelectedPackage,
+    setReservationSelectedPackage,
     googleReviews,
   };
 

@@ -1,8 +1,10 @@
 import { useFormik } from "formik";
 import { useState } from "react";
 import Link from "next/link";
+import { useAppContext } from "context/state";
 
 const ReservationForm = ({ closePopup = () => {} }) => {
+  const { reservationSelectedPackage } = useAppContext();
   const [showNotice, setShowNotice] = useState(false);
   const formik = useFormik({
     initialValues: {
@@ -11,7 +13,7 @@ const ReservationForm = ({ closePopup = () => {} }) => {
       "date-checkin": "",
       "date-checkout": "",
       message: "",
-      "package-type": "",
+      "package-type": reservationSelectedPackage,
       phone: "",
     },
     onSubmit: async (values) => {
