@@ -1,6 +1,28 @@
 import Image from "next/image";
+import Viewer from "viewerjs";
+import { useRef, useEffect } from "react";
 
 const ResortMap = ({ data }) => {
+  const imageContainerRef = useRef();
+  const viewerRef = useRef();
+
+  const openViewer = (index) => {
+    viewerRef.current.show();
+    viewerRef.current.view(index);
+  };
+
+  useEffect(() => {
+    let imageContainer = imageContainerRef.current;
+
+    let viewer = new Viewer(imageContainer, {
+      url: "data-original",
+      title: false,
+      inheritedAttributes: [],
+    });
+
+    viewerRef.current = viewer;
+  }, []);
+
   return (
     <section data-section-name="resortMap" className="bg-white">
       <div className="px-4 py-8 pb-8">
@@ -19,10 +41,16 @@ const ResortMap = ({ data }) => {
           Point Lodge, Yellowbird Lodge, and French Portage Outpost) and also
           includes private islands, all located on Lake of the Woods.
         </p>
-        <div className="mx-auto max-w-6xl justify-center lg:flex">
+        <div
+          ref={imageContainerRef}
+          className="mx-auto max-w-6xl justify-center lg:flex"
+        >
           <div className="shrink items-start gap-4 sm:flex sm:bg-light-grey-blue sm:p-8 lg:w-full lg:flex-col lg:bg-transparent">
             <div className="mt-8 h-52 overflow-hidden sm:mt-0 sm:w-1/2 lg:w-full">
               <Image
+                data-original="/imgs/totem-map-numbers-logo.jpg"
+                onClick={() => openViewer(0)}
+                className="cursor-pointer"
                 src="/imgs/totem-map-numbers-logo_600.jpg"
                 layout="responsive"
                 width={393}
@@ -87,6 +115,9 @@ const ResortMap = ({ data }) => {
           <div className="shrink items-start gap-4 sm:mt-8 sm:flex sm:bg-light-grey-blue sm:p-8 lg:mt-0 lg:w-full lg:flex-col lg:bg-transparent">
             <div className="mt-8 h-52 overflow-hidden sm:mt-0 sm:w-1/2 lg:w-full">
               <Image
+                data-original="/imgs/yellowbird-map-numbers-logos.jpg"
+                className="cursor-pointer"
+                onClick={() => openViewer(1)}
                 src="/imgs/yellowbird-map-numbers-logos_600.jpg"
                 layout="responsive"
                 width={393}
@@ -127,7 +158,10 @@ const ResortMap = ({ data }) => {
           <div className="shrink items-start gap-4 sm:mt-8 sm:flex sm:bg-light-grey-blue sm:p-8 lg:mt-0 lg:w-full lg:flex-col lg:bg-transparent">
             <div className="mt-8 h-52 overflow-hidden sm:mt-0 sm:w-1/2 lg:w-full">
               <Image
+                onClick={() => openViewer(2)}
+                data-original="/imgs/wiley-map-numbers-logo.jpg"
                 src="/imgs/wiley-map-numbers-logo_600.jpg"
+                className="cursor-pointer"
                 layout="responsive"
                 width={393}
                 height={314}
