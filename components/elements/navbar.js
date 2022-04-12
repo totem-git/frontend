@@ -14,6 +14,7 @@ import Image from "next/image";
 import CustomLink from "./custom-link";
 import LocaleSwitch from "../locale-switch";
 import { throttle } from "utils/performance";
+import ArrowDownIcon from "../svgicons/arrow-down";
 
 const Navbar = ({ navbar, pageContext }) => {
   const router = useRouter();
@@ -62,15 +63,35 @@ const Navbar = ({ navbar, pageContext }) => {
               {navbar.links.map((navLink) => (
                 <li
                   key={navLink.id}
-                  className={`flex items-center ${
+                  className={`group relative flex items-center ${
                     navLink.url == currentPage && "border-b-2 border-white"
                   }`}
                 >
                   <CustomLink link={navLink} locale={router.locale}>
-                    <div className="px-2 py-1 text-xs uppercase text-primary-600 hover:text-primary-300 lg:text-base lg:font-medium 2xl:text-[1.1vw]">
-                      {navLink.text}
+                    <div className="relative px-2 py-8 text-xs uppercase text-primary-600 hover:text-primary-300 lg:text-[1.1vw] lg:font-medium 2xl:text-[1vw]">
+                      {navLink.label}
+                      {!!navLink.children.length && (
+                        <div className="absolute left-1/2 w-4 -translate-x-1/2 pt-4">
+                          <ArrowDownIcon />
+                        </div>
+                      )}
                     </div>
                   </CustomLink>
+                  {!!navLink.children.length && (
+                    <div className="invisible absolute top-3/4 left-1/2 flex w-max min-w-[150px] -translate-x-1/2 flex-col items-center bg-black opacity-0 transition-all group-hover:visible group-hover:top-full group-hover:opacity-100">
+                      {navLink.children.map((sublink) => (
+                        <CustomLink
+                          key={sublink.id}
+                          link={sublink}
+                          locale={router.locale}
+                        >
+                          <div className="px-6 py-4 text-center text-xs uppercase text-primary-600 hover:text-primary-300 lg:text-[1vw] lg:font-medium 2xl:text-[.9vw]">
+                            {sublink.label}
+                          </div>
+                        </CustomLink>
+                      ))}
+                    </div>
+                  )}
                 </li>
               ))}
             </ul>

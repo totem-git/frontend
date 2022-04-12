@@ -1,0 +1,10 @@
+.checkbox:checked ~ * .icon-open {
+  display: none;
+}
+.checkbox:checked ~ * .icon-close {
+  display: block;
+}
+
+.icon-close {
+  display: none;
+}

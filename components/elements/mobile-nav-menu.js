@@ -9,6 +9,9 @@ import { getButtonAppearance } from "utils/button";
 import ButtonLink from "./button-link";
 import Image from "next/image";
 import CustomLink from "./custom-link";
+import ArrowDownIcon from "../svgicons/arrow-down";
+import CloseIcon from "../SVGicons/close";
+import styles from "../../styles/mobile-nav-menu.module.css";
 
 const MobileNavMenu = ({ navbar, closeSelf }) => {
   // Prevent window scroll while mobile nav menu is open
@@ -30,12 +33,58 @@ const MobileNavMenu = ({ navbar, closeSelf }) => {
         <div className="mx-auto mt-8 mb-auto flex w-full flex-col items-center pb-24">
           <ul className="mb-10 flex list-none flex-col items-baseline text-lg font-extrabold tracking-wider">
             {navbar.links.map((navLink) => (
-              <li onClick={closeSelf} key={navLink.id} className="block w-full">
-                <CustomLink link={navLink}>
-                  <div className="py-3 text-center uppercase text-primary-600 hover:text-primary-300">
-                    <span>{navLink.text}</span>
-                  </div>
-                </CustomLink>
+              <li
+                key={navLink.id}
+                className="relative flex w-full flex-col items-center text-primary-600 hover:text-primary-300"
+              >
+                <input
+                  type="checkbox"
+                  name={`navmenu_parent_${navLink.id}`}
+                  id={`navmenu_parent_${navLink.id}`}
+                  className={`${styles["checkbox"]} peer absolute opacity-0`}
+                />
+                <div className="relative max-w-max">
+                  <CustomLink link={navLink}>
+                    <div
+                      onClick={closeSelf}
+                      className="py-3 text-center uppercase"
+                    >
+                      <span>{navLink.label}</span>
+                    </div>
+                  </CustomLink>
+                  {!!navLink.children.length && (
+                    <label
+                      htmlFor={`navmenu_parent_${navLink.id}`}
+                      className="absolute top-1/2 left-full block -translate-y-1/2 pl-8"
+                    >
+                      <div className={`${styles["icon-open"]} w-4`}>
+                        <ArrowDownIcon />
+                      </div>
+                      <div className={`${styles["icon-close"]} w-4`}>
+                        <CloseIcon />
+                      </div>
+                    </label>
+                  )}
+                </div>
+                {!!navLink.children.length && (
+                  <ul
+                    onClick={closeSelf}
+                    className="hidden overflow-hidden bg-zinc-800 text-base peer-checked:block"
+                  >
+                    {navLink.children.map((child) => (
+                      <li
+                        key={child.id}
+                        className="relative block w-full text-primary-600 hover:text-primary-300"
+                      >
+                        <CustomLink link={child}>
+                          <div className="py-3 px-8 text-center uppercase">
+                            <span>{child.label}</span>
+                          </div>
+                        </CustomLink>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </li>
             ))}
           </ul>
