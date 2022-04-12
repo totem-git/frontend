@@ -23,7 +23,7 @@ const ResortMap = ({ data }) => {
           <div className="shrink items-start gap-4 sm:flex sm:bg-light-grey-blue sm:p-8 lg:w-full lg:flex-col lg:bg-transparent">
             <div className="mt-8 h-52 overflow-hidden sm:mt-0 sm:w-1/2 lg:w-full">
               <Image
-                src="/imgs/map-1.png"
+                src="/imgs/totem-map-numbers-logo_600.jpg"
                 layout="responsive"
                 width={393}
                 height={314}
@@ -87,7 +87,7 @@ const ResortMap = ({ data }) => {
           <div className="shrink items-start gap-4 sm:mt-8 sm:flex sm:bg-light-grey-blue sm:p-8 lg:mt-0 lg:w-full lg:flex-col lg:bg-transparent">
             <div className="mt-8 h-52 overflow-hidden sm:mt-0 sm:w-1/2 lg:w-full">
               <Image
-                src="/imgs/map-2.png"
+                src="/imgs/yellowbird-map-numbers-logos_600.jpg"
                 layout="responsive"
                 width={393}
                 height={314}
@@ -114,18 +114,20 @@ const ResortMap = ({ data }) => {
                 PRIVATE ISLANDS OF LOTW
               </h6>
               <p className="mt-4 text-gray-700">
-                25. Island 1: 2 bedrooms/1 bath
+                25. Island 1: 2 bedrooms/ 1.5 bath
                 <br />
-                26. Island 2: 2 bedrooms/2 baths
+                26. Island 2 (Cabin #1): 2 bedroom/ 2 baths
                 <br />
-                27. Island 3: 2 bedrooms/2 baths
+                27. Island 2 (Cabin #2): 2 bedroom/ 2 baths
+                <br />
+                28. Island 3: 2 bedrooms/ 2 baths
               </p>
             </div>
           </div>
           <div className="shrink items-start gap-4 sm:mt-8 sm:flex sm:bg-light-grey-blue sm:p-8 lg:mt-0 lg:w-full lg:flex-col lg:bg-transparent">
             <div className="mt-8 h-52 overflow-hidden sm:mt-0 sm:w-1/2 lg:w-full">
               <Image
-                src="/imgs/map-3.png"
+                src="/imgs/wiley-map-numbers-logo_600.jpg"
                 layout="responsive"
                 width={393}
                 height={314}
