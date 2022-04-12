@@ -9,7 +9,7 @@ import { getButtonAppearance } from "utils/button";
 import ButtonLink from "./button-link";
 import Image from "next/image";
 import CustomLink from "./custom-link";
-import ArrowDownIcon from "../svgicons/arrow-down";
+import ArrowDownIcon from "../SVGicons/arrow-down";
 import CloseIcon from "../SVGicons/close";
 import styles from "../../styles/mobile-nav-menu.module.css";
 
