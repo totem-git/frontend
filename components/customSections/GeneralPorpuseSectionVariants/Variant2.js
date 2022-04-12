@@ -106,6 +106,7 @@ const Variant2 = ({ data }) => {
           }
         },
         toolbar: false,
+        title: false,
       });
     }
   }, []);

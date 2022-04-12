@@ -112,6 +112,7 @@ const ThumbnailGallery = ({ mediaList }) => {
           this.viewer.viewer.querySelector(".custom-video-player").remove();
         }
       },
+      title: false,
     });
   }, []);
 
