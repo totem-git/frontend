@@ -227,7 +227,10 @@ const ThumbnailGallery = ({ mediaList }) => {
         onClick={handleSlide}
         className={css(
           "absolute top-1/2 -left-6 flex h-12 w-8 -translate-y-1/2 lg:-left-8 lg:w-8 2xl:-left-[3vw] 2xl:h-[3.2vw] 2xl:w-[3.2vw]",
-          { hidden: mediaList.length <= 1 }
+          {
+            hidden: mediaList.length <= 1,
+            "cursor-default grayscale": activeSlides[0],
+          }
         )}
       >
         <Image
@@ -241,7 +244,10 @@ const ThumbnailGallery = ({ mediaList }) => {
         onClick={handleSlide}
         className={css(
           "absolute top-1/2 -right-6 flex h-12 w-8 -translate-y-1/2 rotate-180 lg:-right-8 lg:w-8 2xl:-right-[3vw] 2xl:h-[3.2vw] 2xl:w-[3.2vw]",
-          { hidden: mediaList.length <= 1 }
+          {
+            hidden: mediaList.length <= 1,
+            "cursor-default grayscale": activeSlides[activeSlides.length - 1],
+          }
         )}
       >
         <Image
