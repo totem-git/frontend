@@ -148,15 +148,14 @@ const ReservationForm = ({ closePopup = () => {} }) => {
               </div>
             )}
           </div>
-          <div
-            className="ml-2 flex w-min items-stretch border-[1px] border-gray-400 hover:border-gray-100"
-            onClick={closePopup}
-          >
-            <Link href="/the-fishing-experience/fishing-packages">
-              <a className="flex w-max items-center px-4 text-white">
-                View details
-              </a>
-            </Link>
+          <div className="ml-2 flex w-min items-stretch border-[1px] border-gray-400 hover:border-gray-100">
+            <a
+              href="/the-fishing-experience/fishing-packages"
+              target={"_blank"}
+              className="flex w-max items-center px-4 text-white"
+            >
+              View details
+            </a>
           </div>
         </div>
         <div className="relative bg-inherit">
