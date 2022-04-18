@@ -38,7 +38,7 @@ const ReservationForm = ({ closePopup = () => {} }) => {
           <input
             onChange={formik.handleChange}
             value={formik.values["name"]}
-            className={`w-full pt-2 ${
+            className={`w-full p-2 ${
               formik.values["name"] == "" ? "bg-transparent" : "bg-gray-300"
             } peer text-gray-700 focus:bg-gray-300`}
             type="text"
@@ -55,7 +55,7 @@ const ReservationForm = ({ closePopup = () => {} }) => {
           <input
             onChange={formik.handleChange}
             value={formik.values["email"]}
-            className={`w-full pt-2 ${
+            className={`w-full p-2 ${
               formik.values["email"] == "" ? "bg-transparent" : "bg-gray-300"
             } peer text-gray-700 focus:bg-gray-300`}
             type="email"
@@ -72,7 +72,7 @@ const ReservationForm = ({ closePopup = () => {} }) => {
           <input
             onChange={formik.handleChange}
             value={formik.values["phone"]}
-            className={`w-full pt-2 ${
+            className={`w-full p-2 ${
               formik.values["phone"] == "" ? "bg-transparent" : "bg-gray-300"
             } peer text-gray-700 focus:bg-gray-300`}
             type="tel"
@@ -89,7 +89,7 @@ const ReservationForm = ({ closePopup = () => {} }) => {
           <input
             onChange={formik.handleChange}
             value={formik.values["date-checkin"]}
-            className={`w-full pt-2 ${
+            className={`w-full p-2 ${
               formik.values["date-checkin"] == ""
                 ? "bg-transparent"
                 : "bg-gray-300"
@@ -108,7 +108,7 @@ const ReservationForm = ({ closePopup = () => {} }) => {
           <input
             onChange={formik.handleChange}
             value={formik.values["date-checkout"]}
-            className={`w-full pt-2 ${
+            className={`w-full p-2 ${
               formik.values["date-checkout"] == ""
                 ? "bg-transparent"
                 : "bg-gray-300"
@@ -128,7 +128,7 @@ const ReservationForm = ({ closePopup = () => {} }) => {
             <select
               onChange={formik.handleChange}
               value={formik.values["package-type"]}
-              className={`w-full pt-2 ${
+              className={`w-full p-2 ${
                 formik.values["package-type"] == ""
                   ? "bg-transparent"
                   : "bg-gray-300"
@@ -163,7 +163,7 @@ const ReservationForm = ({ closePopup = () => {} }) => {
           <textarea
             onChange={formik.handleChange}
             value={formik.values["message"]}
-            className={`w-full pt-2 ${
+            className={`w-full p-2 ${
               formik.values["message"] == "" ? "bg-transparent" : "bg-gray-300"
             } peer text-gray-700 focus:bg-gray-300`}
             name="message"
