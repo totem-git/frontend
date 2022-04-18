@@ -57,7 +57,7 @@ const Footer = ({ footer, googleReviews }) => {
       </div>
       <div className="lg:px-8">
         <iframe
-          data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20757.144018051353!2d-94.07117138538783!3d49.43456295538341!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52bdc8c17cf2d2d1%3A0xe2a8eda273c4c7f3!2sTotem%20Resorts!5e0!3m2!1sen!2sfr!4v1638831008782!5m2!1sen!2sfr"
+          data-src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6419933.985147005!2d-97.61758552809744!3d48.64838166240703!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe2a8eda273c4c7f3!2sTotem Resorts!5e0!3m2!1sen!2sfr!4v1649951524507!5m2!1sen!2sfr"
           style={{ border: "0" }}
           allowFullScreen={true}
           loading="lazy"
@@ -126,6 +126,9 @@ const Footer = ({ footer, googleReviews }) => {
                 >
                   Email: info@totemresorts.com
                 </CustomLink>
+              </li>
+              <li className="-mx-1 py-2 px-1 text-sm text-gray-100 hover:text-gray-400">
+                <h3>Ontario, Canada</h3>
               </li>
             </ul>
             {/* -ANCHOR- SOCIAL ICONS FOR DESKTOP */}
