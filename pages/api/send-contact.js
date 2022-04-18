@@ -36,7 +36,7 @@ Phone: ${phone},
 Mail: ${emailAddress},
 Date of check-in: ${dateCheckin},
 Date of check-out: ${dateCheckout},
-Pakcage type of interest: ${packageType},
+Package type of interest: ${packageType},
 Message: 
 
   ${message}`,
