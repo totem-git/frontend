@@ -21,6 +21,7 @@ const Variant9 = ({ data }) => {
             objectFit="cover"
             width={picture.width}
             height={picture.height}
+            alt={picture.alternativeText}
           />
           <div className="mt-8">
             <Image src="/icons/variant6_icon2.svg" width={142} height={17} />

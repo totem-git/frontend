@@ -4,6 +4,15 @@ import { getStrapiMedia } from "utils/media";
 import { mediaPropTypes } from "utils/types";
 import { useRouter } from "next/router";
 
+const websiteTypeUrls = [
+  "/",
+  "/lodging/totem-lodge",
+  "/lodging/wiley-point",
+  "/lodging/yellowbird-lodge-and-chalet",
+  "/lodging/french-portage-outpost",
+  "/lodging/private-island",
+];
+
 const Seo = ({ metadata }) => {
   // Prevent errors if no metadata was set
   if (!metadata) return null;
@@ -43,7 +52,9 @@ const Seo = ({ metadata }) => {
         }),
         locale: "en_EN",
         site_name: "Totem Resorts",
-        type: router.asPath.split("?")[0] == "/" ? "website" : "article",
+        type: websiteTypeUrls.includes(router.asPath.split("?")[0])
+          ? "website"
+          : "article",
         url: `https://totemresorts.com${router.asPath}`,
         article: {
           modifiedTime: metadata.updatedAt,

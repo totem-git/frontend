@@ -46,10 +46,11 @@ const GeoInfo = ({ data }) => {
           Geographic information
         </h2>
         <p className="mx-auto mt-4 max-w-3xl text-center leading-snug text-gray-700">
-          Lake of the Woods, Ontario is located right in the middle of Canada
-          limiting with the north border of Minnesota, its location make it easy
-          to get there from any place. It is less than a day driving from
-          Midwestern states of USA.
+          Sioux Narrows, Ontario is centrally located in the heart of
+          northwestern Ontario; making Totem Resorts easily accessible from
+          anywhere in Canada & the USA. We are just a short 90 mile drive North
+          of the International Falls border crossing, and just a short 3 hour
+          drive from Winnipeg, Manitoba.
         </p>
         <div className="pb-8 lg:hidden">
           <div onClick={openViewer} className="mt-8 cursor-pointer">

@@ -28,6 +28,7 @@ const ThumbnailGallery = ({ mediaList }) => {
         isVideoThumbnail: true,
         width: null,
         videoThumbnailName,
+        alternativeText: m.alternativeText,
       };
     }
 
@@ -37,6 +38,7 @@ const ThumbnailGallery = ({ mediaList }) => {
         url: isVideo ? m.url : getStrapiMedia(m.url),
         videoUrl,
         videoThumbnailName,
+        alternativeText: m.alternativeText,
       });
       m.isBigImage = true;
       m.bigImageIndex = bigImageIndex;
@@ -75,6 +77,7 @@ const ThumbnailGallery = ({ mediaList }) => {
     bigImagesArray.forEach((bigImage) => {
       let image = document.createElement("img");
       image.src = bigImage.url;
+      image.alt = bigImage.alternativeText;
       image.dataset.isVideo = bigImage.isVideo;
       image.dataset.videoUrl = bigImage.videoUrl;
       imagesList.appendChild(image);
@@ -213,6 +216,7 @@ const ThumbnailGallery = ({ mediaList }) => {
               layout="fill"
               objectFit="cover"
               loading={mediaObject.isVideoThumbnail ? "eager" : "lazy"}
+              alt={mediaObject.alternativeText}
             />
             <div
               className="absolute inset-0"
