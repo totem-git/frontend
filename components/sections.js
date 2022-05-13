@@ -16,6 +16,7 @@ import Slider from "./customSections/Slider";
 import SpecialHero from "./customSections/SpecialHero";
 import ResortMap from "./customSections/ResortMap";
 import GeoInfo from "./customSections/GeoInfo";
+import EmploymentForm from "./customSections/EmploymentForm";
 
 // Map Strapi sections to section components
 const sectionComponents = {
@@ -36,6 +37,7 @@ const sectionComponents = {
   "sections.resort-map": ResortMap,
   "sections.geo-info": GeoInfo,
   "sections.cards-list2": CardsList2,
+  "sections.employment-form": EmploymentForm,
 };
 
 // Display a section individually
