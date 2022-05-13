@@ -7,9 +7,8 @@ import { getStrapiMedia } from "utils/media";
 import ReactMarkdown from "react-markdown";
 import CustomLink from "../elements/custom-link";
 import NextImage from "../elements/image";
-import Link from "next/link";
 
-const CardsList = ({ data }) => {
+const CardsList2 = ({ data }) => {
   data.cards = data.cards.map((card) => {
     card.type = card.image ? 1 : 2;
 
@@ -155,10 +154,10 @@ const CardsList = ({ data }) => {
   );
 };
 
-CardsList.propTypes = {
+CardsList2.propTypes = {
   data: PropTypes.shape({
     title: PropTypes.string,
   }),
 };
 
-export default CardsList;
+export default CardsList2;
