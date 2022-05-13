@@ -133,7 +133,6 @@ const ReservationForm = ({ closePopup = () => {} }) => {
                   ? "bg-transparent"
                   : "bg-gray-300"
               } peer text-gray-700 focus:bg-gray-300`}
-              type="date"
               name="package-type"
               id="reservation-form-package-type"
             >
