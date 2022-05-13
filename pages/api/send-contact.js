@@ -31,15 +31,17 @@ export default function sendContact(req, res) {
     to: "reservations@totemresorts.com",
     cc: ["totemresortsmkt@gmail.com"],
     subject: `Website contact: ${name}`,
-    text: `Name: ${name},
-Phone: ${phone},
-Mail: ${emailAddress},
-Date of check-in: ${dateCheckin},
-Date of check-out: ${dateCheckout},
-Package type of interest: ${packageType},
-Message: 
-
-  ${message}`,
+    text: [
+      `Name: ${name}`,
+      `Phone: ${phone}`,
+      `Mail: ${emailAddress}`,
+      `Date of check-in: ${dateCheckin}`,
+      `Date of check-out: ${dateCheckout}`,
+      `Package type of interest: ${packageType}`,
+      `Message:`,
+      ``,
+      `  ${message}`,
+    ].join("\n"),
   };
 
   transport.sendMail(email, (err, info) => {
