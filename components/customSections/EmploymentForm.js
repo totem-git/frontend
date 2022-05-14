@@ -46,7 +46,7 @@ const EmploymentForm = () => {
         <p>Thank you for your interest in joining the Totem Resorts team!</p>
         <p>
           Please select the information that best suites you below and submit
-          your resumetoday to live and work ’the lake life!’
+          your resume today to live and work ’the lake life!’
         </p>
         <p>
           <b>Must be 19 years of age or older to apply</b>
