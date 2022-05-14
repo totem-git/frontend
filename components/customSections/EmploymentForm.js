@@ -116,27 +116,37 @@ const EmploymentForm = () => {
             )}
           </div>
           <div className="relative bg-inherit">
-            <select
-              onChange={formik.handleChange}
-              value={formik.values["position_length"]}
-              className={`peer w-full bg-white p-2 text-gray-900`}
-              name="position_length"
-              id="employment-form-position_length"
-              required
-            >
-              <option value="">
-                Choose the position length you would like
-              </option>
-              <option value="Seasonal">Seasonal</option>
-              <option value="Year-round">Year-round</option>
-            </select>
-            {formik.values["position_length"] == "" && (
-              <div className="pointer-events-none absolute inset-2 bg-white p-px font-medium text-gray-700 peer-focus:hidden">
-                Are you looking for a seasonal or year-round employment?
-              </div>
-            )}
+            <div className="font-medium text-gray-700">
+              Are you looking for a seasonal or year-round employment?
+            </div>
+            <div className="flex items-stretch space-x-4 pt-2">
+              <label
+                className={`flex w-full items-center justify-center bg-white p-2 text-gray-900`}
+              >
+                <input
+                  type="radio"
+                  name="position_length"
+                  value="Seasonal"
+                  onChange={formik.handleChange}
+                  checked={formik.values["position_length"] === "Seasonal"}
+                />
+                <span className="ml-2">Seasonal</span>
+              </label>
+              <label
+                className={`flex w-full items-center justify-center bg-white p-2 text-gray-900`}
+              >
+                <input
+                  type="radio"
+                  name="position_length"
+                  value="Year-round"
+                  onChange={formik.handleChange}
+                  checked={formik.values["position_length"] === "Year-round"}
+                />
+                <span className="ml-2">Year-round</span>
+              </label>
+            </div>
           </div>
-          <div className="relative bg-inherit">
+          <div className="relative bg-inherit py-6">
             <label htmlFor="employment-form-resume">
               <input
                 type="file"
