@@ -86,6 +86,16 @@ export async function getStaticProps(context) {
   // We have the required page data, pass it to the page component
   const { contentSections, metadata, localizations, slug } = pageData;
 
+  // contentSections is an array of objects, each object represents a section
+  for (const section of contentSections) {
+    if (section.__component === "sections.restaurant-menu-section") {
+      const menuData = await fetchAPI(`/menus/${section.menu.id}`);
+
+      section.menu = menuData;
+      break;
+    }
+  }
+
   const pageContext = {
     locale: pageData.locale,
     locales,
