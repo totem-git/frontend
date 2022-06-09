@@ -20,6 +20,9 @@ const RestaurantMenuSection = ({ data }) => {
       {menuGroups.map((menuGroup) => (
         <MenuGroup key={menuGroup.id} group={menuGroup} />
       ))}
+      <div className="mt-24 text-center font-bold text-slate-700">
+        <p>*All Pricing is in USD funds and does not include HST or Gratuity</p>
+      </div>
     </div>
   );
 };
@@ -45,31 +48,37 @@ const MenuGroup = ({ group }) => {
                 key={i}
                 className={`flex w-[90%] max-w-md shrink-0 flex-col border-b-4 border-white bg-white md:w-[calc(50%-1rem)] lg:max-w-xs 2xl:max-w-sm`}
               >
-                <div className="relative h-64 overflow-hidden md:h-44">
-                  <Image
-                    src={getStrapiMedia(
-                      entry.image.formats.medium
-                        ? entry.image.formats.medium.url
-                        : entry.image.url
-                    )}
-                    objectFit="cover"
-                    layout="fill"
-                  />
-                </div>
+                {entry.image && (
+                  <div className="relative h-64 overflow-hidden md:h-44">
+                    <Image
+                      src={getStrapiMedia(
+                        entry.image.formats.medium
+                          ? entry.image.formats.medium.url
+                          : entry.image.url
+                      )}
+                      objectFit="cover"
+                      layout="fill"
+                    />
+                  </div>
+                )}
                 <div className="flex grow flex-col px-8 pb-12 pt-4 md:pb-8 lg:pb-4">
                   <h3
                     className={`font-russo text-3xl uppercase tracking-wider text-gray-600 md:text-2xl`}
                   >
                     {entry.name}
                   </h3>
-                  <div
-                    className={`prose mt-4 mb-auto pb-8 text-lg leading-tight text-gray-700 md:pb-4 md:text-base lg:text-sm`}
-                  >
-                    <ReactMarkdown>{entry.description}</ReactMarkdown>
-                  </div>
-                  <div>
-                    <span>${entry.price.toFixed(2)}</span>
-                  </div>
+                  {entry.description && (
+                    <div
+                      className={`prose mt-4 mb-auto pb-8 text-lg leading-tight text-gray-700 md:pb-4 md:text-base lg:text-sm`}
+                    >
+                      <ReactMarkdown>{entry.description}</ReactMarkdown>
+                    </div>
+                  )}
+                  {entry.price && (
+                    <div>
+                      <span>${entry.price.toFixed(2)}</span>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
