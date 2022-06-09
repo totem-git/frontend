@@ -10,6 +10,7 @@ import Link from "next/link";
 const Hero = ({ data }) => {
   const isLanding = data.type === "landing" || data.type === "home";
   const isHome = data.type === "home";
+  const isMenu = data.type === "menu";
   const navRef = useRef();
   const [currentUrl, setCurrentUrl] = useState("");
   const mainRef = useRef();
@@ -41,7 +42,7 @@ const Hero = ({ data }) => {
   }, []);
 
   useEffect(() => {
-    mainRef.current.style.height = `${window.innerHeight}px`;
+    mainRef.current.style.height = isMenu ? `60vh` : `${window.innerHeight}px`;
   }, []);
 
   return (
@@ -74,7 +75,7 @@ const Hero = ({ data }) => {
         </div>
         <div
           className={`absolute inset-0 m-0 bg-black ${
-            isLanding ? "opacity-0" : "opacity-30"
+            isLanding ? "opacity-0" : isMenu ? "opacity-50" : "opacity-30"
           }`}
         ></div>
         {isHome && (
