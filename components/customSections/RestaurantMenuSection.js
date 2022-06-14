@@ -61,22 +61,33 @@ const MenuGroup = ({ group }) => {
                     />
                   </div>
                 )}
-                <div className="flex grow flex-col px-8 pb-12 pt-4 md:pb-8 lg:pb-4">
+                <div
+                  style={{
+                    backgroundImage:
+                      "radial-gradient(var(--light-grey-blue) 1px, transparent 2px)",
+                    backgroundSize: "10px 10px",
+                  }}
+                  className="flex grow flex-col px-8 pb-12 pt-4 md:pb-8 lg:pb-4"
+                >
                   <h3
-                    className={`font-russo text-3xl uppercase tracking-wider text-gray-600 md:text-2xl`}
+                    className={`font-russo text-3xl uppercase tracking-wider text-gray-500 md:text-2xl`}
                   >
                     {entry.name}
                   </h3>
                   {entry.description && (
                     <div
-                      className={`prose mt-4 mb-auto pb-8 text-lg leading-tight text-gray-700 md:pb-4 md:text-base lg:text-sm`}
+                      className={`prose mt-4 mb-auto pb-8 font-roboto text-lg leading-tight text-gray-500 md:pb-4 md:text-base lg:text-sm`}
                     >
                       <ReactMarkdown>{entry.description}</ReactMarkdown>
                     </div>
                   )}
                   {entry.price && (
                     <div>
-                      <span>${entry.price.toFixed(2)}</span>
+                      <span
+                        className={` font-russo text-3xl text-primary-600 `}
+                      >
+                        {entry.price}
+                      </span>
                     </div>
                   )}
                 </div>
