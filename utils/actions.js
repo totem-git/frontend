@@ -21,7 +21,9 @@ const getScrollToContentActionHandler = () => {
   return () => {
     document.documentElement.scrollTo({
       behavior: "smooth",
-      top: window.innerHeight - 65,
+      top:
+        document.getElementById("contentSections").children[0].offsetHeight -
+        65,
     });
   };
 };
