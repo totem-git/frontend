@@ -81,15 +81,15 @@ const MenuGroup = ({ group }) => {
                       <ReactMarkdown>{entry.description}</ReactMarkdown>
                     </div>
                   )}
-                  {entry.price && (
-                    <div>
-                      <span
-                        className={` font-russo text-3xl text-primary-600 `}
-                      >
-                        {entry.price}
-                      </span>
-                    </div>
-                  )}
+                  {entry.price && <MenuEntryPrice price={entry.price} />}
+                </div>
+                <div>
+                  <Image
+                    src="/svg/squiggly-line-menu-card.svg"
+                    width={320}
+                    height={5}
+                    layout="responsive"
+                  />
                 </div>
               </div>
             ))}
@@ -97,6 +97,30 @@ const MenuGroup = ({ group }) => {
         </>
       )}
     </section>
+  );
+};
+
+const MenuEntryPrice = ({ price }) => {
+  const hasMultiplePrices = price.indexOf("|") > 0;
+  if (!hasMultiplePrices)
+    return (
+      <div className="mt-auto">
+        <span className={` font-russo text-3xl text-primary-600 `}>
+          {price}
+        </span>
+      </div>
+    );
+
+  return (
+    <div className="mt-auto">
+      <span className={` font-russo text-2xl text-primary-600 `}>
+        {price.split("|").map((price, i) => (
+          <span key={i}>
+            {price} <br />
+          </span>
+        ))}
+      </span>
+    </div>
   );
 };
 
