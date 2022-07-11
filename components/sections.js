@@ -19,6 +19,7 @@ import GeoInfo from "./customSections/GeoInfo";
 import EmploymentForm from "./customSections/EmploymentForm";
 import FishingReportsSection from "./customSections/FishingReportsSection";
 import RestaurantMenuSection from "./customSections/RestaurantMenuSection";
+import ArticleHero from "./customSections/ArticleHero";
 
 // Map Strapi sections to section components
 const sectionComponents = {
@@ -42,6 +43,7 @@ const sectionComponents = {
   "sections.employment-form": EmploymentForm,
   "sections.fishing-reports-section": FishingReportsSection,
   "sections.restaurant-menu-section": RestaurantMenuSection,
+  "sections.article-hero": ArticleHero,
 };
 
 // Display a section individually
