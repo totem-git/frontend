@@ -98,11 +98,11 @@ const Navbar = ({ navbar, pageContext }) => {
           </div>
           <div className="flex items-center">
             {/* Locale Switch Mobile */}
-            {pageContext.localizedPaths.length > 0 && (
+            {/* {pageContext.localizedPaths.length > 0 && (
               <div className="lg:hidden">
                 <LocaleSwitch pageContext={pageContext} />
               </div>
-            )}
+            )} */}
             {/* Hamburger menu on mobile */}
             <button
               onClick={() => setMobileMenuIsShown(true)}
@@ -131,11 +131,11 @@ const Navbar = ({ navbar, pageContext }) => {
               </>
             )}
             {/* Locale Switch Desktop */}
-            {pageContext.localizedPaths.length > 0 && (
+            {/* {pageContext.localizedPaths.length > 0 && (
               <div className="hidden lg:block">
                 <LocaleSwitch pageContext={pageContext} />
               </div>
-            )}
+            )} */}
           </div>
         </div>
       </nav>
