@@ -89,6 +89,8 @@ const EmploymentForm = () => {
               <option value="Breakfast Cook">Breakfast Cook</option>
               <option value="Prep Cook">Prep Cook</option>
               <option value="Dishwasher">Dishwasher</option>
+              <option value="Bartender">Bartender</option>
+              <option value="Server">Server</option>
             </select>
             {formik.values["job_title"] == "" && (
               <div className="pointer-events-none absolute inset-2 bg-white p-px font-medium text-gray-700 peer-focus:hidden">
