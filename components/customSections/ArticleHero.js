@@ -4,11 +4,11 @@ import Image from "next/image";
 import Markdown from "react-markdown";
 import { getButtonAppearance } from "utils/button";
 
-const ArticleHero = ({ data }) => {
+const ArticleHero = ({ data, articleDate }) => {
   return (
     <section
       id={data.identifier}
-      className="overflow-x-hidden bg-white py-8 pt-24 md:pb-12"
+      className="overflow-x-hidden bg-white py-8 pt-36 md:pb-12"
     >
       {/* <h4 className="hidden mb-6 text-3xl font-thin text-center sm:block lg:hidden text-primary-600 font-russo">{data.title}</h4> */}
       <div className="mx-auto flex max-w-md flex-col items-center justify-center space-y-4 px-4 sm:max-w-4xl sm:flex-row-reverse md:space-y-0 md:space-x-4 md:space-x-reverse lg:container lg:max-w-6xl xl:max-w-[1400px] xl:px-16 2xl:max-w-none">
@@ -24,15 +24,17 @@ const ArticleHero = ({ data }) => {
           <ThumbnailGallery mediaList={data.media} />
         </div>
         <div className="relative max-w-sm flex-1 space-y-4 sm:pr-2 lg:max-w-none">
-          <h2 className="font-russo text-3xl font-thin text-primary-600 lg:block 2xl:text-[2vw]">
+          <h1 className="font-russo text-3xl font-thin text-primary-600 lg:block 2xl:text-[2vw]">
             {data.title}
-          </h2>
+          </h1>
           <div className="flex flex-wrap space-x-2">
             <div className="flex w-1/3 sm:max-w-[150px]">
               <Image src="/icons/subtitle-figure.svg" width={300} height={15} />
             </div>
             <h5 className="text-xl font-extrabold  text-gray-600 2xl:text-[1.1vw]">
-              {data.subTitle}
+              {new Date(articleDate).toLocaleDateString(undefined, {
+                dateStyle: "long",
+              })}
             </h5>
           </div>
           <div className="prose text-gray-700 2xl:text-[1.2vw]">

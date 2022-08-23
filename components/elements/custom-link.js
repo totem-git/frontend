@@ -4,12 +4,22 @@ import { ActionLink, allowedActions } from "utils/actions";
 import { linkPropTypes } from "utils/types";
 
 const CustomLink = ({ link, children, wFull = false, className, ...props }) => {
-  const isInternalLink = link.url.startsWith("/");
-  const isActionLink = link.url.startsWith(":");
+  const isInternalLink =
+    typeof link.url === "object" ? true : link.url.startsWith("/");
+  // const isActionLink = link.url.startsWith(":");
 
   // For internal links, use the Next.js Link component
   if (isInternalLink) {
-    return (
+    return typeof link.url === "object" ? (
+      <Link href={link.url} as={link.urlAs}>
+        <a
+          className={`${wFull != "undefined" && "w-full"} ${className}`}
+          {...props}
+        >
+          {children}
+        </a>
+      </Link>
+    ) : (
       <Link href="/[[...slug]]" as={link.url}>
         <a
           className={`${wFull != "undefined" && "w-full"} ${className}`}

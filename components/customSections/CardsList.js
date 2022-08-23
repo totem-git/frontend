@@ -7,7 +7,6 @@ import { getStrapiMedia } from "utils/media";
 import ReactMarkdown from "react-markdown";
 import CustomLink from "../elements/custom-link";
 import NextImage from "../elements/image";
-import Link from "next/link";
 
 const CardsList = ({ data }) => {
   data.cards = data.cards.map((card) => {
@@ -68,7 +67,7 @@ const CardsList = ({ data }) => {
                   >
                     <Image
                       src={getStrapiMedia(
-                        card.image.formats.medium
+                        card.image.formats?.medium
                           ? card.image.formats.medium.url
                           : card.image.url
                       )}
@@ -80,7 +79,7 @@ const CardsList = ({ data }) => {
                   <a className="relative block h-64 overflow-hidden md:h-44">
                     <Image
                       src={getStrapiMedia(
-                        card.image.formats.medium
+                        card.image.formats?.medium
                           ? card.image.formats.medium.url
                           : card.image.url
                       )}
@@ -109,6 +108,7 @@ const CardsList = ({ data }) => {
                       <NextImage media={card.extraIcon} />
                     </div>
                   ))}
+                {card.date && <p>{card.date}</p>}
                 <h3
                   style={card.titleStyle || {}}
                   className={`font-russo text-3xl uppercase tracking-wider text-gray-600 md:text-2xl ${card.textAlignment}`}

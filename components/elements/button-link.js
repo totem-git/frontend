@@ -62,6 +62,7 @@ const ButtonLink = ({
   wFull = false,
 }) => {
   if (
+    typeof button.url !== "object" &&
     button.url.startsWith(":") &&
     allowedActions.includes(
       button.url.slice(

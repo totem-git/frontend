@@ -32,7 +32,7 @@ const Button = ({
           },
           // Compact button
           {
-            "px-8 py-2": compact === true,
+            "px-8 py-4": compact === true,
           },
           // Specific to when the button is fully dark
           {
