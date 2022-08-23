@@ -20,6 +20,9 @@ import EmploymentForm from "./customSections/EmploymentForm";
 import FishingReportsSection from "./customSections/FishingReportsSection";
 import RestaurantMenuSection from "./customSections/RestaurantMenuSection";
 import ArticleHero from "./customSections/ArticleHero";
+import Breadcrumbs from "./customSections/Breadcrumbs";
+import ArticlesList from "./customSections/ArticlesList";
+import { Fragment } from "react";
 
 // Map Strapi sections to section components
 const sectionComponents = {
@@ -44,6 +47,7 @@ const sectionComponents = {
   "sections.fishing-reports-section": FishingReportsSection,
   "sections.restaurant-menu-section": RestaurantMenuSection,
   "sections.article-hero": ArticleHero,
+  "sections.articles-list": ArticlesList,
 };
 
 // Display a section individually
@@ -87,11 +91,11 @@ const Sections = ({ sections, preview }) => {
       {/* Show a banner if preview mode is on */}
       {preview && <PreviewModeBanner />}
       {/* Show the actual sections */}
-      {sections.map((section) => (
-        <Section
-          sectionData={section}
-          key={`${section.__component}${section.id}`}
-        />
+      {sections.map((section, index) => (
+        <Fragment key={`${section.__component}${section.id}`}>
+          {index === 1 && <Breadcrumbs />}
+          <Section sectionData={section} />
+        </Fragment>
       ))}
     </div>
   );
