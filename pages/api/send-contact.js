@@ -31,7 +31,7 @@ export default function sendContact(req, res) {
     to: "reservations@totemresorts.com",
     replyTo: emailAddress,
     cc: ["totemresortsmkt@gmail.com"],
-    subject: `Website contact: ${name}`,
+    subject: `Totem Resorts Reservations: ${name}`,
     text: [
       `Name: ${name}`,
       `Phone: ${phone}`,
