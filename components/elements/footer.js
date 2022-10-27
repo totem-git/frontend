@@ -6,6 +6,7 @@ import RatingStars from "./RatingStars";
 import FooterReviews from "./FooterReviews";
 import ButtonLink from "./button-link";
 import { useRef, useEffect } from "react";
+import NewsletterPopup from "./newsletterPopup";
 
 const Footer = ({ footer, googleReviews }) => {
   const gmapEmbedRef = useRef();
@@ -171,6 +172,16 @@ const Footer = ({ footer, googleReviews }) => {
                   wFull
                 />
               </div>
+              <div className="mt-4 hidden lg:block">
+                <ButtonLink
+                  button={{
+                    url: ":newsletterForm",
+                    text: "NEWSLETTER",
+                  }}
+                  appearance="white"
+                  wFull
+                />
+              </div>
             </div>
           </div>
           {footer.columns.map((footerColumn) => (
@@ -234,9 +245,20 @@ const Footer = ({ footer, googleReviews }) => {
           wFull
         />
       </div>
+      <div className="mx-auto px-4 pt-4 md:w-96 lg:hidden">
+        <ButtonLink
+          button={{
+            url: ":newsletterForm",
+            text: "NEWSLETTER",
+          }}
+          appearance="white"
+          wFull
+        />
+      </div>
       <div className="mx-4 mt-16 border-t-[1px] border-gray-600 py-12 text-center text-sm text-gray-500 lg:mt-10">
         <div className="mt-4">{footer.smallText}</div>
       </div>
+      <NewsletterPopup />
     </footer>
   );
 };

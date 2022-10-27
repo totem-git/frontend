@@ -28,12 +28,22 @@ const getScrollToContentActionHandler = () => {
   };
 };
 
+const getNewsletterFormActionHandler = (args) => {
+  const { setNewsletterPopupVisible } = useAppContext();
+
+  return () => {
+    setNewsletterPopupVisible(true);
+  };
+};
+
 const getHandler = (action, args) => {
   switch (action) {
     case "reservationForm":
       return getReservationFormActionHandler(args);
     case "scrollToContent":
       return getScrollToContentActionHandler(args);
+    case "newsletterForm":
+      return getNewsletterFormActionHandler(args);
     default:
       return () => {};
   }
@@ -77,7 +87,11 @@ const parseAction = (action) => {
   };
 };
 
-export const allowedActions = ["reservationForm", "scrollToContent"];
+export const allowedActions = [
+  "reservationForm",
+  "scrollToContent",
+  "newsletterForm",
+];
 
 export const ActionButton = ({ action, ...props }) => {
   const { name, args } = parseAction(action);
