@@ -54,7 +54,7 @@ const Navbar = ({ navbar, pageContext }) => {
               </a>
             </Link>
             {/* List of links on desktop */}
-            <ul className="ml-6 mr-4 hidden list-none flex-row gap-3 lg:mr-8 lg:flex xl:mr-16 2xl:mr-[5vw] 2xl:gap-[1.8vw]">
+            <ul className="ml-6 mr-4 hidden list-none flex-row lg:mr-8 lg:flex xl:mr-16 2xl:mr-[5vw] 2xl:gap-[1.8vw]">
               {navbar.links.map((navLink) => (
                 <li
                   key={navLink.id}
@@ -63,10 +63,10 @@ const Navbar = ({ navbar, pageContext }) => {
                   }`}
                 >
                   <CustomLink link={navLink} locale={router.locale}>
-                    <div className="relative px-2 py-8 text-xs uppercase text-primary-600 hover:text-primary-300 lg:text-[1.1vw] lg:font-medium 2xl:text-[1vw]">
+                    <div className="relative flex items-center px-2 py-8 text-xs uppercase text-primary-600 hover:text-primary-300 lg:text-[1.1vw] lg:font-medium 2xl:text-[1vw]">
                       {navLink.label}
                       {!!navLink.children.length && (
-                        <div className="absolute left-1/2 w-4 -translate-x-1/2 pt-4">
+                        <div className="ml-1 w-3 2xl:ml-2">
                           <ArrowDownIcon />
                         </div>
                       )}
