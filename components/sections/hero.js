@@ -75,7 +75,7 @@ const Hero = ({ data }) => {
         </div>
         <div
           className={`absolute inset-0 m-0 bg-black ${
-            isLanding ? "opacity-0" : isMenu ? "opacity-50" : "opacity-30"
+            isLanding ? "opacity-20" : isMenu ? "opacity-50" : "opacity-30"
           }`}
         ></div>
         {isHome && (
@@ -96,15 +96,17 @@ const Hero = ({ data }) => {
               className={`${
                 isLanding ? "text-4xl md:text-6xl" : "text-3xl md:text-5xl"
               } text-primary-600 ${
-                isHome ? "font-basker" : "font-russo"
+                isHome ? "font-basker 2xl:!text-[2.5vw]" : "font-russo"
               } xl:mt-[8%] 2xl:text-[3.5vw]`}
               highlightClasses={["text-bg-effect before:right-2"]}
               text={data.title}
             />
             <h6
               className={`${
-                isHome ? "text-3xl" : "text-xl md:text-3xl"
-              } font-russo 2xl:text-[2vw]`}
+                isHome
+                  ? "text-4xl 2xl:text-[3.2vw]"
+                  : "text-xl md:text-3xl 2xl:text-[2vw]"
+              } font-russo`}
             >
               {data.label &&
                 data.label.split("<br>").map((labelPart, i) => (
