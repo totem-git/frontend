@@ -53,9 +53,22 @@ const CardsList2 = ({ data }) => {
           {data.cards.map((card, i) => (
             <div
               key={i}
-              className={`flex w-full max-w-md flex-col border-b-4 border-white bg-white md:max-w-xl lg:max-w-sm`}
+              className={`relative flex w-full max-w-md flex-col border-b-4 border-white bg-white md:max-w-xl lg:max-w-sm`}
               style={{ borderColor: card.bottomBorderColor }}
             >
+              {card.badge && (
+                <div
+                  className="absolute inset-x-0 py-1 text-white before:absolute before:top-full before:left-1/2 before:-translate-x-1/2 before:border-[14px] before:border-t-[15px] before:border-transparent before:border-t-[color:var(--badge-arrow-color)]"
+                  style={{
+                    backgroundColor: card.bottomBorderColor,
+                    "--badge-arrow-color": card.bottomBorderColor,
+                  }}
+                >
+                  <label className="block w-full text-center text-lg">
+                    {card.badge}
+                  </label>
+                </div>
+              )}
               {card.type == 1 &&
                 (card.CTA ? (
                   <CustomLink
@@ -86,7 +99,7 @@ const CardsList2 = ({ data }) => {
                     />
                   </a>
                 ))}
-              <div className="flex grow flex-col px-8 pb-12 pt-4 md:pb-8">
+              <div className="flex grow flex-col px-8 pb-12 pt-16 md:pb-8">
                 {card.extraIcon &&
                   (card.CTA ? (
                     <CustomLink
