@@ -9,7 +9,7 @@ const Variant4_Reverse = ({ data }) => {
   return (
     <section
       id={data.identifier}
-      className="overflow-x-hidden bg-light-grey-blue py-8 md:py-12"
+      className="overflow-x-hidden bg-white py-8 md:py-12"
     >
       {/* <h4 className="hidden mb-6 text-3xl font-thin text-center sm:block lg:hidden text-primary-600 font-russo">{data.title}</h4> */}
       <div className="mx-auto flex max-w-md flex-col items-center justify-center space-y-4 px-4 sm:max-w-4xl sm:flex-row-reverse md:space-y-0 md:space-x-4 md:space-x-reverse lg:container lg:max-w-6xl xl:max-w-[1400px] xl:px-16 2xl:max-w-none">
