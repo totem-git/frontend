@@ -97,7 +97,7 @@ const Hero = ({ data }) => {
                 isLanding ? "text-4xl md:text-6xl" : "text-3xl md:text-5xl"
               } text-primary-600 ${
                 isHome ? "font-basker" : "font-russo"
-              } 2xl:text-[3.5vw]`}
+              } xl:mt-[8%] 2xl:text-[3.5vw]`}
               highlightClasses={["text-bg-effect before:right-2"]}
               text={data.title}
             />
@@ -113,40 +113,36 @@ const Hero = ({ data }) => {
                   </span>
                 ))}
             </h6>
-            {isHome && (
-              <div className="flex items-center lg:!mt-12">
-                <div className="hidden w-48 sm:block lg:w-32 2xl:w-[12vw]">
-                  <Image
-                    src="/icons/rectangle-with-squiggly.svg"
-                    width={500}
-                    height={100}
-                  />
-                </div>
-                <div className="w-52 px-4 sm:w-80 lg:mx-20 lg:w-52 2xl:w-[16vw]">
-                  <Image src="/icons/stars.svg" width={500} height={100} />
-                </div>
-                <div className="hidden w-48 sm:block lg:w-32 2xl:w-[12vw]">
-                  <Image
-                    src="/icons/rectangle-with-squiggly.svg"
-                    className=" rotate-180"
-                    width={500}
-                    height={100}
-                  />
-                </div>
-              </div>
-            )}
             {!!data.buttons.length && (
-              <div
-                className={`w-full ${
-                  isHome && "lg:hidden"
-                } px-6 sm:w-96 sm:px-0 sm:pt-6`}
-              >
+              <div className={`w-full px-6 sm:w-96 sm:px-0 sm:pt-6`}>
                 <ButtonLink
                   wFull
                   button={data.buttons[0]}
                   appearance={getButtonAppearance(data.buttons[0].type, "dark")}
                   size="text-base md:text-2xl lg:text-xl"
                 />
+              </div>
+            )}
+            {isHome && (
+              <div className="flex items-center xl:!mt-20">
+                {/* <div className="hidden w-48 sm:block lg:w-32 2xl:w-[12vw]">
+                  <Image
+                    src="/icons/rectangle-with-squiggly.svg"
+                    width={500}
+                    height={100}
+                  />
+                </div> */}
+                <div className="w-52 px-4 sm:w-80 lg:mx-20 lg:w-52 2xl:w-[16vw]">
+                  <Image src="/icons/stars.svg" width={500} height={100} />
+                </div>
+                {/* <div className="hidden w-48 sm:block lg:w-32 2xl:w-[12vw]">
+                  <Image
+                    src="/icons/rectangle-with-squiggly.svg"
+                    className=" rotate-180"
+                    width={500}
+                    height={100}
+                  />
+                </div> */}
               </div>
             )}
           </div>
