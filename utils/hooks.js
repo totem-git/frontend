@@ -1,17 +1,17 @@
 import { useEffect } from "react";
 
 // Got from https://usehooks.com/useLockBodyScroll/
-export function useLockBodyScroll() {
+export function useLockBodyScroll(shouldLock = true) {
   useEffect(() => {
     // Get original body overflow
     const originalStyle = window.getComputedStyle(document.body).overflow;
 
     // Prevent scrolling on mount
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = shouldLock ? "hidden" : originalStyle;
 
     // Re-enable scrolling when component unmounts
     return () => (document.body.style.overflow = originalStyle);
-  }, []); // Empty array ensures effect is only run on mount and unmount
+  }, [shouldLock]); // Empty array ensures effect is only run on mount and unmount
 }
 
 export function useOnClickOutside(ref, handler) {
