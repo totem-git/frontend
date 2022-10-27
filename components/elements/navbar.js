@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -12,7 +12,7 @@ import MobileNavMenu from "./mobile-nav-menu";
 import ButtonLink from "./button-link";
 import Image from "next/image";
 import CustomLink from "./custom-link";
-import LocaleSwitch from "../locale-switch";
+// import LocaleSwitch from "../locale-switch";
 import { throttle } from "utils/performance";
 import ArrowDownIcon from "../SVGicons/arrow-down";
 
@@ -23,22 +23,17 @@ const Navbar = ({ navbar, pageContext }) => {
 
   const currentPage = `/${pageContext.slug}`;
 
-  const scrolledDownRef = useRef(false);
-  const [scrolledDown, setScrolledDown] = useState(scrolledDownRef.current);
+  const [scrolledDown, setScrolledDown] = useState(false);
   const scrollDistance = 200;
 
   useEffect(() => {
-    scrolledDownRef.current = scrollY > scrollDistance;
-    setScrolledDown(scrolledDownRef.current);
+    setScrolledDown(window.scrollY > scrollDistance);
 
     window.addEventListener(
       "scroll",
       throttle(() => {
-        if (scrollY > scrollDistance != scrolledDownRef.current) {
-          scrolledDownRef.current = !scrolledDownRef.current;
-          setScrolledDown(scrolledDownRef.current);
-        }
-      }, 250)
+        setScrolledDown(window.scrollY > scrollDistance);
+      }, 1000)
     );
   }, []);
 
