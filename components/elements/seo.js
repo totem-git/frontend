@@ -27,6 +27,7 @@ const Seo = ({ metadata }) => {
     <NextSeo
       title={metadata.metaTitle}
       description={metadata.metaDescription}
+      canonical={`https://totemresorts.com${router.asPath}`}
       openGraph={{
         // Title and description are mandatory
         title: metadata.metaTitle,
