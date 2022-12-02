@@ -11,8 +11,8 @@ const NewsletterPopup = () => {
   const rcRef = useRef();
   const formik = useFormik({
     initialValues: {
-      name: "tomas benitez",
-      email: "test@example1.com",
+      name: "",
+      email: "",
     },
     onSubmit: async (data) => {
       setLoading(true);
