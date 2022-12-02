@@ -32,7 +32,7 @@ const ArticleHero = ({ data, articleDate }) => {
               <Image src="/icons/subtitle-figure.svg" width={300} height={15} />
             </div>
             <h5 className="text-xl font-extrabold  text-gray-600 2xl:text-[1.1vw]">
-              {new Date(articleDate).toLocaleDateString(undefined, {
+              {new Date(articleDate).toLocaleDateString("en-US", {
                 dateStyle: "long",
               })}
             </h5>
