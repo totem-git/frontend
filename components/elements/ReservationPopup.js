@@ -3,9 +3,21 @@ import ReservationForm from "./ReservationForm";
 import { useLockBodyScroll } from "utils/hooks";
 import FooterReviews from "./FooterReviews";
 import RatingStars from "./RatingStars";
+import { useCallback, useRef } from "react";
+import { useAppContext } from "context/state";
 
-const ReservationPopup = ({ closeSelf, googleReviews }) => {
+const ReservationPopup = ({
+  closeSelf,
+  googleReviews,
+  selectedPackage,
+  title = "Reservations",
+  submitButtonLabel = "Send",
+}) => {
   useLockBodyScroll();
+  const scrollContainerRef = useRef();
+  const updateScrollTop = useCallback(() => {
+    scrollContainerRef.current.scrollTo({ top: 1000 });
+  }, []);
 
   return (
     <>
@@ -14,7 +26,10 @@ const ReservationPopup = ({ closeSelf, googleReviews }) => {
         className="fixed inset-0 z-50 bg-white bg-opacity-20 backdrop-blur-sm"
       ></div>
       <div className="fixed inset-y-12 inset-x-4 z-50 overflow-hidden rounded-md bg-black p-4 lg:inset-x-24 lg:inset-y-12">
-        <div className=" flex h-full flex-col items-stretch justify-between overflow-y-scroll">
+        <div
+          className=" flex h-full flex-col items-stretch justify-between overflow-y-scroll"
+          ref={scrollContainerRef}
+        >
           <div className="mx-auto flex w-full justify-end px-4 lg:max-w-7xl">
             <button onClick={closeSelf} className="py-1 px-1">
               <Image src="/icons/close-menu-icon.svg" width="50" height="50" />
@@ -24,7 +39,7 @@ const ReservationPopup = ({ closeSelf, googleReviews }) => {
             <div className="mx-auto flex flex-col space-y-12 px-4 lg:mt-4 lg:flex-row lg:items-stretch lg:space-y-0 lg:px-0">
               <div className="shrink-0 space-y-4 text-center text-gray-300 lg:w-1/2 lg:pr-16 lg:text-left">
                 <h4 className="font-russo text-4xl uppercase text-primary-600">
-                  Reservations
+                  {title}
                 </h4>
                 <p>
                   For your custom quote today, please provide us with the
@@ -68,7 +83,12 @@ const ReservationPopup = ({ closeSelf, googleReviews }) => {
                 </div>
               </div>
               <div className="shrink-0 bg-black pb-8 lg:w-1/2">
-                <ReservationForm closePopup={closeSelf} />
+                <ReservationForm
+                  closePopup={closeSelf}
+                  selectedPackage={selectedPackage}
+                  updateScrollTop={updateScrollTop}
+                  submitButtonLabel={submitButtonLabel}
+                />
               </div>
             </div>
           </div>

@@ -1,19 +1,15 @@
 import { useAppContext } from "context/state";
 import Button from "../components/elements/button";
 
-const getReservationFormActionHandler = (args) => {
-  const { setReservationPopupVisible, setReservationSelectedPackage } =
-    useAppContext();
+const getReservationFormActionHandler = (args, appContext) => {
+  const { setReservationPopupState } = appContext;
 
   let selectedPackage = args[0];
   return () => {
-    if (selectedPackage) {
-      setReservationSelectedPackage(selectedPackage);
-    } else {
-      setReservationSelectedPackage("");
-    }
-
-    setReservationPopupVisible(true);
+    setReservationPopupState({
+      visible: true,
+      selectedPackage: selectedPackage ? selectedPackage : "",
+    });
   };
 };
 
@@ -28,7 +24,7 @@ const getScrollToContentActionHandler = () => {
   };
 };
 
-const getNewsletterFormActionHandler = (args) => {
+const getNewsletterFormActionHandler = () => {
   const { setNewsletterPopupVisible } = useAppContext();
 
   return () => {
@@ -36,14 +32,30 @@ const getNewsletterFormActionHandler = (args) => {
   };
 };
 
-const getHandler = (action, args) => {
+const getGetRatesFormActionHandler = (args, appContext) => {
+  const { setReservationPopupState } = appContext;
+
+  let selectedPackage = args[0];
+  return () => {
+    setReservationPopupState({
+      visible: true,
+      selectedPackage: selectedPackage ? selectedPackage : "",
+      title: "GET OUR RATES IN A FEW MINUTES BY EMAIL",
+      submitButtonLabel: "REQUEST RATES",
+    });
+  };
+};
+
+const getHandler = (action, args, appContext) => {
   switch (action) {
     case "reservationForm":
-      return getReservationFormActionHandler(args);
+      return getReservationFormActionHandler(args, appContext);
     case "scrollToContent":
-      return getScrollToContentActionHandler(args);
+      return getScrollToContentActionHandler();
     case "newsletterForm":
-      return getNewsletterFormActionHandler(args);
+      return getNewsletterFormActionHandler();
+    case "getRatesForm":
+      return getGetRatesFormActionHandler(args, appContext);
     default:
       return () => {};
   }
@@ -91,17 +103,20 @@ export const allowedActions = [
   "reservationForm",
   "scrollToContent",
   "newsletterForm",
+  "getRatesForm",
 ];
 
 export const ActionButton = ({ action, ...props }) => {
+  const appContext = useAppContext();
   const { name, args } = parseAction(action);
-  const handler = getHandler(name, args);
+  const handler = getHandler(name, args, appContext);
   return <Button handleClick={handler} {...props} type="button" />;
 };
 
 export const ActionLink = ({ action, children, ...props }) => {
+  const appContext = useAppContext();
   const { name, args } = parseAction(action);
-  const handler = getHandler(name, args);
+  const handler = getHandler(name, args, appContext);
   return (
     <span onClick={handler} {...props}>
       {children}

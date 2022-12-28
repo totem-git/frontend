@@ -1,10 +1,11 @@
 import { useFormik } from "formik";
 import { useState } from "react";
-import Link from "next/link";
-import { useAppContext } from "context/state";
 
-const ReservationForm = ({ closePopup = () => {} }) => {
-  const { reservationSelectedPackage } = useAppContext();
+const ReservationForm = ({
+  updateScrollTop = () => {},
+  selectedPackage,
+  submitButtonLabel = "Send",
+}) => {
   const [showNotice, setShowNotice] = useState(false);
   const formik = useFormik({
     initialValues: {
@@ -13,7 +14,7 @@ const ReservationForm = ({ closePopup = () => {} }) => {
       "date-checkin": "",
       "date-checkout": "",
       message: "",
-      "package-type": reservationSelectedPackage,
+      "package-type": selectedPackage,
       phone: "",
     },
     onSubmit: async (values) => {
@@ -32,7 +33,11 @@ const ReservationForm = ({ closePopup = () => {} }) => {
   });
 
   return (
-    <form className="bg-inherit" onSubmit={formik.handleSubmit}>
+    <form
+      className="bg-inherit"
+      onSubmit={formik.handleSubmit}
+      onClick={updateScrollTop}
+    >
       <div className="flex flex-col space-y-4 bg-inherit lg:space-y-2">
         <div className="relative bg-inherit">
           <input
@@ -188,7 +193,7 @@ const ReservationForm = ({ closePopup = () => {} }) => {
             type="submit"
             className="bg-primary-600 py-2 px-8 font-bold uppercase"
           >
-            Send
+            {submitButtonLabel}
           </button>
         </div>
       </div>

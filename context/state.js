@@ -3,16 +3,17 @@ import { createContext, useContext, useState } from "react";
 const AppContext = createContext();
 
 export function AppWrapper({ children, googleReviews }) {
-  const [reservationPopupVisible, setReservationPopupVisible] = useState(false);
-  const [reservationSelectedPackage, setReservationSelectedPackage] =
-    useState("");
+  const [reservationPopupState, setReservationPopupState] = useState({
+    visible: false,
+    selectedPackage: "",
+    title: undefined,
+    submitButtonLabel: undefined,
+  });
   const [newsletterPopupVisible, setNewsletterPopupVisible] = useState(false);
 
   let sharedState = {
-    reservationPopupVisible,
-    setReservationPopupVisible,
-    reservationSelectedPackage,
-    setReservationSelectedPackage,
+    reservationPopupState,
+    setReservationPopupState,
     googleReviews,
     newsletterPopupVisible,
     setNewsletterPopupVisible,

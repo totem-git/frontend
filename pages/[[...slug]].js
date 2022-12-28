@@ -32,11 +32,17 @@ const DynamicPage = ({ sections, metadata, preview, global, pageContext }) => {
       <Seo metadata={metadata} />
       {/* Display content sections */}
       <Sections sections={sections} preview={preview} />
-      {appContext.reservationPopupVisible && (
+      {appContext.reservationPopupState.visible && (
         <ReservationPopup
           closeSelf={() => {
-            appContext.setReservationPopupVisible(false);
+            appContext.setReservationPopupState({
+              visible: false,
+              selectedPackage: "",
+            });
           }}
+          title={appContext.reservationPopupState.title}
+          submitButtonLabel={appContext.reservationPopupState.submitButtonLabel}
+          selectedPackage={appContext.reservationPopupState.selectedPackage}
           googleReviews={global.googleReviews}
         />
       )}

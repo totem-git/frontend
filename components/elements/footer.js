@@ -182,6 +182,16 @@ const Footer = ({ footer, googleReviews }) => {
                   wFull
                 />
               </div>
+              <div className="mt-4 hidden lg:block">
+                <ButtonLink
+                  button={{
+                    url: ":getRatesForm",
+                    text: "GET RATES",
+                  }}
+                  appearance="white"
+                  wFull
+                />
+              </div>
             </div>
           </div>
           {footer.columns.map((footerColumn) => (

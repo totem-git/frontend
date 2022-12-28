@@ -79,11 +79,17 @@ const ArticlePage = ({
         )}
         <CardsList data={cardsListData} />
       </div>
-      {appContext.reservationPopupVisible && (
+      {appContext.reservationPopupState.visible && (
         <ReservationPopup
           closeSelf={() => {
-            appContext.setReservationPopupVisible(false);
+            appContext.setReservationPopupState({
+              visible: false,
+              selectedPackage: "",
+            });
           }}
+          title={appContext.reservationPopupState.title}
+          submitButtonLabel={appContext.reservationPopupState.submitButtonLabel}
+          selectedPackage={appContext.reservationPopupState.selectedPackage}
           googleReviews={global.googleReviews}
         />
       )}
