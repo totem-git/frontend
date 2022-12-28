@@ -172,6 +172,16 @@ const Footer = ({ footer, googleReviews }) => {
                   wFull
                 />
               </div>
+              <div className="mt-8 hidden lg:block">
+                <ButtonLink
+                  button={{
+                    url: ":ReservationFormRate",
+                    text: "GET RATES",
+                  }}
+                  appearance="white"
+                  wFull
+                />
+              </div>
               <div className="mt-4 hidden lg:block">
                 <ButtonLink
                   button={{
@@ -248,7 +258,7 @@ const Footer = ({ footer, googleReviews }) => {
       <div className="mx-auto px-4 md:w-96 lg:hidden">
         <ButtonLink
           button={{
-            url: ":reservationForm",
+            url: ":ReservationRatePopup",
             text: "RESERVATIONS",
           }}
           appearance="white"
