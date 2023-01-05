@@ -3,7 +3,7 @@ import { Fragment, useEffect, useState } from "react";
 import { fetchAPI } from "utils/api";
 import RightArrowIcon from "../SVGicons/right-arrow-icon";
 
-const Breadcrumbs = () => {
+const Breadcrumbs = ({ bgColor = "" }) => {
   const [breadcrumbs, setBreadcrumbs] = useState([]);
 
   useEffect(() => {
@@ -42,7 +42,7 @@ const Breadcrumbs = () => {
   }, []);
 
   return (
-    <div className="bg-white py-4">
+    <div className={`${bgColor} pb-4 pt-12`}>
       <div className="container xl:px-12">
         {breadcrumbs.map(({ href, label }, index) => {
           if (index + 1 !== breadcrumbs.length) {

@@ -1,12 +1,16 @@
 import { useFormik } from "formik";
+import { useRouter } from "next/router";
 import { useState } from "react";
+import { sendEvent } from "utils/gtag";
 
 const ReservationForm = ({
   updateScrollTop = () => {},
   selectedPackage,
   submitButtonLabel = "Send",
+  gaEventLabel = "book-now",
+  closePopup = () => {},
 }) => {
-  const [showNotice, setShowNotice] = useState(false);
+  const router = useRouter();
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -27,7 +31,13 @@ const ReservationForm = ({
       });
 
       if (response.ok) {
-        setShowNotice(true);
+        sendEvent({
+          action: "submit-form",
+          category: "contact",
+          label: gaEventLabel,
+        });
+        closePopup?.();
+        router.push("contact-success");
       }
     },
   });
@@ -181,14 +191,14 @@ const ReservationForm = ({
           )}
         </div>
         <div className="relative">
-          <div
+          {/* <div
             className={`${
               showNotice ? "" : " pointer-events-none opacity-0"
             } absolute border-2 border-primary-600 bg-white p-4 text-xl text-black`}
           >
             Your message has been sent! <br />
             We will get back to you as soon as possible.
-          </div>
+          </div> */}
           <button
             type="submit"
             className="bg-primary-600 py-2 px-8 font-bold uppercase"

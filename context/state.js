@@ -8,6 +8,7 @@ export function AppWrapper({ children, googleReviews }) {
     selectedPackage: "",
     title: undefined,
     submitButtonLabel: undefined,
+    gaSubmitEventLabel: undefined,
   });
   const [newsletterPopupVisible, setNewsletterPopupVisible] = useState(false);
 

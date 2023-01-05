@@ -90,6 +90,9 @@ const ArticlePage = ({
           title={appContext.reservationPopupState.title}
           submitButtonLabel={appContext.reservationPopupState.submitButtonLabel}
           selectedPackage={appContext.reservationPopupState.selectedPackage}
+          gaSubmitEventLabel={
+            appContext.reservationPopupState.gaSubmitEventLabel
+          }
           googleReviews={global.googleReviews}
         />
       )}

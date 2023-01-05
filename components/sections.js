@@ -20,8 +20,8 @@ import EmploymentForm from "./customSections/EmploymentForm";
 import FishingReportsSection from "./customSections/FishingReportsSection";
 import RestaurantMenuSection from "./customSections/RestaurantMenuSection";
 import ArticleHero from "./customSections/ArticleHero";
-import Breadcrumbs from "./customSections/Breadcrumbs";
 import ArticlesList from "./customSections/ArticlesList";
+import FeatureList from "./customSections/FeatureList";
 import { Fragment } from "react";
 
 // Map Strapi sections to section components
@@ -48,10 +48,11 @@ const sectionComponents = {
   "sections.restaurant-menu-section": RestaurantMenuSection,
   "sections.article-hero": ArticleHero,
   "sections.articles-list": ArticlesList,
+  "sections.feature-list": FeatureList,
 };
 
 // Display a section individually
-const Section = ({ sectionData }) => {
+const Section = ({ sectionData, prependBreadcrumbs }) => {
   // Prepare the component
   const SectionComponent = sectionComponents[sectionData.__component];
 
@@ -60,7 +61,12 @@ const Section = ({ sectionData }) => {
   }
 
   // Display the section
-  return <SectionComponent data={sectionData} />;
+  return (
+    <SectionComponent
+      data={sectionData}
+      prependBreadcrumbs={prependBreadcrumbs}
+    />
+  );
 };
 
 const PreviewModeBanner = () => {
@@ -93,8 +99,7 @@ const Sections = ({ sections, preview }) => {
       {/* Show the actual sections */}
       {sections.map((section, index) => (
         <Fragment key={`${section.__component}${section.id}`}>
-          {index === 1 && <Breadcrumbs />}
-          <Section sectionData={section} />
+          <Section sectionData={section} prependBreadcrumbs={index === 1} />
         </Fragment>
       ))}
     </div>

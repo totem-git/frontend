@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchAPI } from "utils/api";
 import CardsList from "./CardsList";
 
-const ArticlesList = ({ data }) => {
+const ArticlesList = ({ data, prependBreadcrumbs }) => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
@@ -39,7 +39,9 @@ const ArticlesList = ({ data }) => {
     })),
   };
 
-  return <CardsList data={cardsListData} />;
+  return (
+    <CardsList data={cardsListData} prependBreadcrumbs={prependBreadcrumbs} />
+  );
 };
 
 export default ArticlesList;

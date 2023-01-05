@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 export const linkPropTypes = PropTypes.shape({
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  url: PropTypes.string.isRequired,
+  url: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   text: PropTypes.string,
   newTab: PropTypes.bool,
 });
@@ -18,6 +18,6 @@ export const buttonLinkPropTypes = PropTypes.shape({
   theme: PropTypes.string,
   text: PropTypes.string.isRequired,
   newTab: PropTypes.bool,
-  url: PropTypes.string,
+  url: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   icon: PropTypes.any,
 });

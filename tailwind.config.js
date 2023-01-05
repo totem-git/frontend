@@ -2,7 +2,7 @@ const { colors: defColors } = require(`tailwindcss/defaultTheme`);
 const colors = require("tailwindcss/colors");
 
 module.exports = {
-  content: ["./components/**/*.js", "./pages/**/*.js"],
+  content: ["./components/**/*.{js,jsx}", "./pages/**/*.{js,jsx}"],
   theme: {
     fontFamily: {
       roboto: ["Roboto", "sans-serif"],

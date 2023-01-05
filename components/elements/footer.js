@@ -7,6 +7,7 @@ import FooterReviews from "./FooterReviews";
 import ButtonLink from "./button-link";
 import { useRef, useEffect } from "react";
 import NewsletterPopup from "./newsletterPopup";
+import { sendEvent } from "utils/gtag";
 
 const Footer = ({ footer, googleReviews }) => {
   const gmapEmbedRef = useRef();
@@ -94,7 +95,13 @@ const Footer = ({ footer, googleReviews }) => {
         <nav className="mb-10 flex grid-cols-[auto_auto_auto] flex-row flex-wrap items-start md:grid md:justify-between lg:grid-cols-[auto_auto_auto_auto_auto] lg:justify-between">
           <div className="mt-10 w-full pr-6 sm:w-6/12 sm:pl-[10%] md:w-auto md:pr-0 md:pl-0 lg:mt-0 lg:w-auto lg:pl-0">
             <p className="font-russo text-xl font-semibold uppercase tracking-wide text-primary-600">
-              <a href="mailto:info@totemresorts.com" target={"_blank"}>
+              <a
+                href="mailto:info@totemresorts.com"
+                target={"_blank"}
+                onClick={() => {
+                  sendEvent({ action: "clic", category: "mailto" });
+                }}
+              >
                 Contact us
               </a>
             </p>
@@ -103,6 +110,9 @@ const Footer = ({ footer, googleReviews }) => {
                 <CustomLink
                   link={{
                     url: "tel:1800668683",
+                  }}
+                  onClick={() => {
+                    sendEvent({ action: "clic", category: "phone-call" });
                   }}
                 >
                   Phone: 1-800-66-TOTEM
@@ -114,6 +124,9 @@ const Footer = ({ footer, googleReviews }) => {
                     url: "mailto:reservations@totemresorts.com",
                     newTab: true,
                   }}
+                  onClick={() => {
+                    sendEvent({ action: "clic", category: "mailto" });
+                  }}
                 >
                   Email: reservations@totemresorts.com
                 </CustomLink>
@@ -123,6 +136,9 @@ const Footer = ({ footer, googleReviews }) => {
                   link={{
                     url: "mailto:info@totemresorts.com",
                     newTab: true,
+                  }}
+                  onClick={() => {
+                    sendEvent({ action: "clic", category: "mailto" });
                   }}
                 >
                   Email: info@totemresorts.com
@@ -172,10 +188,10 @@ const Footer = ({ footer, googleReviews }) => {
                   wFull
                 />
               </div>
-              <div className="mt-8 hidden lg:block">
+              <div className="mt-4 hidden lg:block">
                 <ButtonLink
                   button={{
-                    url: ":ReservationFormRate",
+                    url: ":getRatesForm",
                     text: "GET RATES",
                   }}
                   appearance="white"
@@ -187,16 +203,6 @@ const Footer = ({ footer, googleReviews }) => {
                   button={{
                     url: ":newsletterForm",
                     text: "NEWSLETTER",
-                  }}
-                  appearance="white"
-                  wFull
-                />
-              </div>
-              <div className="mt-4 hidden lg:block">
-                <ButtonLink
-                  button={{
-                    url: ":getRatesForm",
-                    text: "GET RATES",
                   }}
                   appearance="white"
                   wFull
@@ -260,6 +266,16 @@ const Footer = ({ footer, googleReviews }) => {
           button={{
             url: ":ReservationRatePopup",
             text: "RESERVATIONS",
+          }}
+          appearance="white"
+          wFull
+        />
+      </div>
+      <div className="mx-auto px-4 pt-4 md:w-96 lg:hidden">
+        <ButtonLink
+          button={{
+            url: ":getRatesForm",
+            text: "GET RATES",
           }}
           appearance="white"
           wFull

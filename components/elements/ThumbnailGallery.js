@@ -5,6 +5,7 @@ import Viewer from "viewerjs";
 import SliderIndicators from "./SliderIndicators";
 import css from "classnames";
 import { fetchAPI } from "utils/api";
+import { sendEvent } from "utils/gtag";
 
 const ThumbnailGallery = ({ mediaList }) => {
   const sliderRef = useRef();
@@ -28,6 +29,7 @@ const ThumbnailGallery = ({ mediaList }) => {
         isVideoThumbnail: true,
         width: null,
         videoThumbnailName,
+        videoName: m.name,
         alternativeText: m.alternativeText,
       };
     }
@@ -203,7 +205,15 @@ const ThumbnailGallery = ({ mediaList }) => {
             }`}
             onClick={
               mediaObject.isBigImage
-                ? () => openViewer(mediaObject.bigImageIndex)
+                ? () => {
+                    openViewer(mediaObject.bigImageIndex);
+                    if (mediaObject.isVideoThumbnail)
+                      sendEvent({
+                        category: "view-video",
+                        action: "clic",
+                        label: `video-${mediaObject.videoName}`,
+                      });
+                  }
                 : () => {}
             }
           >

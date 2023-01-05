@@ -1,5 +1,6 @@
 import { useAppContext } from "context/state";
 import Button from "../components/elements/button";
+import { sendEvent } from "./gtag";
 
 const getReservationFormActionHandler = (args, appContext) => {
   const { setReservationPopupState } = appContext;
@@ -9,6 +10,11 @@ const getReservationFormActionHandler = (args, appContext) => {
     setReservationPopupState({
       visible: true,
       selectedPackage: selectedPackage ? selectedPackage : "",
+    });
+    sendEvent({
+      action: "book-now-clic",
+      category: "book-now",
+      label: selectedPackage ? selectedPackage : "menu",
     });
   };
 };
@@ -42,6 +48,12 @@ const getGetRatesFormActionHandler = (args, appContext) => {
       selectedPackage: selectedPackage ? selectedPackage : "",
       title: "GET OUR RATES IN A FEW MINUTES BY EMAIL",
       submitButtonLabel: "REQUEST RATES",
+      gaSubmitEventLabel: "get-rates",
+    });
+    sendEvent({
+      action: "get-rates-clic",
+      category: "get-rates",
+      label: selectedPackage ? selectedPackage : "menu",
     });
   };
 };

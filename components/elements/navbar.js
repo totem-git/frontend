@@ -15,6 +15,7 @@ import CustomLink from "./custom-link";
 // import LocaleSwitch from "../locale-switch";
 import { throttle } from "utils/performance";
 import ArrowDownIcon from "../SVGicons/arrow-down";
+import { sendEvent, useGAEventEffect } from "utils/gtag";
 
 const Navbar = ({ navbar, pageContext }) => {
   const router = useRouter();
@@ -29,13 +30,24 @@ const Navbar = ({ navbar, pageContext }) => {
   useEffect(() => {
     setScrolledDown(window.scrollY > scrollDistance);
 
-    window.addEventListener(
-      "scroll",
-      throttle(() => {
-        setScrolledDown(window.scrollY > scrollDistance);
-      }, 1000)
-    );
+    let eventHandler = throttle(() => {
+      setScrolledDown(window.scrollY > scrollDistance);
+    }, 1000);
+
+    window.addEventListener("scroll", eventHandler);
+    return () => {
+      window.removeEventListener("scroll", eventHandler);
+    };
   }, []);
+
+  useEffect(() => {
+    if (pageContext.slug.includes("lodging"))
+      sendEvent({
+        action: "view-lodge",
+        category: "view",
+        label: pageContext.slug.replace("lodging/", ""),
+      });
+  }, [pageContext.slug]);
 
   return (
     <>

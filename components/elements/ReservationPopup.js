@@ -5,6 +5,7 @@ import FooterReviews from "./FooterReviews";
 import RatingStars from "./RatingStars";
 import { useCallback, useRef } from "react";
 import { useAppContext } from "context/state";
+import { sendEvent } from "utils/gtag";
 
 const ReservationPopup = ({
   closeSelf,
@@ -12,6 +13,7 @@ const ReservationPopup = ({
   selectedPackage,
   title = "Reservations",
   submitButtonLabel = "Send",
+  gaSubmitEventLabel = "book-now",
 }) => {
   useLockBodyScroll();
   const scrollContainerRef = useRef();
@@ -52,12 +54,24 @@ const ReservationPopup = ({
                 {/* -ANCHOR- CONTACT INFO DESKTOP */}
                 <div className="hidden lg:block">
                   <p className="mt-14 font-russo text-lg text-primary-600">
-                    <a href="mailto:info@totemresorts.com" target={"_blank"}>
+                    <a
+                      href="mailto:info@totemresorts.com"
+                      target={"_blank"}
+                      onClick={() => {
+                        sendEvent({ action: "clic", category: "mailto" });
+                      }}
+                    >
                       CONTACT US
                     </a>
                   </p>
                   <div className="mt-8 flex flex-col items-start space-y-4 text-white">
-                    <a href="tel:1800668683" className="flex items-center">
+                    <a
+                      href="tel:1800668683"
+                      className="flex items-center"
+                      onClick={() => {
+                        sendEvent({ action: "clic", category: "phone-call" });
+                      }}
+                    >
                       <Image
                         src="/icons/phone-icon.svg"
                         width="18"
@@ -69,6 +83,9 @@ const ReservationPopup = ({
                       href="mailto:reservations@totemresorts.com"
                       target={"_blank"}
                       className="flex items-center"
+                      onClick={() => {
+                        sendEvent({ action: "clic", category: "mailto" });
+                      }}
                     >
                       <Image
                         src="/icons/mail-icon.svg"
@@ -88,6 +105,7 @@ const ReservationPopup = ({
                   selectedPackage={selectedPackage}
                   updateScrollTop={updateScrollTop}
                   submitButtonLabel={submitButtonLabel}
+                  gaEventLabel={gaSubmitEventLabel}
                 />
               </div>
             </div>
@@ -95,12 +113,24 @@ const ReservationPopup = ({
           {/* -ANCHOR- CONTACT INFO MOBILE */}
           <div className="flex flex-col items-center lg:hidden">
             <p className="mt-14 font-russo text-lg text-primary-600">
-              <a href="mailto:info@totemresorts.com" target={"_blank"}>
+              <a
+                href="mailto:info@totemresorts.com"
+                target={"_blank"}
+                onClick={() => {
+                  sendEvent({ action: "clic", category: "mailto" });
+                }}
+              >
                 CONTACT US
               </a>
             </p>
             <div className="mt-8 flex flex-col items-center space-y-4 text-white">
-              <a href="tel:1800668683" className="flex items-center">
+              <a
+                href="tel:1800668683"
+                className="flex items-center"
+                onClick={() => {
+                  sendEvent({ action: "clic", category: "phone-call" });
+                }}
+              >
                 <Image src="/icons/phone-icon.svg" width="18" height="18" />
                 <span className="ml-2">Phone: 1-800-66-TOTEM</span>
               </a>
@@ -108,6 +138,9 @@ const ReservationPopup = ({
                 href="mailto:reservations@totemresorts.com"
                 target={"_blank"}
                 className="flex items-center"
+                onClick={() => {
+                  sendEvent({ action: "clic", category: "mailto" });
+                }}
               >
                 <Image src="/icons/mail-icon.svg" width="18" height="18" />
                 <span className="ml-2">

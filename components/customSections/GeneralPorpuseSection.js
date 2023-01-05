@@ -24,9 +24,9 @@ const variants = {
   variant_9: Variant9,
 };
 
-const GeneralPorpuseSection = ({ data }) => {
+const GeneralPorpuseSection = ({ data, prependBreadcrumbs }) => {
   const Section = variants[data.variant] ?? variants.variant_1;
-  return <Section data={data} />;
+  return <Section data={data} prependBreadcrumbs={prependBreadcrumbs} />;
 };
 
 export default GeneralPorpuseSection;
