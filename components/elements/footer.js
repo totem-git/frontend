@@ -264,7 +264,7 @@ const Footer = ({ footer, googleReviews }) => {
       <div className="mx-auto px-4 md:w-96 lg:hidden">
         <ButtonLink
           button={{
-            url: ":ReservationRatePopup",
+            url: ":reservationForm",
             text: "RESERVATIONS",
           }}
           appearance="white"
