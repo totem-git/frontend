@@ -44,12 +44,15 @@ const ReservationPopup = ({
                   {title}
                 </h4>
                 <p>
-                  For your custom quote today, please provide us with the
-                  following information: <br />
-                  <br />- Number of adults/ teens/ or children under 12 <br />-
-                  Any other information you may have and one of our Reservation
-                  Specialists will help you create the perfect package to suit
-                  your needs.
+                  For a custom quote, please provide us with the following
+                  information: <br />
+                  <br />- Number of adults/ teens/ or children under 12
+                  <br />- Any other relevant information
+                  <br />
+                  <br />
+                  Our rates start at 115 USD per person per night. Our
+                  reservation specialists will use this information to help you
+                  create a package that meets your needs.
                 </p>
                 {/* -ANCHOR- CONTACT INFO DESKTOP */}
                 <div className="hidden lg:block">
