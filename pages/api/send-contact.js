@@ -9,6 +9,7 @@ export default function sendContact(req, res) {
     "date-checkout": dateCheckout,
     phone,
     "package-type": packageType,
+    email_subject,
   } = req.body;
 
   if (message.includes("http")) {
@@ -31,7 +32,7 @@ export default function sendContact(req, res) {
     to: "reservations@totemresorts.com",
     replyTo: emailAddress,
     cc: ["totemresortsmkt@gmail.com"],
-    subject: `Totem Resorts Reservations: ${name}`,
+    subject: `Totem Resorts ${email_subject}: ${name}`,
     text: [
       `Name: ${name}`,
       `Phone: ${phone}`,
@@ -45,16 +46,17 @@ export default function sendContact(req, res) {
     ].join("\n"),
   };
 
-  transport.sendMail(email, (err, info) => {
-    if (err) {
-      console.log(err);
-    }
-  });
+  // transport.sendMail(email, (err, info) => {
+  //   if (err) {
+  //     console.log(err);
+  //   }
+  // });
 
   res.status(200).json({
     success: true,
     contact: {
       ...req.body,
     },
+    email,
   });
 }

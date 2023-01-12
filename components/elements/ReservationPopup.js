@@ -14,6 +14,7 @@ const ReservationPopup = ({
   title = "Reservations",
   submitButtonLabel = "Send",
   gaSubmitEventLabel = "book-now",
+  emailSubject = "Reservations",
 }) => {
   useLockBodyScroll();
   const scrollContainerRef = useRef();
@@ -109,6 +110,7 @@ const ReservationPopup = ({
                   updateScrollTop={updateScrollTop}
                   submitButtonLabel={submitButtonLabel}
                   gaEventLabel={gaSubmitEventLabel}
+                  emailSubject={emailSubject}
                 />
               </div>
             </div>

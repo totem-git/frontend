@@ -1,6 +1,5 @@
 import { useFormik } from "formik";
 import { useRouter } from "next/router";
-import { useState } from "react";
 import { sendEvent } from "utils/gtag";
 
 const ReservationForm = ({
@@ -9,6 +8,7 @@ const ReservationForm = ({
   submitButtonLabel = "Send",
   gaEventLabel = "book-now",
   closePopup = () => {},
+  emailSubject = "Reservations",
 }) => {
   const router = useRouter();
   const formik = useFormik({
@@ -27,7 +27,7 @@ const ReservationForm = ({
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(values),
+        body: JSON.stringify({ ...values, email_subject: emailSubject }),
       });
 
       if (response.ok) {
@@ -76,6 +76,7 @@ const ReservationForm = ({
             type="email"
             name="email"
             id="reservation-form-email"
+            required
           />
           {formik.values["email"] == "" && (
             <div className="pointer-events-none absolute inset-2 bg-inherit p-px font-medium text-gray-400 peer-focus:hidden">

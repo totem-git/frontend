@@ -9,6 +9,7 @@ export function AppWrapper({ children, googleReviews }) {
     title: undefined,
     submitButtonLabel: undefined,
     gaSubmitEventLabel: undefined,
+    emailSubject: undefined,
   });
   const [newsletterPopupVisible, setNewsletterPopupVisible] = useState(false);
 

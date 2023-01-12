@@ -47,6 +47,7 @@ const DynamicPage = ({ sections, metadata, preview, global, pageContext }) => {
             appContext.reservationPopupState.gaSubmitEventLabel
           }
           googleReviews={global.googleReviews}
+          emailSubject={appContext.reservationPopupState.emailSubject}
         />
       )}
     </Layout>
