@@ -39,7 +39,7 @@ const MyApp = ({ Component, pageProps }) => {
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-HM5SS2Q65F');",
+              "window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-HM5SS2Q65F');gtag('config', 'AW-11015503833');",
           }}
         ></script>
         <script

@@ -2,8 +2,14 @@ import Layout from "@/components/layout";
 import Image from "next/image";
 import Link from "next/link";
 import { fetchAPI } from "utils/api";
+import { useGAEventEffect } from "utils/gtag";
 
 const SubscriptionSuccessPage = ({ global, pageContext }) => {
+  useGAEventEffect({
+    action: "conversion",
+    custom: { send_to: "AW-11015503833/6s_3CKPA9IcYENn_zIQp" },
+  });
+
   return (
     <Layout bgColor="bg-white" global={global} pageContext={pageContext}>
       <div className="pt-24">
