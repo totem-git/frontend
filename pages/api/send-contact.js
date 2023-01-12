@@ -46,17 +46,16 @@ export default function sendContact(req, res) {
     ].join("\n"),
   };
 
-  // transport.sendMail(email, (err, info) => {
-  //   if (err) {
-  //     console.log(err);
-  //   }
-  // });
+  transport.sendMail(email, (err, info) => {
+    if (err) {
+      console.log(err);
+    }
+  });
 
   res.status(200).json({
     success: true,
     contact: {
       ...req.body,
     },
-    email,
   });
 }
