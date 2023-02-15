@@ -23,6 +23,8 @@ import ArticleHero from "./customSections/ArticleHero";
 import ArticlesList from "./customSections/ArticlesList";
 import FeatureList from "./customSections/FeatureList";
 import { Fragment } from "react";
+import CancellationPolicy from "./customSections/CancellationPolicy";
+import IceCastleCardList from "./customSections/IceCastleCardList";
 
 // Map Strapi sections to section components
 const sectionComponents = {
@@ -49,6 +51,8 @@ const sectionComponents = {
   "sections.article-hero": ArticleHero,
   "sections.articles-list": ArticlesList,
   "sections.feature-list": FeatureList,
+  "sections.cancellation-policy": CancellationPolicy,
+  "sections.ice-castle-card-list": IceCastleCardList,
 };
 
 // Display a section individually

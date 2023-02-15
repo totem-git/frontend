@@ -141,3 +141,27 @@ html {
 #hiking {
   display: none;
 }
+.characteristics-list {
+  @apply pl-6 pt-2;
+}
+.characteristics-list li::marker {
+  color: #fdb32e;
+  font-size: 1.5em;
+}
+.characteristics-list li {
+  list-style: disc;
+  color: #636363;
+  font-size: 1rem;
+}
+
+.cancellation-policy-text {
+  color: #505452;
+  margin-bottom: 120px;
+  font-size: 14px;
+}
+
+.cancellation-policy-text h4 {
+  color: #636363;
+  font-weight: 400;
+  font-size: 20px;
+}

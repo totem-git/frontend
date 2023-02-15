@@ -12,7 +12,7 @@ const FeatureList = ({ data, prependBreadcrumbs }) => {
         <div className="prose mx-auto mt-4 text-center leading-tight text-gray-600 xl:text-lg">
           <Markdown>{data.text}</Markdown>
         </div>
-        <div className="grid px-8 py-8 text-gray-600 lg:grid-cols-2 xl:px-16 xl:text-lg">
+        <div className="mx-auto grid max-w-6xl px-8 py-8 text-gray-600 lg:grid-cols-2 xl:px-16 xl:text-lg">
           {data.featureListItems.map((item, index) =>
             index < data.featureListItems.length - 2 ? (
               <div
