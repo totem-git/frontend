@@ -199,7 +199,7 @@ export const getStaticProps = async (req) => {
   let global = await fetchAPI("/global");
 
   const pageContext = {
-    slug: `reservation-request-success`,
+    slug: `contact`,
   };
 
   return {
