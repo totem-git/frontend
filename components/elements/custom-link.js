@@ -5,7 +5,7 @@ import { linkPropTypes } from "utils/types";
 
 const CustomLink = ({ link, children, wFull = false, className, ...props }) => {
   const isInternalLink =
-    typeof link.url === "object" ? true : link.url.startsWith("/");
+    typeof link.url === "object" || link.url.startsWith("/");
   // const isActionLink = link.url.startsWith(":");
 
   // For internal links, use the Next.js Link component
@@ -20,7 +20,7 @@ const CustomLink = ({ link, children, wFull = false, className, ...props }) => {
         </a>
       </Link>
     ) : (
-      <Link href="/[[...slug]]" as={link.url}>
+      <Link href={link.url}>
         <a
           className={`${wFull != "undefined" && "w-full"} ${className}`}
           {...props}
