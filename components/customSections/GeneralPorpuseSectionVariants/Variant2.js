@@ -128,9 +128,10 @@ const Variant2 = ({ data, prependBreadcrumbs }) => {
               <NextImage media={data.extraIcon} />
             </div>
           )}
+
           <HighlightedText
             tag="h2"
-            text={data.title}
+            text={data.title || ""}
             className="w-full pt-4 text-center font-russo text-4xl text-gray-600"
             highlightClasses={[
               "text-highlight before:bg-black text-primary-600 block md:inline-block px-16 pt-2",
