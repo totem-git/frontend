@@ -61,7 +61,7 @@ const IceCastleCardList = ({ data, prependBreadcrumbs }) => {
             </div>
             <span
               className={classNames(
-                `relative flex h-5 justify-center bg-[#fdb32e]`,
+                `relative mt-auto flex h-5 justify-center bg-[#fdb32e]`,
                 `before:absolute before:bottom-[100%] before:block before:h-7
           before:w-7
           before:border-[18px] 
