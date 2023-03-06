@@ -2,7 +2,6 @@ import React from "react";
 import ReactMarkdown from "react-markdown";
 
 const CancellationPolicy = ({ data, prependBreadcrumbs }) => {
-  console.log(data);
   return (
     <section
       data-section-name="cancellation-policy"
