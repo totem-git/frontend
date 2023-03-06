@@ -7,6 +7,7 @@ import Layout from "@/components/layout";
 import { getLocalizedPaths } from "utils/localize";
 import ReservationPopup from "@/components/elements/ReservationPopup";
 import { useAppContext } from "context/state";
+import { Component404 } from "./404";
 
 // The file is called [[...slug]].js because we're using Next's
 // optional catch all routes feature. See the related docs:
@@ -18,7 +19,7 @@ const DynamicPage = ({ sections, metadata, preview, global, pageContext }) => {
 
   // Check if the required data was provided
   if (!router.isFallback && !sections?.length) {
-    return <ErrorPage statusCode={404} />;
+    return <Component404 global={global} pageContext={pageContext} />;
   }
 
   // Loading screen (only possible in preview mode)
