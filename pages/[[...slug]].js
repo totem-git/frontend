@@ -74,7 +74,7 @@ export async function getStaticPaths(context) {
     };
   });
 
-  return { paths, fallback: true };
+  return { paths, fallback: false };
 }
 
 export async function getStaticProps(context) {
@@ -90,7 +90,7 @@ export async function getStaticProps(context) {
 
   if (pageData == null) {
     // Giving the page no props will trigger a 404 page
-    return { props: {} };
+    return { notFound: true };
   }
 
   // We have the required page data, pass it to the page component
