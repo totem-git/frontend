@@ -18,11 +18,7 @@ export const NotFoundView = ({ global, pageContext }) => {
   return (
     <Layout bgColor="bg-white" global={global} pageContext={pageContext}>
       <div className="pt-24 pb-12">
-        <div
-          className="h-20 w-full bg-contain bg-repeat-x"
-          style={{ backgroundImage: "url(/icons/symbol-1.png)" }}
-        ></div>
-        <div>
+        <div className="pt-20">
           <div className="space-y-4 pt-32 pb-24 text-center 2xl:pt-52 2xl:pb-72">
             <h2 className="font-russo text-4xl font-thin uppercase text-primary-600">
               404 (Not Found)
