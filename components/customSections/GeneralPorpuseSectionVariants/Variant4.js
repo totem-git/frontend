@@ -5,6 +5,7 @@ import Markdown from "react-markdown";
 import { getButtonAppearance } from "utils/button";
 import { getStrapiMedia } from "utils/media";
 import Breadcrumbs from "@/components/customSections/Breadcrumbs";
+import MarkdownText from "@/components/elements/MarkdownText";
 
 const Variant4 = ({ data, prependBreadcrumbs }) => {
   return (
@@ -60,7 +61,7 @@ const Variant4 = ({ data, prependBreadcrumbs }) => {
               </h5>
             </div>
             <div className="prose text-gray-700 2xl:text-[1.2vw]">
-              <Markdown>{data.text}</Markdown>
+              <MarkdownText content={data.text} />
             </div>
             {!!data.CTAs.length && (
               <div className="pt-4 lg:w-64">
