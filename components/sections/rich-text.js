@@ -6,13 +6,22 @@ const RichText = ({ data }) => {
     <div className="container prose prose-lg py-12">
       <Markdown
         components={{
-          pre: ({ children }) => (
-            <div
-              dangerouslySetInnerHTML={{
-                __html: children[0].props.children[0],
-              }}
-            />
-          ),
+          code: ({ children }) => {
+            return (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: children[0].replace(
+                    "<iframe ",
+                    "<iframe style='width: 100%; height: auto; aspect-ratio: 16/9;' "
+                  ),
+                }}
+              />
+            );
+          },
+          p: ({ node, ...props }) => {
+            if (node.children[0].tagName === "code") return <div {...props} />;
+            return <p {...props} />;
+          },
         }}
       >
         {data.content}
