@@ -71,7 +71,7 @@ const ContactPage = ({ global, pageContext }) => {
                         width="18"
                         height="18"
                       />
-                      <span className="ml-2">Phone: 1-800-66-TOTEM</span>
+                      <span className="ml-2">Phone: 1-800-666-TOTEM</span>
                     </a>
                     <a
                       href="mailto:reservations@totemresorts.com"
