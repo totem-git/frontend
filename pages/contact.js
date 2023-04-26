@@ -60,7 +60,7 @@ const ContactPage = ({ global, pageContext }) => {
                   </p>
                   <div className="mt-8 flex flex-col items-start space-y-4 text-white">
                     <a
-                      href="tel:1800668683"
+                      href="tel:18006686836"
                       className="flex items-center"
                       onClick={() => {
                         sendEvent({ action: "clic", category: "phone-call" });
@@ -71,7 +71,7 @@ const ContactPage = ({ global, pageContext }) => {
                         width="18"
                         height="18"
                       />
-                      <span className="ml-2">Phone: 1-800-666-TOTEM</span>
+                      <span className="ml-2">Phone: 1-800-66-TOTEM</span>
                     </a>
                     <a
                       href="mailto:reservations@totemresorts.com"
