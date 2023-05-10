@@ -293,6 +293,12 @@ const Footer = ({ footer, googleReviews }) => {
       </div>
       <div className="mx-4 mt-16 border-t-[1px] border-gray-600 py-12 text-center text-sm text-gray-500 lg:mt-10">
         <div className="mt-4">{footer.smallText}</div>
+        <div className="mt-4">
+          Marketing, SEO, and website design and development by{" "}
+          <a href="https://digitalmix.ar/" target="_blank">
+            digitalmix.ar
+          </a>
+        </div>
       </div>
       <NewsletterPopup />
     </footer>

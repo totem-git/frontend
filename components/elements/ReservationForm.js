@@ -19,6 +19,7 @@ const ReservationForm = ({
       "date-checkout": "",
       message: "",
       "package-type": selectedPackage,
+      resort: "",
       phone: "",
     },
     onSubmit: async (values) => {
@@ -41,7 +42,6 @@ const ReservationForm = ({
       }
     },
   });
-
   return (
     <form
       className="bg-inherit"
@@ -101,43 +101,84 @@ const ReservationForm = ({
             </div>
           )}
         </div>
-        <div className="relative bg-inherit">
-          <input
-            onChange={formik.handleChange}
-            value={formik.values["date-checkin"]}
-            className={`w-full p-2 ${
-              formik.values["date-checkin"] == ""
-                ? "bg-transparent"
-                : "bg-gray-300"
-            } peer text-gray-700 focus:bg-gray-300`}
-            type="date"
-            name="date-checkin"
-            id="reservation-form-date-checkin"
-          />
-          {formik.values["date-checkin"] == "" && (
-            <div className="pointer-events-none absolute inset-2 bg-inherit p-px font-medium text-gray-400 peer-focus:hidden">
-              Check-in date
-            </div>
-          )}
+        <div className="relative flex  bg-inherit">
+          <div className="relative w-full bg-inherit">
+            <input
+              onChange={formik.handleChange}
+              value={formik.values["date-checkin"]}
+              className={`w-full p-2 ${
+                formik.values["date-checkin"] == ""
+                  ? "bg-transparent"
+                  : "bg-gray-300"
+              } peer text-gray-700 focus:bg-gray-300`}
+              type="date"
+              name="date-checkin"
+              id="reservation-form-date-checkin"
+            />
+            {formik.values["date-checkin"] == "" && (
+              <div className="pointer-events-none absolute inset-2 bg-inherit p-px font-medium text-gray-400 peer-focus:hidden">
+                Check-in date
+              </div>
+            )}
+          </div>
+          <div className="relative w-full bg-inherit">
+            <input
+              onChange={formik.handleChange}
+              value={formik.values["date-checkout"]}
+              className={`w-full p-2 ${
+                formik.values["date-checkout"] == ""
+                  ? "bg-transparent"
+                  : "bg-gray-300"
+              } peer text-gray-700 focus:bg-gray-300`}
+              type="date"
+              name="date-checkout"
+              id="reservation-form-date-checkout"
+            />
+            {formik.values["date-checkout"] == "" && (
+              <div className="pointer-events-none absolute inset-2 bg-inherit p-px font-medium text-gray-400 peer-focus:hidden">
+                Check-out date
+              </div>
+            )}
+          </div>
         </div>
-        <div className="relative bg-inherit">
-          <input
-            onChange={formik.handleChange}
-            value={formik.values["date-checkout"]}
-            className={`w-full p-2 ${
-              formik.values["date-checkout"] == ""
-                ? "bg-transparent"
-                : "bg-gray-300"
-            } peer text-gray-700 focus:bg-gray-300`}
-            type="date"
-            name="date-checkout"
-            id="reservation-form-date-checkout"
-          />
-          {formik.values["date-checkout"] == "" && (
-            <div className="pointer-events-none absolute inset-2 bg-inherit p-px font-medium text-gray-400 peer-focus:hidden">
-              Check-out date
-            </div>
-          )}
+        <div className="flex">
+          <div className="relative w-full bg-inherit">
+            <select
+              onChange={formik.handleChange}
+              value={formik.values["resort"]}
+              className={`w-full p-2 ${
+                formik.values["resort"] == "" ? "bg-transparent" : "bg-gray-300"
+              } peer text-gray-700 focus:bg-gray-300`}
+              name="resort"
+              id="reservation-form-resort"
+            >
+              <option value="">Choose your resort</option>
+              <option value="totem-lodge">Totem Lodge</option>
+              <option value="wiley-point">Wiley Point</option>
+              <option value="yellowbird-lodge-and-chalet">
+                Yellowbird Lodge
+              </option>
+              <option value="french-portage-outpost">French Portage</option>
+              <option value="private-island">Private Islands</option>
+              <option value="sunset-channel-island-outpost">
+                Sunset Channel
+              </option>
+            </select>
+            {formik.values["resort"] == "" && (
+              <div className="pointer-events-none absolute inset-2 bg-inherit p-px font-medium text-gray-400 peer-focus:hidden">
+                Choose your resort
+              </div>
+            )}
+          </div>
+          <div className="ml-2 flex w-min items-stretch border-[1px] border-gray-400 hover:border-gray-100">
+            <a
+              href={`/lodging/${formik.values["resort"]}`}
+              target={"_blank"}
+              className="flex w-max items-center px-4 text-white"
+            >
+              View details
+            </a>
+          </div>
         </div>
         <div className="flex">
           <div className="relative w-full bg-inherit">
