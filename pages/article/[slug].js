@@ -13,7 +13,7 @@ const cardsListData = {
   cards: [
     {
       image: {
-        url: "/uploads/small_19_f_7_BCBBE_77_C09_F_47_DA_A16_B_51368206_F27_D_1be302e5cd.jpg",
+        url: "/uploads/3711_D3_C5_edited_dc9eda9ffc.jpg",
       },
       title: "Fishing Report",
       text: "Save time and find our latest news before arriving. Our fishing guides are constantly on the water on top of the fish. Totem Resorts fishing report contains all the main information updated, so you can know first what's going on at Lake of the Woods.",
