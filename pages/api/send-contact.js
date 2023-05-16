@@ -9,6 +9,7 @@ export default function sendContact(req, res) {
     "date-checkout": dateCheckout,
     phone,
     "package-type": packageType,
+    resort,
     email_subject,
   } = req.body;
 
@@ -29,7 +30,7 @@ export default function sendContact(req, res) {
 
   const email = {
     from: "totemresortsmkt@gmail.com",
-    to: "reservations@totemresorts.com",
+    to: "gustasystem@gmail.com",
     replyTo: emailAddress,
     cc: ["totemresortsmkt@gmail.com"],
     subject: `Totem Resorts ${email_subject}: ${name}`,
@@ -40,6 +41,7 @@ export default function sendContact(req, res) {
       `Date of check-in: ${dateCheckin}`,
       `Date of check-out: ${dateCheckout}`,
       `Package type of interest: ${packageType}`,
+      `resort: ${resort}`,
       `Message:`,
       ``,
       `  ${message}`,

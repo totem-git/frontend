@@ -22,6 +22,7 @@ const ReservationForm = ({
       resort: "",
       phone: "",
     },
+
     onSubmit: async (values) => {
       let response = await fetch("/api/send-contact", {
         method: "POST",
