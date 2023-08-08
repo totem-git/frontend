@@ -99,6 +99,40 @@ const MobileNavMenu = ({ navbar, closeSelf }) => {
               />
             )}
           </span>
+          <span className="mt-2 block w-full sm:w-80" onClick={closeSelf}>
+            {console.log({
+              button: navbar.button,
+              appearance: getButtonAppearance(navbar.button.type, "dark"),
+            })}
+            {navbar.button && (
+              <ButtonLink
+                button={{
+                  newTab: false,
+                  text: "Get Rates",
+                  type: "primary",
+                  url: ":getRatesForm",
+                }}
+                appearance={getButtonAppearance(navbar.button.type, "dark")}
+                size="text-lg"
+                wFull
+              />
+            )}
+          </span>
+          <span className="mt-2 block w-full sm:w-80" onClick={closeSelf}>
+            {navbar.button && (
+              <ButtonLink
+                button={{
+                  newTab: false,
+                  text: "Newsletter",
+                  type: "primary",
+                  url: ":newsletterForm",
+                }}
+                appearance={getButtonAppearance(navbar.button.type, "dark")}
+                size="text-lg"
+                wFull
+              />
+            )}
+          </span>
 
           <p className="mt-20 font-russo text-lg text-primary-600">
             CONTACT US
