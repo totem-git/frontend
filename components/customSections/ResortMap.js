@@ -179,15 +179,6 @@ const ResortMap = ({ data, prependBreadcrumbs }) => {
                 <h6 className="mt-6 font-russo text-lg text-primary-600">
                   PRIVATE ISLANDS OF LOTW
                 </h6>
-                {/* <p className="mt-4 text-gray-700">
-                  25. Island 1: 2 bedrooms/ 1.5 bath
-                  <br />
-                  26. Island 2 (Cabin #1): 2 bedroom/ 2 baths
-                  <br />
-                  27. Island 2 (Cabin #2): 2 bedroom/ 2 baths
-                  <br />
-                  28. Island 3: 2 bedrooms/ 2 baths
-                </p> */}
                 <ul>
                   <li>
                     25. <b>Island 1</b>: 2 bedrooms/ 1.5 bath
