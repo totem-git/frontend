@@ -49,7 +49,7 @@ const ResortMap = ({ data, prependBreadcrumbs }) => {
             className="mx-auto max-w-6xl justify-center lg:flex"
           >
             <div className="shrink items-start gap-4 sm:flex sm:bg-light-grey-blue sm:p-8 lg:w-full lg:flex-col lg:bg-transparent">
-              <div className="mt-8 h-52 overflow-hidden sm:mt-0 sm:w-1/2 lg:w-full">
+              <div className="mt-8 overflow-hidden sm:mt-0 sm:w-1/2 lg:w-full">
                 <Image
                   data-original="/imgs/totem-map-numbers-logo.jpg"
                   onClick={() => openViewer(0)}
@@ -116,7 +116,7 @@ const ResortMap = ({ data, prependBreadcrumbs }) => {
               </div>
             </div>
             <div className="shrink items-start gap-4 sm:mt-8 sm:flex sm:bg-light-grey-blue sm:p-8 lg:mt-0 lg:w-full lg:flex-col lg:bg-transparent">
-              <div className="mt-8 h-52 overflow-hidden sm:mt-0 sm:w-1/2 lg:w-full">
+              <div className="mt-8  overflow-hidden sm:mt-0 sm:w-1/2 lg:w-full">
                 <Image
                   data-original="/imgs/yellowbird-map-numbers-logos.jpg"
                   className="cursor-pointer"
@@ -159,7 +159,7 @@ const ResortMap = ({ data, prependBreadcrumbs }) => {
               </div>
             </div>
             <div className="shrink items-start gap-4 sm:mt-8 sm:flex sm:bg-light-grey-blue sm:p-8 lg:mt-0 lg:w-full lg:flex-col lg:bg-transparent">
-              <div className="mt-8 h-52 overflow-hidden sm:mt-0 sm:w-1/2 lg:w-full">
+              <div className="mt-8 overflow-hidden sm:mt-0 sm:w-1/2 lg:w-full">
                 <Image
                   onClick={() => openViewer(2)}
                   data-original="/imgs/wiley-map-numbers-logo.jpg"
@@ -177,15 +177,13 @@ const ResortMap = ({ data, prependBreadcrumbs }) => {
                 <p className="mt-4 text-gray-700">
                   1. Main Lodge:
                   <br />
-                  Top level - Board Room
+                  Top level
                   <br />
                   Main Level - Dining Room, Bar, Store, Office
                   <br />
-                  Middle Level - Guest Suites (Rms 1-8),
+                  Middle Level - Guest Suites (Rooms 1-8),2nd Bar,
                   <br />
-                  2nd Bar, Games Room
-                  <br />
-                  Bottom Level - Gym, Sauna,
+                  Games Room,Bottom Level - Gym, Sauna,
                   <br />
                   Changerooms & Bathroom
                   <br />
@@ -197,9 +195,9 @@ const ResortMap = ({ data, prependBreadcrumbs }) => {
                   <br />
                   5. Fox: 2 big bedrooms/4 beds each/2 baths
                   <br />
-                  6. Boathouse/Fish Cleaning House/2 baths
+                  6. Boathouse/Fish Cleaning House: 2 baths
                   <br />
-                  7. Big Moose: M1-4 beds, M2-4 beds, M3-2 beds,
+                  7. Moose: M1-4 beds, M2-4 beds, M3-2 beds,
                   <br />
                   M4-4 beds, M5-4 beds, 1 bath ea.
                   <br />
@@ -211,7 +209,15 @@ const ResortMap = ({ data, prependBreadcrumbs }) => {
                   <br />
                   10. Elk: E1-4 beds, E2-4 beds, E3-4 beds,
                   <br />
-                  E4-4 beds, E5-4 beds, 1 bath each
+                  E4-4 beds, E5-4 beds, M6-4 beds, m7-4 beds,
+                  <br />
+                  M8-4 beds, M9-4 beds, 1 bath each
+                  <br />
+                  Staff Quarters & Laundry
+                  <br />
+                  Elk: E1-4 beds, E2-4 beds, E3-4 beds, E4-4 beds,
+                  <br />
+                  E5-4 beds, 1 bath ea.
                 </p>
               </div>
             </div>
