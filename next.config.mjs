@@ -1,4 +1,5 @@
 import fetch from "node-fetch";
+
 let imageHosts = process.env.IMAGE_HOSTS || "";
 imageHosts = imageHosts.split(", ");
 

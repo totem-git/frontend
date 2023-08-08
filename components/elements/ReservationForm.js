@@ -117,7 +117,7 @@ const ReservationForm = ({
             />
             {formik.values["date-checkin"] == "" && (
               <div className="pointer-events-none absolute inset-2 bg-inherit p-px font-medium text-gray-400 peer-focus:hidden">
-                Check-in date
+                Check-in Date
               </div>
             )}
           </div>
@@ -136,7 +136,7 @@ const ReservationForm = ({
             />
             {formik.values["date-checkout"] == "" && (
               <div className="pointer-events-none absolute inset-2 bg-inherit p-px font-medium text-gray-400 peer-focus:hidden">
-                Check-out date
+                Check-out Date
               </div>
             )}
           </div>
@@ -152,21 +152,23 @@ const ReservationForm = ({
               name="resort"
               id="reservation-form-resort"
             >
-              <option value="">Choose your resort</option>
+              <option value="">Choose your Resort</option>
               <option value="totem-lodge">Totem Lodge</option>
-              <option value="wiley-point">Wiley Point</option>
+              <option value="wiley-point">Wiley Point Lodge</option>
               <option value="yellowbird-lodge-and-chalet">
-                Yellowbird Lodge
+                Yellowbird Lodge & Chalet
               </option>
-              <option value="french-portage-outpost">French Portage</option>
-              <option value="private-island">Private Islands</option>
+              <option value="french-portage-outpost">
+                French Portage Outpost
+              </option>
+              <option value="private-island">Private Islands Lodge</option>
               <option value="sunset-channel-island-outpost">
-                Sunset Channel
+                Sunset Channel Outpost
               </option>
             </select>
             {formik.values["resort"] == "" && (
               <div className="pointer-events-none absolute inset-2 bg-inherit p-px font-medium text-gray-400 peer-focus:hidden">
-                Choose your resort
+                Choose your Resort
               </div>
             )}
           </div>
@@ -193,14 +195,14 @@ const ReservationForm = ({
               name="package-type"
               id="reservation-form-package-type"
             >
-              <option value="">Choose your package</option>
-              <option value="AP">American Plan package (AP)</option>
-              <option value="CAP">Complete American Plan package (CAP)</option>
-              <option value="HSK">Housekeeping package (HSK)</option>
+              <option value="">Choose your Package</option>
+              <option value="AP">American Plan Package (AP)</option>
+              <option value="CAP">Complete American Plan Package (CAP)</option>
+              <option value="HSK">Housekeeping Package (HSK)</option>
             </select>
             {formik.values["package-type"] == "" && (
               <div className="pointer-events-none absolute inset-2 bg-inherit p-px font-medium text-gray-400 peer-focus:hidden">
-                Choose your package
+                Choose your Package
               </div>
             )}
           </div>

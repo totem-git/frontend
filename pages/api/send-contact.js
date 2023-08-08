@@ -27,11 +27,11 @@ export default function sendContact(req, res) {
       pass: process.env.GMAIL_SMTP_PASSWORD,
     },
   });
-  const lodgeSlug = resort;
-  const lodgeWordsArray = lodgeSlug
+
+  const resortWordsArray = resort
     .split("-")
     .map((word) => word[0].toUpperCase() + word.slice(1));
-  const lodgeName = lodgeWordsArray.join(" ");
+  const capitalizedResortName = resortWordsArray.join(" ");
   const email = {
     from: "totemresortsmkt@gmail.com",
     to: "reservations@totemresorts.com",
@@ -45,7 +45,7 @@ export default function sendContact(req, res) {
       `Date of Check-in: ${dateCheckin}`,
       `Date of Check-out: ${dateCheckout}`,
       `Package type of interest: ${packageType}`,
-      `Resort: ${resort}`,
+      `Resort: ${capitalizedResortName}`,
       `Message:`,
       ``,
       `  ${message}`,

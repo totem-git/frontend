@@ -70,7 +70,7 @@ const ReservationPopup = ({
                   </p>
                   <div className="mt-8 flex flex-col items-start space-y-4 text-white">
                     <a
-                      href="tel:1800668683"
+                      href="tel:18006686836"
                       className="flex items-center"
                       onClick={() => {
                         sendEvent({ action: "clic", category: "phone-call" });
@@ -130,7 +130,7 @@ const ReservationPopup = ({
             </p>
             <div className="mt-8 flex flex-col items-center space-y-4 text-white">
               <a
-                href="tel:1800668683"
+                href="tel:18006686836"
                 className="flex items-center"
                 onClick={() => {
                   sendEvent({ action: "clic", category: "phone-call" });
