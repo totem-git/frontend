@@ -21,6 +21,7 @@ const ReservationForm = ({
       "package-type": selectedPackage,
       resort: "",
       phone: "",
+      newsletter: true,
     },
     onSubmit: async (values) => {
       let response = await fetch("/api/send-contact", {
@@ -234,7 +235,7 @@ const ReservationForm = ({
             </div>
           )}
         </div>
-        <div className="relative">
+        <div className="relative flex">
           {/* <div
             className={`${
               showNotice ? "" : " pointer-events-none opacity-0"
@@ -249,6 +250,18 @@ const ReservationForm = ({
           >
             {submitButtonLabel}
           </button>
+          <label className="ml-4 inline-flex items-center">
+            <input
+              type="checkbox"
+              name="newsletter"
+              id="reservation-form-newsletter"
+              checked={formik.values["newsletter"]}
+              onChange={formik.handleChange}
+            />
+            <span className="ml-2 text-gray-300">
+              Keep updated with our newsletter
+            </span>
+          </label>
         </div>
       </div>
     </form>
