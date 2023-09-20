@@ -18,7 +18,7 @@ const NewsletterPopup = () => {
       setLoading(true);
       const token = await rcRef.current.executeAsync();
       rcRef.current.reset();
-      const contact = await fetch("/api/cc_subscribe", {
+      const { contact_id } = await fetch("/api/mc_subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...data, token }),
@@ -26,16 +26,8 @@ const NewsletterPopup = () => {
 
       setLoading(false);
 
-      if (
-        Array.isArray(contact) &&
-        contact.some((err) => err.error_message.includes("already exists"))
-      ) {
+      if (!contact_id) {
         setError("This email address is already subscribed.");
-        return;
-      }
-
-      if (!contact?.contact_id) {
-        setError("Oups, something went wrong. Please try again, later.");
         return;
       }
 
