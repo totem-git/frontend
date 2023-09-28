@@ -100,10 +100,6 @@ const MobileNavMenu = ({ navbar, closeSelf }) => {
             )}
           </span>
           <span className="mt-2 block w-full sm:w-80" onClick={closeSelf}>
-            {console.log({
-              button: navbar.button,
-              appearance: getButtonAppearance(navbar.button.type, "dark"),
-            })}
             {navbar.button && (
               <ButtonLink
                 button={{

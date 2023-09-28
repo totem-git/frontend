@@ -1,4 +1,20 @@
 import nodemailer from "nodemailer";
+import { subscribe } from "@/lib/mailchimp";
+
+const packagesCodesToNames = {
+  AP: "American Plan Package (AP)",
+  CAP: "Complete American Plan Package (CAP)",
+  HSK: "Housekeeping Package (HSK)",
+};
+
+if (
+  !process.env.RESERVATIONS_EMAIL_ADDRESS &&
+  process.env.GMAIL_SMTP_PASSWORD
+) {
+  throw new Error(
+    "Please define the RESERVATIONS_EMAIL_ADDRESS and GMAIL_SMTP_PASSWORD environment variables inside .env.local"
+  );
+}
 
 export default function sendContact(req, res) {
   const {
@@ -11,6 +27,7 @@ export default function sendContact(req, res) {
     "package-type": packageType,
     resort,
     email_subject,
+    newsletter,
   } = req.body;
 
   if (message.includes("http")) {
@@ -34,7 +51,7 @@ export default function sendContact(req, res) {
   const capitalizedResortName = resortWordsArray.join(" ");
   const email = {
     from: "totemresortsmkt@gmail.com",
-    to: "reservations@totemresorts.com",
+    to: process.env.RESERVATIONS_EMAIL_ADDRESS,
     replyTo: emailAddress,
     cc: ["totemresortsmkt@gmail.com"],
     subject: `Totem Resorts ${email_subject}: ${name}`,
@@ -52,11 +69,22 @@ export default function sendContact(req, res) {
     ].join("\n"),
   };
 
-  transport.sendMail(email, (err, info) => {
+  transport.sendMail(email, (err) => {
     if (err) {
       console.log(err);
     }
   });
+
+  if (newsletter) {
+    subscribe({
+      email_address: emailAddress,
+      first_name: name.split(" ")[0],
+      last_name: name.split(" ").slice(1).join(" "),
+      phone: phone,
+      selected_package: packagesCodesToNames[packageType] || packageType,
+      selected_resort: capitalizedResortName,
+    });
+  }
 
   res.status(200).json({
     success: true,
