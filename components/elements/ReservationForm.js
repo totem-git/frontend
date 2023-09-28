@@ -158,6 +158,10 @@ const ReservationForm = ({
               <option value="yellowbird-lodge-and-chalet">
                 Yellowbird Lodge & Chalet
               </option>
+              <option value="yellowbird-lodge-and-chalet-winter-season">
+                Yellowbird Lodge & Chalet(Winter Season)
+              </option>
+              <option value="ice-castle">ICE Castles</option>
               <option value="french-portage-outpost">
                 French Portage Outpost
               </option>
@@ -197,7 +201,9 @@ const ReservationForm = ({
             >
               <option value="">Choose your Package</option>
               <option value="AP">American Plan Package (AP)</option>
-              <option value="CAP">Complete American Plan Package (CAP)</option>
+              <option value="CAP">
+                Complete American Plan Package (CAP)-Summer Season Only
+              </option>
               <option value="HSK">Housekeeping Package (HSK)</option>
             </select>
             {formik.values["package-type"] == "" && (
