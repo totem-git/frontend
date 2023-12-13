@@ -2,8 +2,13 @@ import React from "react";
 import classNames from "classnames";
 import ReactMarkdown from "react-markdown";
 import NextImage from "@/components/elements/image";
+import ButtonLink from "../elements/button-link";
+import Button from "../elements/button";
+import { useAppContext } from "context/state";
 
 const IceCastleCardList = ({ data, prependBreadcrumbs }) => {
+  console.log(data);
+  const { setReservationPopupState } = useAppContext();
   return (
     <section className="">
       <h2 className="mt-7 flex justify-center text-[34px] text-[#636363]">
@@ -73,6 +78,25 @@ const IceCastleCardList = ({ data, prependBreadcrumbs }) => {
           `
               )}
             ></span>
+            <Button
+              appearance="black"
+              wFull
+              button={{
+                text: "GET RATES",
+              }}
+              handleClick={() => {
+                setReservationPopupState({
+                  visible: true,
+                  selectedPackage: "",
+                  selectedResort: "ice-castle",
+                  title: "GET OUR RATES IN A FEW MINUTES BY EMAIL",
+                  submitButtonLabel: "REQUEST RATES",
+                  gaSubmitEventLabel: "get-rates",
+                  emailSubject: "Request for quotation",
+                  defaultMessage: `I want to recieve information about the ice castle ${card.imageTitle1} `,
+                });
+              }}
+            />
           </div>
         ))}
       </div>

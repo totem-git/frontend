@@ -9,6 +9,8 @@ const ReservationForm = ({
   gaEventLabel = "book-now",
   closePopup = () => {},
   emailSubject = "Reservations",
+  defaultMessage = "",
+  selectedResort = "",
 }) => {
   const router = useRouter();
   const formik = useFormik({
@@ -17,9 +19,9 @@ const ReservationForm = ({
       email: "",
       "date-checkin": "",
       "date-checkout": "",
-      message: "",
+      message: defaultMessage,
       "package-type": selectedPackage,
-      resort: "",
+      resort: selectedResort,
       phone: "",
       newsletter: true,
     },

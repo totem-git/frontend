@@ -27,6 +27,7 @@ const DynamicPage = ({ sections, metadata, preview, global, pageContext }) => {
     return <div className="container">Loading...</div>;
   }
 
+  console.log(appContext.reservationPopupState.defaultMessage);
   return (
     <Layout global={global} pageContext={pageContext}>
       {/* Add meta tags for SEO*/}
@@ -49,6 +50,8 @@ const DynamicPage = ({ sections, metadata, preview, global, pageContext }) => {
           }
           googleReviews={global.googleReviews}
           emailSubject={appContext.reservationPopupState.emailSubject}
+          defaultMessage={appContext.reservationPopupState.defaultMessage}
+          selectedResort={appContext.reservationPopupState.selectedResort}
         />
       )}
     </Layout>

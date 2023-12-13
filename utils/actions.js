@@ -50,6 +50,7 @@ const getGetRatesFormActionHandler = (args, appContext) => {
       submitButtonLabel: "REQUEST RATES",
       gaSubmitEventLabel: "get-rates",
       emailSubject: "Request for quotation",
+      defaultMessage: "",
     });
     sendEvent({
       action: "get-rates-clic",
