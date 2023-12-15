@@ -7,7 +7,6 @@ import Button from "../elements/button";
 import { useAppContext } from "context/state";
 
 const IceCastleCardList = ({ data, prependBreadcrumbs }) => {
-  console.log(data);
   const { setReservationPopupState } = useAppContext();
   return (
     <section className="">
@@ -52,21 +51,43 @@ const IceCastleCardList = ({ data, prependBreadcrumbs }) => {
                 </ReactMarkdown>
               </div>
             </div>
-            <div className="p-4">
+            <div className="mt-auto p-4">
               <div className="footer-price">
                 <p className="text-center text-2xl text-[#FDB32E]">
                   {card.price}
                 </p>
               </div>
+
               <div className="footer-capacity">
                 <ReactMarkdown className="pb-6 text-center leading-loose">
                   {card.capacityDisclaimer}
                 </ReactMarkdown>
               </div>
             </div>
+            <div className="mx-auto mb-7 w-2/3 border-[2px] border-black">
+              <Button
+                appearance="dark-outline"
+                wFull
+                button={{
+                  text: "GET RATES",
+                }}
+                handleClick={() => {
+                  setReservationPopupState({
+                    visible: true,
+                    selectedPackage: "",
+                    selectedResort: "ice-castle",
+                    title: "GET OUR RATES IN A FEW MINUTES BY EMAIL",
+                    submitButtonLabel: "REQUEST RATES",
+                    gaSubmitEventLabel: "get-rates",
+                    emailSubject: "Request for quotation",
+                    defaultMessage: `I want to recieve information about the ice castle ${card.imageTitle1} `,
+                  });
+                }}
+              />
+            </div>
             <span
               className={classNames(
-                `relative mt-auto flex h-5 justify-center bg-[#fdb32e]`,
+                `relative  flex h-5 justify-center bg-[#fdb32e]`,
                 `before:absolute before:bottom-[100%] before:block before:h-7
           before:w-7
           before:border-[18px] 
@@ -78,25 +99,6 @@ const IceCastleCardList = ({ data, prependBreadcrumbs }) => {
           `
               )}
             ></span>
-            <Button
-              appearance="black"
-              wFull
-              button={{
-                text: "GET RATES",
-              }}
-              handleClick={() => {
-                setReservationPopupState({
-                  visible: true,
-                  selectedPackage: "",
-                  selectedResort: "ice-castle",
-                  title: "GET OUR RATES IN A FEW MINUTES BY EMAIL",
-                  submitButtonLabel: "REQUEST RATES",
-                  gaSubmitEventLabel: "get-rates",
-                  emailSubject: "Request for quotation",
-                  defaultMessage: `I want to recieve information about the ice castle ${card.imageTitle1} `,
-                });
-              }}
-            />
           </div>
         ))}
       </div>
