@@ -73,17 +73,19 @@ const Hero = ({ data }) => {
             </video>
           )}
         </div>
+        {/* ******* Opacidad (Overlay) ******* */}
         <div
           className={`absolute inset-0 m-0 bg-black ${
             isLanding ? "opacity-20" : isMenu ? "opacity-50" : "opacity-30"
           }`}
         ></div>
-        {isHome && (
+        {/* ******* Linea vertical ******* */}
+        {/* {isHome && (
           <div className="absolute left-12 bottom-28 z-10 m-0 hidden h-1/2 w-1.5 flex-col lg:flex">
             <div className="h-32 w-full bg-white"></div>
             <div className="h-full w-full bg-primary-600"></div>
           </div>
-        )}
+        )} */}
         <div className="relative z-10 flex w-full flex-col items-center justify-between space-y-16">
           <div className="flex w-full flex-col items-center space-y-5 px-4 sm:space-y-4">
             {data.extraIcon && (
@@ -101,6 +103,11 @@ const Hero = ({ data }) => {
               highlightClasses={["text-bg-effect before:right-2"]}
               text={data.title}
             />
+            {isHome && (
+              <h6 className="leading-36 font-russo text-base font-normal tracking-[15px]">
+                ELEVATE YOUR STAY
+              </h6>
+            )}
             <h6
               className={`${
                 isHome

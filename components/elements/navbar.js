@@ -53,7 +53,7 @@ const Navbar = ({ navbar, pageContext }) => {
     <>
       {/* The actual navbar */}
       <nav
-        className={`flex bg-gradient-black-to-b ${
+        className={`${
           scrolledDown ? "bg-black" : "bg-black/0"
         } trans fixed inset-x-0 top-0 z-50 h-20 transition duration-1000 2xl:h-32`}
       >

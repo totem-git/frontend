@@ -57,6 +57,53 @@ const ReservationPopup = ({
                   reservation specialists will use this information to help you
                   create a package that meets your needs.
                 </p>
+                {/* -ANCHOR- CONTACT INFO MOBILE */}
+                <div className="flex flex-col items-center lg:hidden">
+                  <p className="mt-14 font-russo text-lg text-primary-600">
+                    <a
+                      href="mailto:info@totemresorts.com"
+                      target={"_blank"}
+                      onClick={() => {
+                        sendEvent({ action: "clic", category: "mailto" });
+                      }}
+                    >
+                      CONTACT US
+                    </a>
+                  </p>
+                  <div className="mt-8 flex flex-col items-center space-y-4 text-white">
+                    <a
+                      href="tel:18006686836"
+                      className="flex items-center"
+                      onClick={() => {
+                        sendEvent({ action: "clic", category: "phone-call" });
+                      }}
+                    >
+                      <Image
+                        src="/icons/phone-icon.svg"
+                        width="18"
+                        height="18"
+                      />
+                      <span className="ml-2">Phone: 1-800-66-TOTEM</span>
+                    </a>
+                    <a
+                      href="mailto:reservations@totemresorts.com"
+                      target={"_blank"}
+                      className="flex items-center"
+                      onClick={() => {
+                        sendEvent({ action: "clic", category: "mailto" });
+                      }}
+                    >
+                      <Image
+                        src="/icons/mail-icon.svg"
+                        width="18"
+                        height="18"
+                      />
+                      <span className="ml-2">
+                        Email: reservations@totemresorts.com
+                      </span>
+                    </a>
+                  </div>
+                </div>
                 {/* -ANCHOR- CONTACT INFO DESKTOP */}
                 <div className="hidden lg:block">
                   <p className="mt-14 font-russo text-lg text-primary-600">
@@ -119,45 +166,7 @@ const ReservationPopup = ({
               </div>
             </div>
           </div>
-          {/* -ANCHOR- CONTACT INFO MOBILE */}
-          <div className="flex flex-col items-center lg:hidden">
-            <p className="mt-14 font-russo text-lg text-primary-600">
-              <a
-                href="mailto:info@totemresorts.com"
-                target={"_blank"}
-                onClick={() => {
-                  sendEvent({ action: "clic", category: "mailto" });
-                }}
-              >
-                CONTACT US
-              </a>
-            </p>
-            <div className="mt-8 flex flex-col items-center space-y-4 text-white">
-              <a
-                href="tel:18006686836"
-                className="flex items-center"
-                onClick={() => {
-                  sendEvent({ action: "clic", category: "phone-call" });
-                }}
-              >
-                <Image src="/icons/phone-icon.svg" width="18" height="18" />
-                <span className="ml-2">Phone: 1-800-66-TOTEM</span>
-              </a>
-              <a
-                href="mailto:reservations@totemresorts.com"
-                target={"_blank"}
-                className="flex items-center"
-                onClick={() => {
-                  sendEvent({ action: "clic", category: "mailto" });
-                }}
-              >
-                <Image src="/icons/mail-icon.svg" width="18" height="18" />
-                <span className="ml-2">
-                  Email: reservations@totemresorts.com
-                </span>
-              </a>
-            </div>
-          </div>
+
           {/* GOOGLE REVIEWS */}
           <div className="global:google-reviews">
             <div className="container mt-12 overflow-x-hidden lg:mt-0">
