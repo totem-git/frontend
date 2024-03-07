@@ -11,7 +11,7 @@ const ArticlesList = ({ data, prependBreadcrumbs }) => {
     fetchAPI(
       `/articles?page.slug=${
         data.categorySlug || currentUrlSlug
-      }&status=published`
+      }&status=published&_sort=updated_at:DESC`
     ).then((articles) => setArticles(articles));
   }, []);
 
