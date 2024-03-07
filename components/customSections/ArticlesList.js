@@ -11,7 +11,7 @@ const ArticlesList = ({ data, prependBreadcrumbs }) => {
     fetchAPI(
       `/articles?page.slug=${
         data.categorySlug || currentUrlSlug
-      }&status=published`
+      }&status=published&_sort=updated_at:DESC`
     ).then((articles) => setArticles(articles));
   }, []);
 
@@ -22,7 +22,7 @@ const ArticlesList = ({ data, prependBreadcrumbs }) => {
     cards: articles.map((article) => ({
       image: article.hero.media[0],
       title: article.hero.title,
-      date: new Date(article.created_at).toLocaleDateString("en-US", {
+      date: new Date(article.updated_at).toLocaleDateString("en-US", {
         dateStyle: "long",
       }),
       text: article.hero.text,
