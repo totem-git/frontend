@@ -41,69 +41,57 @@ const ReservationPopup = ({
             </button>
           </div>
           <div className="mx-auto max-w-md lg:flex lg:w-full lg:max-w-7xl lg:grow lg:flex-col lg:justify-center lg:px-8">
-            <div className="mx-auto flex flex-col space-y-12 px-4 lg:mt-4 lg:flex-row lg:items-stretch lg:space-y-0 lg:px-0">
+            <div className="mx-auto flex flex-col space-y-6 px-4 lg:mt-4 lg:flex-row lg:items-stretch lg:space-y-0 lg:px-0">
               <div className="shrink-0 space-y-4 text-center text-gray-300 lg:w-1/2 lg:pr-16 lg:text-left">
                 <h4 className="font-russo text-4xl uppercase text-primary-600">
                   {title}
                 </h4>
-                <p>
-                  For a custom quote, please provide us with the following
-                  information: <br />
-                  <br />- Number of adults/ teens/ or children under 12
-                  <br />- Any other relevant information
-                  <br />
-                  <br />
-                  Our rates start at 115 USD per person per night. Our
-                  reservation specialists will use this information to help you
-                  create a package that meets your needs.
-                </p>
                 {/* -ANCHOR- CONTACT INFO MOBILE */}
-                <div className="flex flex-col items-center lg:hidden">
-                  <p className="mt-14 font-russo text-lg text-primary-600">
-                    <a
-                      href="mailto:info@totemresorts.com"
-                      target={"_blank"}
-                      onClick={() => {
-                        sendEvent({ action: "clic", category: "mailto" });
-                      }}
-                    >
-                      CONTACT US
-                    </a>
-                  </p>
-                  <div className="mt-8 flex flex-col items-center space-y-4 text-white">
+                <div className="flex w-full flex-col items-center lg:hidden">
+                  <div className="mt-2 flex w-full  flex-col items-center space-y-4 text-white">
                     <a
                       href="tel:18006686836"
-                      className="flex items-center"
+                      className="flex w-full justify-center space-x-4 rounded-md border border-white bg-white py-4 font-medium text-black hover:border-gray-100"
                       onClick={() => {
                         sendEvent({ action: "clic", category: "phone-call" });
                       }}
                     >
                       <Image
-                        src="/icons/phone-icon.svg"
-                        width="18"
+                        src="/icons/black-phone-icon.svg"
+                        width="24"
                         height="18"
                       />
-                      <span className="ml-2">Phone: 1-800-66-TOTEM</span>
+                      <span className="text-lg">1-800-66-TOTEM</span>
                     </a>
                     <a
                       href="mailto:reservations@totemresorts.com"
                       target={"_blank"}
-                      className="flex items-center"
+                      className="flex w-full justify-center space-x-2 rounded-md border border-white bg-white py-4 font-medium text-black hover:border-gray-100"
                       onClick={() => {
                         sendEvent({ action: "clic", category: "mailto" });
                       }}
                     >
                       <Image
-                        src="/icons/mail-icon.svg"
-                        width="18"
+                        src="/icons/black-mail-icon.svg"
+                        width="26"
                         height="18"
                       />
-                      <span className="ml-2">
-                        Email: reservations@totemresorts.com
+                      <span className="text-lg">
+                        reservations@totemresorts.com
                       </span>
                     </a>
                   </div>
                 </div>
+                <p>
+                  <br />
+                  Our rates start at 115 USD per person per night. Our
+                  reservation specialists will use this information to help you
+                  create a package that meets your needs.
+                  <br />
+                  <br />
+                  For a custom quote, please provide us with the following
+                  information:
+                </p>
                 {/* -ANCHOR- CONTACT INFO DESKTOP */}
                 <div className="hidden lg:block">
                   <p className="mt-14 font-russo text-lg text-primary-600">
