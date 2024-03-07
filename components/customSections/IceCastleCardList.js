@@ -2,8 +2,12 @@ import React from "react";
 import classNames from "classnames";
 import ReactMarkdown from "react-markdown";
 import NextImage from "@/components/elements/image";
+import ButtonLink from "../elements/button-link";
+import Button from "../elements/button";
+import { useAppContext } from "context/state";
 
 const IceCastleCardList = ({ data, prependBreadcrumbs }) => {
+  const { setReservationPopupState } = useAppContext();
   return (
     <section className="">
       <h2 className="mt-7 flex justify-center text-[34px] text-[#636363]">
@@ -47,21 +51,43 @@ const IceCastleCardList = ({ data, prependBreadcrumbs }) => {
                 </ReactMarkdown>
               </div>
             </div>
-            <div className="p-4">
+            <div className="mt-auto p-4">
               <div className="footer-price">
                 <p className="text-center text-2xl text-[#FDB32E]">
                   {card.price}
                 </p>
               </div>
+
               <div className="footer-capacity">
                 <ReactMarkdown className="pb-6 text-center leading-loose">
                   {card.capacityDisclaimer}
                 </ReactMarkdown>
               </div>
             </div>
+            <div className="mx-auto mb-7 w-2/3 border-[2px] border-black">
+              <Button
+                appearance="dark-outline"
+                wFull
+                button={{
+                  text: "GET RATES",
+                }}
+                handleClick={() => {
+                  setReservationPopupState({
+                    visible: true,
+                    selectedPackage: "",
+                    selectedResort: "ice-castle",
+                    title: "GET OUR RATES IN A FEW MINUTES BY EMAIL",
+                    submitButtonLabel: "REQUEST RATES",
+                    gaSubmitEventLabel: "get-rates",
+                    emailSubject: "Request for quotation",
+                    defaultMessage: `I want to recieve information about the ice castle ${card.imageTitle1} `,
+                  });
+                }}
+              />
+            </div>
             <span
               className={classNames(
-                `relative mt-auto flex h-5 justify-center bg-[#fdb32e]`,
+                `relative  flex h-5 justify-center bg-[#fdb32e]`,
                 `before:absolute before:bottom-[100%] before:block before:h-7
           before:w-7
           before:border-[18px] 

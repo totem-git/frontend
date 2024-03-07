@@ -6,10 +6,12 @@ export function AppWrapper({ children, googleReviews }) {
   const [reservationPopupState, setReservationPopupState] = useState({
     visible: false,
     selectedPackage: "",
+    selectedResort: "",
     title: undefined,
     submitButtonLabel: undefined,
     gaSubmitEventLabel: undefined,
     emailSubject: undefined,
+    defaultMessage: "",
   });
   const [newsletterPopupVisible, setNewsletterPopupVisible] = useState(false);
 

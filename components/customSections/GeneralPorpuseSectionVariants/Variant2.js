@@ -119,7 +119,7 @@ const Variant2 = ({ data, prependBreadcrumbs }) => {
       {prependBreadcrumbs && <Breadcrumbs />}
       <section
         id={data.identifier}
-        className="pt-12 text-center"
+        className="mb-16 pt-12 text-center"
         data-section-name="GeneralPurposeSection:Variant2"
       >
         <div className="container max-w-4xl space-y-6 px-4">
