@@ -2,6 +2,7 @@ import ButtonLink from "@/components/elements/button-link";
 import ReservationPopup from "@/components/elements/ReservationPopup";
 import Layout from "@/components/layout";
 import { AppWrapper, useAppContext } from "context/state";
+import Image from "next/image";
 import { fetchAPI } from "utils/api";
 
 const Custom404 = ({ global, pageContext }) => {
@@ -20,9 +21,14 @@ export const NotFoundView = ({ global, pageContext }) => {
       <div className="pt-24 pb-12">
         <div className="pt-20">
           <div className="space-y-4 pt-32 pb-24 text-center 2xl:pt-52 2xl:pb-72">
-            <h2 className="font-russo text-4xl font-thin uppercase text-primary-600">
-              404 (Not Found)
-            </h2>
+            <div className="mx-auto max-w-4xl">
+              <Image
+                src={"/imgs/404.png"}
+                alt="imagen 404 not found"
+                width={1821}
+                height={762}
+              />
+            </div>
             <hr className="mx-auto max-w-2xl border-2" />
             <h1 className="font-russo text-4xl font-thin uppercase text-primary-600">
               The page you are looking for does not exist.
