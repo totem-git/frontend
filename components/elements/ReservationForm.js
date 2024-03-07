@@ -1,6 +1,19 @@
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import { useRouter } from "next/router";
 import { sendEvent } from "utils/gtag";
+import Image from "next/image";
+const resortsUrl = {
+  "totem-lodge": "/lodging/totem-lodge",
+  "wiley-point": "/lodging/wiley-point",
+  "yellowbird-lodge-and-chalet": "/lodging/yellowbird-lodge-and-chalet",
+  "yellowbird-lodge-and-chalet-winter-season":
+    "/lodging/yellowbird-lodge-and-chalet",
+  "ice-castle": "/the-fishing-experience/ice-fishing",
+  "french-portage-outpost": "/lodging/french-portage-outpost",
+  "private-island": "/lodging/private-island",
+  "sunset-channel-island-outpost": "/lodging/sunset-channel-island-outpost",
+};
 
 const ReservationForm = ({
   updateScrollTop = () => {},
@@ -24,6 +37,9 @@ const ReservationForm = ({
       resort: selectedResort,
       phone: "",
       newsletter: true,
+      adultsCount: 1,
+      teensCount: 0,
+      childrenCount: 0,
     },
     onSubmit: async (values) => {
       let response = await fetch("/api/send-contact", {
@@ -45,6 +61,35 @@ const ReservationForm = ({
       }
     },
   });
+  /* *** FLAG MODAL *** */
+  const [showModal, setShowModal] = useState(false);
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+  /* *** ADULTS*** */
+  const handleAdultsAdd = () => {
+    formik.setFieldValue("adultsCount", formik.values.adultsCount + 1);
+  };
+  const handleAdultsSubstract = () => {
+    if (formik.values.adultsCount > 1)
+      formik.setFieldValue("adultsCount", formik.values.adultsCount - 1);
+  };
+  /* *** TEENS *** */
+  const handleTeensAdd = () => {
+    formik.setFieldValue("teensCount", formik.values.teensCount + 1);
+  };
+  const handleTeensSubstract = () => {
+    if (formik.values.teensCount > 0)
+      formik.setFieldValue("teensCount", formik.values.teensCount - 1);
+  };
+  /* *** CHILDREN *** */
+  const handleChildrenAdd = () => {
+    formik.setFieldValue("childrenCount", formik.values.childrenCount + 1);
+  };
+  const handleChildrenSubstract = () => {
+    if (formik.values.childrenCount > 0)
+      formik.setFieldValue("childrenCount", formik.values.childrenCount - 1);
+  };
   return (
     <form
       className="bg-inherit"
@@ -144,6 +189,73 @@ const ReservationForm = ({
             )}
           </div>
         </div>
+        <div className="relative w-full border border-gray-400 bg-inherit p-2">
+          <button
+            onClick={() => toggleModal()}
+            type="button"
+            className="inset-2 flex w-full justify-between bg-inherit p-px font-medium text-gray-400"
+          >
+            Adults({formik.values["adultsCount"]}), Teens(
+            {formik.values["teensCount"]}), children under 12(
+            {formik.values["childrenCount"]}){" "}
+            <span className="mr-2 cursor-pointer">
+              <Image src={"/icons/dropdown-arrow.svg"} width={10} height={10} />
+            </span>
+          </button>
+          {/* MODAL */}
+          {showModal && (
+            <div
+              className="fixed inset-0 bg-black opacity-30"
+              onClick={() => {
+                setShowModal(!showModal);
+              }}
+            ></div>
+          )}
+          {showModal && (
+            <div className="absolute left-0 top-full z-10 w-full bg-gray-300 p-2">
+              <div className="m-2 flex justify-between border-[0.25px] border-gray-400 p-2">
+                {formik.values["adultsCount"]} Adults
+                <div className="space-x-4">
+                  <input type="hidden" value={formik.values["adultsCount"]} />
+                  <button type="button" onClick={handleAdultsSubstract}>
+                    <Image src={"/icons/menos.svg"} width={18} height={18} />
+                  </button>
+                  <button type="button" onClick={handleAdultsAdd}>
+                    <Image src={"/icons/mas.svg"} width={18} height={18} />
+                  </button>
+                </div>
+              </div>
+              <div className="m-2 flex justify-between border-[0.25px] border-gray-400 p-2">
+                {formik.values["teensCount"]} Teens
+                <div className="space-x-4">
+                  <input type="hidden" value={formik.values["teensCount"]} />
+                  <button type="button" onClick={handleTeensSubstract}>
+                    <Image src={"/icons/menos.svg"} width={18} height={18} />
+                  </button>
+                  <button type="button" onClick={handleTeensAdd}>
+                    <Image src={"/icons/mas.svg"} width={18} height={18} />
+                  </button>
+                </div>
+              </div>
+              <div className="m-2 flex justify-between border-[0.25px] border-gray-400 p-2">
+                {formik.values["childrenCount"]} Children under twelve
+                <div className="flex items-center space-x-4">
+                  <input type="hidden" value={formik.values["childrenCount"]} />
+                  <button type="button" onClick={handleChildrenSubstract}>
+                    <Image src={"/icons/menos.svg"} width={18} height={18} />
+                  </button>
+                  <button
+                    type="button"
+                    className=""
+                    onClick={handleChildrenAdd}
+                  >
+                    <Image src={"/icons/mas.svg"} width={18} height={18} />
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
         <div className="flex">
           <div className="relative w-full bg-inherit">
             <select
@@ -179,11 +291,11 @@ const ReservationForm = ({
               </div>
             )}
           </div>
-          <div className="ml-2 flex w-min items-stretch border-[1px] border-gray-400 hover:border-gray-100">
+          <div className="ml-2 flex w-min items-stretch border-[1px] border-gray-400 bg-white hover:border-gray-100">
             <a
-              href={`/lodging/${formik.values["resort"]}`}
+              href={resortsUrl[formik.values["resort"]] || "/lodging"}
               target={"_blank"}
-              className="flex w-max items-center px-4 text-white"
+              className="flex w-max items-center px-4 font-medium text-black"
             >
               View details
             </a>
@@ -215,11 +327,11 @@ const ReservationForm = ({
               </div>
             )}
           </div>
-          <div className="ml-2 flex w-min items-stretch border-[1px] border-gray-400 hover:border-gray-100">
+          <div className="ml-2 flex w-min items-stretch border-[1px] border-gray-400 bg-white hover:border-gray-100">
             <a
               href="/the-fishing-experience/fishing-packages"
               target={"_blank"}
-              className="flex w-max items-center px-4 text-white"
+              className="flex w-max items-center px-4 font-medium text-black"
             >
               View details
             </a>
