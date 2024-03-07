@@ -68,7 +68,7 @@ const ArticlePage = ({
     <Layout global={global} pageContext={pageContext}>
       <Seo metadata={metadata} />
       <div id="contentSections" className="flex flex-col">
-        <ArticleHero articleDate={article.created_at} data={article.hero} />
+        <ArticleHero articleDate={article.updated_at} data={article.hero} />
         <Breadcrumbs />
         <RichText data={article.content} />
         {article.iframe && (
