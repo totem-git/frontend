@@ -28,6 +28,9 @@ export default function sendContact(req, res) {
     resort,
     email_subject,
     newsletter,
+    adultsCount,
+    teensCount,
+    childrenCount,
   } = req.body;
 
   if (message.includes("http")) {
@@ -62,6 +65,7 @@ export default function sendContact(req, res) {
       `Date of Check-in: ${dateCheckin}`,
       `Date of Check-out: ${dateCheckout}`,
       `Package type of interest: ${packageType}`,
+      `Adults: ${adultsCount}, teens: ${teensCount}, children: ${childrenCount}`,
       `Resort: ${capitalizedResortName}`,
       `Message:`,
       ``,
