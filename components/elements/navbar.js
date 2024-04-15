@@ -15,7 +15,7 @@ import CustomLink from "./custom-link";
 // import LocaleSwitch from "../locale-switch";
 import { throttle } from "utils/performance";
 import ArrowDownIcon from "../SVGicons/arrow-down";
-import { sendEvent, useGAEventEffect } from "utils/gtag";
+import { sendEvent } from "utils/gtag";
 
 const Navbar = ({ navbar, pageContext }) => {
   const router = useRouter();
