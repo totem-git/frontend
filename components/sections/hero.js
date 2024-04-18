@@ -104,8 +104,8 @@ const Hero = ({ data }) => {
               text={data.title}
             />
             {isHome && (
-              <h6 className="leading-36 font-russo text-base font-normal tracking-[15px]">
-                ELEVATE YOUR STAY
+              <h6 className="leading-36 font-russo text-2xl font-normal uppercase tracking-[5px]">
+                2024 Fishing Season Available
               </h6>
             )}
             <h6
@@ -122,16 +122,35 @@ const Hero = ({ data }) => {
                   </span>
                 ))}
             </h6>
-            {!!data.buttons.length && (
-              <div className={`w-full px-6 sm:w-96 sm:px-0 sm:pt-6`}>
-                <ButtonLink
-                  wFull
-                  button={data.buttons[0]}
-                  appearance={getButtonAppearance(data.buttons[0].type, "dark")}
-                  size="text-base md:text-2xl lg:text-xl"
-                />
-              </div>
-            )}
+            <div className="space-y-4 md:flex md:space-x-12 md:space-y-0">
+              {!!data.buttons.length && (
+                <div className={`w-full px-6 sm:w-96 sm:px-0 sm:pt-6`}>
+                  <ButtonLink
+                    wFull
+                    button={data.buttons[0]}
+                    appearance={
+                      isHome
+                        ? "white-full"
+                        : getButtonAppearance(data.buttons[0].type, "dark")
+                    }
+                    size="text-base md:text-2xl lg:text-xl"
+                  />
+                </div>
+              )}
+              {!!data.buttons[1] && (
+                <div className={`w-full px-6 sm:w-96 sm:px-0 sm:pt-6`}>
+                  <ButtonLink
+                    wFull
+                    button={data.buttons[1]}
+                    appearance={getButtonAppearance(
+                      data.buttons[1].type,
+                      "dark"
+                    )}
+                    size="text-base md:text-2xl lg:text-xl"
+                  />
+                </div>
+              )}
+            </div>
             {isHome && (
               <div className="flex items-center xl:!mt-20">
                 {/* <div className="hidden w-48 sm:block lg:w-32 2xl:w-[12vw]">

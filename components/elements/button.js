@@ -49,6 +49,10 @@ const Button = ({
             "border-white stroke-white text-white transition hover:bg-white hover:stroke-black hover:text-black":
               appearance === "white",
           },
+          {
+            "border-white bg-white stroke-white text-black transition hover:bg-transparent hover:stroke-black hover:text-white":
+              appearance === "white-full",
+          },
           // Specific to when the button is white outlines
           {
             "border-white stroke-white text-white":

@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import Markdown from "react-markdown";
+import ButtonLink from "../elements/button-link";
 
 const RichText = ({ data }) => {
   return (
@@ -7,6 +8,22 @@ const RichText = ({ data }) => {
       <Markdown
         components={{
           code: ({ children }) => {
+            if (children[0].includes(":action:")) {
+              let action = children[0].split(":action:")[1]?.split(":")[0];
+              let text = children[0].split(":action:")[1]?.split(":")[1];
+
+              return (
+                <div className="flex justify-center">
+                  <ButtonLink
+                    button={{
+                      url: `:${action || "reservationForm"}`,
+                      text: text || "Click here",
+                    }}
+                    appearance="dark"
+                  />
+                </div>
+              );
+            }
             return (
               <div
                 dangerouslySetInnerHTML={{
@@ -21,6 +38,9 @@ const RichText = ({ data }) => {
           p: ({ node, ...props }) => {
             if (node.children[0].tagName === "code") return <div {...props} />;
             return <p {...props} />;
+          },
+          a: ({ node, ...props }) => {
+            return <a {...props} target="_blank" rel="noreferrer" />;
           },
         }}
       >

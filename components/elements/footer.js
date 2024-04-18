@@ -192,7 +192,7 @@ const Footer = ({ footer, googleReviews }) => {
                 <ButtonLink
                   button={{
                     url: ":getRatesForm",
-                    text: "GET RATES ",
+                    text: "GET RATES",
                   }}
                   appearance="white"
                   wFull
