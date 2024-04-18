@@ -55,7 +55,7 @@ const Navbar = ({ navbar, pageContext }) => {
       <nav
         className={`${
           scrolledDown ? "bg-black" : "bg-black/0"
-        } trans fixed inset-x-0 top-0 z-50 h-20 transition duration-1000 2xl:h-32`}
+        } trans fixed inset-x-0 top-0 z-50 h-16 transition duration-1000 2xl:h-28`}
       >
         <div className="mx-4 flex grow flex-row justify-between lg:mx-8 2xl:mx-16">
           {/* Content aligned to the left */}
