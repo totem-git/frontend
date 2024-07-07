@@ -25,6 +25,7 @@ import FeatureList from "./customSections/FeatureList";
 import { Fragment } from "react";
 import CancellationPolicy from "./customSections/CancellationPolicy";
 import IceCastleCardList from "./customSections/IceCastleCardList";
+import GoogleReviewsCard from "./customSections/GoogleReviewsCard";
 
 // Map Strapi sections to section components
 const sectionComponents = {
@@ -53,6 +54,7 @@ const sectionComponents = {
   "sections.feature-list": FeatureList,
   "sections.cancellation-policy": CancellationPolicy,
   "sections.ice-castle-card-list": IceCastleCardList,
+  "sections.google-reviews": GoogleReviewsCard,
 };
 
 // Display a section individually

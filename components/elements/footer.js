@@ -8,6 +8,7 @@ import ButtonLink from "./button-link";
 import { useRef, useEffect } from "react";
 import NewsletterPopup from "./newsletterPopup";
 import { sendEvent } from "utils/gtag";
+import GoogleReviewsCard from "../customSections/GoogleReviewsCard";
 
 const Footer = ({ footer, googleReviews }) => {
   const gmapEmbedRef = useRef();
@@ -41,7 +42,10 @@ const Footer = ({ footer, googleReviews }) => {
   }, []);
 
   return (
-    <footer className="bg-black text-white md:px-4">
+    <footer className="bg-black text-white">
+      <div>
+        <GoogleReviewsCard />
+      </div>
       <div className="my-14 flex flex-col items-center">
         <div className="flex w-full items-center lg:mb-8">
           <div className="flex-grow">
