@@ -23,17 +23,13 @@ const RestaurantMenuSection = ({ data, prependBreadcrumbs }) => {
         {menuGroups.map((menuGroup) => (
           <MenuGroup key={menuGroup.id} group={menuGroup} />
         ))}
-        <div className="mt-24 text-center font-bold text-slate-700">
-          <p>
-            *All Pricing is in USD funds and does not include HST or Gratuity
-          </p>
-        </div>
       </div>
     </>
   );
 };
 
 const MenuGroup = ({ group }) => {
+  console.log(group);
   return (
     <>
       <section className="space-y-8 py-8">
@@ -101,6 +97,7 @@ const MenuGroup = ({ group }) => {
                 </div>
               ))}
             </div>
+            {group.id == 7 ? <p>hola</p> : ""}
           </>
         )}
       </section>

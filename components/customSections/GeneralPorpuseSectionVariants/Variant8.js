@@ -3,8 +3,43 @@ import HighlightedText from "@/components/elements/HighlightedText";
 import ReactMarkdown from "react-markdown";
 import { getButtonAppearance } from "utils/button";
 import Breadcrumbs from "@/components/customSections/Breadcrumbs";
+import viewer from "viewerjs";
+import { useEffect, useRef } from "react";
 
 const Variant8 = ({ data, prependBreadcrumbs }) => {
+  const viewerRef = useRef();
+
+  const openViewer = (e) => {
+    e.preventDefault();
+    if (!viewerRef.current) return;
+
+    viewerRef.current.show();
+  };
+  useEffect(() => {
+    let img = document.createElement("img");
+    img.src = "/imgs/totem-resorts-lake-chart.jpg";
+
+    viewerRef.current = new viewer(img, {
+      navbar: false,
+      toolbar: {
+        zoomIn: true,
+        zoomOut: true,
+        oneToOne: false,
+        reset: true,
+        prev: false,
+        play: false,
+        next: false,
+        rotateLeft: false,
+        rotateRight: false,
+        flipHorizontal: false,
+        flipVertical: false,
+      },
+      hidden: function () {
+        viewerRef.current.destroy();
+      },
+    });
+  }, []);
+
   return (
     <>
       {prependBreadcrumbs && <Breadcrumbs bgColor="bg-white" />}
@@ -17,7 +52,7 @@ const Variant8 = ({ data, prependBreadcrumbs }) => {
           <HighlightedText
             tag="h2"
             text={data.title}
-            className="font-russo text-3xl"
+            className="font-russo text-3xl text-[#fdb32e]"
             highlightClasses={[
               "text-highlight before:bg-primary-600 before:-right-6 text-black",
             ]}
@@ -28,11 +63,17 @@ const Variant8 = ({ data, prependBreadcrumbs }) => {
           {!!data.CTAs.length && (
             <div className="mt-6">
               {data.CTAs.map((CTA, i) => (
-                <ButtonLink
+                <div
                   key={i}
-                  button={CTA}
-                  appearance={getButtonAppearance(CTA.type, "light")}
-                />
+                  onClick={CTA.url ? undefined : openViewer}
+                  className="cursor-pointer"
+                >
+                  <ButtonLink
+                    key={i}
+                    button={CTA}
+                    appearance={getButtonAppearance(CTA.type, "light")}
+                  />
+                </div>
               ))}
             </div>
           )}

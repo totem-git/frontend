@@ -9,7 +9,7 @@ const resortsUrl = {
   "yellowbird-lodge-and-chalet": "/lodging/yellowbird-lodge-and-chalet",
   "yellowbird-lodge-and-chalet-winter-season":
     "/lodging/yellowbird-lodge-and-chalet",
-  "ice-castle": "/the-fishing-experience/ice-fishing",
+  "ice-castle": "/ice-castles",
   "french-portage-outpost": "/lodging/french-portage-outpost",
   "private-island": "/lodging/private-island",
   "sunset-channel-island-outpost": "/lodging/sunset-channel-island-outpost",

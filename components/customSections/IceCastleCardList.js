@@ -1,25 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import classNames from "classnames";
 import ReactMarkdown from "react-markdown";
 import NextImage from "@/components/elements/image";
-import ButtonLink from "../elements/button-link";
 import Button from "../elements/button";
 import { useAppContext } from "context/state";
+import UpperArrowIcon from "../SVGicons/upper-arrow";
 
 const IceCastleCardList = ({ data, prependBreadcrumbs }) => {
   const { setReservationPopupState } = useAppContext();
+
+  const [activeCardId, setActiveCardId] = useState(null);
+
+  const handleToggle = (id) => {
+    setActiveCardId(activeCardId === id ? null : id);
+  };
+  console.log(activeCardId);
+
   return (
     <section className="">
       <h2 className="mt-7 flex justify-center text-[34px] text-[#636363]">
         {data.Title}
       </h2>
-      <div className="flex flex-wrap justify-center">
+      <div className="flex flex-wrap items-start justify-center">
         {data.items.map((card) => (
           <div
             key={card.id}
-            className="relative mx-10 mt-20 mb-16 flex w-96 flex-col  bg-white"
+            className="relative mx-10 mt-20 mb-16 flex w-96 flex-col bg-white"
           >
-            <div className="relative h-56 overflow-hidden ">
+            <div className="relative h-52 overflow-hidden ">
               <NextImage
                 className="h-full w-full object-cover"
                 media={card.image}
@@ -33,7 +41,7 @@ const IceCastleCardList = ({ data, prependBreadcrumbs }) => {
               </div>
             </div>
 
-            <div className="p-4">
+            <div className="h-[255px] p-4">
               <div className="body-title">
                 <p className="text-xl text-[#636363]">{card.title}</p>
               </div>
@@ -51,6 +59,35 @@ const IceCastleCardList = ({ data, prependBreadcrumbs }) => {
                 </ReactMarkdown>
               </div>
             </div>
+
+            <div className="p-4">
+              <h4
+                onClick={() => handleToggle(card.id)}
+                className="inline-flex cursor-pointer items-center gap-4 font-russo text-xl text-[#636363]"
+              >
+                AMENITIES
+                <span
+                  className={`transform transition-transform duration-300 ${
+                    activeCardId === card.id ? "rotate-180" : "rotate-0"
+                  }`}
+                >
+                  <UpperArrowIcon />
+                </span>
+              </h4>
+              {/* si clickeo me muestro o no me muestro card.amenities => es un string con formato markdown  */}
+              <div
+                className={`overflow-hidden transition-all duration-700 ease-in-out ${
+                  activeCardId === card.id
+                    ? "max-h-screen opacity-100"
+                    : "max-h-0 opacity-0"
+                }`}
+              >
+                <ReactMarkdown className="characteristics-list">
+                  {card.amenities}
+                </ReactMarkdown>
+              </div>
+            </div>
+
             <div className="mt-auto p-4">
               <div className="footer-price">
                 <p className="text-center text-2xl text-[#FDB32E]">
@@ -87,7 +124,7 @@ const IceCastleCardList = ({ data, prependBreadcrumbs }) => {
             </div>
             <span
               className={classNames(
-                `relative  flex h-5 justify-center bg-[#fdb32e]`,
+                `relative flex h-5 justify-center bg-[#fdb32e]`,
                 `before:absolute before:bottom-[100%] before:block before:h-7
           before:w-7
           before:border-[18px] 

@@ -103,11 +103,11 @@ const Hero = ({ data }) => {
               highlightClasses={["text-bg-effect before:right-2"]}
               text={data.title}
             />
-            {isHome && (
+            {/* {isHome && (
               <h6 className="leading-36 font-russo text-2xl font-normal uppercase tracking-[5px]">
                 2024 Fishing Season Available
               </h6>
-            )}
+            )} */}
             <h6
               className={`${
                 isHome

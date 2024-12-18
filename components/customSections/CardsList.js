@@ -8,6 +8,7 @@ import ReactMarkdown from "react-markdown";
 import CustomLink from "../elements/custom-link";
 import NextImage from "../elements/image";
 import Breadcrumbs from "@/components/customSections/Breadcrumbs";
+import classNames from "classnames";
 
 const CardsList = ({ data, prependBreadcrumbs }) => {
   data.cards = data.cards.map((card) => {
@@ -60,7 +61,7 @@ const CardsList = ({ data, prependBreadcrumbs }) => {
             {data.cards.map((card, i) => (
               <div
                 key={i}
-                className={`flex w-[90%] max-w-md shrink-0 flex-col border-b-4 border-white bg-white md:w-[calc(50%-1rem)] lg:max-w-xs 2xl:max-w-sm`}
+                className={`flex w-[90%] max-w-md shrink-0 flex-col border-b-4  bg-white md:w-[calc(50%-1rem)] lg:max-w-xs 2xl:max-w-sm`}
                 style={{ borderColor: card.bottomBorderColor }}
               >
                 {card.type == 1 &&
@@ -126,6 +127,9 @@ const CardsList = ({ data, prependBreadcrumbs }) => {
                       card.title
                     )}
                   </h3>
+                  <p className="text-xl font-bold	 text-[#636363]">
+                    {card.subTitle}
+                  </p>
                   <div
                     className={`prose mt-4 mb-auto pb-8 text-lg leading-tight text-gray-700 md:pb-4 md:text-base lg:text-sm ${card.textAlignment}`}
                   >
@@ -145,6 +149,22 @@ const CardsList = ({ data, prependBreadcrumbs }) => {
                     </div>
                   )}
                 </div>
+                {card.specialBorder && (
+                  <span
+                    className={classNames(
+                      `relative mt-8 flex h-5 justify-center bg-[#fdb32e]`,
+                      `before:absolute before:bottom-[100%] before:block before:h-7
+          before:w-7
+          before:border-[18px] 
+          before:border-solid 
+          before:border-b-[#fdb32e] 
+          before:border-t-transparent
+          before:border-l-transparent
+          before:border-r-transparent
+          `
+                    )}
+                  ></span>
+                )}
               </div>
             ))}
           </div>
