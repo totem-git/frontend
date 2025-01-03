@@ -8,7 +8,7 @@ const websiteTypeUrls = [
   "/",
   "/lodging/totem-lodge",
   "/lodging/wiley-point",
-  "/lodging/yellowbird-lodge-and-chalet",
+  "/lodging/yellowbird-lodge-resort-and-spa",
   "/lodging/french-portage-outpost",
   "/lodging/private-island",
 ];

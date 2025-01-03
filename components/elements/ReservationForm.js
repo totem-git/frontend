@@ -6,8 +6,8 @@ import Image from "next/image";
 const resortsUrl = {
   "totem-lodge": "/lodging/totem-lodge",
   "wiley-point": "/lodging/wiley-point",
-  "yellowbird-lodge-and-chalet": "/lodging/yellowbird-lodge-and-chalet",
-  "yellowbird-lodge-and-chalet-winter-season":
+  "yellowbird-lodge-resort-and-spa": "/lodging/yellowbird-lodge-and-chalet",
+  "yellowbird-lodge-resort-and-spa-winter-season":
     "/lodging/yellowbird-lodge-and-chalet",
   "ice-castle": "/ice-castles",
   "french-portage-outpost": "/lodging/french-portage-outpost",
@@ -270,11 +270,11 @@ const ReservationForm = ({
               <option value="">Choose your Resort</option>
               <option value="totem-lodge">Totem Lodge</option>
               <option value="wiley-point">Wiley Point Lodge</option>
-              <option value="yellowbird-lodge-and-chalet">
-                Yellowbird Lodge & Chalet
+              <option value="yellowbird-lodge-resort-and-spa">
+                Yellowbird Lodge Resort & Spa
               </option>
-              <option value="yellowbird-lodge-and-chalet-winter-season">
-                Yellowbird Lodge & Chalet(Winter Season)
+              <option value="yellowbird-lodge-resort-and-spa-winter-season">
+                Yellowbird Lodge Resort & Spa(Winter Season)
               </option>
               <option value="ice-castle">ICE Castles</option>
               <option value="french-portage-outpost">
