@@ -84,9 +84,10 @@ const ReservationPopup = ({
                 </div>
                 <p>
                   <br />
-                  Our rates start at 115 USD per person per night. Our
-                  reservation specialists will use this information to help you
-                  create a package that meets your needs.
+                  Call today for exclusive rates, custom tailored to your
+                  specific group or party’s needs. Our reservations team will
+                  custom build you a plan that best suites your needs, and get
+                  right back to you!
                   <br />
                   <br />
                   For a custom quote, please provide us with the following
