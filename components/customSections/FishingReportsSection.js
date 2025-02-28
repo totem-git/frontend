@@ -3,6 +3,7 @@ import Markdown from "react-markdown";
 import { useState, useEffect } from "react";
 import { fetchAPI } from "utils/api";
 import Breadcrumbs from "@/components/customSections/Breadcrumbs";
+import { useInView } from "react-intersection-observer";
 
 const truncateText = (text, maxLength) => {
   if (text.length <= maxLength) return text;
@@ -18,6 +19,8 @@ const truncateText = (text, maxLength) => {
 
 const FishingReportsSection = ({ data, prependBreadcrumbs }) => {
   const [reports, setReports] = useState(data.fishing_reports);
+  const [loadedFishingReportsQuantity, setLoadedFishingReportsQuantity] =
+    useState(10);
 
   useEffect(() => {
     fetchAPI(`/fishing-reports?_sort=date:DESC,id:DESC`).then((reports) => {
@@ -25,13 +28,25 @@ const FishingReportsSection = ({ data, prependBreadcrumbs }) => {
     });
   }, []);
 
+  // react-intersection-observer
+  const { ref } = useInView({
+    onChange: (inView) => {
+      if (inView) {
+        setLoadedFishingReportsQuantity(loadedFishingReportsQuantity + 10);
+      }
+    },
+  });
+
+  const loadedFishingReports = reports.slice(0, loadedFishingReportsQuantity);
+
   return (
     <>
       {prependBreadcrumbs && <Breadcrumbs bgColor="bg-white" />}
       <div className="bg-white py-12" data-section-name="FishingReportsSection">
-        {reports.map((report) => (
+        {loadedFishingReports.map((report) => (
           <FishingReport key={report.id} report={report} />
         ))}
+        <div style={{ height: "10px" }} ref={ref}></div>
       </div>
     </>
   );
